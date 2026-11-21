@@ -1,7 +1,7 @@
 {
  "format": 2,
- "saved_at": 1795230530.3057961,
- "revision": 998,
+ "saved_at": 1795230552.032962,
+ "revision": 999,
  "title": "Shadowman",
  "platform": "n64",
  "game": {
@@ -16070,7 +16070,8 @@
   "code_8021D4C0_1E3E414": "common_code_8021D4C0_1E3E414.h",
   "code_8021D4C0_1E436E4": "common_code_8021D4C0_1E436E4.h",
   "code_8026C95C_1E648B0": "common_code_8026C95C_1E648B0.h",
-  "code_8021D4C0_1E30EAC": "common_code_8021D4C0_1E30EAC.h"
+  "code_8021D4C0_1E30EAC": "common_code_8021D4C0_1E30EAC.h",
+  "code_8021D4C0_1E34F98": "common_code_8021D4C0_1E34F98.h"
  },
  "functions": {
   "func_80103060": {
@@ -19800,8 +19801,8 @@
   },
   "func_802453B8": {
    "vram": 2149864376,
-   "best_score": 1230,
-   "best_by": "autopilot"
+   "matched_by": "api-claude-sonnet-5-5-3",
+   "readable": false
   },
   "func_80245684": {
    "vram": 2149865092,
