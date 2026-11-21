@@ -15,9 +15,11 @@ typedef s32 M2C_UNK32;
 extern M2C_UNK D_80059738;
 
 s32 func_8022B568(void) {
+    M2C_UNK *__base_D_80059738;
     s32 temp_v0;
 
-    temp_v0 = (M2C_FIELD(&D_80059738, u16 *, 0x30) << 0x10) < 1;
-    M2C_FIELD(&D_80059738, u16 *, 0x30) = (u16) (M2C_FIELD(&D_80059738, u16 *, 0x30) - 1);
+    __base_D_80059738 = &D_80059738;
+    temp_v0 = (M2C_FIELD(__base_D_80059738, u16 *, 0x30) << 0x10) < 1;
+    M2C_FIELD(__base_D_80059738, u16 *, 0x30) = (u16) (M2C_FIELD(__base_D_80059738, u16 *, 0x30) - 1);
     return temp_v0;
 }
