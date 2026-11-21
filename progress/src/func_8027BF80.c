@@ -10,15 +10,17 @@ extern void *D_8007AFF8;
 /* Warning: Gap in callee-saved word stack region.
  * Saved: [0x10, 0x14, 0x20, 0x24], gap at: 0x18. */
 void func_8027BF80(void) {
+    u8 *__base_D_212078;
     void **__base_D_8007AFF8;
     f32 temp_fs0;
     f32 temp_fs0f;
 
     __base_D_8007AFF8 = &D_8007AFF8;
     func_802776D8((*(u8 *)((char *)((*__base_D_8007AFF8)) + 0x3B)));
-    temp_fs0f = (f32) (*(s8 *)((char *)((((*(u8 *)((char *)((*__base_D_8007AFF8)) + 0x40)) * 0x6C) + D_212078)) + 0xD));
+    __base_D_212078 = D_212078;
     temp_fs0 = (f32) (*(u16 *)((char *)((*__base_D_8007AFF8)) + 0x2C));
-    if (temp_fs0f < func_802712B0(func_80272260(D_212078, (*__base_D_8007AFF8)), temp_fs0)) {
+    temp_fs0f = (f32) (*(s8 *)((char *)((((*(u8 *)((char *)((*__base_D_8007AFF8)) + 0x40)) * 0x6C) + __base_D_212078)) + 0xD));
+    if (temp_fs0f < func_802712B0(func_80272260(__base_D_212078, (*__base_D_8007AFF8)), temp_fs0)) {
         (*(f32 *)((char *)(D_8006A4FC) + 0x1C)) = (f32) (*(u16 *)((char *)((*__base_D_8007AFF8)) + 0x2C));
     }
 }
