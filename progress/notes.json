@@ -513,5 +513,14 @@
   "score_before": 985,
   "score_after": 340,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:8635ed628add8098e035f043317afc1149eb9fe07ff8f3053bd6c5aaa1c2b34c"
+ },
+ {
+  "function": "func_80295DBC",
+  "text": "Autopilot matched from saved near miss",
+  "by": "autopilot",
+  "created_at": 1795224932.116294,
+  "score_before": 150,
+  "score_after": 0,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:917d882e51ccc4b4b5f2eb9c7984e68dadbceff5e1d7a58bf53c7aa0a1673fbe"
  }
 ]
