@@ -81309,6 +81309,106 @@
    "vram": 2150448164,
    "unit": "code_802D0614_1EC3660",
    "mode": "rom"
+  },
+  "func_802D42D0": {
+   "format": 1,
+   "verdict": "exact",
+   "abi": {
+    "arch": "mips",
+    "big_endian": true,
+    "gp": 0,
+    "platform": "n64",
+    "rom_sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c"
+   },
+   "symbols_sha256": "a361712f532cff376852076f5eb3f44e4b25eac5491fa4aa97baedec65e3e759",
+   "recorded_at": 1795236648.1276789,
+   "attempt_id": 42949686141,
+   "source_sha256": "2d435e8048d320bcfce0e4bc2c2ae22dcaedf336b9ad5871948a471106678db2",
+   "header_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1",
+   "context_version": 1,
+   "compiler": {
+    "toolchain": "sn-n64-281",
+    "flags": [
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64"
+    ],
+    "timeout": 20
+   },
+   "compiler_identity": {
+    "toolchain": "sn-n64-281",
+    "registry_sha256": "4cade6cb1458c9ea1167101bf052e1bc48261c13a670101116c580cf734257e0",
+    "install_sha256": "d949422c5b7c39402c79d468bd890710d5bd3eb8ba3929116a8a5543a4a7191f",
+    "executables": {
+     "cc1n64.exe": "d90df1028c46d826e37146dbcc3e3385f78c59e05a9ddd952daa94c9ad379d9c"
+    }
+   },
+   "settings": {
+    "mode": "rom",
+    "platform": "n64",
+    "compiler": {
+     "toolchain": "sn-n64-281",
+     "flags": [
+      "-G0",
+      "-mips3",
+      "-O2",
+      "-mgas",
+      "-meb",
+      "-mcpu=VR4300",
+      "-mhard-float",
+      "-mfp64"
+     ],
+     "timeout": 20
+    },
+    "settings_source": "compile invocation snapshot",
+    "gp": 0,
+    "big_endian": true,
+    "rom": {
+     "sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c",
+     "game_code": "NSDE",
+     "region": "North America",
+     "byte_order": "z64"
+    },
+    "effective_command": [
+     "/Users/a/Documents/GitHub/decompdecomp-rr/.venv/bin/python",
+     "/Users/a/Documents/GitHub/decompdecomp-rr/src/decompnet/consoles/n64/sn64.py",
+     "--cc",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cc1n64.exe",
+     "--cpp",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cppn64.exe",
+     "--assembler",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/asn64.exe",
+     "--converter",
+     "/Users/a/Library/Application Support/decompnet/toolchains/psyq-obj-parser/psyq-obj-parser",
+     "--runner",
+     "/Users/a/Library/Application Support/decompnet/toolchains/wibo/wibo",
+     "{src}",
+     "{obj}",
+     "{include}",
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64"
+    ],
+    "language": "c",
+    "context_unit": "",
+    "scoring_revision": "15e8fb22810d7914188643b45b306dd8c980e892c87fc3b92ab66645816d394d",
+    "context_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1"
+   },
+   "target_sha256": "c017ea5b4a547812a19eba23255d87a6f3409b91578bbcf2cbe20a3122e34257",
+   "relocations_sha256": "e67c824d02df1d4745e1e4b572d3efd49644f2a1ab74b770e863d35b87bb11b5",
+   "vram": 2150449872,
+   "unit": "code_802D0614_1EC38A4",
+   "mode": "rom"
   }
  },
  "sources": {
@@ -82221,7 +82321,8 @@
   "3662157749167a4ac038577c9f936e7716c60d824c1b4a9d51ad20ba2aca0000": "extern f32 D_80030C70;\nextern char D_8007BF58[];\n\nvoid func_802D27D0(void) {\n    char *b = D_8007BF58;\n    *(f32 *)(b + 0x1E8) = *(f32 *)(b + 0x1E8) + (*(f32 *)(b + 0x1F4) - *(f32 *)(b + 0x1E8)) / D_80030C70;\n    *(f32 *)(b + 0x1EC) = *(f32 *)(b + 0x1EC) + (*(f32 *)(b + 0x1F8) - *(f32 *)(b + 0x1EC)) / D_80030C70;\n    *(f32 *)(b + 0x1F0) = *(f32 *)(b + 0x1F0) + (*(f32 *)(b + 0x1FC) - *(f32 *)(b + 0x1F0)) / D_80030C70;\n}",
   "4735fd560a46e7f3f828abdcc637b6f331b21f2e7bf88d025a34c1149b51f9f8": "extern char D_8007DB78[];\nextern char D_2D7100[];\n\ns32 func_802DB2C4(s32 arg0) {\n    u32 i = 0;\n    char *p;\n    char *base;\n    s32 off;\n    char *q;\n    arg0 &= 0xFFFF;\n    base = D_2D7100;\n    q = D_8007DB78;\n    p = base;\n    off = i;\n    for (; i < 0xD; i++) {\n        if (*(u16 *)p == arg0) {\n            p += 0x1C;\n            return *(s32 *)((u32)(q[0x8E] * 4 + off) + (u32)base + 4);\n        }\n        p += 0x1C;\n        off += 0x1C;\n    }\n}",
   "f1b96415d317eb892452170fd7d341f64e10f69f9eaa144c42883febd9eef1bc": "extern s32 D_8002D420;\nextern struct { char pad[0xA]; s16 f; } D_80075518;\nextern char D_80075568[];\nvoid func_8023DF7C(void *, void *, int, int, int, int);\n\nvoid func_802CCAD8(void) {\n    if (D_80075518.f == 0) {\n        if (!(D_8002D420 & 0x80)) {\n            func_8023DF7C(D_80075568, &D_80075518, 0x2A, 0xA, 0x50, 2);\n        } else {\n            func_8023DF7C(D_80075568, &D_80075518, 0x2B, 0xA, 0x50, 2);\n        }\n    }\n}\n",
-  "4e020ca88908e4145792b609b357dc316c9ae6027f87f3869f41eea2fb5413d4": "typedef struct { int a, b, c; } V3;\nextern V3 D_8007C330;\nextern struct { char pad[0x24]; V3 v; } D_80075568;\ns32 func_8022DDD0();\ns32 func_802D2B40();\nextern s8 D_80075F21;\n\nvoid func_802D3C24(void) {\n    func_8022DDD0(1, 0x20, 0, 0, 0);\n    D_80075568.v = D_8007C330;\n    func_802D2B40(D_80075F21);\n}\n"
+  "4e020ca88908e4145792b609b357dc316c9ae6027f87f3869f41eea2fb5413d4": "typedef struct { int a, b, c; } V3;\nextern V3 D_8007C330;\nextern struct { char pad[0x24]; V3 v; } D_80075568;\ns32 func_8022DDD0();\ns32 func_802D2B40();\nextern s8 D_80075F21;\n\nvoid func_802D3C24(void) {\n    func_8022DDD0(1, 0x20, 0, 0, 0);\n    D_80075568.v = D_8007C330;\n    func_802D2B40(D_80075F21);\n}\n",
+  "2d435e8048d320bcfce0e4bc2c2ae22dcaedf336b9ad5871948a471106678db2": "typedef struct { char pad[0x11]; u8 a, b, c; } E;\nextern E D_80045930[];\n\nvoid *func_802D42D0(u8 *arg0) {\n    D_80045930[*(int *)(arg0 + 4)].a = arg0[0xB];\n    D_80045930[*(int *)(arg0 + 4)].b = arg0[0xF];\n    D_80045930[*(int *)(arg0 + 4)].c = arg0[0x13];\n    return arg0 + 0x14;\n}\n"
  },
  "headers": {
   "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1": "/* context.h for Shadowman: shared by every function. Agents grow it with edit_context:\n * add a prototype or struct the moment you work one out, so the next function benefits. */\n\ntypedef signed char s8;\ntypedef unsigned char u8;\ntypedef signed short s16;\ntypedef unsigned short u16;\ntypedef signed int s32;\ntypedef unsigned int u32;\ntypedef signed long long s64;\ntypedef unsigned long long u64;\ntypedef float f32;\ntypedef double f64;\ntypedef volatile u8 vu8;\ntypedef volatile u16 vu16;\ntypedef volatile u32 vu32;\ntypedef volatile s32 vs32;\ntypedef int s32_bool;\n\n#define NULL ((void *)0)\n#define TRUE 1\n#define FALSE 0\n#define ARRAY_COUNT(arr) (s32)(sizeof(arr) / sizeof(arr[0]))\n"
