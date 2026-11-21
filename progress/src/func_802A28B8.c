@@ -18,8 +18,10 @@ extern s32 D_8005E9CC;
 extern M2C_UNK D_8007BAB8;
 
 void func_802A28B8(void) {
-    M2C_FIELD(&D_8007BAB8, s32 *, 4) = 0;
-    D_80030E34 = M2C_FIELD(&D_8007BAB8, s32 *, 0x1C);
+    M2C_UNK *__base_D_8007BAB8;
+    __base_D_8007BAB8 = &D_8007BAB8;
+    M2C_FIELD(__base_D_8007BAB8, s32 *, 4) = 0;
+    D_80030E34 = M2C_FIELD(__base_D_8007BAB8, s32 *, 0x1C);
     if (D_8005E9CC == 1) {
         func_8022DDD0(1, 0x32, 0, 0, 0);
     }
