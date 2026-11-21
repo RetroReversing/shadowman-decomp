@@ -12,7 +12,7 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-M2C_UNK func_80237AA8(s32, void *);                 /* extern */
+M2C_UNK func_80237AA8(void);                 /* extern */
 M2C_UNK func_802D0B28(s32, s32, M2C_UNK);           /* extern */
 extern s32 D_8002D2B4;
 extern void *D_8005E9F0;
@@ -21,15 +21,16 @@ extern s32 D_8005EA14;
 extern s32 D_8006973C;
 extern s32 D_800698A0;
 
+typedef struct { unsigned char pad_0[16]; int field_10; unsigned char pad_14[8]; short field_1C; } __repair_record_D_8005E9F0;
 void func_8025D79C(s32 arg0) {
     s32 temp_a0;
 
     func_802D0B28(D_8005EA14, arg0, 1);
-    temp_a0 = M2C_FIELD(D_8005E9F0, s32 *, 0x10);
     D_8002D2B4 = D_8005EA0C;
+    temp_a0 = ((__repair_record_D_8005E9F0*)D_8005E9F0)->field_10;
     if (temp_a0 != 0) {
+        D_8006973C = (s32) ((__repair_record_D_8005E9F0*)D_8005E9F0)->field_1C;
         D_800698A0 = temp_a0;
-        D_8006973C = (s32) M2C_FIELD(D_8005E9F0, s16 *, 0x1C);
-        func_80237AA8(temp_a0, D_8005E9F0);
+        func_80237AA8();
     }
 }
