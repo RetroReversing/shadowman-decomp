@@ -15,5 +15,7 @@ typedef s32 M2C_UNK32;
 extern M2C_UNK D_80075568;
 
 void func_802BA388(void) {
-    M2C_FIELD(&D_80075568, f32 *, 0x18) = (f32) (M2C_FIELD(&D_80075568, f32 *, 0x18) + *(f32 *)0x217F30);
+    M2C_UNK *__base_D_80075568;
+    __base_D_80075568 = &D_80075568;
+    M2C_FIELD(__base_D_80075568, f32 *, 0x18) = (f32) (M2C_FIELD(__base_D_80075568, f32 *, 0x18) + *(f32 *)0x217F30);
 }
