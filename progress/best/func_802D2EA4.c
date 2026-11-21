@@ -22,6 +22,13 @@ extern s32 D_800305B8;
 extern char D_8007DB78[];
 
 void func_802D2EA4(void *arg0) {
+    f32 __repair_store_0;
+    f32 __repair_store_1;
+    f32 __repair_store_2;
+    f32 __repair_store_3;
+    f32 __repair_store_4;
+    f32 __repair_store_5;
+    char *__base_D_219B90;
     char *var_s0;
     s32 var_s1;
     void *temp_v0;
@@ -47,12 +54,19 @@ loop_7:
             }
         }
     }
-    temp_v1 = (var_s1 * 0x18) + D_219B90;
-    temp_v0 = (((var_s1 * 2) + 1) * 0xC) + D_219B90;
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) M2C_FIELD(temp_v1, f32 *, 0);
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(temp_v1, f32 *, 4);
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) M2C_FIELD(temp_v1, f32 *, 8);
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) M2C_FIELD(temp_v0, f32 *, 0);
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(temp_v0, f32 *, 4);
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(temp_v0, f32 *, 8);
+    __base_D_219B90 = D_219B90;
+    temp_v1 = (var_s1 * 0x18) + __base_D_219B90;
+    temp_v0 = (((var_s1 * 2) + 1) * 0xC) + __base_D_219B90;
+    __repair_store_0 = (f32) M2C_FIELD(temp_v1, f32 *, 0);
+    __repair_store_1 = (f32) M2C_FIELD(temp_v1, f32 *, 4);
+    __repair_store_2 = (f32) M2C_FIELD(temp_v1, f32 *, 8);
+    __repair_store_3 = (f32) M2C_FIELD(temp_v0, f32 *, 0);
+    __repair_store_4 = (f32) M2C_FIELD(temp_v0, f32 *, 4);
+    __repair_store_5 = (f32) M2C_FIELD(temp_v0, f32 *, 8);
+    M2C_FIELD(arg0, f32 *, 0x24) = __repair_store_0;
+    M2C_FIELD(arg0, f32 *, 0x28) = __repair_store_1;
+    M2C_FIELD(arg0, f32 *, 0x2C) = __repair_store_2;
+    M2C_FIELD(arg0, f32 *, 0x18) = __repair_store_3;
+    M2C_FIELD(arg0, f32 *, 0x1C) = __repair_store_4;
+    M2C_FIELD(arg0, f32 *, 0x20) = __repair_store_5;
 }

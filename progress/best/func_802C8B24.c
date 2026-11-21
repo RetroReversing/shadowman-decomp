@@ -18,10 +18,8 @@ void func_802C8B24(void) {
     f32 sp10;
     unsigned int sp14;
     s32 sp18;
-    s32 sp20;
-    f32 sp30;
-    f32 sp34;
-    f32 sp38;
+    u8 sp20[0x20];
+    f32 sp30[3];
     f32 temp_ft1;
     f32 temp_ft1f;
     void *temp_v0;
@@ -30,7 +28,7 @@ void func_802C8B24(void) {
     sp14 = (*(s32 *)((char *)(D_218584) + 4));
     sp18 = (*(s32 *)((char *)(D_218584) + 8));
     D_80030C74 = 2;
-    func_8011BA20(&sp20, 0, 0xC, (*(f32 *)((char *)(D_218584) + 0)));
+    func_8011BA20(sp20, 0, 0xC);
     D_80030E34 = D_80030E3C;
     func_80246F50(-1, 0);
     func_802601F4(0x17);
@@ -39,8 +37,8 @@ void func_802C8B24(void) {
     temp_v0 = D_80075598 + 4;
     temp_ft1f = (*(f32 *)((char *)(&sp10) + 4));
     temp_ft1 = (*(f32 *)((char *)(&sp10) + 8));
-    sp30 = (sp10 * D_8007559C) + (temp_ft1f * (*(f32 *)((char *)(temp_v0) + 4))) + (temp_ft1 * (*(f32 *)((char *)(temp_v0) + 8)));
-    sp34 = (sp10 * (*(f32 *)((char *)(temp_v0) + 0xC))) + (temp_ft1f * (*(f32 *)((char *)(temp_v0) + 0x10))) + (temp_ft1 * (*(f32 *)((char *)(temp_v0) + 0x14)));
-    sp38 = (sp10 * (*(f32 *)((char *)(temp_v0) + 0x18))) + (temp_ft1f * (*(f32 *)((char *)(temp_v0) + 0x1C))) + (temp_ft1 * (*(f32 *)((char *)(temp_v0) + 0x20)));
+    sp30[0] = (sp10 * D_8007559C) + (temp_ft1f * (*(f32 *)((char *)(temp_v0) + 4))) + (temp_ft1 * (*(f32 *)((char *)(temp_v0) + 8)));
+    sp30[1] = (sp10 * (*(f32 *)((char *)(temp_v0) + 0xC))) + (temp_ft1f * (*(f32 *)((char *)(temp_v0) + 0x10))) + (temp_ft1 * (*(f32 *)((char *)(temp_v0) + 0x14)));
+    sp30[2] = (sp10 * (*(f32 *)((char *)(temp_v0) + 0x18))) + (temp_ft1f * (*(f32 *)((char *)(temp_v0) + 0x1C))) + (temp_ft1 * (*(f32 *)((char *)(temp_v0) + 0x20)));
     func_802C8A48();
 }

@@ -19,12 +19,9 @@ extern char D_80075598[];
 /* Warning: Gap in callee-saved word stack region.
  * Saved: [0x40, 0x44, 0x50, 0x54], gap at: 0x48. */
 s32 func_802C7FF4(void) {
-    f32 sp10;
-    f32 sp14;
-    f32 sp18;
-    f32 sp20;
-    f32 sp24;
-    f32 sp28;
+    char *__base_D_80075598;
+    f32 sp10[3];
+    f32 sp20[3];
     f32 sp30;
     f32 sp34;
     f32 sp38;
@@ -41,12 +38,13 @@ s32 func_802C7FF4(void) {
     void *temp_v0;
     void *temp_v0_2;
 
-    temp_v0 = D_80075598 + 4;
-    sp10 = 0.0f;
-    sp14 = *(f32 *)0x21856C;
-    sp18 = *(f32 *)0x218570;
-    temp_fv0f = M2C_FIELD(&sp10, f32 *, 4);
-    temp_fv1f = M2C_FIELD(&sp10, f32 *, 8);
+    __base_D_80075598 = D_80075598;
+    temp_v0 = __base_D_80075598 + 4;
+    sp10[0] = 0.0f;
+    sp10[1] = *(f32 *)0x21856C;
+    sp10[2] = *(f32 *)0x218570;
+    temp_fv0f = M2C_FIELD(sp10, f32 *, 4);
+    temp_fv1f = M2C_FIELD(sp10, f32 *, 8);
     temp_fs0f = *(f32 *)0x218574;
     temp_ft1 = (temp_fv0f * M2C_FIELD(temp_v0, f32 *, 4)) + (temp_fv1f * M2C_FIELD(temp_v0, f32 *, 8));
     temp_ft0 = (temp_fv0f * M2C_FIELD(temp_v0, f32 *, 0x10)) + (temp_fv1f * M2C_FIELD(temp_v0, f32 *, 0x14));
@@ -58,14 +56,14 @@ s32 func_802C7FF4(void) {
     temp_fv1f_2 = M2C_FIELD(temp_v0_2, f32 *, 0x2C);
     temp_fv0 = temp_ft0 + M2C_FIELD(temp_v0_2, f32 *, 0x28);
     sp38 = temp_fv1f_2;
-    sp20 = temp_ft1;
-    sp24 = temp_ft0;
-    sp28 = temp_fv0f_2;
-    sp20 = temp_ft1 + temp_fv1;
-    sp24 = temp_fv0;
+    sp20[0] = temp_ft1;
+    sp20[1] = temp_ft0;
+    sp20[2] = temp_fv0f_2;
+    sp20[0] = temp_ft1 + temp_fv1;
+    sp20[1] = temp_fv0;
     sp34 = temp_fv0;
-    sp28 = temp_fv0f_2 + temp_fv1f_2;
-    if ((func_802401D0(temp_v0 - 0x10, &sp30, temp_fs0f, &D_8006A5B4) != sp10) || (var_v0 = 1, (func_802401D0(&sp30, &sp20, temp_fs0f) != sp10))) {
+    sp20[2] = temp_fv0f_2 + temp_fv1f_2;
+    if ((func_802401D0(temp_v0 - 0x10, &sp30, temp_fs0f, &D_8006A5B4) != sp10[0]) || (var_v0 = 1, (func_802401D0(&sp30, sp20) != sp10[0]))) {
         var_v0 = 0;
     }
     return var_v0;

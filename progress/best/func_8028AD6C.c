@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,6 +10,7 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
 extern float D_8007558C;
 extern float D_80075590;
@@ -34,14 +34,14 @@ void func_8028AD6C(s32 arg0, s32 arg1) {
     f32 temp_fv0;
     f32 temp_fv0_2;
 
-    sp10 = D_8007558C;
     sp14 = D_80075590;
     sp18 = D_80075594;
-    temp_fs1 = (f32) (func_80113AD0(arg0, arg1, D_8007558C) % 61);
+    temp_fs1 = (f32) (func_80113AD0(arg0, arg1, arg0, arg1, D_8007558C) % 61);
     temp_fs0 = *(f32 *)0x21527C;
     temp_fs0f = *(f32 *)0x215280;
     temp_fv0 = sp18 + ((f32) (func_80113AD0() % 61) - temp_fs0);
     sp14 += temp_fs0f;
+    sp10 = D_8007558C;
     sp10 += temp_fs1 - temp_fs0;
     sp18 = temp_fv0;
     func_80291C08(D_800355D0, &sp10);

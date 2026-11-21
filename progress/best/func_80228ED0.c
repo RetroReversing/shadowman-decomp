@@ -11,18 +11,24 @@ extern s32 D_8004AE18;
 extern s32 D_80059670;
 extern s8 D_8007DB7E;
 
+typedef struct { int field_0; int field_4; float field_8; int field_C; signed char field_10; } __repair_record___base_D_80059670;
 void func_80228ED0(s32 arg0, s16 arg1) {
+    s32 *__base_D_80059670;
     s32 temp_v0;
+    u16 *__base_D_8002C112;
+
+    __base_D_8002C112 = &D_8002C112;
 
     func_802D5B40();
     temp_v0 = func_80103878(func_80104BC0(arg0, arg1) + 1, 2, 0);
-    (*(s32 *)((char *)(&D_80059670) + 4)) = temp_v0;
+    __base_D_80059670 = &D_80059670;
+    (((__repair_record___base_D_80059670*)__base_D_80059670)->field_4) = (int)temp_v0;
+    (((__repair_record___base_D_80059670*)__base_D_80059670)->field_0) = temp_v0;
     func_80104980(arg1, temp_v0, arg0, &D_8004AE18);
-    (*(s32 *)((char *)(&D_80059670) + 0)) = temp_v0;
-    (*(s8 *)((char *)(&D_80059670) + 0x10)) = 0;
-    (*(s32 *)((char *)(&D_80059670) + 0xC)) = 0;
-    (*(s32 *)((char *)(&D_80059670) + 4)) = temp_v0;
+    (((__repair_record___base_D_80059670*)__base_D_80059670)->field_10) = 0;
+    (((__repair_record___base_D_80059670*)__base_D_80059670)->field_C) = 0;
+    (((__repair_record___base_D_80059670*)__base_D_80059670)->field_4) = temp_v0;
     D_8007DB7E = 1;
-    (*(f32 *)((char *)(&D_80059670) + 8)) = (f32) D_8002C112;
-    D_8002D18C = func_80221E98(arg0, 0x35, D_8002C112);
+    (((__repair_record___base_D_80059670*)__base_D_80059670)->field_8) = (f32) (*__base_D_8002C112);
+    D_8002D18C = func_80221E98(arg0, 0x35, (*__base_D_8002C112));
 }

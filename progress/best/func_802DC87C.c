@@ -3,7 +3,7 @@
 s32 func_802DC8F4();
 s32 func_802DCA1C();
 
-s32 func_802DC87C(void *arg0, s32 arg1, s32 arg2, s32 arg3, u8 arg4, u16 *arg5, s32 arg6) {
+s32 func_802DC87C(void *arg0, s32 arg1, u8 arg2, s32 arg3, u8 arg4, u16 *arg5, s32 arg6) {
     s32 temp_a1;
     s32 temp_s1;
     s32 temp_v1;
@@ -16,12 +16,12 @@ s32 func_802DC87C(void *arg0, s32 arg1, s32 arg2, s32 arg3, u8 arg4, u16 *arg5, 
     u32 temp_v1_2;
 
     var_s0 = *(u16 *)(arg1 + ((arg2 & 0xFF) * 2));
-    temp_a0 = var_s0 & 0xFFFF;
+    temp_a0_2 = var_s0 & 0xFFFF;
     var_v1 = 1;
-    if (temp_a0 != 1) {
+    if (temp_a0_2 != 1) {
         var_v0_2 = var_s0 & 0xFF;
-        if ((temp_a0 >> 8) == 0) {
-            return func_802DC8F4(temp_a0, arg6, arg4);
+        if ((temp_a0_2 >> 8) == 0) {
+            return func_802DC8F4(temp_a0_2, arg6, arg4);
         }
         goto block_7;
     }

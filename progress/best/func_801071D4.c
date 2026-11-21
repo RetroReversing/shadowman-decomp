@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -25,7 +25,7 @@ void func_801071D4(void) {
     s16 *sp10;
     s16 temp_v1;
 
-    do { func_80116D80(D_8004B44C, &sp10, 1); } while (0);
+    func_80116D80(D_8004B44C, &sp10, 1);
     temp_v1 = *sp10;
     if (temp_v1 != 1) {
         if (temp_v1 < 2) {
