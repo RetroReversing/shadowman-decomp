@@ -16,10 +16,12 @@ extern char D_212078[];
 extern void *D_8007AFF8;
 
 s32 func_8010EA2C(void) {
+    char *__base_D_212078;
     f32 temp_fv0;
     s32 var_v0;
 
-    temp_fv0 = M2C_FIELD(((M2C_FIELD(D_8007AFF8, u8 *, 0x40) * 0x6C) + D_212078), f32 *, 0x14);
+    __base_D_212078 = D_212078;
+    temp_fv0 = M2C_FIELD(((M2C_FIELD(D_8007AFF8, u8 *, 0x40) * 0x6C) + __base_D_212078), f32 *, 0x14);
     var_v0 = 0;
     if (!(M2C_FIELD(D_8007AFF8, f32 *, 0x80) < (temp_fv0 * temp_fv0))) {
         var_v0 = 1;
