@@ -28,14 +28,15 @@ s32 func_8027206C(s32 arg0, s32 arg1) {
     temp_v1 = M2C_FIELD((*__base_D_8007AFF8), void **, 0x10C);
     M2C_FIELD(temp_v1, u16 *, 0x1C) = (u16) (M2C_FIELD(temp_v1, u16 *, 0x1C) & 0xFFFD);
     temp_v1_2 = M2C_FIELD((*__base_D_8007AFF8), u8 *, 0x40);
-    if (temp_v1_2 != 0x20) {
-        if (temp_v1_2 != 0x23) {
-            temp_a0 = M2C_FIELD((*__base_D_8007AFF8), s32 *, 0x108);
-            if (temp_a0 != 0) {
-                func_80109A1C(temp_a0);
-                M2C_FIELD((*__base_D_8007AFF8), s32 *, 0x108) = 0;
-            }
-        }
+    switch (temp_v1_2) {
+        case 0x20:
+        case 0x23:
+            return 1;
+    }
+    temp_a0 = M2C_FIELD((*__base_D_8007AFF8), s32 *, 0x108);
+    if (temp_a0 != 0) {
+        func_80109A1C(temp_a0);
+        M2C_FIELD((*__base_D_8007AFF8), s32 *, 0x108) = 0;
     }
     return 1;
 }
