@@ -34,7 +34,6 @@ void func_8023B714(void *arg0, void *arg1, void *arg2) {
     temp_fs1f = func_801132A0(temp_fs0);
     temp_fs0_2 = func_80113BE0(temp_fs0f);
     temp_fv0_2 = func_801132A0(temp_fs0f);
-    temp_fv0f = temp_fs1 * temp_fv0_2;
     M2C_FIELD(arg1, f32 *, 0x10) = temp_fs1f;
     M2C_FIELD(arg1, f32 *, 0) = temp_fv0_2;
     M2C_FIELD(arg1, s32 *, 0xC) = 0;
@@ -42,6 +41,7 @@ void func_8023B714(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg1, f32 *, 0x18) = (f32) -temp_fs0_2;
     M2C_FIELD(arg1, f32 *, 4) = (f32) (temp_fs1 * temp_fs0_2);
     M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_fs1f * temp_fs0_2);
+    temp_fv0f = temp_fs1 * temp_fv0_2;
     M2C_FIELD(arg1, f32 *, 0x1C) = temp_fv0f;
     M2C_FIELD(arg1, f32 *, 0x20) = (f32) (temp_fs1f * temp_fv0_2);
     M2C_FIELD(arg1, f32 *, 0x24) = (f32) M2C_FIELD(arg2, f32 *, 0);
