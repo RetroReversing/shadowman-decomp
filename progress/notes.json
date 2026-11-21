@@ -666,5 +666,185 @@
   "score_before": 40,
   "score_after": 40,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:77a3d8f07437373cde09feb5dfc62db32b319cbd71d99556e12ef5a0fb037116"
+ },
+ {
+  "function": "func_802685F4",
+  "text": "Score 405 (30 vs 29 insns). Target keeps v1=&D_80044EB0 with loads 0x1C/0x20(v1), stride 0xC, a1 counter incremented in beqz delay slot; mine folds +0x20 into pointer (D_80044ECC style) and puts slti before. Tried array-of-struct index, pointer walk with cast, struct with pad. Next: try for-loop with `i` counter where loop test is at end and p->field via separate struct typed array D_80044EB0[] with element size 0xC and field offsets 0x1C using a struct-of-arrays layout.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795228399.308613,
+  "score_before": 405,
+  "score_after": 405,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:b35e321c911a76e3c996db8740d8898d6116a0975dfd8aa82bf1c2a276b6dd64"
+ },
+ {
+  "function": "func_80262ADC",
+  "text": "Structure understood: switch(arg1){3: tab=D_8004ED0C; 4: tab=D_8004ECB4; default return 0}; e=tab+((s32*)a0)[6]; if(e->a==0) return e->a=**(u16**)a0; e->b=**a0; return 1. Best 975 (saved). Remaining diff: target keeps tab in v0, idx in v1, lw idx duplicated into each case branch; beq order/delay slot filling differs. Next step: try tab as char*/u32 arithmetic or a ternary for tab selection.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795228667.957697,
+  "score_before": 2160,
+  "score_after": 975,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:5215353690d387c94dd09d8f31faab3ac369f114b15c5f69118f960f1a484b53"
+ },
+ {
+  "function": "func_8025D4C4",
+  "text": "Best 220 (N struct {N*next}; D_80052770[1]; n=(N*)D_80074BA4; a=n->next; n=a; if(a){if(n->next){a=n; do{n=a->next; f(a); a=n;}while(n->next);}} swap BA4/BA8). Diff: target loads s0=D_80074BA4 then a0=*s0 then s0=a0 (head in a0 then moved to s0), and the zero-check branches use beqz instead of beql; target has an extra 'move s0,a0'. Next step: try keeping list ptr as separate N* local live across the null checks, or do/while with goto structure.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795228781.1950898,
+  "score_before": 755,
+  "score_after": 220,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:dcba9b92e55dc84c22d84822308db27d932ab0a371d0c7da38341aa3088d61e1"
+ },
+ {
+  "function": "func_8024522C",
+  "text": "Score 400: switch on arg0->8 with cases 1,0,2,3 matches except target uses beqz v1 / nop linear chain (case 0 test) where mine emits slti v1,2 / bnez range check. If-else chains worse (1120). Tried case orders, default. Next: try a switch with a side-effecting/different body for 0/2 or a ternary/flag structure making the compiler emit linear compares.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795229538.288689,
+  "score_before": 460,
+  "score_after": 400,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:311cecbc2ace388af4fb9950d8037b6eaa008cc2f8ce7ee6729c2b267bfc6c89"
+ },
+ {
+  "function": "func_8024FFAC",
+  "text": "Structure matches (score 40, only rdata address operands differ: target lui $at,0x20 / lwc1 0x3198 and 0x319c; ours use .rdata reloc). Float constants at 0x203198/0x20319C are unreadable (rdata not split), I used 3.0f and 0.5f as placeholders; real values unknown. Source in revision 14032168c43f44fcfbf9 (90000.0f arg to func_80254840, s0->y < s1->y + C1 then s0->y += D_80074BC0*C2). Next step: once rdata is split/readable, set the real constant values; otherwise this is blocked on rodata addressing.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230002.144112,
+  "score_before": 570,
+  "score_after": 40,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:3455683646fb809ba8864b3e4a7e212d9faa8e6e11e7dcfd45effcba7dbcd187"
+ },
+ {
+  "function": "func_80269F4C",
+  "text": "Score 165 (rev cf24943fdbdcb997aee9). Structure right. Two diffs: float const (1.0f guess) via .rdata vs target absolute lui $at,0x21/lwc1 -0x1da4 (rdata not mapped, same blocker as func_8024FFAC); target also has an extra `move $v0,$a1` before bgez (so the compare uses a separate copy of the sum) \u2013 tried re-read of s->b, s->b+=a0, assignment-in-condition: no change. Next step: try a differently-typed temp (e.g. unsigned/short-cast or a second local assigned from the sum before the a0>0 block).",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230044.1848042,
+  "score_before": 165,
+  "score_after": 165,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:4088fe3f26aa1594308404542c0e57e244eb1c7213d9d3be3f838ada1e72607e"
+ },
+ {
+  "function": "func_8026A38C",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230074.502553,
+  "score_before": 205,
+  "score_after": 55,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:426924166aade2fd9cf07b7488b1dcbe95b4331f812f4e5d5117b8c52c2b2e43"
+ },
+ {
+  "function": "func_8026A420",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230104.6387122,
+  "score_before": 1900,
+  "score_after": 55,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:6a194923280801e8aaf7cdb561aae352441917dd7e6b2026fc770e0f3cc9aa6a"
+ },
+ {
+  "function": "func_8027D8F4",
+  "text": "Best 320 (revision 6fa61b7ec96e36da0914): instructions identical to target, only registers differ (target uses a2 for lui D_8007AFF8, a0 for the loaded ptr, v1 for hoisted lui D_80031EB0; mine a0/v0). Structure: S{u8 cnt@0x54; u16 flag@0x92; u16 idx@0x94}, single func_8026F6BC(a) with a=0x24/0x27 (target 'j' into jal shares the call). Local `u8 *p = D_80031EB0;` hoists lui as target. Tried unused params, local_repairs families: no change. Next step: try different local ordering e.g. load `S *s = D_8007AFF8` once vs per-use mix, or declare p after a temp.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230272.6268811,
+  "score_before": 845,
+  "score_after": 320,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:dc88904f2a1e1f383d703538269e289ac34e5169317e1e707e8cbb0530e2a944"
+ },
+ {
+  "function": "func_802441A0",
+  "text": "Best 400 (saved): switch(state){case 1:{...state=3} break; case 0: break; case 2: break; case 3: func_80245614; break;} return 1. Only diff: target tests state with 'beqz v1' (linear compare order 1,0,2,3, no slti range check); ours emits slti v1,2 + bnez. If-else chains (1130) and return-in-case (1030) worse. Next step: try different switch case ordering or a state type (unsigned/enum) to avoid slti grouping.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230371.1701498,
+  "score_before": 470,
+  "score_after": 400,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:201ac967653652c3bcb81221524eb92ca5ae902023f0014b473301aa877430a6"
+ },
+ {
+  "function": "func_8026A548",
+  "text": "Score 35: only register diff, first-section base pointer is $a0 in mine vs $a1 in target (7 rows). Structure matches (f60||!(f14&2) {f38=1;f60=0;f3C=0xB4;} if(f14&2){if(--f3C<0)f38=0;} if(f38==1) call; return f38) using anonymous struct extern. Tried unused params, locals, volatile, register ptr: no change. Next step: try making the first block's address a distinct pseudo (e.g. via second extern alias symbol/ different struct type for the first access).\nunused params/locals, register ptr, K&R proto\nno change to a0/a1",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230704.485682,
+  "score_before": 1980,
+  "score_after": 35,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:87a511c418d3bbc985994e4246cfbaf1e015e0a34c23e48f2311d0975d6f2d2a"
+ },
+ {
+  "function": "func_80278EA8",
+  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: instruction order / control flow; first differing row 16; 10 differing rows (2 register, 2 branch target, 1 operand, 2 reordered, 3 inserted; advisory).\nTarget: lw $a1, %lo(D_8007B0C0)($s1)\nCandidate: lw $v0, %lo(D_8007B0C0)($s1)\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = move $a3, $s0\n  = lui $s1, %hi(D_8007B0C0)\nr T: lw $a1, %lo(D_8007B0C0)($s1) | C: lw $v0, %lo(D_8007B0C0)($s1)\nr T: lbu $v0, 0x66($a1) | C: lbu $v0, 0x66($v0)\ni T: bnez $v0, 0x78 | C: bnez $v0, 0x84\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795231022.5647502,
+  "score_before": 555,
+  "score_after": 120,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:36a5fc41b70dacdd2e79498238e8e5ddb44fc32e5a52f65a70b4c421ddf77d1f"
+ },
+ {
+  "function": "func_8027AA00",
+  "text": "Best 440 (rev e06bf8d2784e20c97775): struct Rec, float via *(f32*)0x2144B8 (matches lui $at), local p=D_8007AFF8 after call, flags|=4 before A0 stores, |=0x4000 after. Remaining: target has lw flags after sw 0x108, then A0,A6 stores, then ori 4; sw; ori 0x4000; sw (not merged to ori 0x4004). All my attempts (t temp, volatile, repeated D_8007AFF8 reload) either merge into ori 0x4004 or worsen. Next step: try different statement order/ split flags into two separate struct-field views (union) to stop combine.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795231440.9501922,
+  "score_before": 1895,
+  "score_after": 440,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:e818999345a25ae7e7e3f70fffcea2d695895b3c7882e2084467c653771e45b0"
+ },
+ {
+  "function": "func_8027C03C",
+  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: constants / addresses; first differing row 25; 8 differing rows (4 register, 2 operand, 1 inserted, 1 deleted; advisory).\nTarget: \nCandidate: sra $a0, $v0, 0x1f\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = ori $v1, $v1, 0x409\n  = mult $v0, $v1\n> T:  | C: sra $a0, $v0, 0x1f\ni T: addiu $a0, $zero, 0x11 | C: addiu $a1, $zero, 0xa\n< T: sra $a1, $v0, 0x1f | C: \nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795231563.815447,
+  "score_before": 2140,
+  "score_after": 240,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:f34f388c6a663872d131911aa061790bed2a943767b9ebf94f99ead222194697"
+ },
+ {
+  "function": "func_8027C03C",
+  "text": "Stuck at 240: only scheduling/regalloc of call args differs. Target sets a0=0x11 in mult delay slot (before sra a1,v0,31) and a1=0xA after the lw; ours sets a1=0xA early, a0=0x11 late, so sra uses a0. Tried: temp locals, s16 temp, r-(r/127)*127 forms (compile errors from decl placement), unprototyped callee, local B* copy (worse 410), repeated global reads. Next step: try restructuring so the call args come from a different source (e.g. func_80271F88 declared with 3+ args / different types) or a different statement order of the p->flags / s9c stores.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795231620.5438132,
+  "score_before": 240,
+  "score_after": 240,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:f34f388c6a663872d131911aa061790bed2a943767b9ebf94f99ead222194697"
+ },
+ {
+  "function": "func_80267A40",
+  "text": "KEY: \"func_80267AD0\" in the asm is NOT a function; it's a label inside this function (addu $a3,$zero,$zero before the common call). All 3 paths call func_8023DF7C(D_80075568, D_80075518, 0x2D/0x2E/0x2F, 0, 0x14, 2) with the a0/a1 setup duplicated per case (a2 differs; tail-merged). Best saved 655 = if(r==0)/else if(r==1)/else with r=func_80113AD0()%3 (three full calls). Remaining: target branch order is beq r,1 -> case1; slti r,2 beqz -> default; bnez r -> default; fallthrough case0; and r in $v1 / quotient in $a0 (switch with case1,case0,default gave 840 w/ matching regs but different branches). Next step: try switch where case 1 listed first and default merged with case 0 test via 'if (r==1) ... else if (r<2 && !r)' style or different case ordering with a temp.\nswitch/if orderings, return-forms, single call with x variable\nbest 655 with if-chain; switch(case1,case0,default) 840 has right regs",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795231792.594989,
+  "score_before": 1895,
+  "score_after": 655,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:eced4cae17a38d881a1eb24a6e75d09e426e5e9ff0b10cc94f8bea0328310575"
+ },
+ {
+  "function": "func_8026FCC4",
+  "text": "Signature is (V a, V b, f32 a6) with V={f32 x,y,z} passed by value (a0-a3 + stack 0x10,0x14, a6 at 0x18). Body: if(!(D_8007AFF8->flags&0x400)){copy a->+0xE4, b->+0xF0; ->b7C=(u32)a6 (float->u32 cast; const 0x213F2C is the 2^31 literal); ->b53=0; flags|=0x400}. Best 900 (rev cc5ceef35636e47f021d). Remaining: t lives in a0 (mine) vs v1 (target, target does 'move a0,v1' in bc1t delay slot), constant load lui at/lwc1 placed after stores in target but before in mine; a6 lwc1 f1 vs f2. The .rdata literal also can't link at ROM address (diagnostic). Next step: try different local lifetime so t gets v1, e.g. u32 temp for cast, or reading a6 into local before the flag check.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795232305.230444,
+  "score_before": 3418,
+  "score_after": 900,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:5d385d2672f76fc264d1e72077e8fb87f02f4b209d0ab75042652cd918ad43f6"
+ },
+ {
+  "function": "func_802420E0",
+  "text": "Best 1005 (rev 9dadc324983e). Structure right (struct S{pad[0xC];s8 f} cast on D_8006A710+idx keeps the 0xC offset in sb). Remaining: target has extra 'move $s1,$v0' after addiu -1 (andi on v0, ori v1 first, 49 vs 48 insns), 'move $s0,$v0' before andi 0xff, and move s1,v1 scheduling. u16 for-loop variant worse (1305). Next step: try separate u16/s32 temp variables for the counter or non-constant-folded loop copy.\nm2c do-while, u16 for loop, return type variants u8/s32/s8, temp reorder\nno change in extra move s1,v0",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795232445.605052,
+  "score_before": 1025,
+  "score_after": 1005,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:60eea4b4a5f0e77c5df1ffad059e97291c99ae17c3451cc455e55076a677fe07"
+ },
+ {
+  "function": "func_802456B4",
+  "text": "Best 525 (rev 4e3ed59728379f46e64b). Key: target does a0%360 BEFORE normalizing a1 (assign arg0=arg0%360 right after loop). Remaining: target's abs is 'subu v0,a0,a1; bgez v0; move v1,v0; negu v1,v1' (and same for second abs), ours coalesces to subu v1 + bltzl. Tried ternary, if/else, unsigned temp, -t vs -v: no help. Next step: try making the diff temp live longer / different temp types, or compiler_experiments flags.\nternary abs, if/else abs, unsigned long temp, inline mod\nnone better than 525",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795232533.279397,
+  "score_before": 2045,
+  "score_after": 525,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:fd91733219cf90e9d3235c8f7f51830f4f6dda572700c518cbb71da4820cb927"
+ },
+ {
+  "function": "func_80279730",
+  "text": "Best 1321 (rev d23767de6be767ccc6c3): all except call setup right. Target's call to func_80239A3C sets only f12 (D_2143DC) and stack 0x10=f(43D4)? order: loads 43D0,43D4,43D8,43DC; stores 0x10,0x14 floats, 0x18=0, 0x20=0, 0x24=f(43D0?), 0x28=0; a1-a3 and 0x1C never set (callee only takes f32 arg0). Tried prototype w/ ints (extra move a1/a2,zero), K&R decl (promotes to double), all-f32 prototype: all worse. Next step: find a declaration/arg form (struct by value? mixed) that leaves a1-a3 unset.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795232667.862516,
+  "score_before": 3069,
+  "score_after": 1321,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:d2acd1d5cb4f61522fbda10cac37ade018f7bd3e6c79309f62b81389a0160aba"
  }
 ]

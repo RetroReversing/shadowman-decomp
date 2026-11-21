@@ -1,44 +1,21 @@
-/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+typedef struct { char pad0[0x14]; s32 f14; char pad18[0x8]; s32 f20; s32 f24; char pad28[0x30]; s32 f58; } S8026;
+extern S8026 D_80075AA8;
+extern s32 D_80075AC8;
+void func_80269604(void);
 
-extern int D_80075B00;
-extern int D_80075ABC;
-extern int D_80075AC8;
-extern int D_80075ACC;
-s32 func_8026A420(s32 arg0) {
-    s32 temp_v0;
-
-    if (D_80075B00 == 0) {
-        if (!(D_80075ABC & 4)) {
-            goto block_3;
-        }
-        goto block_5;
+s32 func_8026A420(void) {
+    S8026 *s = &D_80075AA8;
+    if (s->f58 != 0 || !(s->f14 & 4)) {
+        s->f20 = 1;
+        s->f58 = 0;
+        s->f24 = 0xB4;
+        if (s->f14 & 4) goto l;
+    } else {
+l:
+        s = &D_80075AA8;
+        s->f24 = s->f24 - 1;
+        if (s->f24 < 0) s->f20 = 0;
     }
-block_3:
-    D_80075AC8 = 1;
-    D_80075B00 = 0;
-    D_80075ACC = 0xB4;
-    if (D_80075ABC & 4) {
-block_5:
-        temp_v0 = D_80075ACC - 1;
-        D_80075ACC = temp_v0;
-        if (temp_v0 < 0) {
-            D_80075AC8 = 0;
-        }
-    }
-    if (D_80075AC8 == 1) {
-        func_80269604(arg0);
-    }
+    if (D_80075AC8 == 1) func_80269604();
     return 1;
 }
