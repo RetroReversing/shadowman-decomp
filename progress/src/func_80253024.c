@@ -9,9 +9,9 @@ s32 func_80297254(void *);                      /* extern */
 extern s32 D_8002D4A4;
 
 void func_80253024(void *arg0) {
-    unsigned int temp_a0;
+    long temp_a0;
     void *temp_s0;
-    void *temp_s1;
+    register void *temp_s1;
 
     temp_s1 = (*(void **)((char *)(arg0) + 8));
     if (((*(void **)((char *)(temp_s1) + 0x10)) != (u32)NULL) && (D_8002D4A4 >= (*(s32 *)((char *)(temp_s1) + 0x18)))) {
@@ -25,8 +25,8 @@ void func_80253024(void *arg0) {
         (*(s32 *)((char *)(temp_s0) + 0x50)) = 0;
         (*(s32 *)((char *)(temp_s0) + 0x54)) = 0;
         if (temp_a0 != 0) {
-            (*(s32 *)((char *)(temp_s0) + 0x44)) = 0;
             func_80109A1C(temp_a0);
+            (*(s32 *)((char *)(temp_s0) + 0x44)) = 0;
         }
         func_80297254(temp_s0);
         (*(void **)((char *)(temp_s1) + 0x10)) = NULL;
