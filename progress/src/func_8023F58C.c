@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -50,7 +50,7 @@ void func_8023F58C(void *arg0, void *arg1, void *arg2) {
     temp_ft1f = M2C_FIELD(arg1, f32 *, 8);
     temp_fv1f = M2C_FIELD(arg1, f32 *, 0);
     temp_ft0f_2 = temp_ft0f - temp_ft0;
-    M2C_FIELD(arg2, f32 *, 0) = (f32) ((temp_fv1f * (((temp_ft0f + temp_ft0) - temp_ft4) - temp_fa1f)) + (2.0f * ((temp_ft3 * ((temp_ft2f * temp_ft2) - temp_fv1_2)) + (temp_ft1f * (temp_fa0f + temp_ft2_2)))));
-    M2C_FIELD(arg2, f32 *, 4) = (f32) ((temp_ft3 * ((temp_ft0f_2 + temp_ft4) - temp_fa1f)) + (2.0f * ((temp_ft1f * (temp_fa1 - temp_ft2f_2)) + (temp_fv1f * ((temp_ft2f * temp_ft2) + temp_fv1_2)))));
+    M2C_FIELD(arg2, f32 *, 0) = (f32) ((temp_fv1f * (((temp_ft0f + temp_ft0) - temp_ft4) - temp_fa1f)) + (2.0f * ((temp_ft3 * (temp_fa0 - temp_fv1_2)) + (temp_ft1f * (temp_fa0f + temp_ft2_2)))));
+    M2C_FIELD(arg2, f32 *, 4) = (f32) ((temp_ft3 * ((temp_ft0f_2 + temp_ft4) - temp_fa1f)) + (2.0f * ((temp_ft1f * (temp_fa1 - temp_ft2f_2)) + (temp_fv1f * (temp_fa0 + temp_fv1_2)))));
     M2C_FIELD(arg2, f32 *, 8) = (f32) ((temp_ft1f * ((temp_ft0f_2 - temp_ft4) + temp_fa1f)) + (2.0f * ((temp_fv1f * (temp_fa0f - temp_ft2_2)) + (temp_ft3 * (temp_fa1 + temp_ft2f_2)))));
 }
