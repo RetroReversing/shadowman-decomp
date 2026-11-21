@@ -16,7 +16,9 @@ extern s32 D_80075F50;
 extern M2C_UNK D_8007DB78;
 
 void func_802DAF00(void) {
-    M2C_FIELD(&D_8007DB78, s8 *, 0x8C) = 1;
-    M2C_FIELD(&D_8007DB78, s8 *, 0x8D) = 1;
+    M2C_UNK *__base_D_8007DB78;
+    __base_D_8007DB78 = &D_8007DB78;
+    M2C_FIELD(__base_D_8007DB78, s8 *, 0x8C) = 1;
+    M2C_FIELD(__base_D_8007DB78, s8 *, 0x8D) = 1;
     D_80075F50 = 0;
 }
