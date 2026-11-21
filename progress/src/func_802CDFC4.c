@@ -22,13 +22,15 @@ extern char D_80075568[];
 extern s32 D_8007BD90;
 
 void func_802CDFC4(void) {
+    char *__base_D_209890;
     if (D_8007BD90 != 0) {
         D_8007BD90 = 0;
         func_8026B618(1, 0);
-        if (M2C_FIELD(((D_80074BB0 * 0x34) + D_209890), s16 *, 8) == 0) {
-            func_802CE040(D_80075568, D_80075518);
-            return;
+        __base_D_209890 = D_209890;
+        if (M2C_FIELD(((D_80074BB0 * 0x34) + __base_D_209890), s16 *, 8) == 0) {
+            func_8023DF7C(D_80075568, D_80075518, 0xCB, 0xA, 0x28, 1);
+        } else {
+            func_8023DF7C(D_80075568, D_80075518, 0xD1, 0xA, 0x28, 1);
         }
-        func_8023DF7C(D_80075568, D_80075518, 0xD1, 0xA, 0x28, 1);
     }
 }
