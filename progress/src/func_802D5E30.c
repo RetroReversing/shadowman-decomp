@@ -17,10 +17,12 @@ extern M2C_UNK D_8007C900;
 extern s32 D_8007DA60;
 
 s32 func_802D5E30(void) {
+    M2C_UNK *__base_D_8007C900;
     s32 temp_v1;
     s32 var_a1;
 
-    temp_v1 = (&D_8007C900)[D_8007DA60];
+    __base_D_8007C900 = &D_8007C900;
+    temp_v1 = (__base_D_8007C900)[D_8007DA60];
     var_a1 = 0;
     if ((temp_v1 == -1) || (D_8007C8F4 < 0)) {
         return 1;
