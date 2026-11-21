@@ -12281,7 +12281,8 @@
   "code_802D0614_1EC5A10": "common_code_802D0614_1EC5A10.h",
   "code_8021D4C0_1E1ACF4": "common_code_8021D4C0_1E1ACF4.h",
   "code_802947B4_1EA10C4": "common_code_802947B4_1EA10C4.h",
-  "code_8021D4C0_1E27150": "common_code_8021D4C0_1E27150.h"
+  "code_8021D4C0_1E27150": "common_code_8021D4C0_1E27150.h",
+  "code_8026C95C_1E7401C": "common_code_8026C95C_1E7401C.h"
  },
  "functions": {
   "func_80103060": {
@@ -18306,8 +18307,8 @@
   },
   "func_8028443C": {
    "vram": 2150122556,
-   "best_score": 405,
-   "best_by": "api-claude-sonnet-5-5-3"
+   "matched_by": "api-claude-sonnet-5-5-3",
+   "readable": false
   },
   "func_8028449C": {
    "vram": 2150122652,
