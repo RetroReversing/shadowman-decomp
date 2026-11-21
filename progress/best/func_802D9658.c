@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -37,7 +37,7 @@ void func_802D9658(s32 arg0) {
     var_a0 = func_802D9EC4(sp10);
     if (var_a0 != 2) {
         if (var_a0 < 3U) {
-            var_a0 = 0x8005901C;
+            var_a0 = (u32) &D_8005901C;
             if (var_a0 != 0) {
                 func_802D9710((M2C_UNK *) (u32) &D_8005901C);
                 return;

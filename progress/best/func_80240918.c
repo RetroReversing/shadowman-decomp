@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,7 +12,19 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-extern M2C_UNK D_8006A510;
+extern float D_8006A544;
+extern float D_8006A55C;
+extern float D_8006A538;
+extern float D_8006A550;
+extern float D_8006A548;
+extern float D_8006A560;
+extern float D_8006A53C;
+extern float D_8006A554;
+extern float D_8006A54C;
+extern float D_8006A564;
+extern float D_8006A540;
+extern float D_8006A558;
+extern char D_8006A510[];
 
 s32 func_80240918(void *arg0) {
     f32 temp_fv0f;
@@ -24,10 +36,10 @@ s32 func_80240918(void *arg0) {
     s32 var_v0;
 
     temp_fv0f = (f32) M2C_FIELD(arg0, s16 *, 0);
-    if ((!(M2C_FIELD(&D_8006A510, f32 *, 0x34) < temp_fv0f) || !(M2C_FIELD(&D_8006A510, f32 *, 0x4C) < temp_fv0f)) && ((temp_fv0f_2 = (f32) M2C_FIELD(arg0, s16 *, 2), !(temp_fv0f_2 < M2C_FIELD(&D_8006A510, f32 *, 0x28))) || !(temp_fv0f_2 < M2C_FIELD(&D_8006A510, f32 *, 0x40))) && ((temp_fv0f_3 = (f32) M2C_FIELD(arg0, s16 *, 4), !(M2C_FIELD(&D_8006A510, f32 *, 0x38) < temp_fv0f_3)) || !(M2C_FIELD(&D_8006A510, f32 *, 0x50) < temp_fv0f_3)) && ((temp_fv0f_4 = (f32) M2C_FIELD(arg0, s16 *, 6), !(temp_fv0f_4 < M2C_FIELD(&D_8006A510, f32 *, 0x2C))) || !(temp_fv0f_4 < M2C_FIELD(&D_8006A510, f32 *, 0x44)))) {
+    if ((!(D_8006A544 < temp_fv0f) || !(D_8006A55C < temp_fv0f)) && ((temp_fv0f_2 = (f32) M2C_FIELD(arg0, s16 *, 2), !(temp_fv0f_2 < D_8006A538)) || !(temp_fv0f_2 < D_8006A550)) && ((temp_fv0f_3 = (f32) M2C_FIELD(arg0, s16 *, 4), !(D_8006A548 < temp_fv0f_3)) || !(D_8006A560 < temp_fv0f_3)) && ((temp_fv0f_4 = (f32) M2C_FIELD(arg0, s16 *, 6), !(temp_fv0f_4 < D_8006A53C)) || !(temp_fv0f_4 < D_8006A554))) {
         temp_fv0f_5 = (f32) M2C_FIELD(arg0, s16 *, 8);
-        if (M2C_FIELD(&D_8006A510, f32 *, 0x3C) < temp_fv0f_5) {
-            if (M2C_FIELD(&D_8006A510, f32 *, 0x54) < temp_fv0f_5) {
+        if (D_8006A54C < temp_fv0f_5) {
+            if (D_8006A564 < temp_fv0f_5) {
                 /* Duplicate return node #10. Try simplifying control flow for better match */
                 return 0;
             }
@@ -36,9 +48,9 @@ s32 func_80240918(void *arg0) {
 block_12:
         temp_fv0f_6 = (f32) M2C_FIELD(arg0, s16 *, 0xA);
         var_v0 = 1;
-        if (temp_fv0f_6 < M2C_FIELD(&D_8006A510, f32 *, 0x30)) {
+        if (temp_fv0f_6 < D_8006A540) {
             var_v0 = 0;
-            if (!(temp_fv0f_6 < M2C_FIELD(&D_8006A510, f32 *, 0x48))) {
+            if (!(temp_fv0f_6 < D_8006A558)) {
                 var_v0 = 1;
             }
         }

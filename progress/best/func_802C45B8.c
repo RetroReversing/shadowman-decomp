@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -24,18 +24,14 @@ extern M2C_UNK D_80075518;
 extern M2C_UNK D_80075568;
 
 void func_802C45B8(void) {
-char *__repair_addr;
-
-    M2C_UNK *__base_D_80075518;
-    __base_D_80075518 = &D_80075518;
-    if ((M2C_FIELD(__base_D_80075518, s16 *, 0) != -1) && (M2C_FIELD((__repair_addr = (char *)(((M2C_FIELD(__base_D_80075518, s16 *, 0) * 0x38) + M2C_FIELD(__base_D_80075518, s32 *, 0x30)))), u16 *, 4) & 2)) {
-        func_8023DF7C(&D_80075568, __base_D_80075518, 0x5E, 0xA, 0x28, 2);
+    if ((M2C_FIELD(&D_80075518, s16 *, 0) != -1) && (M2C_FIELD(((M2C_FIELD(&D_80075518, s16 *, 0) * 0x38) + M2C_FIELD(&D_80075518, s32 *, 0x30)), u16 *, 4) & 2)) {
+        func_8023DF7C(&D_80075568, &D_80075518, 0x5E, 0xA, 0x28, 2);
     }
-    if ((M2C_FIELD(__base_D_80075518, s16 *, 2) != -1) && (M2C_FIELD(((M2C_FIELD(__base_D_80075518, s16 *, 2) * 0x38) + M2C_FIELD(__base_D_80075518, s32 *, 0x30)), u16 *, 4) & 2)) {
-        func_8023DF7C(&D_80075568, __base_D_80075518, 0x5E, 0xA, 0x28, 2);
+    if ((M2C_FIELD(&D_80075518, s16 *, 2) != -1) && (M2C_FIELD(((M2C_FIELD(&D_80075518, s16 *, 2) * 0x38) + M2C_FIELD(&D_80075518, s32 *, 0x30)), u16 *, 4) & 2)) {
+        func_8023DF7C(&D_80075568, &D_80075518, 0x5E, 0xA, 0x28, 2);
     }
-    if ((M2C_FIELD(__base_D_80075518, s16 *, 0x2E) >= 0xC9) && (func_802C43C0() != 0)) {
-        func_8023DF7C(&D_80075568, __base_D_80075518, 1, 0xA, 0x96, 2);
+    if ((M2C_FIELD(&D_80075518, s16 *, 0x2E) >= 0xC9) && (func_802C43C0() != 0)) {
+        func_8023DF7C(&D_80075568, &D_80075518, 1, 0xA, 0x96, 2);
     }
     func_802C2CC0();
     func_802C3BC0();
