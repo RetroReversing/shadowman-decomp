@@ -1,7 +1,7 @@
 {
  "format": 2,
- "saved_at": 1795240952.006612,
- "revision": 1593,
+ "saved_at": 1795241033.0134249,
+ "revision": 1600,
  "title": "Shadowman",
  "platform": "n64",
  "game": {
@@ -18297,6 +18297,22 @@
    "timeout": 20,
    "function": "func_80232D6C",
    "vram": 2149789036
+  },
+  "31559980:2149750092": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_8022954C",
+   "vram": 2149750092
   }
  },
  "instructions": "",
@@ -18547,7 +18563,8 @@
   "code_8021D4C0_1E16C0C": "common_code_8021D4C0_1E16C0C.h",
   "code_8021D4C0_1E19168": "common_code_8021D4C0_1E19168.h",
   "code_8021D4C0_1E209A0": "common_code_8021D4C0_1E209A0.h",
-  "code_8021D4C0_1E22914": "common_code_8021D4C0_1E22914.h"
+  "code_8021D4C0_1E22914": "common_code_8021D4C0_1E22914.h",
+  "code_8021D4C0_1E1912C": "common_code_8021D4C0_1E1912C.h"
  },
  "functions": {
   "func_80103060": {
@@ -20902,8 +20919,8 @@
   },
   "func_8022954C": {
    "vram": 2149750092,
-   "best_score": 220,
-   "best_by": "autopilot"
+   "matched_by": "api-claude-sonnet-5-5-3",
+   "readable": false
   },
   "func_80229588": {
    "vram": 2149750152,
