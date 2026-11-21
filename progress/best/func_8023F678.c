@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -55,7 +55,7 @@ void func_8023F678(void *arg0, void *arg1, f32 arg2) {
     temp_fs0f = temp_fs3 - (var_fs1 * var_fs1);
     if (*(f32 *)0x2026B0 < temp_fs0f) {
         temp_fs0 = func_8023F2B0(temp_fs0f, arg2);
-        func_8023F2B0(temp_fs0f, (*(f32 *)0x2026AC) - arg2);
+        func_8023F2B0(temp_fs0f, temp_fs3 - arg2);
         func_8023F7BC();
         return;
     }

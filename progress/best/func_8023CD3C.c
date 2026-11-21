@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -17,8 +17,6 @@ s32 func_80103B98();
 s32 memcpy();
 
 void func_8023CD3C(void *arg0, void *arg1) {
-    s32 __repair_store_0;
-    s32 __repair_store_1;
     s32 var_a0;
     s32 var_a1;
     s32 var_a1_2;
@@ -44,10 +42,8 @@ void func_8023CD3C(void *arg0, void *arg1) {
             do {
                 temp_a0 = var_a0 + M2C_FIELD(arg1, u16 **, 0x28);
                 temp_v0_2 = (*((var_a1 * 2) + M2C_FIELD(arg0, u16 **, 0x10)) * 8) + temp_v0;
-                var_v1 = (s32) M2C_FIELD(temp_v0_2, s32 *, 0);
-                __repair_store_1 = (s32) M2C_FIELD(temp_v0_2, s32 *, 4);
-                M2C_FIELD(temp_a0, s32 *, 0) = var_v1;
-                M2C_FIELD(temp_a0, s32 *, 4) = __repair_store_1;
+                M2C_FIELD(temp_a0, s32 *, 0) = (s32) M2C_FIELD(temp_v0_2, s32 *, 0);
+                M2C_FIELD(temp_a0, s32 *, 4) = (s32) M2C_FIELD(temp_v0_2, s32 *, 4);
                 var_a1 += 1;
                 var_a0 = var_a1 * 8;
             } while (var_a1 < (s32) M2C_FIELD(arg1, u16 *, 0x32));

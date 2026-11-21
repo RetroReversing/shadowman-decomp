@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -38,7 +38,7 @@ s32 func_80238A54(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 4) = (s32) (D_80069838 * 0x18);
     if (D_80069838 > 0) {
         var_a2 = var_t0 - 4;
-        do {
+        __repair_rows: {
             temp_a0 = var_a3 * 0x10;
             temp_v1 = D_80069750 + temp_a0;
             temp_fv0f = (f32) M2C_FIELD(temp_v1, s8 *, 0x10);
@@ -55,7 +55,8 @@ s32 func_80238A54(void *arg0, void *arg1) {
             M2C_FIELD((D_80069750 + temp_a0), s8 *, 0x12) = (s8) (s32) ((temp_fv0f * M2C_FIELD(arg1, f32 *, 0x20)) + (sp4 * M2C_FIELD(arg1, f32 *, 0x24)) + (sp8 * M2C_FIELD(arg1, f32 *, 0x28)));
             M2C_FIELD(var_a2, s32 *, -4) = (s32) (((((var_a3 * 3) + 3) & 0xFF) << 8) | 0xDC08000A);
             M2C_FIELD(var_a2, s32 *, 0) = (s32) (D_80069750 + (temp_a0 + 8));
-        } while (var_a3 < D_80069838);
+        }
+if (var_a3 < D_80069838) goto __repair_rows;
     }
     M2C_FIELD(var_t0, s32 *, 0) = (s32) ((((((var_a3 + 1) * 3) + 3) & 0xFF) << 8) | 0xDC08000A);
     M2C_FIELD(var_t0, s32 *, 4) = (s32) D_80069750;

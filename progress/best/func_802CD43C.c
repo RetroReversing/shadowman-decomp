@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -26,29 +26,25 @@ extern M2C_UNK D_80075518;
 extern M2C_UNK D_80075568;
 
 void func_802CD43C(void) {
-    M2C_UNK *__base_D_80075518;
-    s32 *__base_D_8002D420;
     func_802CC680();
     M2C_FIELD(&D_80075568, s32 *, 0x18) = 0;
     func_80265348();
-    __base_D_8002D420 = &D_8002D420;
-    if ((*__base_D_8002D420) & 1) {
-        __base_D_80075518 = &D_80075518;
-        func_8023DF7C(&D_80075568, __base_D_80075518, 0x24, 0xA, 0x8C, 2);
+    if (D_8002D420 & 1) {
+        func_8023DF7C(&D_80075568, &D_80075518, 0x24, 0xA, 0x8C, 2);
         func_802CD5C0();
         return;
     }
     if (D_8002D424 & 0x80) {
-        func_8023DF7C(&D_80075568, __base_D_80075518, 0x28, 0xA, 0x1E, 2);
-        M2C_FIELD(M2C_FIELD(__base_D_80075518, void **, 0x44), s32 *, 0x14C) = 0;
-        M2C_FIELD(M2C_FIELD(__base_D_80075518, void **, 0x44), s32 *, 0x20C) = 0;
+        func_8023DF7C(&D_80075568, &D_80075518, 0x28, 0xA, 0x1E, 2);
+        M2C_FIELD(M2C_FIELD(&D_80075518, void **, 0x44), s32 *, 0x14C) = 0;
+        M2C_FIELD(M2C_FIELD(&D_80075518, void **, 0x44), s32 *, 0x20C) = 0;
     }
     if (func_802654E8() == 0) {
-        func_8023DF7C(&D_80075568, __base_D_80075518, 0, 0xA, 0x28, 2);
+        func_8023DF7C(&D_80075568, &D_80075518, 0, 0xA, 0x28, 2);
     }
-    if (((*__base_D_8002D420) & 0x28) != 0x28) {
-        if (!((*__base_D_8002D420) & 0x01000000)) {
-            func_8023DF7C(&D_80075568, __base_D_80075518, 0x23, 0xA, 0x8C, 2);
+    if ((D_8002D420 & 0x28) != 0x28) {
+        if (!(D_8002D420 & 0x01000000)) {
+            func_8023DF7C(&D_80075568, &D_80075518, 0x23, 0xA, 0x8C, 2);
         }
     }
     if (M2C_FIELD(&D_8002DBD0, s32 *, 8) != 0) {
@@ -60,9 +56,9 @@ void func_802CD43C(void) {
         func_802CD5BC();
         return;
     }
-    if (M2C_FIELD(&D_8002DBD0, s32 *, 0x18) == 0) {
-        D_8003AD88 = *(f32 *)0x2187EC;
-    } else {
+    if (M2C_FIELD(&D_8002DBD0, s32 *, 0x18) != 0) {
         func_802CD5BC();
+        return;
     }
+    D_8003AD88 = *(f32 *)0x2187EC;
 }

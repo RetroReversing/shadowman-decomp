@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -14,7 +14,7 @@ typedef s32 M2C_UNK32;
 
 M2C_UNK func_80234B70(f32 *);                       /* extern */
 M2C_UNK func_802403F8(f32 *, f32 *, M2C_UNK, M2C_UNK); /* extern */
-f32 func_802739A8(s32, f32 *, f32 *, M2C_UNK);           /* extern */
+f32 func_802739A8(f32 *, f32 *, M2C_UNK);           /* extern */
 f32 func_80273A54(M2C_UNK *, void *, M2C_UNK *);    /* extern */
 extern M2C_UNK D_212078;
 extern void *D_8006A4FC;
@@ -53,7 +53,7 @@ int *__repair_home0 = &arg0;
     sp18 = temp_fv1_2;
     sp28 = temp_fv1_2;
     if (M2C_FIELD(D_8007AFF8, s32 *, 0x48) & 0x40000) {
-        return func_802739A8(arg0, &sp10, &sp20, 0x40A00000);
+        return func_802739A8(&sp10, &sp20, 0x40A00000);
     }
     func_802403F8(&sp10, &sp20, 0x40A00000, 3);
     M2C_FIELD(D_8007AFF8, f32 *, 0x8C) = (f32) *(f32 *)0x214130;
