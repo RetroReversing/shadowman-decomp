@@ -46,11 +46,11 @@ void func_80233F78(void *arg0) {
     temp_fv1 = *(f32 *)0x2022F4;
     temp_s2 = arg0 + 0x18;
     temp_s1 = arg0 + 0x3C;
-    temp_fv0 = M2C_FIELD(arg0, f32 *, 0x100) * temp_fv1;
+    temp_fv0 = M2C_FIELD(arg0, f32 *, 0x100) * (*(f32 *)0x2022F4);
     D_8005EA2C = arg0;
-    M2C_FIELD(arg0, f64 *, 0xCC) = M2C_BITWISE(f64, temp_fv0);
+    M2C_FIELD(arg0, f32 *, 0xCC) = M2C_BITWISE(f64, temp_fv0);
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) -temp_fv0;
-    temp_fv0_2 = (M2C_FIELD(arg0, f32 *, 0xFC) * temp_fv1) / M2C_FIELD(arg0, f32 *, 0xD0);
+    temp_fv0_2 = (M2C_FIELD(arg0, f32 *, 0xFC) * (*(f32 *)0x2022F4)) / M2C_FIELD(arg0, f32 *, 0xD0);
     M2C_FIELD(arg0, f32 *, 0xDC) = temp_fv0_2;
     M2C_FIELD(arg0, f32 *, 0x104) = (f32) (*(f32 *)0x2022F8 / temp_fv0_2);
     func_80239D9C(temp_s2, temp_s1);

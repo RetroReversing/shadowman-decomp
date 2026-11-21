@@ -32,13 +32,17 @@ void func_802421A4(s32 arg0, void *arg1) {
     void *temp_a0;
 
     __base_D_8006A710 = &D_8006A710;
-    temp_a0 = (arg0 & 0xFF) + __base_D_8006A710;
+    temp_a0 = (void *) (((arg0 & 0xFF)) + (s32) __base_D_8006A710);
     temp_v1 = M2C_FIELD(temp_a0, u8 *, 0xC);
     switch (temp_v1) {
         __base_D_8006A714 = &D_8006A714;
         case 0:
-            D_8002C290 = (s16) (s32) (func_80113BE0((*__base_D_8006A714), temp_a0, __base_D_8006A710) * (f32) (M2C_FIELD(arg1, u8 *, 4) << 6));
-            func_80113BE0(D_8006A718);
+            D_8002C290 = (s16) (s32) (func_80113BE0((*__base_D_8006A714)) * (f32) (M2C_FIELD(arg1, u8 *, 4) << 6));
+            /*__repair_pointer_balance*/if ((unsigned long)__base_D_8006A710 & 0x100) {
+func_80113BE0();
+} else {
+func_80113BE0();
+}
             func_8024227C();
             break;
         case 1:

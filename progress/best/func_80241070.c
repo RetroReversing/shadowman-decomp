@@ -1,7 +1,19 @@
+#ifndef M2C_DEFINES
+#define M2C_DEFINES
+typedef s32 M2C_UNK;
+typedef s8 M2C_UNK8;
+typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#define M2C_ERROR(desc) (0)
+#define M2C_CARRY 0
+#define M2C_OVERFLOW(a) (0)
+#endif
 /* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
-s32 func_80241114();                                /* extern */
-s32 func_80241120();                            /* extern */
+s32 func_80241114();
+s32 func_80241120();
 
 s32 func_80241070(void *arg0, void *arg1, f32 arg2) {
     f32 temp_fv0;
@@ -10,13 +22,13 @@ s32 func_80241070(void *arg0, void *arg1, f32 arg2) {
     f32 temp_fv1f;
     void *temp_v1;
 
-    temp_fv1f = (f32) (*(u16 *)((char *)(arg0) + 0x10)) + arg2;
-    temp_fv0f = (f32) (*(s16 *)((char *)(arg0) + 0xA)) - (*(f32 *)((char *)(arg1) + 0));
-    temp_fv0 = (f32) (*(s16 *)((char *)(temp_v1) + 2)) - (*(f32 *)((char *)(arg1) + 4));
+    temp_fv1f = (f32) M2C_FIELD(arg0, u16 *, 0x10) + arg2;
+    temp_fv0f = (f32) M2C_FIELD(arg0, s16 *, 0xA) - M2C_FIELD(arg1, f32 *, 0);
     temp_v1 = arg0 + 0xA;
-    temp_fv0_2 = (f32) (*(s16 *)((char *)(temp_v1) + 4)) - (*(f32 *)((char *)(arg1) + 8));
+    temp_fv0 = (f32) M2C_FIELD(temp_v1, s16 *, 2) - M2C_FIELD(arg1, f32 *, 4);
+    temp_fv0_2 = (f32) M2C_FIELD(temp_v1, s16 *, 4) - M2C_FIELD(arg1, f32 *, 8);
     if (!((temp_fv1f * temp_fv1f) < ((temp_fv0f * temp_fv0f) + (temp_fv0 * temp_fv0) + (temp_fv0_2 * temp_fv0_2)))) {
-        func_80241120();
+        func_80241120(arg0, arg1);
         return func_80241114();
     }
     return 0;

@@ -21,7 +21,7 @@ s32 func_8022F630(void *arg0) {
     s32 temp_a1;
     s32 var_s0;
     s32 var_a3_2;
-    u16 var_a3_3;
+    s32 var_a3_3;
     u32 var_a1_2;
     u32 var_a1_4;
     void *temp_a0;
@@ -81,7 +81,7 @@ block_44:
                     M2C_FIELD(var_a1_3, s32 *, 0) = (s32) M2C_FIELD(arg0, s32 *, 0);
                     M2C_FIELD(var_a1_3, void **, 8) = arg0;
                     M2C_FIELD(var_a1_3, u16 *, 0x18) = var_a3_3;
-                    return func_8022F7BC(var_a1_3, temp_a2);
+                    return func_8022F7BC(var_a1_3);
                 }
                 goto loop_14;
             }

@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,18 +12,19 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-M2C_UNK func_80105C44(M2C_UNK, M2C_UNK);            /* extern */
-M2C_UNK func_80115C70(void *);                      /* extern */
+extern int D_8004AEC0;
+s32 func_80105C44();
+s32 func_80115C70();
 extern s32 D_8004AEB0;
 extern s32 D_8004AEB4;
-extern M2C_UNK D_8004AEB8;
+extern char D_8004AEB8[];
 
 void func_80105CAC(void) {
     D_8004AEB0 += 1;
     D_8004AEB4 += 1;
     func_80105C44(1, 2);
-    if ((M2C_FIELD(&D_8004AEB8, s32 *, 8) != 0) && (M2C_FIELD(&D_8004AEB8, void **, 0) != NULL) && (*M2C_FIELD(M2C_FIELD(&D_8004AEB8, void **, 0), s32 **, 0) == 1)) {
-        M2C_FIELD(M2C_FIELD(&D_8004AEB8, void **, 0), s32 *, 0x10) = (s32) (M2C_FIELD(M2C_FIELD(&D_8004AEB8, void **, 0), s32 *, 0x10) | 4);
-        func_80115C70(M2C_FIELD(&D_8004AEB8, void **, 0));
+    if ((D_8004AEC0 != 0) && (M2C_FIELD(D_8004AEB8, void **, 0) != NULL) && (*M2C_FIELD(M2C_FIELD(D_8004AEB8, void **, 0), s32 **, 0) == 1)) {
+        M2C_FIELD(M2C_FIELD(D_8004AEB8, void **, 0), s32 *, 0x10) |= 4;
+        func_80115C70(M2C_FIELD(D_8004AEB8, void **, 0));
     }
 }

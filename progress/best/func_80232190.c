@@ -5,7 +5,7 @@ extern void *D_80061A10;
 s32 func_80232190(void *arg0, void *arg1) {
     f32 temp_ft0;
     f32 temp_ft0f;
-    f32 temp_ft1;
+    register f32 temp_ft1;
     f32 temp_fv0;
     f32 temp_fv0f;
     f32 temp_fv1;
@@ -18,8 +18,8 @@ s32 func_80232190(void *arg0, void *arg1) {
     void *var_v1;
 
     temp_ft1 = (*(f32 *)((char *)(arg0) + 0));
-    temp_fv1 = (*(f32 *)((char *)(arg0) + 0xC));
     temp_ft0f = (*(f32 *)((char *)(arg0) + 4));
+    temp_fv1 = (*(f32 *)((char *)(arg0) + 0xC));
     D_80061A10 = arg1;
     temp_v0 = (*(u16 *)((char *)(arg1) + 0x30));
     temp_ft0 = (*(f32 *)((char *)(arg0) + 8));
@@ -27,15 +27,15 @@ s32 func_80232190(void *arg0, void *arg1) {
         var_a2 = 0;
         var_v1 = (*(s32 *)((char *)(arg1) + 0x14)) + 0x10;
 loop_2:
-        temp_v0_2 = (*(s32 *)((char *)(arg1) + 0x1C)) + ((*(u16 *)((char *)(var_v1) + -8)) * 0x10);
-        var_a2 += 1;
+        temp_v0_2 = (((*(u16 *)((char *)(var_v1) + -8)) * 0x10)) + ((*(s32 *)((char *)(arg1) + 0x1C)));/*__repair_loop_weight*/do {do {do {
+        var_a2 += 1;} while (0);} while (0);} while (0);
         if (fabsf(((*(f32 *)((char *)(temp_v0_2) + 0)) * temp_ft1) + ((*(f32 *)((char *)(temp_v0_2) + 4)) * temp_ft0f) + ((*(f32 *)((char *)(temp_v0_2) + 8)) * temp_ft0) + (*(f32 *)((char *)(temp_v0_2) + 0xC))) < temp_fv1) {
             temp_fv1f = (f32) (*(u16 *)((char *)(var_v1) + 0));
-            temp_fv0f = temp_ft1 - (f32) (*(s16 *)((char *)(var_v1) + -6));
+            temp_ft1 = temp_ft1 - (f32) (*(s16 *)((char *)(var_v1) + -6));
             temp_fv1_2 = temp_ft0f - (f32) (*(s16 *)((char *)(var_v1) + -4));
             temp_fv0 = ((*(f32 *)((char *)(arg0) + 8))) - (f32) (*(s16 *)((char *)(var_v1) + -2));
             var_v0 = var_a2 < (s32) temp_v0;
-            if (((temp_fv0f * temp_fv0f) + (temp_fv1_2 * temp_fv1_2) + (temp_fv0 * temp_fv0)) < ((temp_fv1f * temp_fv1f) + (temp_fv1 * temp_fv1 * *(f32 *)0x2022D4))) {
+            if (((temp_ft1 * temp_ft1) + (temp_fv1_2 * temp_fv1_2) + (temp_fv0 * temp_fv0)) < ((temp_fv1f * temp_fv1f) + (temp_fv1 * temp_fv1 * *(f32 *)0x2022D4))) {
                 return 1;
             }
             goto block_6;
@@ -45,9 +45,10 @@ block_6:
         var_v1 += 0x12;
         if (var_v0 == 0) {
             /* Duplicate return node #7. Try simplifying control flow for better match */
-            return 0;
+            goto __shared_return_0;
         }
         goto loop_2;
     }
+    __shared_return_0:
     return 0;
 }

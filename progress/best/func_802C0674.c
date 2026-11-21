@@ -13,7 +13,7 @@ extern s32 D_800458F0;
 void func_802C0674(void *arg0) {
     s32 *__base_D_8002D420;
     s16 temp_v1;
-    unsigned int temp_s2;
+    u32 temp_s2;
 
     temp_v1 = (*(s16 *)((char *)(arg0) + 0x16));
     if (temp_v1 != 1) {
@@ -34,15 +34,19 @@ void func_802C0674(void *arg0) {
         func_802C0734();
         return;
     }
-    __base_D_8002D420 = &D_8002D420;
     temp_s2 = (*__base_D_8002D420);
+    __base_D_8002D420 = &D_8002D420;
     if (D_800458F0 != 0) {
         func_802C0710(__base_D_8002D420);
-        return;
-    }
-    D_8002D424 = 0;
-    (*__base_D_8002D420) = 0;
-    func_802BE3D8(__base_D_8002D420);
-    (*(&D_8002D420)) = temp_s2;
+    } else {
+        (*__base_D_8002D420) = 0;
+        D_8002D424 = 0;
+        func_802BE3D8(__base_D_8002D420);
+        (*(&D_8002D420)) = temp_s2;
+        /*__repair_pointer_balance*/if ((unsigned long)__base_D_8002D420 & 0x100) {
     func_802C0734();
+    } else {
+    func_802C0734();
+    }
+    }
 }

@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,23 +12,21 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-s32 func_802D2E34();
-s32 func_802D3768();
+s32 func_802D2E34(s32);                             /* extern */
+s32 func_802D3768();                                /* extern */
 extern s32 D_218D74;
 
 s32 func_802D3708(void) {
-    s32 *__base_D_218D74;
-    char *var_s0;
+    s32 *var_s0;
 
-    __base_D_218D74 = &D_218D74;
-    if (M2C_FIELD(__base_D_218D74, s32 *, -0x728C) != 0) {
-        var_s0 = __base_D_218D74;
+    if (M2C_FIELD(&D_218D74, s32 *, -0x728C) != 0) {
+        var_s0 = &D_218D74;
 loop_2:
         var_s0 += 0xC;
-        if (func_802D2E34(*(s32 *)var_s0) != 0) {
+        if (func_802D2E34(*var_s0) != 0) {
             return func_802D3768();
         }
-        if (*(s32 *)var_s0 == 0) {
+        if (*var_s0 == 0) {
             /* Duplicate return node #6. Try simplifying control flow for better match */
             return 0;
         }

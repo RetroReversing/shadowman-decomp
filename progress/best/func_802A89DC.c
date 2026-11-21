@@ -1,30 +1,19 @@
 /* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
 
 s32 func_802A6508();
 s32 func_802A7CD4();
 
+typedef struct { unsigned char pad_0[32]; float field_20; unsigned char pad_24[16]; float field_34; float field_38; unsigned char pad_3C[4]; int field_40; unsigned char pad_44[4]; unsigned char field_48; unsigned char field_49; signed char field_4A; unsigned char pad_4B[5]; unsigned char field_50; unsigned char pad_51[1]; short field_52; } __repair_record_arg0;
 void func_802A89DC(void *arg0) {
-    func_802A7CD4();
-    M2C_FIELD(arg0, s32 *, 0x40) = 7;
-    M2C_FIELD(arg0, s16 *, 0x52) = 3;
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) *(f32 *)0x216394;
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) *(f32 *)0x216398;
+    func_802A7CD4(arg0);
+    ((__repair_record_arg0*)arg0)->field_40 = 7;
+    ((__repair_record_arg0*)arg0)->field_52 = 3;
+    ((__repair_record_arg0*)arg0)->field_20 = (f32) *(f32 *)0x216394;
+    ((__repair_record_arg0*)arg0)->field_34 = (f32) *(f32 *)0x216398;
     func_802A6508(arg0, 0xB);
-    M2C_FIELD(arg0, u8 *, 0x48) = 0xFF;
-    M2C_FIELD(arg0, u8 *, 0x49) = 0xC8;
-    M2C_FIELD(arg0, s8 *, 0x4A) = 0;
-    M2C_FIELD(arg0, u8 *, 0x50) |= 1;
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) *(f32 *)0x21639C;
+    ((__repair_record_arg0*)arg0)->field_48 = 0xFF;
+    ((__repair_record_arg0*)arg0)->field_4A = 0;
+    ((__repair_record_arg0*)arg0)->field_49 = 0xC8;
+    ((__repair_record_arg0*)arg0)->field_50 |= 1;
+    ((__repair_record_arg0*)arg0)->field_38 = (f32) *(f32 *)0x21639C;
 }

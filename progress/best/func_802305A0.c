@@ -31,7 +31,7 @@ void func_802305A0(void) {
 
     func_8023067C();
     func_8011BA20(&D_800598A0, 0, 0x4E20);
-    if ((u32) D_80000318 > 0x400000U) {
+    if ((u32) (*(s32 *)&D_80000318) > 0x400000U) {
         func_802305EC();
         return;
     }
@@ -44,13 +44,14 @@ void func_802305A0(void) {
     D_80059894 = var_a1;
     if ((*__base_D_8005989C) != 0) {
         var_v1 = (*__base_D_80059890);
-        do {
+        __repair_rows: {
             M2C_FIELD(var_v1, void **, 4) = var_a1;
             var_a1 += 0x100;
-            M2C_FIELD(var_v1, s16 *, 0) = 0xFFFF;
-            M2C_FIELD(var_v1, s16 *, 2) = 0;/*__repair_loop_weight*/do {
+            M2C_FIELD(var_v1, u16 *, 0) = 0xFFFF;
+            M2C_FIELD(var_v1, u16 *, 2) = 0;/*__repair_loop_weight*/do {
             var_a0 += 1;} while (0);
             var_v1 += 8;
-        } while (var_a0 < (u32) (*__base_D_8005989C));
+        }
+if (var_a0 < (u32) (*__base_D_8005989C)) goto __repair_rows;
     }
 }

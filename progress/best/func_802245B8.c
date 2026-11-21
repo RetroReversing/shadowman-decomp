@@ -33,7 +33,7 @@ extern s32 D_80069838;
 
 typedef struct { int value; } __repair_field_0;
 void func_802245B8(void *arg1) {
-    M2C_UNK sp10;
+    char sp10[0x40];
     s32 temp_v0;
     s32 var_s1;
     s32 var_s4;
@@ -46,12 +46,12 @@ void func_802245B8(void *arg1) {
     void *var_a1;
 
     var_s4 = 0;
-    if ((func_802228F0(D_8005EA2C + 0x3C, &sp10) != 0) && (temp_v0 = func_8021D4C0(), (temp_v0 != 0))) {
-        func_8011365C(&sp10, temp_v0);
+    if ((func_802228F0(D_8005EA2C + 0x3C, sp10) != 0) && (temp_v0 = func_8021D4C0(), (temp_v0 != 0))) {
+        func_8011365C(sp10, temp_v0);
         if ((M2C_FIELD(arg1, u16 *, 0x3C) & 8) && (D_80069838 != 0)) {
             temp_a0 = func_8021E344(D_80069838 + 6);
             if (temp_a0 != NULL) {
-                func_80238A54(temp_a0, &sp10);
+                func_80238A54(temp_a0, sp10);
                 func_80224674();
             }
         } else {

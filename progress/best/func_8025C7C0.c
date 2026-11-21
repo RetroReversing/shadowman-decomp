@@ -2,7 +2,7 @@
 
 s32 func_80107D8C(s32, s32, s32, s32); /* extern */
 s32 func_80109D80();                            /* extern */
-s32 func_802367B4(s32 *);                       /* extern */
+s32 func_802367B4(void);                       /* extern */
 s32 func_80237AA8(void *);                      /* extern */
 s32 func_8023934C(s32);                         /* extern */
 s32 func_80262ED8();                            /* extern */
@@ -50,12 +50,12 @@ void func_8025C7C0(void) {
     if (((*__base_D_80030E34) >= 3) && (D_80030E3C < 4)) {
         (*__base_D_80030E34) = D_80030E3C;
     }
-    func_802367B4(__base_D_80030E34);
+    func_802367B4();
     D_8007DB7D = 1;
     D_8002C1BC = 1;
     D_80052778 = __base_D_25D6EC;
-    D_8005EA2C = &D_80074F70;
     func_8023934C(D_80074BF0);
-    D_80030E3C = (*__base_D_80030E34);
+    D_8005EA2C = &D_80074F70;
+    D_80030E3C = (*(&D_80030E34));
     func_80262ED8();
 }

@@ -27,8 +27,8 @@ s32 func_80221788(s32 arg0, u8 *arg1) {
     if (((temp_a2 = var_v1 & 0xFF) != 0) && (temp_a2 != 0xD)) {
         for (;;) {
             var_v0 = var_a3 << 0x10;
-            if (var_v1 != 0xA) {
-                temp_v0 = *var_a1;
+            if (var_v1 != 0xA) {/*__repair_loop_weight*/do {
+                temp_v0 = *var_a1;} while (0);
                 var_a1 += 1;
                 var_v1 = *var_a1;
                 var_a3 += M2C_FIELD((temp_v0 + arg0), u8 *, -0x1F) + 1;

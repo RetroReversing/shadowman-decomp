@@ -18,8 +18,8 @@ void func_8022EEC4(void *arg0, s8 arg1) {
     void *var_v1;
 
     temp_a3 = M2C_FIELD(arg0, void **, 0x64);
-    var_a2 = 0;
     if (M2C_FIELD(temp_a3, s32 *, 0x50) != 0) {
+        var_a2 = 0;
         var_v1 = M2C_FIELD(temp_a3, s32 *, 0x14) + ((u16) M2C_FIELD(temp_a3, s32 *, 0x50) * 0x12);
         do {
             M2C_FIELD(var_v1, s8 *, 2) = arg1;

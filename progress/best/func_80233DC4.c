@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -17,21 +17,17 @@ extern void *D_8005E9EC;
 extern M2C_UNK **D_8005EA14;
 extern s32 D_80061A10;
 
-s32 func_80233DC4(void) {
-    M2C_UNK ***__base_D_8005EA14;
+void func_80233DC4(void) {
     M2C_UNK *var_s0;
     void *temp_v0;
 
-    __base_D_8005EA14 = &D_8005EA14;
-    var_s0 = *(*__base_D_8005EA14);
+    var_s0 = *D_8005EA14;
     if (*var_s0 != NULL) {
-        __repair_rows: {
-            temp_v0 = func_80233CD8((*__base_D_8005EA14), *M2C_FIELD(M2C_FIELD(var_s0, void **, 8), s32 **, 0x6C));
+        do {
+            temp_v0 = func_80233CD8(D_8005EA14, *M2C_FIELD(M2C_FIELD(var_s0, void **, 8), s32 **, 0x6C));
             var_s0 = M2C_FIELD(var_s0, M2C_UNK **, 0);
-            D_80061A10 = M2C_FIELD(temp_v0, s32 *, 0x64);
             D_8005E9EC = temp_v0;
-            return D_8005E9EC;
-        }
-if (*var_s0 != NULL) goto __repair_rows;
+            D_80061A10 = M2C_FIELD(temp_v0, s32 *, 0x64);
+        } while (*var_s0 != NULL);
     }
 }

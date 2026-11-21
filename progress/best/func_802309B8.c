@@ -25,8 +25,8 @@ s32 func_802309B8(s32 arg0, u32 arg1) {
     u32 var_v1;
 
     var_a1 = arg1;
-    var_a0 = 0xFFFF;
     var_a3 = 0;
+    var_a0 = 0xFFFF;
     var_a2 = D_800598A0;
     var_v1 = D_80052764 - 3;
     do {

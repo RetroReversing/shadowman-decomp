@@ -21,9 +21,14 @@ void func_80104060(void) {
 
     var_v1 = D_8004AD78;
     if (var_v1 != NULL) {
-        do {
-            var_v1 = *var_v1;
-        } while (var_v1 != NULL);
+        for (;;) {
+            {
+                var_v1 = *var_v1;
+            }
+            if (var_v1 == NULL) {
+                break;
+            }
+        }
     }
     var_v1_2 = D_8004AD7C;
     if (var_v1_2 != NULL) {

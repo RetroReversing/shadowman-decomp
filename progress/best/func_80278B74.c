@@ -16,7 +16,7 @@ u16 func_801043F8(M2C_UNK, M2C_UNK, M2C_UNK);       /* extern */
 void *func_8010B5CC(s32, s32);                      /* extern */
 M2C_UNK func_8026F6BC(M2C_UNK);                     /* extern */
 M2C_UNK func_8027003C();                            /* extern */
-M2C_UNK func_8027006C(void **, s32);                /* extern */
+M2C_UNK func_8027006C(void);                /* extern */
 M2C_UNK func_80270090(M2C_UNK);                     /* extern */
 M2C_UNK func_8027206C(M2C_UNK, M2C_UNK, s32);       /* extern */
 extern M2C_UNK D_278900;
@@ -36,6 +36,7 @@ extern void *D_8007B0C0;
 extern M2C_UNK D_8007B0C8;
 extern M2C_UNK D_8007B0D8;
 
+typedef struct { unsigned char pad_0[24]; int field_18; int field_1C; int field_20; float field_24; float field_28; float field_2C; } __repair_record_D_8006A4FC;
 void func_80278B74(s32 arg0) {
     s32 temp_a1;
     s32 temp_a2;
@@ -85,15 +86,15 @@ void func_80278B74(s32 arg0) {
     M2C_FIELD(temp_v0_3, M2C_UNK **, 0x120) = &D_800318E4;
     M2C_FIELD(temp_v0_3, s32 *, 0x134) = 0;
     M2C_FIELD(temp_v0_3, s32 *, 0x6C) = temp_a1;
-    M2C_FIELD(D_8006A4FC, M2C_UNK32 *, 0x24) = (M2C_UNK32) *(M2C_UNK32 *)0x21436C;
-    M2C_FIELD(D_8006A4FC, M2C_UNK32 *, 0x28) = (M2C_UNK32) *(M2C_UNK32 *)0x214370;
-    M2C_FIELD(D_8006A4FC, M2C_UNK32 *, 0x2C) = (M2C_UNK32) *(M2C_UNK32 *)0x214374;
-    M2C_FIELD(&D_8007B0C8, M2C_UNK32 *, 0) = (M2C_UNK32) M2C_FIELD(D_8006A4FC, M2C_UNK32 *, 0x24);
-    M2C_FIELD(&D_8007B0C8, M2C_UNK32 *, 4) = (M2C_UNK32) M2C_FIELD(D_8006A4FC, M2C_UNK32 *, 0x28);
-    M2C_FIELD(&D_8007B0C8, M2C_UNK32 *, 8) = (M2C_UNK32) M2C_FIELD(D_8006A4FC, M2C_UNK32 *, 0x2C);
-    M2C_FIELD(&D_8007B0D8, s32 *, 0) = (s32) M2C_FIELD(D_8006A4FC, s32 *, 0x18);
-    M2C_FIELD(&D_8007B0D8, s32 *, 4) = (s32) M2C_FIELD(D_8006A4FC, s32 *, 0x1C);
-    M2C_FIELD(&D_8007B0D8, s32 *, 8) = (s32) M2C_FIELD(D_8006A4FC, s32 *, 0x20);
+    ((__repair_record_D_8006A4FC*)D_8006A4FC)->field_24 = (f32) *(f32 *)0x21436C;
+    ((__repair_record_D_8006A4FC*)D_8006A4FC)->field_28 = (f32) *(f32 *)0x214370;
+    ((__repair_record_D_8006A4FC*)D_8006A4FC)->field_2C = (f32) *(f32 *)0x214374;
+    M2C_FIELD(&D_8007B0C8, f32 *, 0) = (f32) ((__repair_record_D_8006A4FC*)D_8006A4FC)->field_24;
+    M2C_FIELD(&D_8007B0C8, f32 *, 4) = (f32) ((__repair_record_D_8006A4FC*)D_8006A4FC)->field_28;
+    M2C_FIELD(&D_8007B0C8, f32 *, 8) = (f32) ((__repair_record_D_8006A4FC*)D_8006A4FC)->field_2C;
+    M2C_FIELD(&D_8007B0D8, s32 *, 0) = (s32) ((__repair_record_D_8006A4FC*)D_8006A4FC)->field_18;
+    M2C_FIELD(&D_8007B0D8, s32 *, 4) = (s32) ((__repair_record_D_8006A4FC*)D_8006A4FC)->field_1C;
+    M2C_FIELD(&D_8007B0D8, s32 *, 8) = (s32) ((__repair_record_D_8006A4FC*)D_8006A4FC)->field_20;
     M2C_FIELD(temp_v0_3, M2C_UNK **, 0x124) = &D_278900;
-    func_8027006C(&D_8006A4FC, temp_a1);
+    func_8027006C();
 }
