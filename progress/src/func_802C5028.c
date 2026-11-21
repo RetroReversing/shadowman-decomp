@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -25,17 +25,15 @@ extern s16 D_80075522;
 extern M2C_UNK D_80075568;
 
 void func_802C5028(void) {
-    s32 *__base_D_8002D420;
-    __base_D_8002D420 = &D_8002D420;
-    if (((*__base_D_8002D420) & 0x24) != 0x24) {
-        if (!((*__base_D_8002D420) & 0x800000)) {
+    if ((D_8002D420 & 0x24) != 0x24) {
+        if (!(D_8002D420 & 0x800000)) {
             func_8023DF7C(&D_80075568, &D_80075518, 4, 0xA, 0x2D, 2);
         }
     }
-    if (!((*(&D_8002D420)) & 1)) {
+    if (!(D_8002D420 & 1)) {
         func_8023DF7C(&D_80075568, &D_80075518, 0x32, 0xA, 0x2D, 2);
     }
-    if (((*__base_D_8002D420) & 0x80) && (D_800458AC == 0)) {
+    if ((D_8002D420 & 0x80) && (D_800458AC == 0)) {
         D_800458AC = 1;
         func_8023DF7C(&D_80075568, &D_80075518, 0x94, 0xA, 0x2D, 2);
     }
