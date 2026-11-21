@@ -22,13 +22,15 @@ extern M2C_UNK D_80075F68;
 extern s16 D_80075F80;
 
 void func_8026E43C(s32 arg0) {
+    M2C_UNK *__base_D_80030610;
     s32 var_v1;
     void *var_v0;
 
     func_8025DF30();
     func_8011BA20(&D_80075F20, 0, 0x34);
     var_v1 = 0xF;
-    var_v0 = &D_80030610 + 0x1E;
+    __base_D_80030610 = &D_80030610;
+    var_v0 = (void *) ((0x1E) + (s32) __base_D_80030610);
     do {
         M2C_FIELD(var_v0, s8 *, 1) = 0;
         var_v1 -= 1;
