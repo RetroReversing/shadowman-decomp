@@ -6586,6 +6586,22 @@
    "timeout": 20,
    "function": "func_8022251C",
    "vram": 2149721372
+  },
+  "31613744:2149803856": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80236750",
+   "vram": 2149803856
   }
  },
  "instructions": "",
@@ -6643,7 +6659,8 @@
   "code_8021D4C0_1E32E0C": "common_code_8021D4C0_1E32E0C.h",
   "code_80103060_01BA5C": "common_code_80103060_01BA5C.h",
   "code_80103060_004BA8": "common_code_80103060_004BA8.h",
-  "code_8021D4C0_1E120FC": "common_code_8021D4C0_1E120FC.h"
+  "code_8021D4C0_1E120FC": "common_code_8021D4C0_1E120FC.h",
+  "code_8021D4C0_1E26330": "common_code_8021D4C0_1E26330.h"
  },
  "functions": {
   "func_80103060": {
@@ -9723,8 +9740,8 @@
   },
   "func_80236750": {
    "vram": 2149803856,
-   "best_score": 200,
-   "best_by": "permuter-42949673847"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_802367B4": {
    "vram": 2149803956,
