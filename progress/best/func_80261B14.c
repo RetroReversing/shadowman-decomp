@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -24,7 +24,6 @@ extern s32 D_8005EA0C;
 extern s32 D_8005EA14;
 
 s32 func_80261B14(void *arg0, s32 arg1) {
-    s32 ret;
     void *temp_s0;
 
     temp_s0 = func_8023C3E0();
@@ -38,11 +37,9 @@ s32 func_80261B14(void *arg0, s32 arg1) {
     if (func_8026E67C(temp_s0) == -1) {
         M2C_FIELD(temp_s0, f32 *, 0xC) = (f32) M2C_FIELD(arg0, s32 *, 0x18);
         M2C_FIELD(temp_s0, f32 *, 0x10) = (f32) M2C_FIELD(arg0, s32 *, 0x18);
-        M2C_FIELD(temp_s0, s32 *, 0x88) = func_80239398(*(s32 *)((D_8005EA0C * 4) + func_80261408()),  temp_s0,  arg1);
-        ret = func_80261BF4();
-    } else {
-        func_8023C43C(temp_s0);
-        ret = 0;
+        M2C_FIELD(temp_s0, s32 *, 0x88) = func_80239398(*(s32 *)((D_8005EA0C * 4) + func_80261408()), temp_s0, arg1, D_24F54C, 0x20000);
+        return func_80261BF4();
     }
-    return ret;
+    func_8023C43C(temp_s0);
+    return 0;
 }

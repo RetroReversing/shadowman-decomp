@@ -1,29 +1,45 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
+#ifndef M2C_DEFINES
+#define M2C_DEFINES
+typedef s32 M2C_UNK;
+typedef s8 M2C_UNK8;
+typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#define M2C_ERROR(desc) (0)
+#define M2C_CARRY 0
+#define M2C_OVERFLOW(a) (0)
+#endif
 
-s32 func_80246F50(s16, s32);                /* extern */
-s32 func_8025FE34(s16);                             /* extern */
-s32 func_802C074C(s16, s32, s32);       /* extern */
-extern s32 D_8002DBD0;
-extern s32 D_80075F58;
+extern int D_8002DBE4;
+extern short D_80075F62;
+extern int D_8002DBD4;
+extern short D_80075F60;
+s32 func_80246F50();
+s32 func_8025FE34();
+s32 func_802C074C();
+extern char D_8002DBD0[];
+extern char D_80075F58[];
 extern s16 D_80075F5A;
 
 void func_802C0C90(s32 arg0, s32 arg1) {
     s32 temp_s2;
     s32 temp_s3;
 
-    if ((arg1 != 1) || ((u32)D_80075F5A != 0)) {
-        temp_s2 = (*(s32 *)((char *)(&D_8002DBD0) + 0x14));
+    if ((arg1 != 1) || (D_80075F5A != 0)) {
+        temp_s2 = D_8002DBE4;
         if (temp_s2 == -1) {
-            if (func_8025FE34((*(s16 *)((char *)(&D_80075F58) + 0xA))) != 0) {
-                func_802C074C((*(s16 *)((char *)(&D_80075F58) + 0xA)), 1, 0x50);
-                func_80246F50((*(s16 *)((char *)(&D_80075F58) + 0xA)), 1);
+            if (func_8025FE34(D_80075F62) != 0) {
+                func_80246F50(D_80075F62, 1);
+                func_802C074C(D_80075F62, 1, 0x50);
             }
-            temp_s3 = (*(s32 *)((char *)(&D_8002DBD0) + 0x14));
-            if ((temp_s3 == temp_s2) && (arg0 != 0) && ((*(s32 *)((char *)(&D_8002DBD0) + 4)) != 7) && ((*(s16 *)((char *)(&D_80075F58) + 8)) != 7)) {
-                do { func_80246F50(7, 1); } while (0);
+            temp_s3 = D_8002DBE4;
+            if ((temp_s3 == temp_s2) && (arg0 != 0) && (D_8002DBD4 != 7) && (D_80075F60 != 7)) {
+                func_80246F50(7, 1);
                 func_802C074C(7, 1, 0x50);
-                if ((*(s16 *)((char *)(&D_80075F58) + 8)) == 7) {
-                    (*(s16 *)((char *)(&D_80075F58) + 8)) = (s16) temp_s3;
+                if (D_80075F60 == 7) {
+                    D_80075F60 = (s16) temp_s3;
                 }
             }
         }

@@ -1,3 +1,4 @@
+/* adapted from similar verified C in func_802701FC in Shadowman (matched), with its names changed by decompdecomp */
 /* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
@@ -17,8 +18,8 @@ f32 func_802369D8(void *arg0, void *arg1) {
     f32 temp_fv0f;
     f32 temp_fv1f;
 
-    temp_fv0 = M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg1, f32 *, 0);
+    temp_fv0f = M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg1, f32 *, 0);
     temp_fv1f = M2C_FIELD(arg0, f32 *, 4) - M2C_FIELD(arg1, f32 *, 4);
-    temp_fv0f = M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(arg1, f32 *, 8);
-    return sqrtf((temp_fv0 * temp_fv0) + (temp_fv1f * temp_fv1f) + (temp_fv0f * temp_fv0f));
+    temp_fv0 = M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(arg1, f32 *, 8);
+    return (temp_fv0f * temp_fv0f) + (temp_fv1f * temp_fv1f) + (temp_fv0 * temp_fv0);
 }

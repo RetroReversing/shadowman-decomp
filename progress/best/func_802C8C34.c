@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -24,8 +24,6 @@ extern M2C_UNK D_80075598;
 extern M2C_UNK D_80075F58;
 
 void func_802C8C34(void) {
-int __repair_constant = -1;
-
     f32 sp10;
     s32 sp14;
     s32 sp18;
@@ -37,16 +35,16 @@ int __repair_constant = -1;
     f32 temp_ft1f;
     void *temp_v0;
 
-    sp10 = M2C_FIELD(&D_218584, s32 *, 0);
+    sp10 = M2C_FIELD(&D_218584, f32 *, 0);
     sp14 = M2C_FIELD(&D_218584, s32 *, 4);
     sp18 = M2C_FIELD(&D_218584, s32 *, 8);
-    func_8011BA20(&sp20, 0, 0xC, M2C_FIELD(&D_218584, s32 *, 0));
+    func_8011BA20(&sp20, 0, 0xC, M2C_FIELD(&D_218584, f32 *, 0));
     D_80030C74 = 2;
     D_80030E34 = D_80030E3C;
-    do { func_80246F50(-1, 1); } while (0);
+    func_80246F50(-1, 1);
     func_802601F4(0x17);
-    M2C_FIELD(&D_80075F58, u16 *, 0xA) = __repair_constant;
-    M2C_FIELD(&D_80075F58, u16 *, 6) = __repair_constant;
+    M2C_FIELD(&D_80075F58, s16 *, 0xA) = -1;
+    M2C_FIELD(&D_80075F58, s16 *, 6) = -1;
     temp_v0 = &D_80075598 + 4;
     temp_ft1f = M2C_FIELD(&sp10, f32 *, 4);
     temp_ft1 = M2C_FIELD(&sp10, f32 *, 8);

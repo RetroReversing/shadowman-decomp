@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -24,16 +24,14 @@ extern s32 D_8007AF84;
 extern void *D_8007AFF8;
 
 void func_802841B4(void) {
-    M2C_UNK *__base_D_212078;
-    char sp20[0x10];
+    M2C_UNK sp20;
     f32 temp_fa0;
     f32 temp_fv0f;
     void *temp_v1;
 
-    do { func_8023E724(D_8007AF84, D_80033A00, &D_80033A1C, sp20, *(f32 *)0x214D88, *(f32 *)0x214D8C, 0); } while (0);
-    func_80298994(&D_8007558C, sp20);
-    __base_D_212078 = &D_212078;
-    temp_v1 = (M2C_FIELD(D_8007AFF8, u8 *, 0x40) * 0x6C) + __base_D_212078;
+    func_8023E724(D_8007AF84, D_80033A00, &D_80033A1C, &sp20, *(f32 *)0x214D88, *(f32 *)0x214D8C, 0);
+    func_80298994(&D_8007558C, &sp20);
+    temp_v1 = (M2C_FIELD(D_8007AFF8, u8 *, 0x40) * 0x6C) + &D_212078;
     temp_fa0 = (f32) (M2C_FIELD(temp_v1, u8 *, 0x24) * 0x64);
     temp_fv0f = temp_fa0 * M2C_FIELD(temp_v1, f32 *, 0x34) * *(f32 *)0x214D90;
     M2C_FIELD(D_8007AFF8, u8 *, 0x41) = (u8) (M2C_FIELD(D_8007AFF8, u8 *, 0x41) + ((s32) temp_fv0f / 100));

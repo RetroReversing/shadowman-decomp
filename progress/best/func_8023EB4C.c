@@ -1,10 +1,20 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
+#ifndef M2C_DEFINES
+#define M2C_DEFINES
+typedef s32 M2C_UNK;
+typedef s8 M2C_UNK8;
+typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#define M2C_ERROR(desc) (0)
+#define M2C_CARRY 0
+#define M2C_OVERFLOW(a) (0)
+#endif
 
-s32 func_8023EA30(s32, void *, s16, s32);       /* extern */
+M2C_UNK func_8023EA30(s32, void *, s16, s32);       /* extern */
 
 void func_8023EB4C(void *arg0, void *arg1) {
-int __repair_literal;
-
     s16 temp_a0;
     s16 temp_a2;
     s16 temp_v0_2;
@@ -19,35 +29,34 @@ int __repair_literal;
     void *var_s2;
     void *var_s6;
 
-    var_s6 = (*(void **)((char *)(arg1) + 0x40));
-    temp_fp = (*(void **)((char *)(arg1) + 0x48));
-    temp_s7 = (*(s32 *)((char *)(arg0) + 0x28));
+    var_s6 = M2C_FIELD(arg1, void **, 0x40);
+    temp_fp = M2C_FIELD(arg1, void **, 0x48);
+    temp_s7 = M2C_FIELD(arg0, s32 *, 0x28);
     var_s4 = 0;
-__repair_literal = 0;
-
-    if ((*(s16 *)((char *)(arg1) + 0x3E)) > __repair_literal) {
-        var_s2 = (*(s32 *)((char *)(temp_fp) + 8)) + 6;
-        do {
-            temp_v0 = (*(s16 *)((char *)(var_s2) + 2)) * 8;
-            func_8023EA30(temp_s7 + temp_v0, var_s6, (*(s16 *)((char *)(var_s2) + -2)), (*(s32 *)((char *)(arg1) + 0x4C)) + temp_v0);
+    if (M2C_FIELD(arg1, s16 *, 0x3E) > 0) {
+        var_s2 = M2C_FIELD(temp_fp, s32 *, 8) + 6;
+        __repair_rows: {
+            temp_v0 = M2C_FIELD(var_s2, s16 *, 2) * 8;
+            func_8023EA30(temp_s7 + temp_v0, var_s6, M2C_FIELD(var_s2, s16 *, -2), M2C_FIELD(arg1, s32 *, 0x4C) + temp_v0);
             var_s1 = 0;
-            temp_a0 = (*(s16 *)((char *)(var_s2) + 0));
+            temp_a0 = M2C_FIELD(var_s2, s16 *, 0);
             if (temp_a0 > 0) {
-                var_s0 = (*(s32 *)((char *)(temp_fp) + 0xC)) + ((*(u16 *)((char *)(var_s2) + 4)) * 0x3C) + 0xC;
+                var_s0 = M2C_FIELD(temp_fp, s32 *, 0xC) + (M2C_FIELD(var_s2, u16 *, 4) * 0x3C) + 0xC;
                 var_a1 = var_s0;
                 do {
                     var_s1 += 1;
-                    temp_a2 = (*(s16 *)((char *)(var_s0) + -6));
+                    temp_a2 = M2C_FIELD(var_s0, s16 *, -6);
+                    temp_v0_2 = M2C_FIELD(var_s0, s16 *, -4);
                     var_s0 += 0x3C;
-                    temp_v0_2 = (*(s16 *)((char *)(var_s0) + -4));
                     temp_v0_3 = temp_v0_2 * 8;
-                    func_8023EA30(temp_s7 + temp_v0_3, var_a1, temp_a2, (*(s32 *)((char *)(arg1) + 0x4C)) + temp_v0_3);
+                    func_8023EA30(temp_s7 + temp_v0_3, var_a1, temp_a2, M2C_FIELD(arg1, s32 *, 0x4C) + temp_v0_3);
                     var_a1 = var_s0;
-                } while (temp_a0 > var_s1);
+                } while (var_s1 < temp_a0);
             }
             var_s4 += 1;
             var_s6 += 0x40;
             var_s2 += 0xC;
-        } while (var_s4 < (*(s16 *)((char *)(arg1) + 0x3E)));
+        }
+if (var_s4 < M2C_FIELD(arg1, s16 *, 0x3E)) goto __repair_rows;
     }
 }
