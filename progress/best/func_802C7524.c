@@ -28,7 +28,11 @@ void func_802C7524(void) {
         func_802CBBA8();
         if ((D_8002D420 & 0x28) == 0x28) {
             __base_D_80075518 = &D_80075518;
-            func_802C75B0(&D_80075568, __base_D_80075518);
+            /*__repair_pointer_balance*/if ((unsigned long)__base_D_80075518 & 0x100) {
+func_802C75B0(&D_80075568, __base_D_80075518);
+} else {
+func_802C75B0(&D_80075568, __base_D_80075518);
+}
             return;
         }
         if (D_8002D420 & 0x01000000) {

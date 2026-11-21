@@ -27,7 +27,7 @@ void func_801172C0(void *arg0) {
 u16 __repair_result_var_v1;
 
     var_v1 = 4;
-    temp_s1 = func_80118330();
+    temp_s1 = func_80118330(arg0);
     if (arg0 != NULL) {
         __repair_result_var_v1 = M2C_FIELD(arg0, u16 *, 0x10);
     }
@@ -41,7 +41,7 @@ u16 __repair_result_var_v1;
             /* Duplicate return node #12. Try simplifying control flow for better match */
             M2C_FIELD(arg0, u16 *, 0x10) = 1U;
             func_80117370(((__repair_field_8 *)arg0)->value, arg0);
-            func_80118350(temp_s1);
+            do { func_80118350(temp_s1); } while (0);
             return;
         }
         if (temp_v1 != 8) {

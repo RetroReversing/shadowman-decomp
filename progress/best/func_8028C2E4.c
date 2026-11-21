@@ -24,7 +24,7 @@ extern s8 D_8007AFA4;
 extern void *D_8007AFF8;
 
 void func_8028C2E4(s32 arg0) {
-    func_8027003C();
+    do { func_8027003C(); } while (0);
     D_800459B4 = (s32) M2C_FIELD(D_8007AFF8, s32 *, 0x10C);
     D_800459B0 = arg0;
     M2C_FIELD(D_8007AFF8, s32 *, 0x44) = (s32) ((((((M2C_FIELD(D_8007AFF8, s32 *, 0x44) | 0x22008) & ~0x80) | 0x10010) & ~2) | 0x02000000) & 0xF7FFFFFF & ~4);
@@ -32,7 +32,7 @@ void func_8028C2E4(s32 arg0) {
     D_8004EC82 = 0;
     D_8007AFA4 = 0;
     M2C_FIELD(D_8007AFF8, s32 *, 0x44) |= 0x10;
-    func_8026F6BC(0x2F, D_8007AFF8, 0x22008);
+    func_8026F6BC(0x2F, D_8007AFF8);
     func_8026F6BC(0x1F);
     func_8027006C();
 }

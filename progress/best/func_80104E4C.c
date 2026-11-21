@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -16,12 +16,8 @@ s32 func_80104E98();                                /* extern */
 s32 func_80104E9C();                                /* extern */
 
 s32 func_80104E4C(void *arg0, s32 arg1, s32 arg2) {
-int __repair_literal;
-
     if (arg2 != 1) {
-__repair_literal = 2;
-
-        if (arg2 < __repair_literal) {
+        if (arg2 < 2) {
             if (arg2 != 0) {
                 return func_80104E9C();
             }

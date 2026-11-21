@@ -13,7 +13,7 @@ typedef s32 M2C_UNK32;
 #endif
 
 M2C_UNK func_8010472C();                            /* extern */
-M2C_UNK func_801048F8(s32, void *, M2C_UNK);                 /* extern */
+M2C_UNK func_801048F8(s32, void *);                 /* extern */
 s32 func_801049E4(M2C_UNK, s32);                    /* extern */
 M2C_UNK func_80105350(s32, void *, M2C_UNK, M2C_UNK);    /* extern */
 
@@ -24,7 +24,7 @@ void func_801046A0(s32 arg0, void *arg1, M2C_UNK arg2, M2C_UNK arg3) {
 
     var_s4 = 1;
 loop_1:
-    func_801048F8(arg0, arg1, arg2);
+    func_801048F8(arg0, arg1);
     temp_s1 = M2C_FIELD(arg1, s32 *, 0xC);
     temp_s0 = M2C_FIELD(arg1, s32 *, 4);
     func_80105350(arg0, arg1, arg2, arg3);

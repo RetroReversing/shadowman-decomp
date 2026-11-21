@@ -23,18 +23,10 @@ extern s32 D_80075510;
 /* Warning: Gap in callee-saved word stack region.
  * Saved: [0x60, 0x64, 0x68, 0x6c, 0x70, 0x74, 0x78, 0x88, 0x8c, 0x98, 0x9c], gap at: 0x7c. */
 void func_80247F98(void *arg0) {
-    f32 sp20;
-    f32 sp24;
-    f32 sp28;
-    f32 sp30;
-    f32 sp34;
-    f32 sp38;
-    f32 sp40;
-    f32 sp44;
-    f32 sp48;
-    f32 sp50;
-    f32 sp54;
-    f32 sp58;
+    f32 sp20[3];
+    f32 sp30[3];
+    f32 sp40[3];
+    f32 sp50[3];
     f32 temp_fs0;
     f32 temp_fs0_2;
     f32 temp_fs0f;
@@ -61,27 +53,27 @@ void func_80247F98(void *arg0) {
         temp_fs1f = *(f32 *)0x202C88;
         temp_fs1 = *(f32 *)0x202C8C;
         do {
-            sp40 = func_8022EBE8(temp_fs1f);
+            sp40[0] = func_8022EBE8(temp_fs1f);
             temp_fs0 = func_8022EBE8(temp_fs1f);
-            sp44 = temp_fs0 + func_8022EC3C(*(f32 *)0x202C90);
-            sp48 = func_8022EBE8(temp_fs1f);
+            sp40[1] = temp_fs0 + func_8022EC3C(*(f32 *)0x202C90);
+            sp40[2] = func_8022EBE8(temp_fs1f);
             temp_fv0 = func_8022EBE8(*(f32 *)0x202C94);
-            sp28 = temp_fv0;
-            sp24 = temp_fv0;
-            sp20 = temp_fv0;
-            sp30 = func_8022EBE8(temp_fs1);
-            sp34 = func_8022EBE8(temp_fs1);
-            sp38 = func_8022EBE8(temp_fs1);
-            sp50 = M2C_FIELD(temp_s3, f32 *, 0x24);
-            sp54 = M2C_FIELD(temp_s3, f32 *, 0x28);
-            sp58 = M2C_FIELD(temp_s3, f32 *, 0x2C);
-            sp50 += func_8022EBE8(temp_fs0f);
-            sp54 += func_8022EBE8(temp_fs0f);
-            sp58 += func_8022EBE8(temp_fs0f);
+            sp20[2] = temp_fv0;
+            sp20[1] = temp_fv0;
+            sp20[0] = temp_fv0;
+            sp30[0] = func_8022EBE8(temp_fs1);
+            sp30[1] = func_8022EBE8(temp_fs1);
+            sp30[2] = func_8022EBE8(temp_fs1);
+            sp50[0] = M2C_FIELD(temp_s3, f32 *, 0x24);
+            sp50[1] = M2C_FIELD(temp_s3, f32 *, 0x28);
+            sp50[2] = M2C_FIELD(temp_s3, f32 *, 0x2C);
+            sp50[0] += func_8022EBE8(temp_fs0f);
+            sp50[1] += func_8022EBE8(temp_fs0f);
+            sp50[2] += func_8022EBE8(temp_fs0f);
             temp_s0 = func_80113AD0() % 3;
             var_s1 += 1;
             temp_fs0_2 = func_8022EC3C(*(f32 *)0x202C98) + *(f32 *)0x202C9C;
-            func_8029ACC8(6, temp_s0, &sp50, &sp40, &sp20, &sp30, temp_fs0_2, (f32) ((func_80113AD0() % 50) + 0x64));
+            func_8029ACC8(6, temp_s0, sp50, sp40, sp20, sp30, temp_fs0_2, (f32) ((func_80113AD0() % 50) + 0x64));
         } while (var_s1 < var_s2);
     }
     if (arg0 != D_80075510) {

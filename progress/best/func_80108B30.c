@@ -18,13 +18,16 @@ extern M2C_UNK D_8004DA90;
 extern u32 D_80052768;
 
 s32 func_80108B30(void) {
+    s32 ret;
     s32 var_v0;
 
-    if (D_800458F0 == 0) {
+    if (D_800458F0 != 0) {
+        ret = (u32) D_8002D170 >= (u32) D_80052768;
+    } else {
         if ((M2C_FIELD(&D_8004DA90, s32 *, 0) == 0) || (var_v0 = 1, (M2C_FIELD(&D_8004DA90, s16 *, 0x14) != 0))) {
             var_v0 = 0;
         }
-        return var_v0;
+        ret = var_v0;
     }
-    return (u32) D_8002D170 >= (u32) D_80052768;
+    return ret;
 }

@@ -38,7 +38,7 @@ void func_80242380(s32 arg0, f32 arg1, f32 arg2, s32 arg3) {
         }
     } else {
 block_5:
-        (*__base_D_8006A9AC) = arg0;
+        (*(&D_8006A9AC)) = arg0;
         if ((D_8006A9A8 & 1) || (arg0 & 1) || !(D_8002C0F0 & 0x40)) {
             __base_D_800527C0 = &D_800527C0;
             (*__base_D_800527C0) = *(f32 *)0x2027D4;

@@ -43,8 +43,8 @@ void func_80239C38(void *arg0, void *arg1) {
     temp_fv1f = temp_fv0f * temp_fv0_2;
     (*(f32 *)((char *)(arg1) + 0x18)) = (f32) -temp_fs1f;
     (*(s32 *)((char *)(arg1) + 0x24)) = 0;
-    (*(s32 *)((char *)(arg1) + 0x2C)) = 0;
     (*(s32 *)((char *)(arg1) + 0x28)) = 0;
+    (*(s32 *)((char *)(arg1) + 0x2C)) = 0;
     (*(f32 *)((char *)(arg1) + 0)) = temp_ft2f;
     (*(f32 *)((char *)(arg1) + 0xC)) = (f32) (temp_fs0f_2 * temp_fs0_2);
     (*(f32 *)((char *)(arg1) + 0x1C)) = (f32) (temp_fs2f * temp_fs0f_2);

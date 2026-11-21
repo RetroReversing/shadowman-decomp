@@ -16,15 +16,17 @@ extern M2C_UNK D_80052770;
 extern M2C_UNK D_8007C2A0;
 
 void func_802D69E0(void) {
+    M2C_UNK *__base_D_8007C2A0;
     s32 temp_v0;
     void *temp_a0;
 
-    temp_a0 = &D_8007C2A0 - 0x348;
-    if (M2C_FIELD(&D_8007C2A0, s32 *, 8) == 1) {
+    __base_D_8007C2A0 = &D_8007C2A0;
+    temp_a0 = __base_D_8007C2A0 - 0x348;
+    if (M2C_FIELD(__base_D_8007C2A0, s32 *, 8) == 1) {
         temp_v0 = M2C_FIELD(temp_a0, s32 *, 0x374) - M2C_FIELD(&D_80052770, s32 *, 4);
         M2C_FIELD(temp_a0, s32 *, 0x374) = temp_v0;
         if (temp_v0 < 0) {
-            M2C_FIELD(&D_8007C2A0, s32 *, 8) = 0;
+            M2C_FIELD(__base_D_8007C2A0, s32 *, 8) = 0;
         }
     }
 }

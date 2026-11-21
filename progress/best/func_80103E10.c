@@ -68,33 +68,35 @@ loop_7:
 block_13:
     var_a0_2 = D_8004AD70;
     if (var_a0_2 != NULL) {
-loop_14:
-        if (M2C_FIELD(var_a0_2, u8 *, 0xC) == 2) {
-            M2C_FIELD(var_a0_2, u8 *, 0xC) = 0U;
-            temp_v0_3 = func_80103878(0x7D0, 4, 0);
-            func_8011BA20(temp_v0_3, 0, 0x7D0);
-            var_a1 = 0;
-            var_v0 = 0 << 0x10;
-            do {
-                temp_a0 = var_v0 >> 0x10;
-                if (temp_a0 < 0x63) {
-                    temp_v0_5 = temp_a0 * 0x14;
-                    M2C_FIELD((temp_v0_5 + temp_v0_3), void **, 0x10) = (void *) (temp_v0_3 + (temp_v0_5 + 0x14));
-                }
-                M2C_FIELD(((temp_a0 * 0x14) + temp_v0_3), s8 *, 0xC) = 0;
-                temp_v0_4 = var_a1 + 1;
-                var_a1 = temp_v0_4;
-                var_v0 = var_a1 << 0x10;
-            } while (temp_v0_4 < 0x64);
-            M2C_FIELD(temp_v0_3, s8 *, 0xC) = 2;
-            return func_80103E24(temp_a0, var_a1);
+        for (;;) {
+            if (M2C_FIELD(var_a0_2, u8 *, 0xC) == 2) {
+                M2C_FIELD(var_a0_2, u8 *, 0xC) = 0U;
+                temp_v0_3 = func_80103878(0x7D0, 4, 0);
+                func_8011BA20(temp_v0_3, 0, 0x7D0);
+                var_a1 = 0;
+                var_v0 = 0 << 0x10;
+                do {
+                    temp_a0 = var_v0 >> 0x10;
+                    if (temp_a0 < 0x63) {
+                        temp_v0_5 = temp_a0 * 0x14;
+                        M2C_FIELD((temp_v0_5 + temp_v0_3), void **, 0x10) = (void *) (temp_v0_3 + (temp_v0_5 + 0x14));
+                    }
+                    M2C_FIELD(((temp_a0 * 0x14) + temp_v0_3), s8 *, 0xC) = 0;
+                    temp_v0_4 = var_a1 + 1;
+                    var_a1 = temp_v0_4;
+                    var_v0 = var_a1 << 0x10;
+                } while (temp_v0_4 < 0x64);
+                M2C_FIELD(temp_v0_3, s8 *, 0xC) = 2;
+                return func_80103E24(temp_a0, var_a1);
+            }
+            var_a0_2 = M2C_FIELD(var_a0_2, void **, 0x10);
+            if (var_a0_2 == NULL) {
+                /* Duplicate return node #22. Try simplifying control flow for better match */
+                return 0;
+            }
+            continue;
+            break;
         }
-        var_a0_2 = M2C_FIELD(var_a0_2, void **, 0x10);
-        if (var_a0_2 == NULL) {
-            /* Duplicate return node #22. Try simplifying control flow for better match */
-            return 0;
-        }
-        goto loop_14;
     }
     return 0;
 }

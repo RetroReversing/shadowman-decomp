@@ -1,7 +1,7 @@
 {
  "format": 2,
- "saved_at": 1795220863.957821,
- "revision": 462,
+ "saved_at": 1795220890.6506329,
+ "revision": 464,
  "title": "Shadowman",
  "platform": "n64",
  "game": {
@@ -5962,6 +5962,486 @@
    "timeout": 20,
    "function": "func_80287C74",
    "vram": 2150136948
+  },
+  "32269760:2150459872": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802D69E0",
+   "vram": 2150459872
+  },
+  "38704:2148567856": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80108B30",
+   "vram": 2148567856
+  },
+  "31868444:2150058556": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80274A3C",
+   "vram": 2150058556
+  },
+  "32056472:2150246584": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802A28B8",
+   "vram": 2150246584
+  },
+  "32281004:2150471116": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802D95CC",
+   "vram": 2150471116
+  },
+  "23116:2148552268": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80104E4C",
+   "vram": 2148552268
+  },
+  "31725404:2149915516": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80251B7C",
+   "vram": 2149915516
+  },
+  "31783244:2149973356": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_8025FD6C",
+   "vram": 2149973356
+  },
+  "31849860:2150039972": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802701A4",
+   "vram": 2150039972
+  },
+  "31980540:2150170652": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_8029001C",
+   "vram": 2150170652
+  },
+  "31825772:2150015884": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_8026A38C",
+   "vram": 2150015884
+  },
+  "97984:2148627136": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_801172C0",
+   "vram": 2148627136
+  },
+  "21152:2148550304": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_801046A0",
+   "vram": 2148550304
+  },
+  "32207108:2150397220": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802C7524",
+   "vram": 2150397220
+  },
+  "31964868:2150154980": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_8028C2E4",
+   "vram": 2150154980
+  },
+  "31964648:2150154760": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_8028C208",
+   "vram": 2150154760
+  },
+  "31841212:2150031324": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_8026DFDC",
+   "vram": 2150031324
+  },
+  "43144:2148572296": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80109C88",
+   "vram": 2148572296
+  },
+  "32077368:2150267480": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802A7A58",
+   "vram": 2150267480
+  },
+  "31819508:2150009620": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80268B14",
+   "vram": 2150009620
+  },
+  "31661920:2149852032": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80242380",
+   "vram": 2149852032
+  },
+  "31627288:2149817400": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80239C38",
+   "vram": 2149817400
+  },
+  "32206556:2150396668": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802C72FC",
+   "vram": 2150396668
+  },
+  "18960:2148548112": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80103E10",
+   "vram": 2148548112
+  },
+  "31946984:2150137096": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80287D08",
+   "vram": 2150137096
+  },
+  "32264776:2150454888": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802D5668",
+   "vram": 2150454888
+  },
+  "31685496:2149875608": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_80247F98",
+   "vram": 2149875608
+  },
+  "32216080:2150406192": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802C9830",
+   "vram": 2150406192
+  },
+  "32096908:2150287020": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802AC6AC",
+   "vram": 2150287020
+  },
+  "32222648:2150412760": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802CB1D8",
+   "vram": 2150412760
   }
  },
  "instructions": "",
@@ -6087,7 +6567,7 @@
   },
   "func_80103E10": {
    "vram": 2148548112,
-   "best_score": 6208,
+   "best_score": 3857,
    "best_by": "permuter-42949672980"
   },
   "func_80103FA8": {
@@ -6172,7 +6652,7 @@
   },
   "func_801046A0": {
    "vram": 2148550304,
-   "best_score": 1344,
+   "best_score": 1249,
    "best_by": "permuter-42949672997"
   },
   "func_801048A4": {
@@ -6237,8 +6717,8 @@
   },
   "func_80104E4C": {
    "vram": 2148552268,
-   "best_score": 1905,
-   "best_by": "permuter-42949673011"
+   "best_score": 1395,
+   "best_by": "autopilot"
   },
   "func_80104EA4": {
    "vram": 2148552356,
@@ -6597,8 +7077,8 @@
   },
   "func_80108B30": {
    "vram": 2148567856,
-   "best_score": 815,
-   "best_by": "autopilot"
+   "best_score": 220,
+   "best_by": "permuter-42949673101"
   },
   "func_80108B80": {
    "vram": 2148567936,
@@ -6667,7 +7147,7 @@
   },
   "func_80109C88": {
    "vram": 2148572296,
-   "best_score": 840,
+   "best_score": 160,
    "best_by": "permuter-42949673121"
   },
   "func_80109D80": {
@@ -7627,7 +8107,7 @@
   },
   "func_801172C0": {
    "vram": 2148627136,
-   "best_score": 1991,
+   "best_score": 1816,
    "best_by": "permuter-42949673389"
   },
   "func_80117370": {
@@ -9347,7 +9827,7 @@
   },
   "func_80239C38": {
    "vram": 2149817400,
-   "best_score": 170,
+   "best_score": 150,
    "best_by": "permuter-42949673913"
   },
   "func_80239D9C": {
@@ -9667,7 +10147,7 @@
   },
   "func_80242380": {
    "vram": 2149852032,
-   "best_score": 3365,
+   "best_score": 3160,
    "best_by": "permuter-42949673997"
   },
   "func_802427E8": {
@@ -9897,8 +10377,8 @@
   },
   "func_80247F98": {
    "vram": 2149875608,
-   "best_score": 3499,
-   "best_by": "autopilot"
+   "best_score": 2036,
+   "best_by": "permuter-42949674095"
   },
   "func_80248C7C": {
    "vram": 2149878908,
@@ -10177,8 +10657,8 @@
   },
   "func_80251B7C": {
    "vram": 2149915516,
-   "best_score": 1255,
-   "best_by": "permuter-42949674196"
+   "best_score": 1145,
+   "best_by": "autopilot"
   },
   "func_80251E40": {
    "vram": 2149916224,
@@ -10502,8 +10982,8 @@
   },
   "func_8025FD6C": {
    "vram": 2149973356,
-   "best_score": 1030,
-   "best_by": "permuter-42949674324"
+   "best_score": 890,
+   "best_by": "autopilot"
   },
   "func_8025FDC4": {
    "vram": 2149973444,
@@ -11002,7 +11482,7 @@
   },
   "func_80268B14": {
    "vram": 2150009620,
-   "best_score": 4109,
+   "best_score": 4074,
    "best_by": "permuter-42949674450"
   },
   "func_80268C2C": {
@@ -11107,7 +11587,7 @@
   },
   "func_8026A38C": {
    "vram": 2150015884,
-   "best_score": 2080,
+   "best_score": 205,
    "best_by": "permuter-42949674483"
   },
   "func_8026A420": {
@@ -11207,8 +11687,8 @@
   },
   "func_8026DFDC": {
    "vram": 2150031324,
-   "best_score": 4075,
-   "best_by": "autopilot"
+   "best_score": 2120,
+   "best_by": "permuter-42949674513"
   },
   "func_8026E0BC": {
    "vram": 2150031548,
@@ -11377,8 +11857,8 @@
   },
   "func_802701A4": {
    "vram": 2150039972,
-   "best_score": 925,
-   "best_by": "permuter-42949674555"
+   "best_score": 630,
+   "best_by": "autopilot"
   },
   "func_802701FC": {
    "vram": 2150040060,
@@ -11647,8 +12127,8 @@
   },
   "func_80274A3C": {
    "vram": 2150058556,
-   "best_score": 1265,
-   "best_by": "permuter-42949674627"
+   "best_score": 310,
+   "best_by": "autopilot"
   },
   "func_80274A90": {
    "vram": 2150058640,
@@ -12172,8 +12652,8 @@
   },
   "func_80287D08": {
    "vram": 2150137096,
-   "best_score": 8948,
-   "best_by": "autopilot"
+   "best_score": 5310,
+   "best_by": "permuter-42949674772"
   },
   "func_80287EC0": {
    "vram": 2150137536,
@@ -12227,12 +12707,12 @@
   },
   "func_8028C208": {
    "vram": 2150154760,
-   "best_score": 2345,
+   "best_score": 2155,
    "best_by": "permuter-42949674784"
   },
   "func_8028C2E4": {
    "vram": 2150154980,
-   "best_score": 1340,
+   "best_score": 810,
    "best_by": "permuter-42949674785"
   },
   "func_8028C3B0": {
@@ -12337,7 +12817,7 @@
   },
   "func_8029001C": {
    "vram": 2150170652,
-   "best_score": 1045,
+   "best_score": 220,
    "best_by": "permuter-42949674813"
   },
   "func_802901A4": {
@@ -12882,8 +13362,8 @@
   },
   "func_802A28B8": {
    "vram": 2150246584,
-   "best_score": 745,
-   "best_by": "permuter-42949674980"
+   "best_score": 230,
+   "best_by": "autopilot"
   },
   "func_802A2A78": {
    "vram": 2150247032,
@@ -13102,7 +13582,7 @@
   },
   "func_802A7A58": {
    "vram": 2150267480,
-   "best_score": 2505,
+   "best_score": 820,
    "best_by": "permuter-42949675034"
   },
   "func_802A7B60": {
@@ -13222,8 +13702,8 @@
   },
   "func_802AC6AC": {
    "vram": 2150287020,
-   "best_score": 4600,
-   "best_by": "autopilot"
+   "best_score": 3985,
+   "best_by": "permuter-42949675075"
   },
   "func_802AC970": {
    "vram": 2150287728,
@@ -14267,8 +14747,8 @@
   },
   "func_802C72FC": {
    "vram": 2150396668,
-   "best_score": 2875,
-   "best_by": "autopilot"
+   "best_score": 2622,
+   "best_by": "permuter-42949675353"
   },
   "func_802C7464": {
    "vram": 2150397028,
@@ -14277,7 +14757,7 @@
   },
   "func_802C7524": {
    "vram": 2150397220,
-   "best_score": 1816,
+   "best_score": 1616,
    "best_by": "permuter-42949675355"
   },
   "func_802C75E4": {
@@ -14377,8 +14857,8 @@
   },
   "func_802C9830": {
    "vram": 2150406192,
-   "best_score": 4211,
-   "best_by": "autopilot"
+   "best_score": 1830,
+   "best_by": "permuter-42949675377"
   },
   "func_802C9AC8": {
    "vram": 2150406856,
@@ -14437,8 +14917,8 @@
   },
   "func_802CB1D8": {
    "vram": 2150412760,
-   "best_score": 30406,
-   "best_by": "autopilot"
+   "best_score": 19106,
+   "best_by": "permuter-42949675390"
   },
   "func_802CB820": {
    "vram": 2150414368,
@@ -15307,8 +15787,8 @@
   },
   "func_802D5668": {
    "vram": 2150454888,
-   "best_score": 1925,
-   "best_by": "autopilot"
+   "best_score": 1770,
+   "best_by": "permuter-42949675588"
   },
   "func_802D5864": {
    "vram": 2150455396,
@@ -15387,8 +15867,8 @@
   },
   "func_802D69E0": {
    "vram": 2150459872,
-   "best_score": 295,
-   "best_by": "autopilot"
+   "best_score": 180,
+   "best_by": "permuter-42949675607"
   },
   "func_802D6A1C": {
    "vram": 2150459932,
@@ -15432,8 +15912,8 @@
   },
   "func_802D95CC": {
    "vram": 2150471116,
-   "best_score": 985,
-   "best_by": "permuter-42949675619"
+   "best_score": 450,
+   "best_by": "autopilot"
   },
   "func_802D9620": {
    "vram": 2150471200,

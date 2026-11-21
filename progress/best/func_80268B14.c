@@ -36,6 +36,8 @@ extern char D_800756A0[];
 extern u8 D_8007DB84;
 
 s32 func_80268B14(f32 arg0, f32 arg1, s32 arg2, s32 arg3) {
+int __repair_constant = 0xB4;
+
     float *__base_D_80075AA8;
     s32 ret;
 s32 __repair_result_ret;
@@ -57,15 +59,15 @@ s32 __repair_result_ret;
         func_80268AC0(8, 1U);
         func_80268AC0(0x10, 1U);
         D_80075AC0 = 1;
-        D_80075AC4 = 0xB4;
+        D_80075AC4 = __repair_constant;
         D_80075AE0 = 1;
-        D_80075AE4 = 0xB4;
+        D_80075AE4 = __repair_constant;
         D_80075AC8 = 1;
-        D_80075ACC = 0xB4;
+        D_80075ACC = __repair_constant;
         D_80075AD0 = 1;
-        D_80075AD4 = 0xB4;
+        D_80075AD4 = __repair_constant;
         D_80075AD8 = 1;
-        D_80075ADC = 0xB4;
+        D_80075ADC = __repair_constant;
         func_8011BA20((*__base_D_80075AA8) + 0x40, 0, 0x28);
         func_8011BA20(D_800756A0, 0, 0x400);
         ret = 1;
