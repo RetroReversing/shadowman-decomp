@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,12 +10,14 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+extern float D_80045C44;
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
-extern M2C_UNK D_80045C40;
+extern char D_80045C40[];
 extern s32 D_8007C2BC;
 
 void *func_802D4658(const void *arg0) {
+    D_80045C44 = (f32) M2C_FIELD(arg0, const f32 *, 4);
     D_8007C2BC = 1;
-    M2C_FIELD(&D_80045C40, f32 *, 4) = (f32) M2C_FIELD(arg0, const f32 *, 4);
     return arg0 + 8;
 }
