@@ -17337,6 +17337,22 @@
    "timeout": 20,
    "function": "func_802CE5E4",
    "vram": 2150426084
+  },
+  "32236092:2150426204": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802CE65C",
+   "vram": 2150426204
   }
  },
  "instructions": "",
@@ -26225,8 +26241,8 @@
   },
   "func_802CE65C": {
    "vram": 2150426204,
-   "best_score": 720,
-   "best_by": "permuter-42949675443"
+   "matched_by": "api-claude-sonnet-5-5-3",
+   "readable": false
   },
   "func_802CE6D8": {
    "vram": 2150426328,
