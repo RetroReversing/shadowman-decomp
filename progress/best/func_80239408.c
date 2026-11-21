@@ -1,29 +1,14 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-void *func_801043F8(M2C_UNK, M2C_UNK, M2C_UNK);     /* extern */
-M2C_UNK func_8023943C(s32 **);                      /* extern */
-extern s32 *D_800698B4;
+typedef struct S { struct S *next; s32 b; } S;
+extern void *func_801043F8(s32, s32, s32);
+extern S *D_800698B4;
 
 void func_80239408(void) {
-    void *temp_v0;
-
+    S *p;
     if (D_800698B4 != NULL) {
-        func_8023943C(&D_800698B4);
+        D_800698B4 = D_800698B4->next;
         return;
     }
-    temp_v0 = func_801043F8(0x1C, 2, 0);
-    M2C_FIELD(temp_v0, s32 *, 0) = 0;
-    M2C_FIELD(temp_v0, s32 *, 4) = 0;
+    p = func_801043F8(0x1C, 2, 0);
+    p->next = 0;
+    p->b = 0;
 }

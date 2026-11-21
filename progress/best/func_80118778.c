@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -21,19 +21,17 @@ u8 *func_80118778(u8 *arg0, s32 arg1) {
     var_v1 = *var_v0;
     temp_a1 = arg1 & 0xFF;
     if (var_v1 != temp_a1) {
-        for (;;) {
-            var_v0 += 1;
-            if (var_v1 == 0) {
-                return NULL;
-            }
-            var_v1 = *var_v0;
-            if (var_v1 == temp_a1) {
-                /* Duplicate return node #4. Try simplifying control flow for better match */
-                return var_v0;
-            }
-            continue;
-            break;
+loop_1:
+        var_v0 += 1;
+        if (var_v1 == 0) {
+            return NULL;
         }
+        var_v1 = *var_v0;
+        if (var_v1 == temp_a1) {
+            /* Duplicate return node #4. Try simplifying control flow for better match */
+            return var_v0;
+        }
+        goto loop_1;
     }
     return var_v0;
 }

@@ -17,16 +17,13 @@ extern void *D_80075560;
 extern void *D_800755CC;
 
 void func_802BFAE8(f32 arg0) {
-s32 __repair_operand;
-
     char *var_a0;
     s32 var_a2;
     void *temp_a3;
     void *var_v1;
 
     var_a2 = 0;
-    __repair_operand = M2C_FIELD(D_80075560, s32 *, 8);
-    temp_a3 = __repair_operand + (D_80072C18 * 0xC);
+    temp_a3 = M2C_FIELD(D_80075560, s32 *, 8) + (D_80072C18 * 0xC);
     var_a0 = M2C_FIELD(D_800755CC, s32 *, 0x18) + (M2C_FIELD(temp_a3, u16 *, 8) * 6);
     if (M2C_FIELD(temp_a3, u16 *, 4) != 0) {
         var_v1 = var_a0 + 4;

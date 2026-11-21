@@ -1,4 +1,4 @@
-/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -13,26 +13,27 @@ typedef s32 M2C_UNK32;
 #endif
 
 extern s32 D_8002D3F0;
-extern M2C_UNK D_800698C0;
+extern char D_800698C0[];
 
 void func_8023981C(f32 *arg0) {
+    s32 *__base_D_8002D3F0;
     f32 *temp_v0_2;
-    f32 *var_a0;
+    char *var_a0;
     s32 temp_v0;
     s32 var_a1;
     s32 var_a2;
 
     var_a0 = arg0;
     var_a2 = 0;
-    temp_v0 = D_8002D3F0 - 1;
+    __base_D_8002D3F0 = &D_8002D3F0;
+    temp_v0 = (*__base_D_8002D3F0) - 1;
     var_a1 = temp_v0 * 4;
-    D_8002D3F0 = temp_v0;
-    __repair_rows: {
-        temp_v0_2 = var_a1 + &D_800698C0;
+    (*__base_D_8002D3F0) = temp_v0;
+    do {
+        temp_v0_2 = var_a1 + D_800698C0;
         var_a1 += 0x100;
         var_a2 += 1;
-        *var_a0 = *temp_v0_2;
+        *(f32 *)var_a0 = *temp_v0_2;
         var_a0 += 4;
-    }
-if (var_a2 < 0xC) goto __repair_rows;
+    } while (var_a2 < 0xC);
 }

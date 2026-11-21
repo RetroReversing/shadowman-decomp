@@ -1,52 +1,28 @@
-/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-extern void *D_80059890;
+typedef struct { u16 id; s16 x; s32 key; } Ent;
+extern Ent *D_80059890;
 extern u32 D_8005989C;
 
 void func_80230BF4(s32 arg0) {
-    s32 var_v0;
-    u32 var_a1;
-    u32 var_a1_2;
-    void *temp_v1;
-    void *var_v1;
-
-    var_a1 = 0;
+    u32 i, j;
     if (D_8005989C != 0) {
-        var_v0 = 0 * 8;
-loop_2:
-        temp_v1 = var_v0 + D_80059890;
-        if (M2C_FIELD(temp_v1, s32 *, 4) == arg0) {
-            var_a1_2 = 0;
-            if (D_8005989C != 0) {
-                var_v1 = D_80059890;
-                do {
-                    var_a1_2 += 1;
-                    if (M2C_FIELD(var_v1, u16 *, 0) == (M2C_FIELD(temp_v1, u16 *, 0) & 0xFFFF)) {
-                        M2C_FIELD(var_v1, u16 *, 0) = 0xFFFFU;
-                        M2C_FIELD(var_v1, s16 *, 2) = 0;
-                    }
-                    var_v1 += 8;
-                } while (var_a1_2 < (u32) D_8005989C);
-            }
-        } else {
-            var_a1 += 1;
-            var_v0 = var_a1 * 8;
-            if (var_a1 >= (u32) D_8005989C) {
+        for (i = 0; i < D_8005989C; i++) {
+            Ent *e = &D_80059890[i];
+            if (e->key == arg0) {
+                u32 id = e->id;
+                if (D_8005989C != 0) {
+                    Ent *p = D_80059890;
+                    j = 0;
+                    do {
+                        j++;
+                        if (p->id == id) {
+                            p->id = 0xFFFF;
+                            p->x = 0;
+                        }
+                        p++;
+                    } while (j < D_8005989C);
+                }
                 return;
             }
-            goto loop_2;
         }
     }
 }

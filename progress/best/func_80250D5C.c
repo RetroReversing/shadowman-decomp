@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -21,7 +21,7 @@ void func_80250D5C(void *arg0, void *arg1) {
     var_a1 = arg1;
     var_a2 = 0;
     var_v1 = var_a1;
-    __repair_rows: {
+    do {
         temp_v0 = M2C_FIELD(var_v1, void **, 4);
         if (temp_v0 != NULL) {
             M2C_FIELD(temp_v0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) + M2C_FIELD(var_a1, f32 *, 0x24));
@@ -31,6 +31,5 @@ void func_80250D5C(void *arg0, void *arg1) {
         var_a1 += 0xC;
         var_a2 += 1;
         var_v1 += 4;
-    }
-if (var_a2 < 8) goto __repair_rows;
+    } while (var_a2 < 8);
 }
