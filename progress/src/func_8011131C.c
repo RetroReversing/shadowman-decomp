@@ -11,8 +11,8 @@ void func_8011131C(void *arg0, s32 arg1) {
     (*(s32 *)((char *)(arg0) + 0x14)) = func_8010EED0(0, 0, arg1, 1, 0x50);
     (*(s32 *)((char *)(arg0) + 0x38)) = 1;
     (*(s32 *)((char *)(arg0) + 0x48)) = 0;
-    (*(s16 *)((char *)(arg0) + 0x28)) = 1;
-    (*(s16 *)((char *)(arg0) + 0x1A)) = 1;
+    (*(s16 *)((char *)(arg0) + 26)) = 1;
+    (*(s16 *)((char *)(arg0) + 40)) = 1;
     (*(s16 *)((char *)(arg0) + 0x2E)) = 1;
     (*(s16 *)((char *)(arg0) + 0x1C)) = 1;
     (*(s16 *)((char *)(arg0) + 0x1E)) = 1;
