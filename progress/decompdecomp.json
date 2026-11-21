@@ -8506,6 +8506,22 @@
    "timeout": 20,
    "function": "func_802D4658",
    "vram": 2150450776
+  },
+  "32260744:2150450856": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802D46A8",
+   "vram": 2150450856
   }
  },
  "instructions": "",
@@ -17784,8 +17800,8 @@
   },
   "func_802D46A8": {
    "vram": 2150450856,
-   "best_score": 355,
-   "best_by": "permuter-42949675566"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_802D4D30": {
    "vram": 2150452528,
