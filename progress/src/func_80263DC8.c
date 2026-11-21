@@ -16,10 +16,14 @@ extern M2C_UNK D_80075180;
 extern M2C_UNK D_800751B0;
 
 void func_80263DC8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 arg4, f32 arg5) {
-    M2C_FIELD(&D_80075180, s32 *, 0x14) = arg0;
-    M2C_FIELD(&D_80075180, s32 *, 0x10) = arg2;
-    M2C_FIELD(&D_800751B0, s32 *, 0x14) = arg1;
-    M2C_FIELD(&D_800751B0, s32 *, 0x10) = arg3;
-    M2C_FIELD(&D_80075180, f32 *, 0xC) = arg4;
-    M2C_FIELD(&D_800751B0, f32 *, 0xC) = arg5;
+    M2C_UNK *__base_D_800751B0;
+    M2C_UNK *__base_D_80075180;
+    __base_D_80075180 = &D_80075180;
+    M2C_FIELD(__base_D_80075180, s32 *, 0x14) = arg0;
+    M2C_FIELD(__base_D_80075180, s32 *, 0x10) = arg2;
+    __base_D_800751B0 = &D_800751B0;
+    M2C_FIELD(__base_D_800751B0, s32 *, 0x14) = arg1;
+    M2C_FIELD(__base_D_800751B0, s32 *, 0x10) = arg3;
+    M2C_FIELD(__base_D_80075180, f32 *, 0xC) = arg4;
+    M2C_FIELD(__base_D_800751B0, f32 *, 0xC) = arg5;
 }
