@@ -10594,7 +10594,8 @@
   "code_8026C95C_1E61DF4": "common_code_8026C95C_1E61DF4.h",
   "code_80103060_009780": "common_code_80103060_009780.h",
   "code_8026C95C_1E69310": "common_code_8026C95C_1E69310.h",
-  "code_80103060_005060": "common_code_80103060_005060.h"
+  "code_80103060_005060": "common_code_80103060_005060.h",
+  "code_8021D4C0_1E1EC64": "common_code_8021D4C0_1E1EC64.h"
  },
  "functions": {
   "func_80103060": {
@@ -13269,8 +13270,8 @@
   },
   "func_8022F130": {
    "vram": 2149773616,
-   "best_score": 580,
-   "best_by": "autopilot"
+   "matched_by": "permuter-42949673732",
+   "readable": false
   },
   "func_8022F360": {
    "vram": 2149774176,
