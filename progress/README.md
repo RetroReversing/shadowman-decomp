@@ -14,7 +14,7 @@ Want to start your own decompilation? Follow [RetroReversing's AI-assisted N64 d
 - **Compiler:** sn-n64-281
 <!-- decompdecomp:details:end -->
 <!-- decompdecomp:progress:start -->
-- **Progress:** 1025 matching function(s), 987 best attempt(s)
+- **Progress:** 1025 matching function(s), 999 best attempt(s)
 - **Completion:** 1,025 / 2,614 functions (39.2%). 61 set aside, excluded from completion.
 <!-- decompdecomp:progress:end -->
 

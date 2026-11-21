@@ -1,7 +1,7 @@
 {
  "format": 2,
- "saved_at": 1795242046.599583,
- "revision": 1667,
+ "saved_at": 1795283909.9984992,
+ "revision": 1678,
  "title": "Shadowman",
  "platform": "n64",
  "game": {
@@ -5183,6 +5183,11 @@
    "best_score": 1290,
    "best_by": "autopilot"
   },
+  "func_801035A4": {
+   "vram": 2148545956,
+   "best_score": 30,
+   "best_by": "permuter-42949672971"
+  },
   "func_80103660": {
    "vram": 2148546144,
    "best_score": 5515,
@@ -6175,7 +6180,7 @@
   },
   "func_801101B0": {
    "vram": 2148598192,
-   "best_score": 370,
+   "best_score": 105,
    "best_by": "autopilot"
   },
   "func_80110240": {
@@ -6773,6 +6778,11 @@
    "best_score": 500,
    "best_by": "autopilot"
   },
+  "func_801173B0": {
+   "vram": 2148627376,
+   "best_score": 2969,
+   "best_by": "autopilot"
+  },
   "__osSetTimerIntr": {
    "vram": 2148627788,
    "matched_by": "autopilot",
@@ -6782,6 +6792,11 @@
    "vram": 2148627884,
    "matched_by": "autopilot",
    "readable": false
+  },
+  "func_801176C0": {
+   "vram": 2148628160,
+   "best_score": 525,
+   "best_by": "autopilot"
   },
   "func_80117FB8": {
    "vram": 2148630456,
@@ -6851,6 +6866,11 @@
   "func_80119C48": {
    "vram": 2148637768,
    "best_score": 6756,
+   "best_by": "autopilot"
+  },
+  "func_80119E54": {
+   "vram": 2148638292,
+   "best_score": 2260,
    "best_by": "autopilot"
   },
   "func_80119FE4": {
@@ -6968,6 +6988,11 @@
    "best_score": 300,
    "best_by": "autopilot"
   },
+  "func_8011D5C0": {
+   "vram": 2148652480,
+   "best_score": 31325,
+   "best_by": "autopilot"
+  },
   "func_8011DB50": {
    "vram": 2148653904,
    "best_score": 300,
@@ -7012,6 +7037,11 @@
    "vram": 2149700924,
    "matched_by": "autopilot",
    "readable": false
+  },
+  "func_8021D5A0": {
+   "vram": 2149701024,
+   "best_score": 20607,
+   "best_by": "autopilot"
   },
   "func_8021DCC4": {
    "vram": 2149702852,
@@ -8377,6 +8407,11 @@
    "vram": 2149812176,
    "matched_by": "autopilot",
    "readable": false
+  },
+  "func_802387D8": {
+   "vram": 2149812184,
+   "best_score": 4348,
+   "best_by": "autopilot"
   },
   "func_80238A54": {
    "vram": 2149812820,
@@ -10283,6 +10318,11 @@
    "matched_by": "autopilot",
    "readable": false
   },
+  "func_802662B4": {
+   "vram": 2149999284,
+   "best_score": 20285,
+   "best_by": "autopilot"
+  },
   "func_802666E4": {
    "vram": 2150000356,
    "matched_by": "autopilot",
@@ -11097,6 +11137,11 @@
    "vram": 2150056452,
    "matched_by": "permuter-42949674617",
    "readable": false
+  },
+  "func_80274280": {
+   "vram": 2150056576,
+   "best_score": 5401,
+   "best_by": "permuter-42949674618"
   },
   "func_80274468": {
    "vram": 2150057064,
@@ -12692,6 +12737,11 @@
    "vram": 2150272388,
    "best_score": 3854,
    "best_by": "permuter-42949675051"
+  },
+  "func_802A8F34": {
+   "vram": 2150272820,
+   "best_score": 3451,
+   "best_by": "autopilot"
   },
   "func_802A9130": {
    "vram": 2150273328,
@@ -15178,6 +15228,11 @@
    "best_score": 10,
    "best_by": "api-claude-sonnet-5-5-3"
   },
+  "func_802DD030": {
+   "vram": 2150486064,
+   "best_score": 1447,
+   "best_by": "autopilot"
+  },
   "func_802DD8F0": {
    "vram": 2150488304,
    "best_score": 1287,
@@ -15187,6 +15242,11 @@
    "vram": 2150488684,
    "best_score": 765,
    "best_by": "api-claude-sonnet-5-5-3"
+  },
+  "func_802DDB08": {
+   "vram": 2150488840,
+   "best_score": 350,
+   "best_by": "autopilot"
   },
   "func_802DEC54": {
    "vram": 2150493268,

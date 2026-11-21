@@ -1,35 +1,54 @@
-/* adapted from similar verified C in alSynStartVoice in V-RALLY-PAL (matched), with its names changed by decompdecomp */
-/* Layouts used by func_801101B0 (audio synth, libaudio). */
-#define AL_EVT_START_VOICE 0xE
-#define AL_EVT_TYPE_ADD    3
+/* Partial candidate from function #85899348303 in project #20; rechecked locally. */
+/* adapted from similar verified C in alSynSetPan in Asteroids Hyper 64 (matched), with its names changed by decompdecomp */
+/* identical to func_801101B0 in V-RALLY-PAL (local match library) (matched), with its names changed by decompdecomp */
+void *__allocParam();
 
-typedef struct AlEvent { struct AlEvent *next; s32 time; s16 type; s16 vel; s32 param; } AlEvent;
-typedef s32 (*AlHandler)(void *self, s32 type, AlEvent *evt);
-typedef struct AlOwner { u8 pad00[8]; AlHandler handler; } AlOwner;
-typedef struct AlUnit { u8 pad00[0xC]; AlOwner *owner; u8 pad10[0xC8]; s32 timeOffset; } AlUnit;
-typedef struct AlVoice { u8 pad00[8]; AlUnit *unit; u8 pad0C[0xE]; s16 vel; } AlVoice;
-typedef struct AlSynth { u8 pad00[0x1C]; s32 now; } AlSynth;
+/* Queues a pan change for a voice. If the voice has a handler and a parameter block can be
+ * allocated, the block gets type 0xC, the pan value (low byte), a time of the synth's time
+ * (+0x1C) plus the voice object's +0xD8 field, and no next link. The voice's object at +0xC
+ * then gets it through its handler (msg 3). */
+void func_801101B0(void *synth, void *voice, s32 pan)
+{
+  s32 (*handler)(void *, s32, void *);
+  s32 time;
+  s32 panValue;
+  void *param;
+  void *obj;
+  void *voicePtr;
+  void *synthPtr;
 
-void *func_80110938();
-
-/* Queues a start event for a voice on the synth. The event is stamped with the
- * current synth time plus the unit's time offset and handed to the unit's owner. */
-void func_801101B0(AlSynth *synth, AlVoice *voice, s32 param) {
-    AlEvent *evt;
-    AlOwner *owner;
-    s32 time;
-
-    if (voice->unit != NULL) {
-        evt = func_80110938();
-        if (evt != NULL) {
-            time = synth->now + voice->unit->timeOffset;
-            evt->type = AL_EVT_START_VOICE;
-            evt->param = param;
-            evt->next = NULL;
-            evt->time = time;
-            evt->vel = voice->vel;
-            owner = voice->unit->owner;
-            owner->handler(owner, AL_EVT_TYPE_ADD, evt);
-        }
+  voicePtr = voice;
+  handler = *((s32 (**)(void *, s32, void *)) (((char *) voicePtr) + 8));
+  synthPtr = synth;
+  panValue = pan;
+  if (handler != NULL)
+  {
+    param = __allocParam();
+    if (param != NULL)
+    {
+      handler = *((s32 (**)(void *, s32, void *)) (((char *) voicePtr) + 8));
+      time = *((s32 *) (((char *) synthPtr) + 0x1C));
+      obj = *((void **) (((char *) handler) + 0xD8));
+      handler = (s32 (*)(void *, s32, void *)) 0xC;
+      *((s16 *) (((char *) param) + 8)) = 0xC;
+      do
+      {
+#ifdef PORT
+        *((s32 *) (((char *) param) + 0xC)) = panValue & 0xFF;
+        *((s32 *) (((char *) param) + 0)) = 0;
+        time += *((s32 *) (((char *) handler) + 0xD8));
+#else
+        handler = (s32 (*)(void *, s32, void *)) (panValue & 0xFF);
+        do { *((s32 (**)(void *, s32, void *)) (((char *) param) + 0xC)) = handler; *((s32 *) (((char *) param) + 0)) = 0; } while (0);
+        time += obj;
+#endif
+        *((s32 *) (((char *) param) + 4)) = time;
+      }
+      while (0);
+      handler = *((s32 (**)(void *, s32, void *)) (((char *) voicePtr) + 8));
+      obj = *((void **) (((char *) handler) + 0xC));
+      handler = *((s32 (**)(void *, s32, void *)) (((char *) obj) + 8));
+      handler(obj, 3, param);
     }
+  }
 }
