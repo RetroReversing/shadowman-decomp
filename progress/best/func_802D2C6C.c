@@ -26,7 +26,7 @@ extern char D_8007C448[];
 s32 func_802D2C6C(s32 arg0, s16 arg1) {
     s32 *temp_a1;
     char *var_s2;
-    u16 temp_s0;
+    s16 temp_s0;
     s16 temp_v0_2;
     s32 temp_v0;
     s32 var_s4;
@@ -61,8 +61,8 @@ s32 func_802D2C6C(s32 arg0, s16 arg1) {
                     func_802322A4(var_s3);
                     var_s3 += 0x20;
                     temp_a1 = var_s2;
-                    var_s2 += 0x20;/*__repair_loop_weight*/do {
-                    var_s4 += 1;} while (0);
+                    var_s2 += 0x20;
+                    var_s4 += 1;
                     func_80239398(*(s32 *)((temp_s0 * 4) + func_80261408()), temp_a1, 0, D_2D2A50, 0x800);
                 } while (var_s4 < temp_v0_2);
             }

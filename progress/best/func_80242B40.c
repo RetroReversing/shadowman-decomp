@@ -28,16 +28,16 @@ s32 func_80242B40(s32 arg0, s16 arg1) {
     __base_D_8002D480 = &D_8002D480;
     temp_s0 = (*(&D_8002D480));
     func_80236594(arg0, arg1, D_2462B0);
-    var_s1 = temp_s0;
-    if (var_s1 < (*__base_D_8002D480)) {
+    temp_s0 = temp_s0;
+    if (temp_s0 < (*__base_D_8002D480)) {
         __base_D_800707A8 = D_800707A8;
-        var_s0 = (var_s1 * 0x5C) + __base_D_800707A8;
+        var_s0 = (temp_s0 * 0x5C) + __base_D_800707A8;
         do {
             func_80109C88(var_s0);
             M2C_FIELD(var_s0, s32 *, 8) = 0;
-            var_s1 += 1;
+            temp_s0 += 1;
             var_s0 += 0x5C;
-        } while (var_s1 < (*__base_D_8002D480));
+        } while (temp_s0 < (*__base_D_8002D480));
     }
     return 1;
 }

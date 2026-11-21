@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,19 +10,21 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+extern float D_8007DB8C;
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
-M2C_UNK func_8023A154(M2C_UNK32, M2C_UNK32, s32, f32 *, M2C_UNK *); /* extern */
+s32 func_8023A154();
 extern f32 D_80074BC0;
-extern M2C_UNK D_8007C1AC;
+extern char D_8007C1AC[];
 extern s32 D_8007C300;
 extern s32 D_8007C304;
 extern s32 D_8007C308;
-extern M2C_UNK32 D_8007C30C;
-extern M2C_UNK32 D_8007C310;
+extern s32 D_8007C30C;
+extern s32 D_8007C310;
 extern s32 D_8007C314;
-extern M2C_UNK D_8007DB88;
+extern char D_8007DB88[];
 
-void func_802D2688(void) {
+void func_802D2688(s32 arg0, s32 arg1) {
     union {
         unsigned char bytes[16];
         struct { f32 value; } view_sp18;
@@ -37,11 +38,11 @@ void func_802D2688(void) {
     s32 temp_ft0f_3;
     void *temp_s0;
 
-    do { func_8023A154(D_8007C30C, D_8007C310, D_8007C314, &m2c_initial_frame.view_sp18.value, &D_8007C1AC); } while (0);
-    temp_s0 = &D_8007C1AC - 0x254;
-    M2C_FIELD(temp_s0, f32 *, 0x1F4) = (f32) (M2C_FIELD(temp_s0, f32 *, 0x1F4) + (m2c_initial_frame.view_sp18.value * M2C_FIELD(&D_8007DB88, f32 *, 4)));
-    M2C_FIELD(temp_s0, f32 *, 0x1FC) = (f32) (M2C_FIELD(temp_s0, f32 *, 0x1FC) + (m2c_initial_frame.view_sp20.value * M2C_FIELD(&D_8007DB88, f32 *, 4)));
-    M2C_FIELD(temp_s0, f32 *, 0x1F8) = (f32) (M2C_FIELD(temp_s0, f32 *, 0x1F8) + (m2c_initial_frame.view_sp1C.value * M2C_FIELD(&D_8007DB88, f32 *, 4)));
+    { func_8023A154(D_8007C30C, D_8007C310, D_8007C314, &m2c_initial_frame.view_sp18.value, D_8007C1AC); }
+    temp_s0 = D_8007C1AC - 0x254;
+    M2C_FIELD(temp_s0, f32 *, 0x1F4) += (m2c_initial_frame.view_sp18.value * D_8007DB8C);
+    M2C_FIELD(temp_s0, f32 *, 0x1FC) += (m2c_initial_frame.view_sp20.value * D_8007DB8C);
+    M2C_FIELD(temp_s0, f32 *, 0x1F8) += (m2c_initial_frame.view_sp1C.value * D_8007DB8C);
     if (D_8007C300 > 0) {
         temp_ft0f = (s32) ((f32) D_8007C300 - D_80074BC0);
         D_8007C300 = temp_ft0f;

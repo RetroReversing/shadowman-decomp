@@ -19,7 +19,7 @@ extern s32 D_8005EA58;
 extern M2C_UNK D_8005EA80;
 extern s32 D_8006196C;
 
-void func_802363A0(void *arg1) {
+void func_802363A0(int __reuse_arg0, void *arg1) {
     u16 temp_v1;
 
     temp_v1 = M2C_FIELD(arg1, u16 *, 0x7E);

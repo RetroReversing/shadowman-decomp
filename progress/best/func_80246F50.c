@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,18 +10,19 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
-M2C_UNK func_80230A3C(u16);                         /* extern */
-M2C_UNK func_80247084();                            /* extern */
-M2C_UNK func_802470A0(s32, s32);                    /* extern */
-M2C_UNK func_8025BF10(void *);                      /* extern */
-M2C_UNK func_8026D780(s32);                         /* extern */
-extern M2C_UNK D_8002DBD0;
-extern M2C_UNK D_80075B40;
-extern M2C_UNK D_8007DB78;
+s32 func_80230A3C();
+s32 func_80247084();
+s32 func_802470A0();
+s32 func_8025BF10();
+s32 func_8026D780();
+extern char D_8002DBD0[];
+extern char D_80075B40[];
+extern char D_8007DB78[];
 
 void func_80246F50(s32 arg0, s32 arg1) {
-    M2C_UNK *__base_D_8002DBD0;
+    s32 *__base_D_8002DBD0;
     u16 *temp_s0_2;
     u16 temp_v0_2;
     u16 temp_v1_2;
@@ -32,13 +32,13 @@ void func_80246F50(s32 arg0, s32 arg1) {
     void *temp_v1_3;
 
     func_8026D780(arg1);
-    __base_D_8002DBD0 = &D_8002DBD0;
-    temp_s0 = (arg1 * 0x10) + __base_D_8002DBD0;
+    __base_D_8002DBD0 = D_8002DBD0;
+    temp_s0 = (arg1 * 0x10) + D_8002DBD0;
     temp_v0 = M2C_FIELD(temp_s0, void **, 0);
     if (temp_v0 != NULL) {
         temp_v1 = M2C_FIELD(M2C_FIELD(temp_v0, void **, 8), void **, 0x64);
         if (temp_v1 != NULL) {
-            M2C_FIELD(temp_v1, u16 *, 0x3C) = (u16) (M2C_FIELD(temp_v1, u16 *, 0x3C) | 4);
+            M2C_FIELD(temp_v1, u16 *, 0x3C) |= 4;
         }
         func_8025BF10(M2C_FIELD(temp_s0, void **, 0));
         M2C_FIELD(temp_s0, void **, 0) = NULL;
@@ -46,7 +46,7 @@ void func_80246F50(s32 arg0, s32 arg1) {
         M2C_FIELD(temp_s0, s32 *, 4) = -1;
     }
     if (arg0 != -1) {
-        temp_v1_2 = *((arg1 * 2) + &D_80075B40);
+        temp_v1_2 = *((arg1 * 2) + D_80075B40);
         if (temp_v1_2 != 0xFFFF) {
             func_80230A3C(temp_v1_2);
         }
@@ -57,13 +57,13 @@ void func_80246F50(s32 arg0, s32 arg1) {
         func_80247084();
         return;
     }
-    temp_s0_2 = (arg1 * 2) + &D_80075B40;
+    temp_s0_2 = (arg1 * 2) + D_80075B40;
     temp_v0_2 = *temp_s0_2;
     if (temp_v0_2 != 0xFFFF) {
         func_80230A3C(temp_v0_2);
     }
     *temp_s0_2 = 0xFFFF;
     M2C_FIELD(((arg1 * 0x10) + __base_D_8002DBD0), s32 *, 4) = arg0;
-    M2C_FIELD(((arg1 * 4) + &D_8007DB78), s32 *, 0x30) = arg0;
-    M2C_FIELD((arg1 + &D_8007DB78), s8 *, 0x2C) = 0;
+    M2C_FIELD(((arg1 * 4) + D_8007DB78), s32 *, 0x30) = arg0;
+    M2C_FIELD((arg1 + D_8007DB78), s8 *, 0x2C) = 0;
 }

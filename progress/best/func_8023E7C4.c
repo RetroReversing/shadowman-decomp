@@ -53,7 +53,7 @@ void func_8023E7C4(void *arg0, void *arg1) {
         var_fv1f = var_ft1;
         if (temp_v1 > 1) {
             var_a0 = temp_a2 + 0x2C + 0x40;
-            __repair_rows: {
+            do {
                 temp_fv0 = M2C_FIELD(var_a0, f32 *, -8);
                 if (temp_fv0 < var_ft0) {
                     var_ft0 = temp_fv0;
@@ -77,8 +77,7 @@ void func_8023E7C4(void *arg0, void *arg1) {
                 }
                 var_a3 += 1;
                 var_a0 += 0x40;
-            }
-if (var_a3 < temp_v1) goto __repair_rows;
+            } while (var_a3 < temp_v1);
         }
         temp_fv0_4 = *(f32 *)0x202630;
         func_8023A154((var_ft0 + ((var_fv1 - var_ft0) * temp_fv0_4)) - M2C_FIELD(arg1, f32 *, 0x24), (var_ft0f + ((var_fv0f - var_ft0f) * temp_fv0_4)) - M2C_FIELD(arg1, f32 *, 0x28), var_a0, (var_ft1 + ((var_fv1f - var_ft1) * temp_fv0_4)) - M2C_FIELD(arg1, f32 *, 0x2C), &m2c_initial_frame.view_sp18.value, arg1 + 0x34);

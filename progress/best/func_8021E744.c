@@ -7,6 +7,10 @@ extern void *D_80058E04;
 extern s32 D_80058E0C;
 
 void func_8021E744(void *arg0) {
+    int *__base_D_80058E08;
+short __repair_constant = 7;
+
+    unsigned short *__base_D_80058E0A;
     void *var_v0;
     void *temp_a0;
     char *__base_D_80056A00;
@@ -26,21 +30,23 @@ loop_1:
             D_80058E04 = arg0;
             (*(void **)((char *)(arg0) + 8)) = temp_a0;
             (*(s32 *)((char *)(arg0) + 0)) &= 0xFF80FFFF;
-            (*(u16 *)((char *)(arg0) + 2)) = (u16) D_80058E0A;
-            D_80058E0C += 7;
+            __base_D_80058E0A = &D_80058E0A;
+            (*(u16 *)((char *)(arg0) + 2)) = (u16) (*__base_D_80058E0A);
+            D_80058E0C += __repair_constant;
             __base_D_80056A00 = D_80056A00;
-            (*(s32 *)((char *)(((D_80058E08 * 0x18) + __base_D_80056A00)) + 0x14)) = 0;
+            __base_D_80058E08 = &D_80058E08;
+            (*(s32 *)((char *)((((*__base_D_80058E08) * 0x18) + __base_D_80056A00)) + 0x14)) = 0;
             return;
         }
-        (*(void **)((char *)(((D_80058E08 * 0x18) + __base_D_80056A00)) + 0x14)) = (void *) (((*(u16 *)((char *)(arg0) + 2)) * 0x18) + __base_D_80056A00);
-        (*(u16 *)((char *)(arg0) + 2)) = (u16) D_80058E0A;
+        (*(void **)((char *)((((*__base_D_80058E08) * 0x18) + __base_D_80056A00)) + 0x14)) = (void *) (((*(u16 *)((char *)(arg0) + 2)) * 0x18) + __base_D_80056A00);
+        (*(u16 *)((char *)(arg0) + 2)) = (u16) (*__base_D_80058E0A);
         return;
     }
     temp_a0 = D_80058E04;
     D_80058E04 = arg0;
     (*(void **)((char *)(arg0) + 8)) = temp_a0;
-    (*(u16 *)((char *)(arg0) + 2)) = (u16) D_80058E0A;
+    (*(u16 *)((char *)(arg0) + 2)) = (u16) (*__base_D_80058E0A);
     (*(s32 *)((char *)(arg0) + 0)) &= 0xFF80FFFF;
-    D_80058E0C += 7;
-    (*(s32 *)((char *)(((D_80058E08 * 0x18) + __base_D_80056A00)) + 0x14)) = 0;
+    D_80058E0C += __repair_constant;
+    (*(s32 *)((char *)((((*__base_D_80058E08) * 0x18) + __base_D_80056A00)) + 0x14)) = 0;
 }

@@ -12,8 +12,8 @@ void func_80230048(s32 arg0, void *arg1) {
     u32 var_a2;
 
     var_a2 = 0;
-    (*(s32 *)((char *)(arg1) + 8)) = (s32) ((*(s32 *)((char *)(arg1) + 8)) + temp_a3);
     temp_a3 = arg1 - arg0;
+    (*(s32 *)((char *)(arg1) + 8)) = (s32) ((*(s32 *)((char *)(arg1) + 8)) + temp_a3);
     (*(s32 *)((char *)(arg1) + 0x10)) = (s32) ((*(s32 *)((char *)(arg1) + 0x10)) + temp_a3);
     (*(s32 *)((char *)(arg1) + 0xC)) = (s32) ((*(s32 *)((char *)(arg1) + 0xC)) + temp_a3);
     (*(s32 *)((char *)(arg1) + 0x14)) = (s32) ((*(s32 *)((char *)(arg1) + 0x14)) + temp_a3);
@@ -27,7 +27,7 @@ void func_80230048(s32 arg0, void *arg1) {
             }
             temp_v1_2 = temp_a0 + (*(s32 *)((char *)(arg1) + 0x14));
             temp_v0_2 = *temp_v1_2;
-            if (temp_v0_2 != 0) {
+            if (temp_v0_2) {
                 *temp_v1_2 = temp_v0_2 + temp_a3;
             }
             var_a2 += 1;

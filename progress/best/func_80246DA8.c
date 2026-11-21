@@ -35,6 +35,7 @@ extern char D_8007DB78[];
 
 typedef struct { unsigned char pad[8]; int value; } __repair_field_8;
 void func_80246DA8(void *arg0) {
+    void **__base_D_80072BB4;
     unsigned char *__base_D_8007DC06;
     s32 sp10;
     s32 sp14;
@@ -46,6 +47,9 @@ void func_80246DA8(void *arg0) {
     void *temp_v0;
     void *temp_v0_2;
     void *var_a0;
+    void **__base_D_80072BB0;
+
+    __base_D_80072BB0 = &D_80072BB0;
 
     sp10 = M2C_FIELD(D_202C28, s32 *, 0);
     sp14 = M2C_FIELD(D_202C28, s32 *, 4);
@@ -62,11 +66,11 @@ void func_80246DA8(void *arg0) {
     D_80052778 = D_246C08;
     __base_D_8007DC06 = &D_8007DC06;
     temp_v0 = func_8022ADB0(D_8004ADF8, *(s32 *)(arg0 + ((*__base_D_8007DC06) * 2)), &sp10);
-    D_80072BB0 = temp_v0;
+    (*__base_D_80072BB0) = temp_v0;
     func_80229470(((__repair_field_8 *)temp_v0)->value);
     func_802294D4(D_800596B0);
     if (arg0 == D_8002DBB0) {
-        var_a0 = M2C_FIELD(((__repair_field_8 *)D_80072BB0)->value, void **, 4);
+        var_a0 = M2C_FIELD(((__repair_field_8 *)(*__base_D_80072BB0))->value, void **, 4);
         if (var_a0 != NULL) {
             temp_fv0f = *(f32 *)0x202C44;
             for (;;) {
@@ -80,7 +84,7 @@ void func_80246DA8(void *arg0) {
                         }
                         goto block_14;
                     }
-                    func_80246EF4(var_a0, D_202C3C, D_8007DB78, 0x80000000);
+                    func_80246EF4(var_a0, D_202C3C);
                     return;
                 }
 block_14:
@@ -88,7 +92,8 @@ block_14:
                 if (var_a0 == NULL) {
                     /* Duplicate return node #15. Try simplifying control flow for better match */
                     M2C_FIELD(arg0, s16 *, 0xC) = 0;
-                    D_80072BB4 = arg0;
+                    __base_D_80072BB4 = &D_80072BB4;
+                    (*__base_D_80072BB4) = arg0;
                     return;
                 }
                 continue;
@@ -97,5 +102,5 @@ block_14:
         }
     }
     M2C_FIELD(arg0, s16 *, 0xC) = 0;
-    D_80072BB4 = arg0;
+    (*__base_D_80072BB4) = arg0;
 }

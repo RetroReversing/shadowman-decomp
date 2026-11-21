@@ -16,6 +16,6 @@ M2C_UNK func_8011BA20(M2C_UNK, M2C_UNK, M2C_UNK);   /* extern */
 M2C_UNK func_802DA048();                            /* extern */
 
 void func_802DA134(s32 arg0, M2C_UNK arg1) {
-    do { func_8011BA20(arg1, 0, 0x10); } while (0);
+    { func_8011BA20(arg1, 0, 0x10); }
     func_802DA048(arg0, arg1);
 }

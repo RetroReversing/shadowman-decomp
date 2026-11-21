@@ -32,7 +32,7 @@ s32 func_80296738(s32 arg0) {
         func_802967CC(arg0, temp_a1);
         ret = func_802967A4();
     } else {
-        func_80230834(M2C_FIELD(temp_a1, s16 *, 0xA), temp_a1);
+        func_80230834(M2C_FIELD(temp_a1, s16 *, 0xA));
         ret = *((arg0 * 0xC) + __base_D_8002C2A0);
     }
     return ret;
