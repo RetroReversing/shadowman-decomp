@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* identical to func_80279A10 (matched), with its names changed by decompdecomp */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,11 +11,14 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
-M2C_UNK func_8026F760(f32, M2C_UNK *);              /* extern */
+s32 func_8026F760(f32);
 extern u8 D_212078[];
 extern void *D_8007AFF8;
 
 void func_8027C218(void) {
-    func_8026F760(M2C_FIELD(((M2C_FIELD(D_8007AFF8, u8 *, 0x40) * 0x6C) + D_212078), f32 *, 0x10), D_212078);
+    u8 *__base_D_212078;
+    __base_D_212078 = D_212078;
+    func_8026F760(M2C_FIELD(((M2C_FIELD(D_8007AFF8, u8 *, 0x40) * 0x6C) + __base_D_212078), f32 *, 0x10));
 }
