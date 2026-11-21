@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -25,14 +25,12 @@ extern M2C_UNK D_80075568;
 extern s32 D_800755F8;
 
 void func_802C2E48(void) {
-    M2C_UNK *__base_D_80075568;
     if ((D_800755F8 != 0) && (D_8005E9D8 != 0)) {
         if ((u32) (M2C_FIELD(&D_80075518, u16 *, 4) - 0x66) >= 2U) {
-            __base_D_80075568 = &D_80075568;
-            func_8023DF7C(__base_D_80075568, &D_80075518, 0x67, 0xA, 0x28, 2);
-            M2C_FIELD(__base_D_80075568, s32 *, 0x10) = 0;
+            func_8023DF7C(&D_80075568, &D_80075518, 0x67, 0xA, 0x28, 2);
+            M2C_FIELD(&D_80075568, s32 *, 0x10) = 0;
         }
-        M2C_FIELD(__base_D_80075568, f32 *, 0x18) = (f32) (M2C_FIELD(__base_D_80075568, f32 *, 0x18) + ((*(f32 *)0x2183A4 - M2C_FIELD(__base_D_80075568, f32 *, 0x18)) * D_80074BC0 * *(f32 *)0x2183A8));
+        M2C_FIELD(&D_80075568, f32 *, 0x18) = (f32) (M2C_FIELD(&D_80075568, f32 *, 0x18) + ((*(f32 *)0x2183A4 - M2C_FIELD(&D_80075568, f32 *, 0x18)) * D_80074BC0 * *(f32 *)0x2183A8));
     }
     if (D_80075546 >= 0x12D) {
         func_8026EA40();

@@ -1,40 +1,41 @@
-/* adapted from similar verified C in func_8003C8E0 in PENNY RACERS (matched), with its names changed by decompdecomp */
-extern s32 D_80048120[];
-extern u8 D_8006F9F0[];
-extern u8 D_800DD3E0[];
-extern u8 D_80092C04;
-extern u8 D_8006FAF0[];
-void osRecvMesg(s32, s32, s32);
-u8 __osContDataCrc(void *);
-void func_8003F464(void);
-void func_8003F4D0(void);
-void func_8003F350(s32, void *);
-void *memcpy(void *, const void *, u32);
+/* identical to func_801144F0 (matched), with its names changed by decompdecomp */
+extern s32 D_80027700[];
+extern u8 D_8004EF60[];
+extern u8 D_8007E680[];
+extern u8 D_8004EE30;
+extern u8 D_8004F060[];
+void func_80116D80(s32, s32, s32);
+u8 func_80115528(void *);
+void func_80115764(void);
+void func_801157D0(void);
+void func_80115800(s32, void *);
+
+typedef struct { u8 b[0x28]; } Blk;
 
 u32 func_801146B4(s32 *a)
 {
-  u8 sp10[0x28];
-  u8 *p = D_800DD3E0;
+  Blk sp10;
+  u8 *p = D_8007E680;
   s32 i;
   u32 r;
 
-  if (D_80048120[a[2]] == 0)
+  if (D_80027700[a[2]] == 0)
     return 5;
-  func_8003F464();
-  D_80092C04 = 3;
-  func_8003F350(1, D_8006F9F0 + (a[2] << 6));
-  osRecvMesg(a[1], 0, 1);
-  func_8003F350(0, p);
-  osRecvMesg(a[1], 0, 1);
+  func_80115764();
+  D_8004EE30 = 3;
+  func_80115800(1, D_8004EF60 + (a[2] << 6));
+  func_80116D80(a[1], 0, 1);
+  func_80115800(0, p);
+  func_80116D80(a[1], 0, 1);
   if (a[2] != 0)
   {
     for (i = 0; i < a[2]; i++)
       p++;
   }
-  memcpy(sp10, p, 0x28);
-  r = (sp10[2] & 0xC0) >> 4;
-  if (r == 0 && __osContDataCrc(D_8006FAF0) != sp10[0x26])
+  sp10 = *(Blk *)p;
+  r = (sp10.b[2] & 0xC0) >> 4;
+  if (r == 0 && func_80115528(D_8004F060) != sp10.b[0x26])
     r = 4;
-  func_8003F4D0();
+  func_801157D0();
   return r;
 }
