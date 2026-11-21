@@ -15,6 +15,8 @@ typedef s32 M2C_UNK32;
 extern char D_80045930[];
 
 void *func_802D5294(void *arg0) {
-    M2C_FIELD(M2C_FIELD(((M2C_FIELD(arg0, s32 *, 4) * 0x14) + D_80045930), void **, 8), u16 *, 0x7A) = (u16) M2C_FIELD(arg0, u16 *, 0xA);
+    char *__base_D_80045930;
+    __base_D_80045930 = D_80045930;
+    M2C_FIELD(M2C_FIELD(((M2C_FIELD(arg0, s32 *, 4) * 0x14) + __base_D_80045930), void **, 8), u16 *, 0x7A) = (u16) M2C_FIELD(arg0, u16 *, 0xA);
     return arg0 + 0xC;
 }
