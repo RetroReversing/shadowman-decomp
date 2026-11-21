@@ -15,7 +15,9 @@ typedef s32 M2C_UNK32;
 extern M2C_UNK D_8004DA90;
 
 s32 func_80108B80(void) {
-    if ((M2C_FIELD(&D_8004DA90, s16 *, 0x16) != -1) || (M2C_FIELD(&D_8004DA90, s16 *, 0x18) != M2C_FIELD(&D_8004DA90, s16 *, 0x16))) {
+    M2C_UNK *__base_D_8004DA90;
+    __base_D_8004DA90 = &D_8004DA90;
+    if ((M2C_FIELD(__base_D_8004DA90, s16 *, 0x16) != -1) || (M2C_FIELD(__base_D_8004DA90, s16 *, 0x18) != M2C_FIELD(__base_D_8004DA90, s16 *, 0x16))) {
         return 1;
     }
     return 0;
