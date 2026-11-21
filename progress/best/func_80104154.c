@@ -32,11 +32,12 @@ s32 func_80104154(s32 arg0) {
             var_a2 = M2C_FIELD(var_a2, void **, 0);
             if (var_a2 == NULL) {
                 /* Duplicate return node #6. Try simplifying control flow for better match */
-                return 0;
+                goto __shared_return_0;
             }
             continue;
             break;
         }
     }
+    __shared_return_0:
     return 0;
 }

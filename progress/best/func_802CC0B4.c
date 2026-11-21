@@ -24,17 +24,20 @@ extern f32 D_800458A8;
 extern M2C_UNK D_80075518;
 extern M2C_UNK D_80075568;
 
+typedef struct { unsigned char pad[48]; void * value; } __repair_field_30;
 void func_802CC0B4(void) {
-    M2C_FIELD(M2C_FIELD(&D_80075518, void **, 0x30), s32 *, 0x410) = 0;
-    M2C_FIELD(M2C_FIELD(&D_80075518, void **, 0x30), s32 *, 0x40C) = 0;
+    M2C_UNK *__base_D_80075518;
+    __base_D_80075518 = &D_80075518;
+    M2C_FIELD(((__repair_field_30 *)__base_D_80075518)->value, s32 *, 0x410) = 0;
+    M2C_FIELD(((__repair_field_30 *)__base_D_80075518)->value, s32 *, 0x40C) = 0;
     if (D_80044EC6 != 0) {
-        do { func_802CBD70(); } while (0);
-        if (M2C_FIELD(&D_80075518, s16 *, 4) != 0x14) {
+        { func_802CBD70(); }
+        if (M2C_FIELD(__base_D_80075518, s16 *, 4) != 0x14) {
             if (D_8002D420 & 2) {
-                func_802CC148(&D_80075568, &D_80075518, 0x15, 0xA, 0xA);
+                func_802CC148(&D_80075568, __base_D_80075518, 0x15, 0xA, 0xA);
                 return;
             }
-            func_8023DF7C(&D_80075568, &D_80075518, 0x16, 0xA, 0x14, 2);
+            func_8023DF7C(&D_80075568, __base_D_80075518, 0x16, 0xA, 0x14, 2);
             goto block_6;
         }
 block_6:

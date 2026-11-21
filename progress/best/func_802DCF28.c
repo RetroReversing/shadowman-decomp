@@ -24,9 +24,9 @@ void func_802DCF28(s32 zero_count) {
     
 
     status_word = &D_800DD41C;
-    pif = (Pack6 *)((s8 *)status_word - 0x3C);
+    pif = (Pack6 *)((s8 *)(&D_800DD41C) - 0x3C);
     i = 0;
-    *status_word = 1;
+    *(&D_800DD41C) = 1;
     cmd.a = 1;
     cmd.b = 3;
     D_80092C04 = 0;

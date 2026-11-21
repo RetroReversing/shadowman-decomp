@@ -4,7 +4,7 @@ extern float D_8007DB8C;
 s32 func_80113AD0();
 f32 func_8022EBE8();
 f32 func_8022EC3C();
-s32 func_80299D50();
+s32 func_80299D50(s32, void *, void *, f32, f32, s32);
 s32 func_8029B14C();
 s32 func_802A6448();
 s32 func_802A6808();

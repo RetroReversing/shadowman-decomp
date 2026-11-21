@@ -17,7 +17,9 @@ extern M2C_UNK D_8002C2A0;
 extern M2C_UNK D_80045C54;
 
 void *func_802D4538(void *arg0) {
-    func_80230A3C(M2C_FIELD(&D_8002C2A0, s16 *, 0x1A2));
-    M2C_FIELD(&D_8002C2A0, s16 *, 0x1A2) = (s16) *((M2C_FIELD(arg0, s32 *, 4) * 2) + &D_80045C54);
+    M2C_UNK *__base_D_8002C2A0;
+    __base_D_8002C2A0 = &D_8002C2A0;
+    func_80230A3C(M2C_FIELD(__base_D_8002C2A0, s16 *, 0x1A2));
+    M2C_FIELD(__base_D_8002C2A0, s16 *, 0x1A2) = (s16) *((M2C_FIELD(arg0, s32 *, 4) * 2) + &D_80045C54);
     return arg0 + 0xC;
 }

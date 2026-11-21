@@ -34,28 +34,24 @@ extern s16 D_8004DF18;
 extern M2C_UNK D_8004DF20;
 
 void func_80107BC0(void) {
-    s32 sp10;
-    s32 sp14;
-    s32 sp18;
+    s32 sp10[3];
     s32 sp20;
     M2C_UNK *sp24;
     s8 sp2C;
-    s32 sp58;
-    s32 sp5C;
-    s32 sp60;
+    s32 sp58[3];
     f32 temp_fv0;
     s32 temp_v1;
     s32 var_a0;
     s32 var_a0_2;
     void *temp_a2;
     void *temp_v0;
-    void *var_a1;
+    
     void *var_v0;
 
     alHeapInit(&D_8004DA70, func_801043F8(0x16C00, 3, 0), 0x16C00);
     osCreateMesgQueue(&D_8004DF20, &D_8004DE90, 0x20);
     var_a0 = 0xF;
-    var_a1 = &D_8004DAE0 + 0xB4;
+    temp_a2 = &D_8004DAE0 + 0xB4;
     temp_fv0 = *(f32 *)0x100580;
     D_8004DF18 = -1;
     M2C_FIELD(&D_8004DA90, s32 *, 0) = 0;
@@ -65,9 +61,9 @@ void func_80107BC0(void) {
     M2C_FIELD(&D_8004DF10, f32 *, 0) = temp_fv0;
     M2C_FIELD(&D_8004DF10, f32 *, 4) = temp_fv0;
     do {
-        M2C_FIELD(var_a1, s32 *, 0x68) = 0;
+        M2C_FIELD(temp_a2, s32 *, 0x68) = 0;
         var_a0 -= 1;
-        var_a1 -= 0xC;
+        temp_a2 -= 0xC;
     } while (var_a0 >= 0);
     var_a0_2 = 0x1F;
     var_v0 = &D_8004DAE0 + 0x26C;
@@ -76,16 +72,16 @@ void func_80107BC0(void) {
         var_a0_2 -= 1;
         var_v0 -= 0x14;
     } while (var_a0_2 >= 0);
-    sp18 = 0x80;
-    sp58 = 0x5622;
-    sp5C = 1;
-    sp10 = 0x10;
-    sp14 = 0x10;
+    sp10[2] = 0x80;
+    sp58[0] = 0x5622;
+    sp58[1] = 1;
+    sp10[0] = 0x10;
+    sp10[1] = 0x10;
     sp20 = 0;
     sp2C = 0;
     sp24 = &D_8004DA70;
-    sp60 = 0x600;
-    func_8010AB90(&sp10, 0x7A, &sp58);
+    sp58[2] = 0x600;
+    func_8010AB90(sp10, 0x7A, sp58);
     D_8004DAD8 = 0;
     temp_v0 = func_8010670C(D_8004AE30, 0);
     func_80106848(temp_v0, D_8004AEAC);

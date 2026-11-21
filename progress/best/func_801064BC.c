@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,6 +10,7 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
 extern int D_8004C79C;
 extern int D_8004C798;
@@ -30,8 +30,8 @@ extern char D_B1DEFBE0[];
 extern char D_B1ECF9D0[];
 
 void func_801064BC(void) {
-    s32 *var_s0;
-    s32 *var_s0_2;
+    char *var_s0;
+    char *var_s0_2;
     u32 var_s1;
     u32 var_s1_3;
     u8 var_s1_2;
@@ -39,7 +39,7 @@ void func_801064BC(void) {
     void *temp_s2;
     void *temp_s3;
     void *var_s0_3;
-    void *var_s2;
+    
 
     var_s0 = D_8004B420;
     func_80106490(D_8004B420, 0, 0x1618);
@@ -56,15 +56,15 @@ void func_801064BC(void) {
     var_s1_2 = 0;
     temp_s3 = D_8004B420 + 0x1378;
     var_s0_2 = D_8004B420;
-    var_s2 = D_8004B420 + 0x928;
+    temp_s2 = D_8004B420 + 0x928;
     D_8004C79C = 0;
     D_8004C798 = 0;
     do {
-        func_801073F4(temp_s3, var_s2);
+        func_801073F4(temp_s3, temp_s2);
         M2C_FIELD(var_s0_2, u8 *, 0x932) = var_s1_2;
         var_s0_2 += 0x10;
         var_s1_2 += 1;
-        var_s2 += 0x10;
+        temp_s2 += 0x10;
     } while (var_s1_2 < 0x90U);
     osCreateMesgQueue(temp_s3 - 0x134C, temp_s3 - 0x1334, 0x21);
     temp_s2 = temp_s3 - 0x150;

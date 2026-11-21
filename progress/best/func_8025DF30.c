@@ -34,7 +34,7 @@ void func_8025DF30(void) {
     }
 if (var_a0 < 0x1E) goto __repair_rows;
     var_a0_2 = 2;
-    var_v0 = &D_80074C48 + 2;
+    var_v0 = (void *)(&D_80074C48); var_v0 = (void *)((char *)var_v0 + (s32)(2));
     do {
         *var_v0 = 0;
         var_a0_2 -= 1;

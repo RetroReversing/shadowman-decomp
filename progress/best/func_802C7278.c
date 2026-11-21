@@ -20,6 +20,7 @@ extern f32 D_800458A0;
 extern f32 D_800458A4;
 
 void func_802C7278(void) {
+    f32 *__base_D_80030E44;
     f32 *__base_D_800458A0;
     if (D_8002D420 & 1) {
         func_802C72B0();
@@ -30,10 +31,11 @@ void func_802C7278(void) {
     }
     if (D_8002D420 & 8) {
         __base_D_800458A0 = &D_800458A0;
-        D_80030E44 = (*__base_D_800458A0);
+        __base_D_80030E44 = &D_80030E44;
+        (*__base_D_80030E44) = (*__base_D_800458A0);
         return;
     }
     if (D_8002D420 & 4) {
-        D_80030E44 = -(*__base_D_800458A0);
+        (*__base_D_80030E44) = -(*__base_D_800458A0);
     }
 }
