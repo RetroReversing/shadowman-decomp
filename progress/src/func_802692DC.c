@@ -17,11 +17,13 @@ extern M2C_UNK D_80030F58;
 extern M2C_UNK D_80075AA8;
 
 void func_802692DC(void) {
+    M2C_UNK *__base_D_80075AA8;
     f32 temp_fs0;
 
     temp_fs0 = *(f32 *)0x20E200;
-    func_8026A714(&D_80030F58, temp_fs0, 0.0f, (f32) M2C_FIELD(&D_80075AA8, s32 *, 0x74), 0xAF9);
-    if (M2C_FIELD(&D_80075AA8, s32 *, 0x74) != 0x2710) {
-        func_8026A714(&D_80030F58, temp_fs0, (f32) M2C_FIELD(&D_80075AA8, s32 *, 0x74), 10000.0f, 0);
+    __base_D_80075AA8 = &D_80075AA8;
+    func_8026A714(&D_80030F58, temp_fs0, 0.0f, (f32) M2C_FIELD(__base_D_80075AA8, s32 *, 0x74), 0xAF9);
+    if (M2C_FIELD(__base_D_80075AA8, s32 *, 0x74) != 0x2710) {
+        func_8026A714(&D_80030F58, temp_fs0, (f32) M2C_FIELD(__base_D_80075AA8, s32 *, 0x74), 10000.0f, 0);
     }
 }
