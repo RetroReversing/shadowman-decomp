@@ -16,8 +16,10 @@ extern u8 D_8002C270;
 extern M2C_UNK D_800590E0;
 
 s32 func_8022251C(void) {
-    if (D_8002C270 == 0) {
-        return M2C_FIELD(&D_800590E0, s32 *, 8) >= M2C_FIELD(&D_800590E0, s32 *, 0x10);
+    M2C_UNK *__base_D_800590E0;
+    if (D_8002C270 != 0) {
+        return 1;
     }
-    return 1;
+    __base_D_800590E0 = &D_800590E0;
+    return M2C_FIELD(__base_D_800590E0, s32 *, 8) >= M2C_FIELD(__base_D_800590E0, s32 *, 0x10);
 }
