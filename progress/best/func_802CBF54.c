@@ -33,11 +33,7 @@ void func_802CBF54(void) {
     }
     __base_D_80075568 = &D_80075568;
     if (M2C_FIELD(__base_D_80075568, f32 *, 0x10) <= 0.0f) {
-        /*__repair_pointer_balance*/if ((unsigned long)__base_D_80075518 & 0x100) {
-func_8023DF7C(__base_D_80075568, __base_D_80075518, 0x14, 0xA, 0x1E, 2);
-} else {
-func_8023DF7C(__base_D_80075568, __base_D_80075518, 0x14, 0xA, 0x1E, 2);
-}
+        func_8023DF7C(__base_D_80075568, __base_D_80075518, 0x14, 0xA, 0x1E, 2);
     }
     if ((D_80044EC6 != 0) && (M2C_FIELD(__base_D_80075518, s16 *, 0x2E) >= 4)) {
         if (D_8002D420 & 2) {

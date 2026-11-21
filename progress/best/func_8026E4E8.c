@@ -32,10 +32,10 @@ void func_8026E4E8(void *arg0, s8 arg1) {
 
     if (func_8026E698() == -1) {
         temp_v1 = D_80075F80;
-        D_80075F80 = temp_v1 + 1;
         temp_s1 = M2C_FIELD(D_8005E9F0, u8 *, 3);
+        D_80075F80 = temp_v1 + 1;
         temp_v0 = func_80233CD8(D_8005EA14, temp_s1);
-        temp_a1 = ((s16) temp_v1 * 0xA) + &D_80075F80;
+        temp_a1 = (void *)(((s16) temp_v1 * 0xA)); temp_a1 = (void *)((char *)temp_a1 + (s32)(&D_80075F80));
         ((__repair_record_temp_a1*)temp_a1)->field_0 = (s16) ((s32) M2C_FIELD(arg0, f32 *, 0) - (s32) M2C_FIELD(temp_v0, f32 *, 0x24));
         temp_fv1 = (s32) M2C_FIELD(temp_v0, f32 *, 0x28);
         ((__repair_record_temp_a1*)temp_a1)->field_2 = (s16) ((s32) M2C_FIELD(arg0, f32 *, 4) - temp_fv1);

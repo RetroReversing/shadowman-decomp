@@ -26,6 +26,7 @@ extern s32 D_800755F8;
 extern u8 D_8007DB9B;
 
 s32 func_80243344(void) {
+    M2C_UNK *__base_D_80075518;
     s32 temp_v0;
     s32 var_s0;
     s32 var_v0;
@@ -46,7 +47,8 @@ s32 func_80243344(void) {
             if (D_800755F8 == 0) {
                 if (D_800753E4 != 6) {
                     var_v0 = 0;
-                    if (!(M2C_FIELD(&D_80075518, u16 *, 0x1C) & 4)) {
+                    __base_D_80075518 = &D_80075518;
+                    if (!(M2C_FIELD(__base_D_80075518, u16 *, 0x1C) & 4)) {
                         var_v0 = 0;
                         if (D_8002D488 == 0) {
                             var_v0 = 0;
@@ -55,7 +57,7 @@ s32 func_80243344(void) {
                                     var_v0 = 0;
                                     if (D_8002D424 & 0x400) {
                                         var_v0 = 0;
-                                        if ((u32) (M2C_FIELD(&D_80075518, u16 *, 4) - 0x76) >= 3U) {
+                                        if ((u32) (M2C_FIELD(__base_D_80075518, u16 *, 4) - 0x76) >= 3U) {
                                             var_s0 = 1;
                                             goto block_15;
                                         }

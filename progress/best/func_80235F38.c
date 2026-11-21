@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,9 +12,11 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-M2C_UNK func_80235FAC();                            /* extern */
-extern M2C_UNK D_8005EA40;
-extern M2C_UNK D_8005EA48;
+extern float D_8005EA48;
+extern float D_8005EA40;
+extern float D_8005EA4C;
+extern float D_8005EA44;
+s32 func_80235FAC();
 extern f32 D_8005EA50;
 extern void *D_80061A10;
 
@@ -34,9 +36,9 @@ void func_80235F38(void *arg0) {
         func_80235FAC();
         return;
     }
-    M2C_FIELD(&D_8005EA48, f32 *, 0) = (f32) -temp_fv1;
-    M2C_FIELD(&D_8005EA40, f32 *, 0) = temp_ft0f;
-    M2C_FIELD(&D_8005EA48, f32 *, 4) = (f32) (temp_ft0 / temp_fv1);
-    M2C_FIELD(&D_8005EA40, f32 *, 4) = (f32) (temp_fv1f / temp_fv1);
+    D_8005EA48 = (f32) -temp_fv1;
+    D_8005EA40 = temp_ft0f;
+    D_8005EA4C = (f32) (temp_ft0 / temp_fv1);
+    D_8005EA44 = (f32) (temp_fv1f / temp_fv1);
     D_8005EA50 = temp_ft0f;
 }

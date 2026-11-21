@@ -30,7 +30,7 @@ void func_8022B840(void *arg0) {
                 var_v1 = var_a2;
                 do {
                     temp_a0 = *(u8 *)(M2C_FIELD(arg0, s32 *, 0xC) + (var_v1 >> 1));
-                    *(s32 *)(D_80059794 + var_a2 + var_a1) = (s8) (temp_a0 >> 4);
+                    *(s8 *)(D_80059794 + var_a2 + var_a1) = (s8) (temp_a0 >> 4);
                     M2C_FIELD((D_80059794 + var_a2 + var_a1), s8 *, 1) = (s8) (temp_a0 & 0xF);
                     var_a1 += 2;
                     var_v1 = var_a2 + var_a1;

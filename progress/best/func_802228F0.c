@@ -3,11 +3,11 @@
 extern void *D_8005EA2C;
 
 s32 func_802228F0(void *arg0, void *arg1) {
-    f32 temp_fv0f;
-    f32 temp_fv0_2;
     f32 temp_fv0;
-    f32 temp_fv1;
+    f32 temp_fv0_2;
     f32 temp_fv1f;
+    f32 temp_fv1;
+    f32 temp_fv0f;
 
     (*(f32 *)((char *)(arg1) + 0)) = (f32) (*(f32 *)((char *)(arg0) + 0));
     (*(f32 *)((char *)(arg1) + 4)) = (f32) ((*(f32 *)((char *)(arg0) + 0xC)) * (*(f32 *)((char *)(D_8005EA2C) + 0x104)));
@@ -25,11 +25,12 @@ s32 func_802228F0(void *arg0, void *arg1) {
     temp_fv1f = *(f32 *)0x200184;
     temp_fv1 = (*(f32 *)((char *)(arg1) + 0x30));
     (*(f32 *)((char *)(arg1) + 0x34)) = (f32) ((*(f32 *)((char *)(arg0) + 0x28)) * (*(f32 *)((char *)(D_8005EA2C) + 0x104)));
-    (*(f32 *)((char *)(arg1) + 0x3C)) = (f32) *(f32 *)0x200188;
     (*(f32 *)((char *)(arg1) + 0x38)) = (f32) (*(f32 *)((char *)(arg0) + 0x2C));
-    if ((temp_fv1f < temp_fv1) || (temp_fv0f = *(f32 *)0x20018C, (temp_fv1 < temp_fv0f))) {
+    (*(f32 *)((char *)(arg1) + 0x3C)) = (f32) *(f32 *)0x200188;
+    if ((temp_fv1 > temp_fv1f) || (temp_fv0f = *(f32 *)0x20018C, (temp_fv1 < temp_fv0f))) {
         /* Duplicate return node #2. Try simplifying control flow for better match */
-        return 0;
+        __shared_return_0:
+    return 0;
     }
     temp_fv0 = (*(f32 *)((char *)(arg1) + 0x34));
     if (!(temp_fv1f < temp_fv0) && !(temp_fv0 < temp_fv0f)) {
@@ -38,5 +39,5 @@ s32 func_802228F0(void *arg0, void *arg1) {
             return 1;
         }
     }
-    return 0;
+    goto __shared_return_0;
 }

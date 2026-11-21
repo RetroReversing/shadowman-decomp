@@ -28,12 +28,12 @@ void *func_8029B4A0(f32 arg2, s8 arg3) {
     temp_v0 = func_80296BC0(arg2, &D_80036DA0);
     if (temp_v0 != NULL) {
         temp_fv0 = *(f32 *)0x215B70;
-        temp_fs0 = *(f32 *)0x215B78;
         ((__repair_record_temp_v0*)temp_v0)->field_6C = 7;
         ((__repair_record_temp_v0*)temp_v0)->field_54 = temp_fv0;
         ((__repair_record_temp_v0*)temp_v0)->field_50 = temp_fv0;
         ((__repair_record_temp_v0*)temp_v0)->field_58 = (f32) *(f32 *)0x215B74;
         ((__repair_record_temp_v0*)temp_v0)->field_4C = (f32) *(f32 *)0x215B7C;
+        temp_fs0 = *(f32 *)0x215B78;
         ((__repair_record_temp_v0*)temp_v0)->field_0 = (f32) (((__repair_record_temp_v0*)temp_v0)->field_0 + func_8022EBE8(temp_fs0));
         ((__repair_record_temp_v0*)temp_v0)->field_4 = (f32) (((__repair_record_temp_v0*)temp_v0)->field_4 + func_8022EBE8(temp_fs0));
         temp_fv0f = ((__repair_record_temp_v0*)temp_v0)->field_8 + func_8022EBE8(temp_fs0);

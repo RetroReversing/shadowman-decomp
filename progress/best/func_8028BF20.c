@@ -19,13 +19,15 @@ extern u8 D_80075568[];
 extern void *D_8007AFF8;
 
 void func_8028BF20(void) {
+    u8 *__base_D_80075568;
     void **__base_D_8006A4FC;
     f32 temp_fv0f;
 
     if (!(M2C_FIELD(D_8007AFF8, f32 *, 0xC0) > 0.0f)) {
-        temp_fv0f = M2C_FIELD(D_8007AFF8, f32 *, 0x84) - M2C_FIELD(D_80075568, f32 *, 0x1C);
-        if ((temp_fv0f < *(f32 *)0x215328) && (*(f32 *)0x21532C < temp_fv0f) && ((fabsf(M2C_FIELD((*(__base_D_8006A4FC = &D_8006A4FC)), f32 *, 0x24) - M2C_FIELD(D_80075568, f32 *, 0x24)) + fabsf(M2C_FIELD((*__base_D_8006A4FC), f32 *, 0x2C) - M2C_FIELD(D_80075568, f32 *, 0x2C))) < *(f32 *)0x215330)) {
-            M2C_FIELD((*__base_D_8006A4FC), f32 *, 0x1C) = func_80236880((*__base_D_8006A4FC) + 0x24, D_80075568 + 0x24);
+        __base_D_80075568 = D_80075568;
+        temp_fv0f = M2C_FIELD(D_8007AFF8, f32 *, 0x84) - M2C_FIELD(__base_D_80075568, f32 *, 0x1C);
+        if ((temp_fv0f < *(f32 *)0x215328) && (*(f32 *)0x21532C < temp_fv0f) && ((fabsf(M2C_FIELD((*(__base_D_8006A4FC = &D_8006A4FC)), f32 *, 0x24) - M2C_FIELD(__base_D_80075568, f32 *, 0x24)) + fabsf(M2C_FIELD((*__base_D_8006A4FC), f32 *, 0x2C) - M2C_FIELD(__base_D_80075568, f32 *, 0x2C))) < *(f32 *)0x215330)) {
+            M2C_FIELD((*__base_D_8006A4FC), f32 *, 0x1C) = func_80236880((*__base_D_8006A4FC) + 0x24, __base_D_80075568 + 0x24);
             func_80270090(0x15);
         }
     }

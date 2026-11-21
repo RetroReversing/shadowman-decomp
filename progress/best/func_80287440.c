@@ -20,7 +20,7 @@ extern char D_80045930[];
 extern void *D_8007AFF8;
 
 void func_80287440(s32 arg0) {
-    func_8027003C();
+    do { func_8027003C(); } while (0);
     D_80045AA0 = arg0;
     D_80045AA4 = (s32) M2C_FIELD(D_8007AFF8, s32 *, 0x10C);
     func_8027006C();

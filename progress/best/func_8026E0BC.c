@@ -25,9 +25,9 @@ s32 func_8026E1A4();
 void func_8026E0BC(s32 arg0, s16 arg1, s32 arg2, s16 arg3, s32 arg4) {
     s16 temp_v0_2;
     s16 temp_v0_3;
-    u16 temp_v0_5;
+    s32 temp_v0_5;
     s16 var_s1;
-    s16 var_s3;
+    s32 var_s3;
     s32 temp_v0;
     s32 temp_v0_4;
 

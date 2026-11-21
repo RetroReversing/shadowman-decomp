@@ -20,6 +20,8 @@ extern char D_80036D38[];
 
 typedef struct { unsigned char pad_0[12]; float field_C; unsigned char pad_10[20]; float field_24; float field_28; float field_2C; unsigned char pad_30[20]; int field_44; unsigned char pad_48[4]; float field_4C; float field_50; float field_54; float field_58; float field_5C; unsigned char pad_60[19]; signed char field_73; } __repair_record_temp_v0;
 void *func_8029EB04(s32 arg0, f32 arg1) {
+    f32 __repair_fzero = 0.0f;
+
     f32 temp_fv0f;
     void *temp_v0;
 
@@ -31,9 +33,9 @@ void *func_8029EB04(s32 arg0, f32 arg1) {
         ((__repair_record_temp_v0*)temp_v0)->field_54 = temp_fv0f;
         ((__repair_record_temp_v0*)temp_v0)->field_C = temp_fv0f;
         ((__repair_record_temp_v0*)temp_v0)->field_50 = (f32) *(f32 *)0x215DB4;
-        ((__repair_record_temp_v0*)temp_v0)->field_2C = 0.0f;
-        ((__repair_record_temp_v0*)temp_v0)->field_28 = 0.0f;
-        ((__repair_record_temp_v0*)temp_v0)->field_24 = 0.0f;
+        ((__repair_record_temp_v0*)temp_v0)->field_2C = __repair_fzero;
+        ((__repair_record_temp_v0*)temp_v0)->field_28 = __repair_fzero;
+        ((__repair_record_temp_v0*)temp_v0)->field_24 = __repair_fzero;
         ((__repair_record_temp_v0*)temp_v0)->field_58 = func_8022EC3C((f32) (func_80296698(0x1D) - 1));
         ((__repair_record_temp_v0*)temp_v0)->field_44 = func_80109918(temp_v0, 0xFF, 0x104);
         ((__repair_record_temp_v0*)temp_v0)->field_5C = (f32) *(f32 *)0x215DB8;

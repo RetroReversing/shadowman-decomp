@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,17 +10,22 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+extern int D_8007C330;
+extern int D_8007C334;
+extern int D_8007C338;
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
-M2C_UNK func_8022DDD0(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, s32); /* extern */
-M2C_UNK func_802D2B40(s8);                          /* extern */
-extern M2C_UNK D_80075568;
+s32 func_8022DDD0();
+s32 func_802D2B40();
+extern char D_80075568[];
 extern s8 D_80075F21;
-extern M2C_UNK D_8007C330;
 
 void func_802D3C24(void) {
+    s32 *__base_D_80075568;
     func_8022DDD0(1, 0x20, 0, 0, 0);
-    M2C_FIELD(&D_80075568, s32 *, 0x24) = (s32) M2C_FIELD(&D_8007C330, s32 *, 0);
-    M2C_FIELD(&D_80075568, s32 *, 0x28) = (s32) M2C_FIELD(&D_8007C330, s32 *, 4);
-    M2C_FIELD(&D_80075568, s32 *, 0x2C) = (s32) M2C_FIELD(&D_8007C330, s32 *, 8);
-    func_802D2B40(D_80075F21);
+    __base_D_80075568 = D_80075568;
+    M2C_FIELD(__base_D_80075568, s32 *, 0x24) = (s32) D_8007C330;
+    M2C_FIELD(__base_D_80075568, s32 *, 0x28) = (s32) D_8007C334;
+    M2C_FIELD(__base_D_80075568, s32 *, 0x2C) = (s32) D_8007C338;
+    do { func_802D2B40(D_80075F21); } while (0);
 }

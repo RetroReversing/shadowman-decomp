@@ -14,7 +14,7 @@ typedef s32 M2C_UNK32;
 
 extern M2C_UNK D_201B98;
 
-s16 func_80228FA0(s16 arg0) {
+s16 func_80228FA0(s32 arg0) {
     M2C_UNK *var_v1;
     u32 var_a1;
 

@@ -39,9 +39,9 @@ void func_8022BD18(void *arg0) {
                 var_a1 = temp_v0 + temp_s2;
                 var_a0 = 4;
                 do {
-                    temp_v0_2 = ((*__base_D_8005979C) + temp_v0 + (M2C_FIELD(arg0, u8 *, 4) * 4)) - var_a0;
-                    var_a0 += 4;
-                    var_a2 += 1;
+                    temp_v0_2 = ((*(&D_8005979C)) + temp_v0 + (M2C_FIELD(arg0, u8 *, 4) * 4)) - var_a0;
+                    var_a0 += 4;/*__repair_loop_weight*/do {
+                    var_a2 += 1;} while (0);
                     *(s32 *)var_a1 = *temp_v0_2;
                     var_a1 += 4;
                 } while (var_a2 < (u8) M2C_FIELD(arg0, u8 *, 4));

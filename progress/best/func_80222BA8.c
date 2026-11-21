@@ -10,8 +10,8 @@ void func_80222BA8(void *arg0, f32 arg1, f32 arg2, f32 arg3, s32 arg4, f32 arg5,
     ((__repair_record_arg0*)arg0)->field_6 = 0;
     ((__repair_record_arg0*)arg0)->field_8 = (s16) ((s32) (arg5 * (f32) (*(u8 *)((char *)(arg11) + 4))) << 6);
     ((__repair_record_arg0*)arg0)->field_D = (s8) arg8;
+    ((__repair_record_arg0*)arg0)->field_C = (s8) arg7;
     ((__repair_record_arg0*)arg0)->field_E = (s8) arg9;
     ((__repair_record_arg0*)arg0)->field_F = (s8) arg10;
-    ((__repair_record_arg0*)arg0)->field_C = (s8) arg7;
     ((__repair_record_arg0*)arg0)->field_A = (s16) ((s32) (arg6 * (f32) (*(u8 *)((char *)(arg11) + 5))) << 6);
 }

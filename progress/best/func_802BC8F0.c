@@ -37,9 +37,11 @@ void func_802BC8F0(s32 arg0) {
     if (((u32) (M2C_FIELD(__base_D_80075518, u16 *, 4) - 0x72) >= 4U) && ((s16) M2C_FIELD(__base_D_80075518, u16 *, 4) != 0x28)) {
         temp_v1 = *((arg0 * 2) + __base_D_80075518);
         if (temp_v1 != -1) {
-            if (!(M2C_FIELD(((temp_v1 * 0x38) + M2C_FIELD(__base_D_80075518, s32 *, 0x30)), u16 *, 4) & 8)) {
+            if (!(M2C_FIELD(((temp_v1 * 0x38) + M2C_FIELD(__base_D_80075518, s32 *, 0x30)), u16 *, 4) & 8)) {/*__repair_call_balance*/if(var_a0){
                 /* Duplicate return node #7. Try simplifying control flow for better match */
-                func_802BCA10(var_a0, 0, __base_D_80075518, 0, D_80075580, D_80075580 + 0xC);
+                func_802BCA10(var_a0, 0, __base_D_80075518, 0, D_80075580, D_80075580 + 0xC);}else{
+                /* Duplicate return node #7. Try simplifying control flow for better match */
+                func_802BCA10(var_a0, 0, __base_D_80075518, 0, D_80075580, D_80075580 + 0xC);}
                 return;
             }
             __base_D_8007BDE8 = D_8007BDE8;
@@ -52,5 +54,5 @@ void func_802BC8F0(s32 arg0) {
             return;
         }
     }
-    func_802BCA10(var_a0, 0, __base_D_80075518, 0, D_80075580, D_80075580 + 0xC);
+    func_802BCA10(var_a0, 0, D_80075518, 0, D_80075580, D_80075580 + 0xC);
 }
