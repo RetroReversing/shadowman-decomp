@@ -1,5 +1,4 @@
-static __inline__ int __repair_inline(s32 a, s32 b) { return a < b; }
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -33,11 +32,12 @@ void func_802A5E30(void) {
     var_a1 = 0x9C;
     D_8007BD40 = var_v1;
     D_8007BD60 = var_v1;
-    do {
+    __repair_rows: {
         *var_v1 = temp_a2 + var_a1;
-        var_v1 += 39;
+        var_v1 += 0x9C;
         var_a0 += 1;
         var_a1 += 0x9C;
-    } while (__repair_inline(var_a0, 0x31));
+    }
+if (var_a0 < 0x31) goto __repair_rows;
     *((var_a0 * 0x9C) + D_8007BD40) = 0;
 }

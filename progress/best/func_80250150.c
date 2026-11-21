@@ -32,6 +32,9 @@ extern M2C_UNK D_80075568;
 /* Warning: Gap in callee-saved word stack region.
  * Saved: [0x28, 0x2c, 0x30, 0x34, 0x38, 0x3c, 0x48, 0x4c], gap at: 0x40. */
 void func_80250150(void *arg0) {
+    f32 __repair_fzero = 0.0f;
+
+    M2C_UNK *__base_D_8002DC88;
     union {
         unsigned char bytes[16];
         struct { f32 value; } view_sp18;
@@ -47,7 +50,8 @@ void func_80250150(void *arg0) {
     void *temp_s4;
 
     temp_s4 = M2C_FIELD(arg0, void **, 8);
-    temp_s3 = &D_8002DC88 + 4;
+    __base_D_8002DC88 = &D_8002DC88;
+    temp_s3 = __base_D_8002DC88 + 4;
     if (M2C_FIELD(arg0, s16 *, 0x16) == 0) {
         temp_v0 = func_80230EC0(&D_8004AEA0, 0x135);
         D_8002DCA0 = temp_v0;
@@ -59,7 +63,7 @@ void func_80250150(void *arg0) {
     }
     func_80263D48(temp_s3);
     func_80263D48(&D_8002DCA4);
-    M2C_FIELD(temp_s4, f32 *, 0x24) = (f32) M2C_FIELD(&D_8002DC88, f32 *, 4);
+    M2C_FIELD(temp_s4, f32 *, 0x24) = (f32) M2C_FIELD(__base_D_8002DC88, f32 *, 4);
     temp_fs0f = *(f32 *)0x2031B0;
     M2C_FIELD(temp_s4, f32 *, 0x28) = (f32) ((M2C_FIELD(temp_s3, f32 *, 4) - *(f32 *)0x2031AC) + temp_fs0f);
     M2C_FIELD(temp_s4, f32 *, 0x2C) = (f32) M2C_FIELD(temp_s3, f32 *, 8);
@@ -70,18 +74,18 @@ void func_80250150(void *arg0) {
     func_80239A3C(M2C_FIELD(temp_s4, f32 *, 0x1C));
     func_8023A0DC(0, *(f32 *)0x2031B4, 170.0f, &m2c_initial_frame.view_sp18.value, &D_8002D390);
     temp_fa1 = *(f32 *)0x2031B8;
-    M2C_FIELD(&D_80075568, f32 *, 0x24) = (f32) (M2C_FIELD(&D_8002DC88, f32 *, 4) + m2c_initial_frame.view_sp18.value);
+    M2C_FIELD(&D_80075568, f32 *, 0x24) = (f32) (M2C_FIELD(__base_D_8002DC88, f32 *, 4) + m2c_initial_frame.view_sp18.value);
     M2C_FIELD(&D_80075568, f32 *, 0x2C) = (f32) (M2C_FIELD(temp_s3, f32 *, 8) + m2c_initial_frame.view_sp20.value);
     M2C_FIELD(&D_80075568, f32 *, 0x28) = (f32) (M2C_FIELD(temp_s3, f32 *, 4) + m2c_initial_frame.view_sp1C.value + temp_fs0f);
     func_8023A0DC(0, temp_fa1, temp_fa1, &m2c_initial_frame.view_sp18.value, &D_8002D390);
-    M2C_FIELD(&D_80073370, f32 *, 0) = (f32) (M2C_FIELD(&D_8002DC88, f32 *, 4) + m2c_initial_frame.view_sp18.value);
+    M2C_FIELD(&D_80073370, f32 *, 0) = (f32) (M2C_FIELD(__base_D_8002DC88, f32 *, 4) + m2c_initial_frame.view_sp18.value);
     M2C_FIELD(&D_80073370, f32 *, 8) = (f32) (M2C_FIELD(temp_s3, f32 *, 8) + m2c_initial_frame.view_sp20.value);
     M2C_FIELD(&D_80073370, f32 *, 4) = (f32) (M2C_FIELD(temp_s3, f32 *, 4) + m2c_initial_frame.view_sp1C.value + temp_fs0f);
     M2C_FIELD(temp_s4, f32 *, 0x1C) = (f32) (M2C_FIELD(temp_s4, f32 *, 0x1C) + *(f32 *)0x2031BC);
     M2C_FIELD(&D_80073380, f32 *, 0) = (f32) M2C_FIELD(temp_s4, f32 *, 0x18);
     M2C_FIELD(&D_80073380, f32 *, 4) = (f32) M2C_FIELD(temp_s4, f32 *, 0x1C);
-    M2C_FIELD(&D_80075568, f32 *, 0xC) = 0.0f;
-    M2C_FIELD(&D_80075568, f32 *, 0x10) = 0.0f;
-    M2C_FIELD(&D_80075568, f32 *, 0x14) = 0.0f;
+    M2C_FIELD(&D_80075568, f32 *, 0xC) = __repair_fzero;
+    M2C_FIELD(&D_80075568, f32 *, 0x10) = __repair_fzero;
+    M2C_FIELD(&D_80075568, f32 *, 0x14) = __repair_fzero;
     M2C_FIELD(&D_80073380, f32 *, 8) = (f32) M2C_FIELD(temp_s4, f32 *, 0x20);
 }

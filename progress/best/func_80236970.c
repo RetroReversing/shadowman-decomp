@@ -21,7 +21,7 @@ f32 func_80236970(void *arg0, void *arg1, f32 arg2) {
     temp_fv0 = M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg1, f32 *, 0);
     temp_fv1f = M2C_FIELD(arg0, f32 *, 4) - M2C_FIELD(arg1, f32 *, 4);
     temp_fv0f = M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(arg1, f32 *, 8);
-    var_fv0 = (temp_fv0 * temp_fv0) + (temp_fv1f * temp_fv1f) + (temp_fv0f * temp_fv0f);
+    var_fv0 = (((temp_fv0 * temp_fv0))) + (((temp_fv1f * temp_fv1f) + (temp_fv0f * temp_fv0f)));
     if (!(var_fv0 < (arg2 * arg2))) {
         var_fv0 = 0.0f;
     }

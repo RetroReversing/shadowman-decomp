@@ -23,16 +23,16 @@ void func_802621D0(s32 arg0, u32 arg1) {
     u32 temp_v0;
 
     __base_D_80074CF0 = &D_80074CF0;
-    (*__base_D_80074CF0) = 0;
+    (*(&D_80074CF0)) = 0;
     if (arg1 != 0) {
         do {
             __base_D_80074E18 = &D_80074E18;
-            *(((*__base_D_80074CF0) * 6) + __base_D_80074E18) = func_8023648C(arg0);
-            M2C_FIELD((((*__base_D_80074CF0) * 6) + __base_D_80074E18), s8 *, 2) = func_8023646C(arg0);
-            M2C_FIELD((((*__base_D_80074CF0) * 6) + __base_D_80074E18), s8 *, 3) = func_8023646C(arg0);
-            M2C_FIELD((((*__base_D_80074CF0) * 6) + __base_D_80074E18), s8 *, 4) = func_8023646C(arg0);
-            temp_v0 = (*__base_D_80074CF0) + 1;
-            (*__base_D_80074CF0) = temp_v0;
+            *(((*(&D_80074CF0)) * 6) + __base_D_80074E18) = func_8023648C(arg0);
+            M2C_FIELD((((*(&D_80074CF0)) * 6) + __base_D_80074E18), s8 *, 2) = func_8023646C(arg0);
+            M2C_FIELD((((*(&D_80074CF0)) * 6) + __base_D_80074E18), s8 *, 3) = func_8023646C(arg0);
+            M2C_FIELD((((*(&D_80074CF0)) * 6) + __base_D_80074E18), s8 *, 4) = func_8023646C(arg0);
+            temp_v0 = (*(&D_80074CF0)) + 1;
+            (*(&D_80074CF0)) = temp_v0;
         } while (temp_v0 < arg1);
     }
 }

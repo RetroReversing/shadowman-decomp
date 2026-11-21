@@ -37,12 +37,13 @@ void func_8024953C(void) {
     temp_fs0 = func_8022EC3C(*(f32 *)0x202D54) + *(f32 *)0x202D60;
     __base_D_8006A4FC = &D_8006A4FC;
     func_80299D50(3, (*__base_D_8006A4FC), sp18, temp_fs0, func_8022EC3C(*(f32 *)0x202D64) + *(f32 *)0x202D68, 1);
-    do {
+    __repair_rows: {
         var_s1 += 1;
         sp28[0] = M2C_FIELD(D_8006A4FC, f32 *, 0) + func_8022EBE8((f32) M2C_FIELD(M2C_FIELD(D_8006A4FC, void **, 0x64), u16 *, 0x12));
         sp28[1] = M2C_FIELD(D_8006A4FC, f32 *, 4) + func_8022EBE8((f32) M2C_FIELD(M2C_FIELD(D_8006A4FC, void **, 0x64), u16 *, 0x12));
         sp28[2] = M2C_FIELD(D_8006A4FC, f32 *, 8) + func_8022EBE8((f32) M2C_FIELD(M2C_FIELD(D_8006A4FC, void **, 0x64), u16 *, 0x12));
         temp_fs0_2 = func_8022EC3C(*(f32 *)0x202D6C) + temp_fs1;
         func_80299D50(0xF, sp28, sp18, temp_fs0_2, func_8022EC3C(temp_fs0f) + temp_fs0f, 1);
-    } while (var_s1 < 8);
+    }
+if (var_s1 < 8) goto __repair_rows;
 }

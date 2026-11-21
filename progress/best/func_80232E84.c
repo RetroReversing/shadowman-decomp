@@ -33,7 +33,7 @@ void func_80232E84(u8 *arg0, s32 arg1) {
     var_s2 = arg1;
     var_s3 = 0;
     var_s1 = var_s0 + 8;
-    __repair_rows: {
+    do {
         __base_D_8005E9FC = &D_8005E9FC;
         *var_s0 = func_8023646C((*__base_D_8005E9FC));
         M2C_FIELD(var_s1, u8 *, -6) = func_8023646C((*__base_D_8005E9FC));
@@ -43,11 +43,10 @@ void func_80232E84(u8 *arg0, s32 arg1) {
         if (temp_a0 & 2) {
             *var_s0 = (s16) (temp_v1 | ((M2C_FIELD(var_s1, u8 *, -7) & 0x7F) | 1));
         }
-        var_v0 = temp_a0 & 8;
         if (temp_a0 & 4) {
             *var_s0 = (s16) (((u16) *var_s0 & 0xFF80) | ((M2C_FIELD(var_s1, u8 *, -7) & 0x7F) | 2));
-            var_v0 = temp_a0 & 8;
         }
+        var_v0 = temp_a0 & 8;
         var_v0_2 = temp_a0 & 0x10;
         if (var_v0 != 0) {
             *var_s0 = (s16) (((u16) *var_s0 & 0xFF80) | ((M2C_FIELD(var_s1, u8 *, -7) & 0x7F) | 4));
@@ -72,6 +71,5 @@ void func_80232E84(u8 *arg0, s32 arg1) {
         var_s1 += 0x12;
         var_s2 -= 1;
         var_s0 += 0x12;
-    }
-if (var_s2 != 0) goto __repair_rows;
+    } while (var_s2 != 0);
 }

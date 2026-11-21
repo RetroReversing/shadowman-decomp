@@ -17,6 +17,7 @@ extern s32 D_8007BE5C;
 extern s32 D_8007BE60;
 
 typedef struct { unsigned char pad_0[28]; void * field_1C; void * field_20; void * field_24; } __repair_record_var_s0;
+typedef struct { unsigned char pad[136]; void * value; } __repair_field_88;
 void func_802BD2B0(void) {
     M2C_UNK (*temp_a1_2)(void *, M2C_UNK, void *);
     M2C_UNK *var_s0;
@@ -39,14 +40,14 @@ loop_4:
             if (temp_a1 != (void *)-1) {
                 temp_a2 = ((__repair_record_var_s0*)var_s0)->field_20;
                 if (temp_a2 != NULL) {
-                    temp_v1 = M2C_FIELD(temp_a2, void **, 0x88);
+                    temp_v1 = ((__repair_field_88 *)temp_a2)->value;
                     if ((temp_v1 != NULL) && (M2C_FIELD(temp_v1, s32 *, 0x18) == 2)) {
                         temp_a0 = M2C_FIELD(temp_v1, void **, 0xC);
                         if (M2C_FIELD(temp_a0, M2C_UNK (**)(void *, M2C_UNK, void *), 0x24) != NULL) {
                             D_8007BE5C = var_s3;
                             temp_a1_2 = M2C_FIELD(temp_a0, M2C_UNK (**)(void *, M2C_UNK, void *), 0x24);
                             D_8007BE60 = M2C_FIELD(temp_a1, s32 *, 0x1C) + (M2C_FIELD(((__repair_record_var_s0*)var_s0)->field_24, u16 *, 8) * 0x10);
-                            temp_a1_2(M2C_FIELD(temp_a2, void **, 0x88), temp_a1_2, temp_a2);
+                            temp_a1_2(((__repair_field_88 *)temp_a2)->value, temp_a1_2, temp_a2);
                         }
                     }
                 }

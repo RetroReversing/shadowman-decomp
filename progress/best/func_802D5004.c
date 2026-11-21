@@ -18,12 +18,14 @@ extern char D_80045930[];
 extern char D_80075568[];
 
 void *func_802D5004(void *arg0) {
+    char *__base_D_80045930;
     void *temp_a0;
     void *temp_a0_2;
     void *temp_s0;
     void *var_v0;
 
-    temp_s0 = M2C_FIELD(((M2C_FIELD(arg0, s32 *, 4) * 0x14) + D_80045930), void **, 8);
+    __base_D_80045930 = D_80045930;
+    temp_s0 = M2C_FIELD(((M2C_FIELD(arg0, s32 *, 4) * 0x14) + __base_D_80045930), void **, 8);
     temp_a0 = M2C_FIELD(temp_s0, void **, 0x88);
     M2C_FIELD(temp_s0, u8 *, 0x71) = (u8) M2C_FIELD(arg0, u8 *, 0xB);
     if (temp_a0 != NULL) {

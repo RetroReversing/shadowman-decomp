@@ -19,7 +19,7 @@ M2C_UNK func_80109404();                            /* extern */
 M2C_UNK func_80109430();                            /* extern */
 extern M2C_UNK D_8001E5B0;
 
-void func_80109318(s16 arg0, s32 arg1, s32 arg2) {
+void func_80109318(s16 arg0, s32 arg1, u8 arg2) {
     char sp18[0x10];
     s16 (*temp_v0)(s16);
     s16 (*temp_v0_2)(s16);

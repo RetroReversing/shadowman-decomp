@@ -35,13 +35,13 @@ s32 func_802734B0(void *arg0) {
     }
     if (func_802D0B28(D_8005EA14, temp_a1, 2) != 0) {
         __base_D_8005E9F0 = &D_8005E9F0;
-        var_s1 = M2C_FIELD((*__base_D_8005E9F0), s16 **, 0xC);
+        var_s1 = M2C_FIELD(D_8005E9F0, s16 **, 0xC);
         var_s2 = 0;
-        if (M2C_FIELD((*__base_D_8005E9F0), s16 *, 0x22) > 0) {
+        if (M2C_FIELD(D_8005E9F0, s16 *, 0x22) > 0) {
             var_s0 = var_s1 + 4;
             for (;;) {
                 if ((*var_s1 == 5) && (func_80231D44(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 4), M2C_FIELD(arg0, s32 *, 8), var_s0) != 0)) {
-                    if (M2C_FIELD(var_s0, s16 *, -2) != (*__base_D_8002D2B4)) {
+                    if (M2C_FIELD(var_s0, s16 *, -2) != (*(&D_8002D2B4))) {
                         goto block_11;
                     }
                     return func_80273580();
@@ -50,7 +50,7 @@ block_11:
                 var_s0 += 0x1C;
                 var_s2 += 1;
                 var_s1 += 14;
-                if (var_s2 >= M2C_FIELD((*__base_D_8005E9F0), s16 *, 0x22)) {
+                if (var_s2 >= M2C_FIELD(D_8005E9F0, s16 *, 0x22)) {
                     /* Duplicate return node #12. Try simplifying control flow for better match */
                     return 0;
                 }

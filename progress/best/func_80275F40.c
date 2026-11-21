@@ -26,13 +26,15 @@ void *func_80275F40(s16 arg0) {
         for (;;) {
             var_v1 = *var_a0;
             if (var_v1 != NULL) {
-loop_3:
-                if ((M2C_FIELD(var_v1, s32 *, 0x18) != 1) || (M2C_FIELD(var_v1, s16 *, 0x14) != arg0)) {
-                    var_v1 = M2C_FIELD(var_v1, void **, 0);
-                    if (var_v1 == NULL) {
-                        goto block_6;
+                for (;;) {
+                    if ((M2C_FIELD(var_v1, s32 *, 0x18) != 1) || (M2C_FIELD(var_v1, s16 *, 0x14) != arg0)) {
+                        var_v1 = M2C_FIELD(var_v1, void **, 0);
+                        if (var_v1 == NULL) {
+                            goto block_6;
+                        }
+                        continue;
                     }
-                    goto loop_3;
+                    break;
                 }
                 return var_v1;
             }

@@ -25,6 +25,7 @@ extern M2C_UNK D_8002C63C;
 extern M2C_UNK D_8007DB88;
 
 void func_802A1DE0(void *arg0) {
+    M2C_UNK *__base_D_8002C63C;
     union {
         unsigned char bytes[152];
         struct { M2C_UNK value; } view_sp10;
@@ -76,7 +77,8 @@ void func_802A1DE0(void *arg0) {
     if (temp_fv0 <= 0.0f) {
         M2C_FIELD(arg0, f32 *, 0x54) = 0.0f;
     }
-    temp_v0 = func_80296738(M2C_FIELD(((M2C_FIELD(arg0, s32 *, 0x6C) * 0x10) + &D_8002C63C), s32 *, 8));
+    __base_D_8002C63C = &D_8002C63C;
+    temp_v0 = func_80296738(M2C_FIELD(((M2C_FIELD(arg0, s32 *, 0x6C) * 0x10) + __base_D_8002C63C), s32 *, 8));
     m2c_initial_frame.view_sp90.value = temp_v0;
     if (temp_v0 != 0) {
         m2c_initial_frame.view_sp34.value = M2C_FIELD(arg0, s32 *, 0);
@@ -108,12 +110,12 @@ void func_802A1DE0(void *arg0) {
             }
             temp_fv0_4 = M2C_FIELD(arg0, f32 *, 0xC);
             temp_fv0f_3 = *(f32 *)0x215FB8;
-            if (temp_fv0f_3 <= temp_fv0_4) {
+            if (temp_fv0f_3 > temp_fv0_4) {
+                func_802A1F8C((s32) temp_fv0_4);
+            } else {
                 m2c_initial_frame.view_spA4.value = (s32) (temp_fv0_4 - temp_fv0f_3) | 0x80000000;
                 func_8025DCDC(m2c_initial_frame.view_unkspA7.value, m2c_initial_frame.view_unkspA7.value, m2c_initial_frame.view_unkspA7.value, m2c_initial_frame.view_unkspA7.value);
                 func_8025DD7C(&m2c_initial_frame.view_sp10.value, 6, 0x46, 0);
-            } else {
-                func_802A1F8C((s32) temp_fv0_4);
             }
         } else {
             func_802A1ED4();

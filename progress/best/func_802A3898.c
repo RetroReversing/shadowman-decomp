@@ -28,12 +28,9 @@ extern char D_8007558C[];
 /* Warning: Gap in callee-saved word stack region.
  * Saved: [0x38, 0x3c, 0x40, 0x44, 0x48, 0x58, 0x5c], gap at: 0x4c. */
 void func_802A3898(void *arg0) {
-    f32 sp18;
-    f32 sp1C;
-    f32 sp20;
-    f32 sp28;
-    f32 sp2C;
-    f32 sp30;
+    short *__base_D_80075556;
+    f32 sp18[3];
+    f32 sp28[3];
     f32 temp_fs0;
     f32 temp_fs0_2;
     f32 temp_fs0f;
@@ -51,33 +48,34 @@ void func_802A3898(void *arg0) {
 
         } else {
             temp_fs0 = *(f32 *)0x2160E4;
-            sp18 = func_8022EBE8(temp_fs0, temp_ret / 10);
-            sp1C = func_8022EC3C(*(f32 *)0x2160E8);
-            sp20 = func_8022EBE8(temp_fs0);
+            sp18[0] = func_8022EBE8(temp_fs0);
+            sp18[1] = func_8022EC3C(*(f32 *)0x2160E8);
+            sp18[2] = func_8022EBE8();
             temp_v0 = func_802A3AD0(D_8007558C, M2C_FIELD(arg0, u8 *, 0x72));
             if (temp_v0 != NULL) {
-                M2C_FIELD(temp_v0, f32 *, 0x18) = sp18;
-                M2C_FIELD(temp_v0, f32 *, 0x1C) = sp1C;
-                M2C_FIELD(temp_v0, f32 *, 0x20) = sp20;
+                M2C_FIELD(temp_v0, f32 *, 0x18) = sp18[0];
+                M2C_FIELD(temp_v0, f32 *, 0x1C) = sp18[1];
+                M2C_FIELD(temp_v0, f32 *, 0x20) = sp18[2];
             }
         }
         var_s0 = 0;
-        if (D_80075556 != 0) {
+        __base_D_80075556 = &D_80075556;
+        if ((*__base_D_80075556) != 0) {
             temp_fs0_2 = *(f32 *)0x2160EC;
             temp_fs0f = *(f32 *)0x2160F0;
             do {
                 if ((func_80113AD0() % 10) >= 6) {
-                    func_8023E724(D_80075518, var_s0, D_80036B1C, &sp28);
-                    sp28 += func_8022EBE8(temp_fs0_2);
-                    sp2C += func_8022EBE8(temp_fs0_2);
-                    sp30 += func_8022EBE8(temp_fs0_2);
-                    sp18 = func_8022EBE8(temp_fs0f);
-                    sp20 = func_8022EBE8(temp_fs0f);
-                    sp1C = func_8022EC3C(*(f32 *)0x2160F4);
-                    func_802A5110(&sp28, &sp18);
+                    func_8023E724(D_80075518, var_s0, D_80036B1C, sp28);
+                    sp28[0] += func_8022EBE8();
+                    sp28[1] += func_8022EBE8();
+                    sp28[2] += func_8022EBE8();
+                    sp18[0] = func_8022EBE8();
+                    sp18[2] = func_8022EBE8();
+                    sp18[1] = func_8022EC3C(*(f32 *)0x2160F4);
+                    func_802A5110(sp28, sp18);
                 }
                 var_s0 += 1;
-            } while (var_s0 < (u32) D_80075556);
+            } while (var_s0 < (u32) (*__base_D_80075556));
         }
     }
 }

@@ -20,26 +20,26 @@ void *func_8029DEF4(s32 arg0, f32 arg1, s32 arg2) {
         func_80296CE0(1);
         var_s0 = func_80296BC0(arg0, NULL, D_80036C10);
         var_a0 = var_s0;
-        if (var_s0 == NULL) {
+        if (var_s0 == (int)NULL) {
             return func_8029E000(var_a0);
         }
     }
     (*(s32 *)((char *)(var_s0) + 0x4C)) = arg1;
     (*(s32 *)((char *)(var_s0) + 0x58)) = 0;
     (*(s32 *)((char *)(var_s0) + 0x5C)) = 0;
-    do { func_80260850(var_a0, arg2); } while (0);
+    { func_80260850(var_a0, arg2); }
     (*(s32 *)((char *)(var_s0) + 0x58)) = 0;
     (*(u8 *)((char *)(var_s0) + 0x73)) = 0;
     (*(f32 *)((char *)(var_s0) + 0x50)) = (f64) *(f32 *)0x215D28;
+    (*(s32 *)((char *)(var_s0) + 0x28)) = (s32) (unsigned)D_80036B20;
     (*(s32 *)((char *)(var_s0) + 0x24)) = (s32) D_80036B1C;
-    (*(s32 *)((char *)(var_s0) + 0x28)) = (s32) D_80036B20;
-    (*(s32 *)((char *)(var_s0) + 0x2C)) = (s32) D_80036B24;
+    (*(s32 *)((char *)(var_s0) + 0x2C)) = D_80036B24;
     (*(u8 *)((char *)(var_s0) + 0x69)) = 0xA;
     (*(u8 *)((char *)(var_s0) + 0x68)) = 0xC8;
     (*(s32 *)((char *)(var_s0) + 0xC)) = 0;
     (*(u8 *)((char *)(var_s0) + 0x6A)) = 0xFF;
     (*(f32 *)((char *)(var_s0) + 0x60)) = (f32) *(f32 *)0x215D30;
     (*(u8 *)((char *)(var_s0) + 0x72)) |= 4;
-    func_8029DA00(var_s0, (*(s32 *)((char *)(var_s0) + 0x4C)));
+    do { func_8029DA00(var_s0, (*(s32 *)((char *)(var_s0) + 0x4C))); } while (0);
     return var_s0;
 }

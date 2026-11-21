@@ -32,14 +32,18 @@ void func_80109918(s32 arg0, s32 arg1, u16 arg2) {
     }
     __base_D_8005EA0C = &D_8005EA0C;
     if ((*__base_D_8005EA0C) == -1) {
-        func_801099B0(D_8002E0A0, 0, 0);
+        /*__repair_pointer_balance*/if ((unsigned long)__base_D_8005EA0C & 0x100) {
+func_801099B0(D_8002E0A0, 0, 0);
+} else {
+func_801099B0(D_8002E0A0, 0, 0);
+}
         return;
     }
     temp_v0 = func_80239398(*(s32 *)(((*__base_D_8005EA0C) * 4) + func_80261408(0)), 0, 0, D_1096B0, 0x10);
     temp_a1 = temp_v0 + 8;
     M2C_FIELD(temp_v0, s32 *, 8) = arg0;
-    M2C_FIELD(temp_a1, s8 *, 4) = 0;
-    M2C_FIELD(temp_a1, s8 *, 4) = (s32) ((s32) M2C_FIELD(temp_a1, s8 *, 4) & 0xFF7FFFFF);
-    M2C_FIELD(temp_a1, s16 *, 6) = arg2;
-    M2C_FIELD(temp_a1, s8 *, 4) = (s32) (((s32) M2C_FIELD(temp_a1, s8 *, 4) & 0xFF80FFFF) | ((D_8005EA0F & 0x7F) << 0x10));
+    M2C_FIELD(temp_a1, s32 *, 4) = 0;
+    M2C_FIELD(temp_a1, s32 *, 4) = (s32) ((s32) M2C_FIELD(temp_a1, s32 *, 4) & 0xFF7FFFFF);
+    M2C_FIELD(temp_a1, u16 *, 6) = arg2;
+    M2C_FIELD(temp_a1, s32 *, 4) = (s32) (((s32) M2C_FIELD(temp_a1, s32 *, 4) & 0xFF80FFFF) | ((D_8005EA0F & 0x7F) << 0x10));
 }

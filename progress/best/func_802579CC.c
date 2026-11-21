@@ -17,6 +17,7 @@ extern M2C_UNK D_80075568;
 extern s32 D_8007BE5C;
 
 void func_802579CC(void *arg0) {
+    M2C_UNK *__base_D_80075568;
     void *temp_a0;
     void *temp_a1;
 
@@ -24,7 +25,8 @@ void func_802579CC(void *arg0) {
     temp_a0 = M2C_FIELD(temp_a1, void **, 0x6C);
     if (D_8007BE5C == 0) {
         if (M2C_FIELD(temp_a0, s32 *, 0) == 3) {
-            M2C_FIELD(&D_80075568, f32 *, 0x2C) = (f32) (M2C_FIELD(&D_80075568, f32 *, 0x2C) + M2C_FIELD(temp_a0, f32 *, 0x24));
+            __base_D_80075568 = &D_80075568;
+            M2C_FIELD(__base_D_80075568, f32 *, 0x2C) = (f32) (M2C_FIELD(__base_D_80075568, f32 *, 0x2C) + M2C_FIELD(temp_a0, f32 *, 0x24));
             M2C_FIELD(temp_a0, f32 *, 0x24) = 0.0f;
             goto block_3;
         }

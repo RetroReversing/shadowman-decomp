@@ -33,7 +33,7 @@ void func_8023033C(void) {
         do {
             temp_v0 = *(u16 *)var_v1;
             if ((temp_v0 != 0xFFFF) && (temp_v0 & 0x8000)) {
-                *(u16 *)var_v1 = 0xFFFF;
+                do {*(u16 *)var_v1 = 0xFFFF;}while(0);
             }
             var_s0 += 1;
             var_v1 += 8;

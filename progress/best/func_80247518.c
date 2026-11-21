@@ -24,8 +24,8 @@ void func_80247518(void) {
     if (D_8007B0F8 != 0) {
         func_80237F4C(D_80031C50);
     }
-    (*__base_D_80072BFC) = 0;
     __base_D_80072BFC = &D_80072BFC;
+    (*__base_D_80072BFC) = 0;
     if (D_8002DBD4 == 0xE) {
         func_80247574(D_8002DBD0);
         return;
@@ -42,6 +42,6 @@ void func_80247518(void) {
         (*(s32 *)((char *)(D_8002DC0C) + -0x1C)) = sp10[0];
         (*(s32 *)((char *)(D_8002DC0C) + -0x18)) = sp10[1];
         (*(s32 *)((char *)(D_8002DC0C) + -0x14)) = sp10[2];
-        func_80237F4C(D_8002DC0C - 0x1C, sp10[0], sp10[1], sp10[2]);
+        do { func_80237F4C(D_8002DC0C - 0x1C, sp10[0], sp10[1], sp10[2]); } while (0);
     }
 }

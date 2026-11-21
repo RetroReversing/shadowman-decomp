@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -41,12 +41,13 @@ void func_802DDA6C(s8 arg0) {
     sp6 = 0xFF;
     sp7 = 0xFF;
     if (D_8004EDEC != 0) {
-        do {
+        __repair_rows: {
             M2C_FIELD(var_a3, s8 *, 0) = M2C_UNALIGNED32(sp0);
             M2C_FIELD(var_a3, M2C_UNK *, 4) = M2C_UNALIGNED32(sp4);
             var_a2 += 1;
             var_a3 += 8;
-        } while (var_a2 < (s32) D_8004EDEC);
+        }
+if (var_a2 < (s32) D_8004EDEC) goto __repair_rows;
     }
     *var_a3 = 0xFE;
 }

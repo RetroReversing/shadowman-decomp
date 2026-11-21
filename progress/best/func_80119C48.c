@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,19 +10,21 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
-M2C_UNK func_80118630(s32, M2C_UNK);                /* extern */
-s32 *func_80119D60(s32);                            /* extern */
-s32 *func_80119E2C(s32, s32 *);                     /* extern */
-s32 func_8011B51C(s32, s32 *, s32);                 /* extern */
+s32 func_80118630();
+s32 *func_80119D60();
+s32 *func_80119E2C();
+s32 func_8011B51C();
 extern s32 D_800286A0;
 
-s32 *func_80119C48(void *arg0, s16 *arg1, s32 arg2, s32 *arg4) {
+s32 *func_80119C48(void *arg0, s16 *arg1, s32 arg2, s32 arg3, s32 *arg4) {
+    s32 *__base_D_800286A0;
     s16 var_s3;
     s32 *temp_s0;
     s32 *var_a1;
-    s32 *var_s0;
-    s32 *var_s1;
+    char *var_s0;
+    char *var_s1;
     s32 temp_a0;
     s32 temp_a0_2;
     s32 temp_v0;
@@ -49,17 +50,22 @@ s32 *func_80119C48(void *arg0, s16 *arg1, s32 arg2, s32 *arg4) {
     var_s0 = var_s1 - 4;
     if (var_s5 != 0) {
 loop_7:
-        var_s2 = var_s5;
+        var_s2 = var_a2;
         if (M2C_FIELD(temp_s4, s32 *, 0x38) == 0) {
             temp_v0 = func_8011B51C((s32) var_a0, var_a1, var_a2);
-            D_800286A0 = temp_v0;
+            __base_D_800286A0 = &D_800286A0;
+            (*__base_D_800286A0) = temp_v0;
             if (temp_v0 != 0) {
-                func_80118630(temp_v0, 0x200);
+                /*__repair_pointer_balance*/if ((unsigned long)__base_D_800286A0 & 0x100) {
+func_80118630(temp_v0, 0x200);
+} else {
+func_80118630(temp_v0, 0x200);
+}
                 M2C_FIELD(temp_s4, s32 *, 0x38) = 0x100;
                 goto block_10;
             }
             temp_a0_2 = (var_s3 & 0xFFFFFF) | 0x02000000;
-            *var_s1 = temp_a0_2;
+            *(s32 *)var_s1 = temp_a0_2;
             return func_80119E2C(temp_a0_2, var_s1);
         }
 block_10:
@@ -67,7 +73,7 @@ block_10:
         if (temp_v1 < var_s5) {
             var_s2 = temp_v1;
         }
-        var_a2 = D_800286A0 & 7;
+        var_a2 = (*__base_D_800286A0) & 7;
         temp_a0 = (var_s2 * 2) + var_a2;
         if (var_s3 & 7) {
             return func_80119D60(temp_a0);
@@ -79,7 +85,7 @@ block_10:
         var_s0 = temp_s0 + 8;
         var_s1 += 0x10;
         M2C_FIELD(var_s0, s32 *, -4) = 0x04000000;
-        M2C_FIELD(temp_s0, s32 *, 8) = (s32) ((D_800286A0 & 0x1FFFFFFF) - var_a2);
+        M2C_FIELD(temp_s0, s32 *, 8) = (s32) (((*__base_D_800286A0) & 0x1FFFFFFF) - var_a2);
         if ((var_a2 != 0) || (0 != 0)) {
             var_s0 += 8;
             var_s1 += 8;
@@ -90,7 +96,7 @@ block_10:
         temp_v0_2 = var_s2 * 2;
         var_s3 += temp_v0_2;
         var_a0 = M2C_FIELD(temp_s4, s32 *, 0x38) - var_s2;
-        D_800286A0 += temp_v0_2;
+        (*__base_D_800286A0) += temp_v0_2;
         M2C_FIELD(temp_s4, s32 *, 0x38) = (s32) var_a0;
         if (var_s5 == 0) {
             /* Duplicate return node #19. Try simplifying control flow for better match */

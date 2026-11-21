@@ -16,11 +16,11 @@ s32 func_801154E0(u32 arg0) {
         if (var_a1 & 0x10) {
             var_a2 = 0x15;
         }
-        temp_v1 = var_a0 >> 0xA;
         var_a0 *= 2;
+        temp_v1 = var_a0 >> 0xA;
         temp_v0 = (((var_a1 * 2) & 0xFF) | (temp_v1 & 1)) ^ var_a2;
         var_a1 = temp_v0;
         var_a3 -= 1;
-    } while (var_a3 >= 0);
+    } while (0 <= var_a3);
     return temp_v0 & 0x1F;
 }

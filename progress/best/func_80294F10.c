@@ -24,6 +24,7 @@ extern M2C_UNK D_8007B340;
 /* Warning: Gap in callee-saved word stack region.
  * Saved: [0xa0, 0xa4, 0xa8, 0xac, 0xb0, 0xb4, 0xb8, 0xbc, 0xc0, 0xc4, 0xd0, 0xd4], gap at: 0xc8. */
 void func_80294F10(void *arg0, void *arg1, s32 arg2, s32 arg3) {
+    M2C_UNK *__base_D_80075568;
     union {
         unsigned char bytes[112];
         struct { f32 value; } view_sp30;
@@ -130,7 +131,7 @@ void func_80294F10(void *arg0, void *arg1, s32 arg2, s32 arg3) {
         if (temp_v1 >= 0xC1) {
             temp_fs0_2 = *(f32 *)0x21586C;
             var_s3 = arg1;
-            do {
+            __repair_rows: {
                 m2c_initial_frame.view_sp40.value = (M2C_FIELD(arg0, f32 *, 0x2000) - M2C_FIELD(var_s3, f32 *, 0)) * temp_fs0_2;
                 m2c_initial_frame.view_sp44.value = (M2C_FIELD(arg0, f32 *, 0x2004) - M2C_FIELD(var_s3, f32 *, 4)) * temp_fs0_2;
                 m2c_initial_frame.view_sp48.value = (M2C_FIELD(arg0, f32 *, 0x2008) - M2C_FIELD(var_s3, f32 *, 8)) * temp_fs0_2;
@@ -158,7 +159,8 @@ void func_80294F10(void *arg0, void *arg1, s32 arg2, s32 arg3) {
                     } while (var_s1_2 >= 0);
                 }
                 var_s3 += 0xC;
-            } while ((s32) var_s3 < (s32) (arg1 + 0x30));
+            }
+if ((s32) var_s3 < (s32) (arg1 + 0x30)) goto __repair_rows;
         }
 block_18:
         var_s1_3 = 0;
@@ -182,13 +184,14 @@ block_18:
                 temp_fv1 = (temp_fv0f * m2c_initial_frame.view_sp7C.value) + (temp_fv1f * m2c_initial_frame.view_sp80.value) + (temp_ft2f * m2c_initial_frame.view_sp84.value);
                 temp_fv0f_2 = (temp_fv0f * m2c_initial_frame.view_sp88.value) + (temp_fv1f * m2c_initial_frame.view_sp8C.value) + (temp_ft2f * m2c_initial_frame.view_sp90.value);
                 m2c_initial_frame.view_sp68.value = temp_ft2f;
-                temp_ft0f = temp_ft0 + M2C_FIELD(&D_80075568, f32 *, 0x24);
+                __base_D_80075568 = &D_80075568;
+                temp_ft0f = temp_ft0 + M2C_FIELD(__base_D_80075568, f32 *, 0x24);
                 m2c_initial_frame.view_sp50.value = temp_ft0;
                 m2c_initial_frame.view_sp54.value = temp_fv1;
                 m2c_initial_frame.view_sp58.value = temp_fv0f_2;
-                temp_fv0f_3 = temp_fv0f_2 + M2C_FIELD(&D_80075568, f32 *, 0x2C);
+                temp_fv0f_3 = temp_fv0f_2 + M2C_FIELD(__base_D_80075568, f32 *, 0x2C);
                 m2c_initial_frame.view_sp50.value = temp_ft0f;
-                m2c_initial_frame.view_sp54.value = temp_fv1 + (M2C_FIELD(&D_80075568, f32 *, 0x28) + *(f32 *)0x215884);
+                m2c_initial_frame.view_sp54.value = temp_fv1 + (M2C_FIELD(__base_D_80075568, f32 *, 0x28) + *(f32 *)0x215884);
                 m2c_initial_frame.view_sp58.value = temp_fv0f_3;
                 if (D_8002C1B0 != 0) {
                     func_8021E990(temp_ft0f, m2c_initial_frame.view_sp54.value, M2C_FIELD(&D_8007B340, u8 *, 2), M2C_FIELD(&D_8007B340, u8 *, 3), temp_fv0f_3, temp_fs0_3, temp_fs0_3, *(f32 *)0x215888, (s32) M2C_FIELD(&D_8007B340, u8 *, 0), (s32) M2C_FIELD(&D_8007B340, u8 *, 1), (s32) M2C_FIELD(&D_8007B340, u8 *, 2), (s32) M2C_FIELD(&D_8007B340, u8 *, 3), D_8002C1B0);

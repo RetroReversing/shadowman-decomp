@@ -20,8 +20,12 @@ void func_8023AF20(void *arg0) {
     }
     __base_D_8005EA2C = &D_8005EA2C;
     func_802397D0((*__base_D_8005EA2C) + 0x3C);
-    temp_a0 = (*__base_D_8005EA2C) + 0x3C;
-    func_802398C8(temp_a0, arg0 + 0x34, temp_a0);
+    temp_a0 = (*__base_D_8005EA2C); temp_a0 += 0x3C;
+    /*__repair_pointer_balance*/if ((unsigned long)__base_D_8005EA2C & 0x100) {
+func_802398C8(((*__base_D_8005EA2C) + 0x3C), arg0 + 0x34, ((*__base_D_8005EA2C) + 0x3C));
+} else {
+func_802398C8(((*__base_D_8005EA2C) + 0x3C), arg0 + 0x34, ((*__base_D_8005EA2C) + 0x3C));
+}
     func_8023B83C(arg0);
     D_8002C1B0 = (((__repair_record_arg0*)arg0)->field_80);
     if ((((__repair_record_arg0*)arg0)->field_78) & 2) {

@@ -19,6 +19,8 @@ extern M2C_UNK D_80075518;
 extern M2C_UNK D_80075568;
 
 void func_802CCC60(void) {
+    M2C_UNK *__base_D_80075568;
+    M2C_UNK *__base_D_80075518;
     union {
         unsigned char bytes[48];
         struct { s32 value; } view_sp10;
@@ -37,14 +39,16 @@ void func_802CCC60(void) {
              
     f32 temp_fv0f;
 
-    if (M2C_FIELD(&D_80075518, s16 *, 0x16) >= 0x65) {
+    __base_D_80075518 = &D_80075518;
+    if (M2C_FIELD(__base_D_80075518, s16 *, 0x16) >= 0x65) {
         m2c_initial_frame.view_sp10.value = 0;
         m2c_initial_frame.view_sp14.value = 0;
         m2c_initial_frame.view_sp18.value = 0;
-        func_8023E724(&D_80075518, D_80072C18, &m2c_initial_frame.view_sp10.value, &m2c_initial_frame.view_sp30.value);
-        func_8023E724(&D_80075518, D_80072BD8, &m2c_initial_frame.view_sp10.value, &m2c_initial_frame.view_sp20.value);
+        func_8023E724(__base_D_80075518, D_80072C18, &m2c_initial_frame.view_sp10.value, &m2c_initial_frame.view_sp30.value);
+        func_8023E724(__base_D_80075518, D_80072BD8, &m2c_initial_frame.view_sp10.value, &m2c_initial_frame.view_sp20.value);
         temp_fv0f = *(f32 *)0x218764;
-        M2C_FIELD(&D_80075568, f32 *, 0xC) = (f32) (M2C_FIELD(&D_80075568, f32 *, 0xC) + ((m2c_initial_frame.view_sp30.value - m2c_initial_frame.view_sp20.value) * temp_fv0f));
-        M2C_FIELD(&D_80075568, f32 *, 0x10) = M2C_BITWISE(f64, (M2C_FIELD(&D_80075568, f32 *, 0x14) + ((m2c_initial_frame.view_sp38.value - m2c_initial_frame.view_sp28.value) * temp_fv0f)));
+        __base_D_80075568 = &D_80075568;
+        M2C_FIELD(__base_D_80075568, f32 *, 0xC) = (f32) (M2C_FIELD(__base_D_80075568, f32 *, 0xC) + ((m2c_initial_frame.view_sp30.value - m2c_initial_frame.view_sp20.value) * temp_fv0f));
+        M2C_FIELD(__base_D_80075568, f32 *, 0x10) = M2C_BITWISE(f64, (M2C_FIELD(__base_D_80075568, f32 *, 0x14) + ((m2c_initial_frame.view_sp38.value - m2c_initial_frame.view_sp28.value) * temp_fv0f)));
     }
 }
