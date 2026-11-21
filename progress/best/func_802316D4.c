@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,9 +12,9 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-s32 func_8023191C();
+M2C_UNK func_8023191C(s32, u16 *, u8);              /* extern */
 
-void func_802316D4(void *arg0, s32 arg1, u16 *arg2) {
+void func_802316D4(void *arg0, u16 *arg2) {
     f32 temp_ft0;
     f32 temp_ft1;
     f32 temp_ft1f;
@@ -40,8 +40,8 @@ void func_802316D4(void *arg0, s32 arg1, u16 *arg2) {
     s32 var_a1_2;
     s32 var_t4;
     u16 *temp_t1;
-    char *var_a2;
-    char *var_t3;
+    u16 *var_a2;
+    u8 *var_t3;
     u8 temp_a3;
     void *temp_v1;
     void *temp_v1_2;
@@ -60,7 +60,7 @@ loop_2:
         temp_t1 = M2C_FIELD(arg0, s32 *, 0x20) + (M2C_FIELD(var_t0, u16 *, -0xA) * 6);
         temp_t2 = M2C_FIELD(arg0, s32 *, 0x18);
         temp_v1 = temp_t2 + (*temp_t1 * 6);
-        temp_a3 = *(u8 *)var_t3;
+        temp_a3 = *var_t3;
         var_ft1 = (f32) M2C_FIELD(temp_v1, s16 *, 0);
         var_fv0 = var_ft1;
         var_ft0 = (f32) M2C_FIELD(temp_v1, s16 *, 2);
@@ -70,7 +70,7 @@ loop_2:
         if ((s32) temp_a3 > 1) {
             var_a2 = temp_t1 + 6;
             do {
-                temp_v1_2 = temp_t2 + (*(u16 *)var_a2 * 6);
+                temp_v1_2 = temp_t2 + (*var_a2 * 6);
                 temp_fv1f = (f32) M2C_FIELD(temp_v1_2, s16 *, 0);
                 if (temp_fv1f < var_ft1) {
                     var_ft1 = temp_fv1f;
@@ -103,8 +103,8 @@ loop_2:
         temp_ft0 = var_ft0f + ((var_fv1 - var_ft0f) * temp_ft2);
         if (temp_a3 != 0) {
             var_a2 = temp_t1;
-            do {
-                temp_v1_3 = temp_t2 + (*(u16 *)var_a2 * 6);
+            __repair_rows: {
+                temp_v1_3 = temp_t2 + (*var_a2 * 6);
                 temp_fv1 = (f32) M2C_FIELD(temp_v1_3, s16 *, 0) - temp_ft1;
                 temp_fv0f = (f32) M2C_FIELD(temp_v1_3, s16 *, 2) - temp_ft1f;
                 temp_fv0 = (f32) M2C_FIELD(temp_v1_3, s16 *, 4) - temp_ft0;
@@ -114,7 +114,8 @@ loop_2:
                 }
                 var_a1_2 += 1;
                 var_a2 += 6;
-            } while (var_a1_2 < (s32) temp_a3);
+            }
+if (var_a1_2 < (s32) temp_a3) goto __repair_rows;
         }
         temp_fv0_2 = sqrtf(var_fv1f);
         M2C_FIELD(var_t0, s16 *, -6) = (s16) (s32) temp_ft1;

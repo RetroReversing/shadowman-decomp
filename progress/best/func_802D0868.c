@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -135,9 +135,10 @@ block_28:
     D_800458D0 = D_800458D4;
     if (D_8005E9D4 >= 0) {
         var_a1_4 = 1;
-        do {
+        __repair_rows: {
             var_a1_4 += 1;
-        } while (D_8005E9D4 >= var_a1_4);
+        }
+if (D_8005E9D4 >= var_a1_4) goto __repair_rows;
     }
     return D_800458D4;
 }

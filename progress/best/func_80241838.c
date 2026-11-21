@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,9 +12,7 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-extern float D_8005EA30;
-extern float D_8005EA34;
-extern float D_8005EA38;
+extern M2C_UNK D_8005EA30;
 extern s32 D_8006A5B0;
 
 void func_80241838(void *arg0, void *arg1, f32 arg2, void *arg3) {
@@ -30,9 +28,9 @@ void func_80241838(void *arg0, void *arg1, f32 arg2, void *arg3) {
     f32 temp_fv1f;
     f32 temp_fv1f_2;
 
-    M2C_FIELD(arg3, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) - D_8005EA30);
-    M2C_FIELD(arg3, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 4) - D_8005EA34);
-    temp_fv0f = M2C_FIELD(arg0, f32 *, 8) - D_8005EA38;
+    M2C_FIELD(arg3, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(&D_8005EA30, f32 *, 0));
+    M2C_FIELD(arg3, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 4) - M2C_FIELD(&D_8005EA30, f32 *, 4));
+    temp_fv0f = M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(&D_8005EA30, f32 *, 8);
     M2C_FIELD(arg3, f32 *, 0x28) = (f32) (M2C_FIELD(arg3, f32 *, 0) - arg2);
     M2C_FIELD(arg3, f32 *, 8) = temp_fv0f;
     M2C_FIELD(arg3, f32 *, 0x34) = (f32) (M2C_FIELD(arg3, f32 *, 0) + arg2);
@@ -41,13 +39,13 @@ void func_80241838(void *arg0, void *arg1, f32 arg2, void *arg3) {
     M2C_FIELD(arg3, f32 *, 0x30) = (f32) (temp_fv0f - arg2);
     M2C_FIELD(arg3, f32 *, 0x3C) = (f32) (temp_fv0f + arg2);
     M2C_FIELD(arg3, f32 *, 0x38) = (f32) (M2C_FIELD(arg3, f32 *, 4) + arg2);
-    temp_fv0 = M2C_FIELD(arg1, f32 *, 0) - D_8005EA30;
+    temp_fv0 = M2C_FIELD(arg1, f32 *, 0) - M2C_FIELD(&D_8005EA30, f32 *, 0);
     M2C_FIELD(arg3, f32 *, 0x80) = temp_fv0;
     M2C_FIELD(arg3, f32 *, 0xC) = temp_fv0;
-    temp_fv0_2 = M2C_FIELD(arg1, f32 *, 4) - D_8005EA34;
+    temp_fv0_2 = M2C_FIELD(arg1, f32 *, 4) - M2C_FIELD(&D_8005EA30, f32 *, 4);
     M2C_FIELD(arg3, f32 *, 0x84) = temp_fv0_2;
     M2C_FIELD(arg3, f32 *, 0x10) = temp_fv0_2;
-    temp_fv0_3 = M2C_FIELD(arg1, f32 *, 8) - D_8005EA38;
+    temp_fv0_3 = M2C_FIELD(arg1, f32 *, 8) - M2C_FIELD(&D_8005EA30, f32 *, 8);
     M2C_FIELD(arg3, f32 *, 0x88) = temp_fv0_3;
     M2C_FIELD(arg3, f32 *, 0x14) = temp_fv0_3;
     temp_fv0f_2 = M2C_FIELD(arg3, f32 *, 0xC) - M2C_FIELD(arg3, f32 *, 0);

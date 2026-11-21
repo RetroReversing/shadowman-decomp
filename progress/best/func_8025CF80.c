@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -30,7 +30,7 @@ s32 func_8025349C();
 s32 func_802534B0();
 s32 func_8025C2B0();
 s32 func_8025D160();
-s32 func_8025D1C4(f32, f32, s32);
+s32 func_8025D1C4();
 s32 func_802610F4();
 s32 func_80274CD0();
 s32 func_802D0B28();
@@ -58,17 +58,18 @@ extern s32 D_8007B000;
 extern u8 D_8007DB7E;
 
 void func_8025CF80(void) {
-    f32 sp10[3];
-    f32 sp20[3];
+    f32 sp10;
+    f32 sp14;
+    f32 sp18;
+    f32 sp20;
+    f32 sp24;
+    f32 sp28;
     f32 temp_fa0;
     f32 temp_fa1;
     f32 temp_fv0f;
     f32 temp_fv1f;
     s32 *temp_a0_2;
     s32 temp_a0;
-    char *__base_D_209890;
-
-    __base_D_209890 = D_209890;
 
     if (D_800305F8 == 1) {
         func_8025C2B0();
@@ -96,19 +97,19 @@ void func_8025CF80(void) {
     }
     if (D_80052774 > 0) {
         temp_fv1f = (f32) D_80052774;
-        sp10[0] = (D_8007558C - D_8007BDB8) / temp_fv1f;
-        sp10[1] = (D_80075590 - D_8007BDBC) / temp_fv1f;
-        sp10[2] = (D_80075594 - D_8007BDC0) / temp_fv1f;
-        sp20[0] = D_8007BDB8;
-        sp20[1] = D_8007BDBC;
-        sp20[2] = D_8007BDC0;
+        sp10 = (D_8007558C - D_8007BDB8) / temp_fv1f;
+        sp14 = (D_80075590 - D_8007BDBC) / temp_fv1f;
+        sp18 = (D_80075594 - D_8007BDC0) / temp_fv1f;
+        sp20 = D_8007BDB8;
+        sp24 = D_8007BDBC;
+        sp28 = D_8007BDC0;
         if (D_80052774 > 0) {
-            temp_fa0 = sp20[0] + sp10[0];
-            temp_fv0f = sp20[2] + sp10[2];
-            temp_fa1 = sp20[1] + sp10[1];
-            sp20[0] = temp_fa0;
-            sp20[1] = temp_fa1;
-            sp20[2] = temp_fv0f;
+            temp_fa0 = sp20 + sp10;
+            temp_fv0f = sp28 + sp18;
+            temp_fa1 = sp24 + sp14;
+            sp20 = temp_fa0;
+            sp24 = temp_fa1;
+            sp28 = temp_fv0f;
             func_80231DC8(temp_fa0, temp_fa1, &D_8007BDB8, D_80052774, temp_fv0f);
             if (D_80052774 > 1) {
                 func_8025D160();
@@ -120,8 +121,8 @@ void func_8025CF80(void) {
     func_80231DC8(D_8007558C, D_80075590, (s32 *) D_80052774, M2C_BITWISE(s32, D_80075594));
 block_21:
     func_802534B0();
-    if (M2C_FIELD(((D_80074BB0 * 0x34) + __base_D_209890), s16 *, 0x18) != 0) {
-        func_80274CD0();
+    if (M2C_FIELD(((D_80074BB0 * 0x34) + D_209890), s16 *, 0x18) != 0) {
+        func_80274CD0(D_209890);
     }
     func_8010A05C();
     func_8025349C();

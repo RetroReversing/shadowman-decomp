@@ -558,5 +558,14 @@
   "score_before": 900,
   "score_after": 800,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:091f93ec2af0cd008d68a443f388bfaf683240c240b1635637378e80084227a5"
+ },
+ {
+  "function": "func_8026199C",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.\n\nBest score 10 (rev ffd04937571030a8222d): only or/sh regs differ (v1 vs v0). Typed structs Outer{pad[0x64];Inner*in}, Inner{pad[0x14];Ent*ents;pad[0x18];u16 count}, Ent{u16 a;pad[0x10]}; body `e->a = (((u8*)e)[1] & 0x7F | 0x10) | (e->a & 0xFF80);`. Reordering operands -> 415+; temp u8, signedness, backedge no change. Next: try bitfield/union Ent or pointer-end loop.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795226516.5243928,
+  "score_before": 415,
+  "score_after": 10,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cb52632c9a24145dea41e643c405b6eb65373ae60d2275bd8a5f9b72ebfbbb60"
  }
 ]
