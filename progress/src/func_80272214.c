@@ -24,7 +24,7 @@ f32 func_80272214(f32 arg0) {
     var_fv0 = arg0;
     if (temp_fv1f != temp_fv1) {
         if (!(temp_fv1f < (var_fv0 * var_fv0))) {
-            return temp_fv1;
+            return (*(f32 *)0x213FD4);
         }
         /* Duplicate return node #4. Try simplifying control flow for better match */
         return var_fv0;
