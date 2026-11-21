@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -14,7 +14,6 @@ typedef s32 M2C_UNK32;
 
 extern f32 D_80074BC0;
 
-typedef struct { unsigned char pad_0[24]; float field_18; unsigned char pad_1C[80]; void * field_6C; } __repair_record_temp_a0;
 void func_80249A84(void *arg0) {
     f32 temp_fv0;
     f32 temp_fv0_2;
@@ -23,22 +22,20 @@ void func_80249A84(void *arg0) {
     void *temp_a0;
 
     temp_a0 = M2C_FIELD(arg0, void **, 8);
-    temp_a1 = ((__repair_record_temp_a0*)temp_a0)->field_6C;
+    temp_a1 = M2C_FIELD(temp_a0, s32 **, 0x6C);
     temp_v1 = *temp_a1;
-    switch (temp_v1) {
-case 0: break;
-                              /* irregular */
+    switch (temp_v1) {                              /* irregular */
     case 3:
-        temp_fv0 = ((__repair_record_temp_a0*)temp_a0)->field_18 + (D_80074BC0 * *(f32 *)0x202D90);
-        ((__repair_record_temp_a0*)temp_a0)->field_18 = temp_fv0;
+        temp_fv0 = M2C_FIELD(temp_a0, f32 *, 0x18) + (D_80074BC0 * *(f32 *)0x202D90);
+        M2C_FIELD(temp_a0, f32 *, 0x18) = temp_fv0;
         if (*(f32 *)0x202D94 < temp_fv0) {
             *temp_a1 = 1;
             return;
         }
         return;
     case 4:
-        temp_fv0_2 = ((__repair_record_temp_a0*)temp_a0)->field_18 - (D_80074BC0 * *(f32 *)0x202D98);
-        ((__repair_record_temp_a0*)temp_a0)->field_18 = temp_fv0_2;
+        temp_fv0_2 = M2C_FIELD(temp_a0, f32 *, 0x18) - (D_80074BC0 * *(f32 *)0x202D98);
+        M2C_FIELD(temp_a0, f32 *, 0x18) = temp_fv0_2;
         if (temp_fv0_2 < *(f32 *)0x202D9C) {
             *temp_a1 = 2;
             return;

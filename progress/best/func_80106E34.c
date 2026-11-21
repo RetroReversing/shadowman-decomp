@@ -14,8 +14,8 @@ extern s32 D_8004C798;
 void func_80106E34(void *arg0) {
     if (*(*(u8 **)((char *)(arg0) + 0x18)) == 0xFF) {
         func_801073F4(&D_8004C798, (*(s32 *)((char *)(arg0) + 0x10)));
-        func_80107554((*(s16 *)((char *)(arg0) + 0xE)), (*(s32 *)((char *)(arg0) + 0x10)), (*(u8 *)((char *)((*(void **)((char *)(arg0) + 0x14))) + 0x17)), (*(u8 **)((char *)(arg0) + 0x18)));
         func_80106EB4();
+        func_80107554((*(s16 *)((char *)(arg0) + 0xE)), (*(s32 *)((char *)(arg0) + 0x10)), (*(u8 *)((char *)((*(void **)((char *)(arg0) + 0x14))) + 0x17)), (*(u8 **)((char *)(arg0) + 0x18)));
         func_80118370((u16) (*(s16 *)((char *)(arg0) + 0xE)) << 0xC, 0x1000);
         func_80118410((u16) (*(s16 *)((char *)(arg0) + 0xE)) << 0xC, 0x1000);
         return;

@@ -40,8 +40,8 @@ loop_2:
         var_v1 = var_v1_2 ^ var_a3;
         if (var_a2 >= 0) {
             goto loop_2;
-        }
-        var_t0 += 1;
+        }/*__repair_loop_weight*/do {do {do {
+        var_t0 += 1;} while (0);} while (0);} while (0);
         var_a0 += 1;
     } while (var_t0 < 0x21);
     return var_v1 & 0xFF;

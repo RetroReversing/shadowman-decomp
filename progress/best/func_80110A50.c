@@ -1,5 +1,4 @@
-/* adapted from similar verified C in __nextSampleTime in PENNY RACERS (matched), with its names changed by decompdecomp */
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -14,22 +13,24 @@ typedef s32 M2C_UNK32;
 #endif
 
 M2C_UNK func_80116750(M2C_UNK *, M2C_UNK *, M2C_UNK); /* extern */
+extern M2C_UNK D_102150;
+extern M2C_UNK D_102154;
 
 s32 func_80110A50(void *arg0, void **arg1) {
-    s32 var_s1;
+    s32 var_s0;
     void *var_a0;
 
-    var_s1 = 0x7FFFFFFF;
+    var_s0 = 0x7FFFFFFF;
     if (M2C_FIELD(arg0, void **, 0) == NULL) {
-        func_80116750("EX", "synthesizer.c", 0x133);
+        func_80116750(&D_102150, &D_102154, 0x133);
     }
     *arg1 = NULL;
     var_a0 = M2C_FIELD(arg0, void **, 0);
     if (var_a0 != NULL) {
         do {
-            if ((M2C_FIELD(var_a0, s32 *, 0x10) - M2C_FIELD(arg0, s32 *, 0x20)) < var_s1) {
+            if ((M2C_FIELD(var_a0, s32 *, 0x10) - M2C_FIELD(arg0, s32 *, 0x20)) < var_s0) {
                 *arg1 = var_a0;
-                var_s1 = M2C_FIELD(var_a0, s32 *, 0x10) - M2C_FIELD(arg0, s32 *, 0x20);
+                var_s0 = M2C_FIELD(var_a0, s32 *, 0x10) - M2C_FIELD(arg0, s32 *, 0x20);
             }
             var_a0 = M2C_FIELD(var_a0, void **, 0);
         } while (var_a0 != NULL);

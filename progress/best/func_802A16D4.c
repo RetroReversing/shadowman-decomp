@@ -31,7 +31,9 @@ void *func_802A16D4(void *arg0, s32 arg1, f32 arg2) {
     void *temp_v0_2;
 
     __base_D_8007BAE0 = &D_8007BAE0;
-    if ((u32) (*__base_D_8007BAE0) < 8U) {
+    if ((u32) (*__base_D_8007BAE0) >= 8U) {
+        ret = func_802A17C4();
+    } else {
         temp_v0 = func_80296BC0(arg0, D_80036CE0);
         if (temp_v0 != NULL) {
             temp_fv0 = *(f32 *)0x215F88;
@@ -58,8 +60,6 @@ void *func_802A16D4(void *arg0, s32 arg1, f32 arg2) {
             }
         }
         ret = temp_v0;
-    } else {
-        ret = func_802A17C4();
     }
     return ret;
 }

@@ -22,6 +22,6 @@ s32 func_8026E230(s32 arg0) {
     if (arg0 < 0) {
         var_v0 = arg0 + 7;
     }
-    temp_a1 = var_v0 >> 3;
-    return *((temp_a1 & 0xFF) + D_80075F68) & (1 << (arg0 - (temp_a1 * 8)));
+    var_v0 = var_v0 >> 3;
+    return *((var_v0 & 0xFF) + D_80075F68) & (1 << (arg0 - (var_v0 * 8)));
 }

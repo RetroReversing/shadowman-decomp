@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,18 +12,15 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-extern int D_80075678;
-extern int D_80075690;
-extern float D_80075640;
-s32 func_8021DD0C();
-void *func_8023A1D0();
-s32 func_802688D4();
+s32 func_8021DD0C(M2C_UNK *, s16);                  /* extern */
+void *func_8023A1D0(M2C_UNK *, s16);                /* extern */
+M2C_UNK func_802688D4(s16);                         /* extern */
 extern s32 D_8002C1B0;
-extern char D_8004AEA0[];
-extern char D_80075610[];
+extern M2C_UNK D_8004AEA0;
+extern M2C_UNK D_80075610;
 extern s32 D_8007569C;
 
-void func_80268840(s32 arg0, s16 arg1, s16 arg2) {
+void func_80268840(s16 arg1, s16 arg2) {
     s32 temp_v0;
     void *temp_v0_2;
 
@@ -31,13 +28,13 @@ void func_80268840(s32 arg0, s16 arg1, s16 arg2) {
         func_802688D4(arg1);
         return;
     }
-    temp_v0 = func_8021DD0C(D_8004AEA0, arg1);
+    temp_v0 = func_8021DD0C(&D_8004AEA0, arg1);
     D_8007569C = temp_v0;
     D_8002C1B0 = temp_v0;
-    temp_v0_2 = func_8023A1D0(D_8004AEA0, arg2);
-    M2C_FIELD(D_80075610, void **, 0x64) = temp_v0_2;
-    M2C_FIELD(temp_v0_2, u16 *, 0x3C) &= 0xFFF7;
-    D_80075678 = 0;
-    D_80075690 = (s32) D_8007569C;
-    D_80075640 = (f32) *(f32 *)0x20E1D0;
+    temp_v0_2 = func_8023A1D0(&D_8004AEA0, arg2);
+    M2C_FIELD(&D_80075610, void **, 0x64) = temp_v0_2;
+    M2C_FIELD(temp_v0_2, u16 *, 0x3C) = (u16) (M2C_FIELD(temp_v0_2, u16 *, 0x3C) & 0xFFF7);
+    M2C_FIELD(&D_80075610, s32 *, 0x68) = 0;
+    M2C_FIELD(&D_80075610, s32 *, 0x80) = (s32) D_8007569C;
+    M2C_FIELD(&D_80075610, f32 *, 0x30) = (f32) *(f32 *)0x20E1D0;
 }

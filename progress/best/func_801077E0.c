@@ -45,7 +45,7 @@ char *__branch___base_D_8004B420;
         }
         M2C_FIELD(((M2C_FIELD(arg0, u8 *, 0xB) * 4) + __base_D_8004B420), u8 *, 0x1582) = 0xFF;
         temp_a0_2 = M2C_FIELD(arg0, u8 *, 0xB);
-        temp_v1_2 = (temp_a0_2 * 4) + __base_D_8004B420;
+        temp_v1_2 = (void *)((temp_a0_2 * 4)); temp_v1_2 = (void *)((char *)temp_v1_2 + (s32)(__base_D_8004B420));
         if (M2C_FIELD(temp_v1_2, u8 *, 0x1583) == 0xFF) {
             func_80107A60(M2C_FIELD(arg0, u8 *, 0xB), 0xFF);
             func_80107908();

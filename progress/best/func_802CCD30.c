@@ -18,7 +18,9 @@ extern f32 D_80074BC0;
 extern M2C_UNK D_80075568;
 
 void func_802CCD30(void) {
-    M2C_FIELD(&D_80075568, f32 *, 0x18) = (f32) (M2C_FIELD(&D_80075568, f32 *, 0x18) + ((*(f32 *)0x218768 - M2C_FIELD(&D_80075568, f32 *, 0x18)) * D_80074BC0 * *(f32 *)0x21876C));
+    M2C_UNK *__base_D_80075568;
+    __base_D_80075568 = &D_80075568;
+    M2C_FIELD(__base_D_80075568, f32 *, 0x18) = (f32) (M2C_FIELD(__base_D_80075568, f32 *, 0x18) + ((*(f32 *)0x218768 - M2C_FIELD(__base_D_80075568, f32 *, 0x18)) * D_80074BC0 * *(f32 *)0x21876C));
     func_802CC720(*(f32 *)0x218770);
     func_802CC460(5);
 }

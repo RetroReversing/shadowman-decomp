@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,27 +10,32 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+extern float D_80075584;
+extern float D_8002D414;
+extern int D_8002DBDC;
+extern int D_8002DBEC;
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
-M2C_UNK func_8023DF7C(M2C_UNK *, M2C_UNK *, M2C_UNK, M2C_UNK, s32, s32); /* extern */
-M2C_UNK func_802C3274();                            /* extern */
-s32 func_802C43C0();                                /* extern */
-M2C_UNK func_802C7100(M2C_UNK *, M2C_UNK *);        /* extern */
-M2C_UNK func_802C717C();                            /* extern */
-M2C_UNK func_802CC190();                            /* extern */
-extern M2C_UNK D_8002D410;
+s32 func_8023DF7C();
+s32 func_802C3274();
+s32 func_802C43C0();
+s32 func_802C7100();
+s32 func_802C717C();
+s32 func_802CC190();
+extern char D_8002D410[];
 extern s32 D_8002D420;
-extern M2C_UNK D_8002DBD0;
+extern char D_8002DBD0[];
 extern f32 D_80074BC0;
-extern M2C_UNK D_80075518;
-extern M2C_UNK D_80075568;
+extern char D_80075518[];
+extern char D_80075568[];
 
 void func_802C70B4(void) {
     if (!(D_8002D420 & 0x40)) {
         if (func_802C43C0() == 0) {
-            func_802C7100(&D_80075568, &D_80075518);
+            func_802C7100(D_80075568, D_80075518);
             return;
         }
-        func_8023DF7C(&D_80075568, &D_80075518, 0xE, 0xA, 0x1E, 2);
+        func_8023DF7C(D_80075568, D_80075518, 0xE, 0xA, 0x1E, 2);
         goto block_5;
     }
 block_5:
@@ -40,10 +44,10 @@ block_5:
         return;
     }
     if (D_8002D420 & 8) {
-        M2C_FIELD(&D_80075568, f32 *, 0x1C) = (f32) (M2C_FIELD(&D_80075568, f32 *, 0x1C) + (D_80074BC0 * M2C_FIELD(&D_8002D410, f32 *, 4)));
+        D_80075584 = (f32) (D_80075584 + (D_80074BC0 * D_8002D414));
     }
-    if ((M2C_FIELD(&D_8002DBD0, s32 *, 0xC) == 0) && (M2C_FIELD(&D_8002DBD0, s32 *, 0x1C) == 0)) {
-        func_8023DF7C(&D_80075568, &D_80075518, 0xC, 0xA, 0x46, 2);
+    if ((D_8002DBDC == 0) && (D_8002DBEC == 0)) {
+        func_8023DF7C(D_80075568, D_80075518, 0xC, 0xA, 0x46, 2);
     }
     func_802C3274();
     func_802CC190();

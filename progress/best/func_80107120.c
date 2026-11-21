@@ -20,15 +20,17 @@ extern M2C_UNK D_10728C;
 extern M2C_UNK D_8004B420;
 
 void func_80107120(void) {
+    M2C_UNK *__base_D_8004B420;
     void *temp_s1;
     void *temp_s2;
 
-    M2C_FIELD(&D_8004B420, s16 *, 0x28) = 0;
-    func_80116FE0(0xC, &D_8004B420 + 0x2C, &D_8004B420 + 0x28);
-    temp_s2 = &D_8004B420 + 0xC8;
-    temp_s1 = &D_8004B420 + 0x4F8;
+    __base_D_8004B420 = &D_8004B420;
+    M2C_FIELD(__base_D_8004B420, s16 *, 0x28) = 0;
+    func_80116FE0(0xC, __base_D_8004B420 + 0x2C, __base_D_8004B420 + 0x28);
+    temp_s2 = (void *) ((0xC8) + (s32) __base_D_8004B420);
+    temp_s1 = (void *) ((0x4F8) + (s32) __base_D_8004B420);
     func_80116790(temp_s2, 0x63, &D_1071D4, 0, temp_s1, 0x7B);
     func_801171A0(temp_s2);
-    func_80116790(temp_s1, 0x62, &D_10728C, 0, &D_8004B420 + 0x928, 0x7C);
+    func_80116790(temp_s1, 0x62, &D_10728C, 0, __base_D_8004B420 + 0x928, 0x7C);
     func_801171A0(temp_s1);
 }

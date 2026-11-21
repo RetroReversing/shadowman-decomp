@@ -18,26 +18,31 @@ extern M2C_UNK D_8007C900;
 extern s32 D_8007DA60;
 
 s32 func_802D5E88(void) {
+    f32 __repair_fzero = 0.0f;
+
     s32 ret;
     M2C_UNK *__base_D_8007C900;
     f32 var_fv1;
     s32 temp_a1;
     s32 temp_v0;
     s32 var_a3;
+    s32 *__base_D_8007DA60;
+
+    __base_D_8007DA60 = &D_8007DA60;
 
     __base_D_8007C900 = &D_8007C900;
-    temp_a1 = *(((D_8007DA60 - 1) * 4) + __base_D_8007C900);
+    temp_a1 = *((((*__base_D_8007DA60) - 1) * 4) + __base_D_8007C900);
     var_a3 = 0;
     if (temp_a1 == -1) {
         /* Duplicate return node #1. Try simplifying control flow for better match */
         return 1;
     }
-    temp_v0 = *((D_8007DA60 * 4) + __base_D_8007C900);
+    temp_v0 = *(((*__base_D_8007DA60) * 4) + __base_D_8007C900);
     if (temp_v0 == -1) {
         ret = 1;
     } else {
-        var_fv1 = 0.0f;
-        if (D_8007DA60 != 0) {
+        var_fv1 = __repair_fzero;
+        if ((*__base_D_8007DA60) != 0) {
             var_fv1 = (f32) temp_a1;
         }
         if ((s32) (var_fv1 + (((f32) temp_v0 - var_fv1) * M2C_FIELD(&D_80045C40, f32 *, 4))) < D_8007C8F4) {

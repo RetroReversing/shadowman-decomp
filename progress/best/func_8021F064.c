@@ -31,25 +31,23 @@ extern char D_80058EA8[];
 extern void *D_8005EA2C;
 
 void func_8021F064(void) {
-    s32 sp10;
+    char sp10[0x28];
     f32 sp38;
-    f32 sp40;
-    f32 sp44;
-    f32 sp48;
+    f32 sp40[3];
 
     D_80058E0C = 0;
     D_80058E08 = 0;
     D_80058E10 = 0;
-    func_8011360C(&sp10);
+    func_8011360C(sp10);
     sp38 = *(f32 *)0x2000B0;
-    func_8011365C(&sp10, D_80058E68);
-    func_80222860(D_8005EA2C + 0x3C, &sp10);
-    func_80103480(D_80058EA8, &sp10, 0x40);
-    sp40 = M2C_FIELD(D_8005EA2C, f32 *, 0x60);
-    sp44 = M2C_FIELD(D_8005EA2C, f32 *, 0x64) * M2C_FIELD(D_8005EA2C, f32 *, 0x104);
-    sp48 = M2C_FIELD(D_8005EA2C, f32 *, 0x68);
-    func_801133B0(&sp10, D_80052780, &sp10);
-    func_801133B0(&sp10, (D_8002C240 * 0x1888) + D_800538C8);
+    func_8011365C(sp10, D_80058E68);
+    func_80222860(D_8005EA2C + 0x3C, sp10);
+    func_80103480(D_80058EA8, sp10, 0x40);
+    sp40[0] = M2C_FIELD(D_8005EA2C, f32 *, 0x60);
+    sp40[1] = M2C_FIELD(D_8005EA2C, f32 *, 0x64) * M2C_FIELD(D_8005EA2C, f32 *, 0x104);
+    sp40[2] = M2C_FIELD(D_8005EA2C, f32 *, 0x68);
+    func_801133B0(sp10, D_80052780, sp10);
+    func_801133B0(sp10, (D_8002C240 * 0x1888) + D_800538C8);
     D_80058E00 = 0;
     D_80058E04 = 0;
 }
