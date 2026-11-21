@@ -16,7 +16,7 @@ void *func_801088D4();                              /* extern */
 M2C_UNK func_80116EB0(M2C_UNK *, void *, M2C_UNK);  /* extern */
 extern M2C_UNK D_8004DF20;
 
-void func_80108AAC(s16 arg0, s32 arg1, s16 arg2) {
+void func_80108AAC(s16 arg0, s32 arg1, s32 arg2) {
     void *temp_v0;
 
     if (arg0 != -1) {
