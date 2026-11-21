@@ -1,46 +1,33 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-extern unsigned char D_8005EA0F;
 extern int D_8005EA0C;
-s32 func_80239398();
-s32 func_8023B630();
-void *func_8023C3E0();
-s32 func_80261408();
+extern int func_80239398();
+extern int func_8023B630();
+extern char *func_8023C3E0();
+extern int *func_80261408();
 
-void func_80263B5C(void *arg0, void *arg1, s32 arg2, s16 arg3) {
-    void *temp_v0;
-
-    temp_v0 = func_8023C3E0();
-    M2C_FIELD(temp_v0, f32 *, 0x24) = (f32) M2C_FIELD(arg0, f32 *, 0);
-    M2C_FIELD(temp_v0, f32 *, 0x28) = (f32) M2C_FIELD(arg0, f32 *, 4);
-    M2C_FIELD(temp_v0, f32 *, 0x2C) = (f32) M2C_FIELD(arg0, f32 *, 8);
-    M2C_FIELD(temp_v0, f32 *, 0x18) = (f32) M2C_FIELD(arg1, f32 *, 0);
-    M2C_FIELD(temp_v0, f32 *, 0x1C) = (f32) M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(temp_v0, s32 *, 0xC) = 0;
-    M2C_FIELD(temp_v0, s32 *, 0x10) = 0;
-    M2C_FIELD(temp_v0, s32 *, 0x14) = 0;
-    M2C_FIELD(temp_v0, s32 *, 0x64) = 0;
-    M2C_FIELD(temp_v0, s32 *, 0x80) = 0;
-    M2C_FIELD(temp_v0, s32 *, 0x84) = 0;
-    M2C_FIELD(temp_v0, s32 *, 0x68) = 0;
-    M2C_FIELD(temp_v0, s32 *, 0x6C) = 0;
-    M2C_FIELD(temp_v0, s32 *, 0x30) = 0;
-    M2C_FIELD(temp_v0, s16 *, 0x7E) = 0;
-    M2C_FIELD(temp_v0, s16 *, 0x7A) = arg3;
-    M2C_FIELD(temp_v0, u8 *, 0x71) = (u8) D_8005EA0F;
-    M2C_FIELD(temp_v0, f32 *, 0x20) = (f32) M2C_FIELD(arg1, f32 *, 8);
-    func_8023B630(temp_v0 + 0x18, temp_v0 + 0x34, temp_v0 + 0x24);
-    func_80239398(*(s32 *)((D_8005EA0C * 4) + func_80261408()), temp_v0, arg2, 0, 0x2000);
+void func_80263B5C(f32 *a0, f32 *a1, s32 a2, s16 a3) {
+    char *o = func_8023C3E0();
+    f32 *v18 = (f32 *)(o + 0x18);
+    f32 *v24 = (f32 *)(o + 0x24);
+    f32 *v34 = (f32 *)(o + 0x34);
+    u8 *pp = (u8 *)&D_8005EA0C;
+    v24[0] = a0[0];
+    v24[1] = a0[1];
+    v24[2] = a0[2];
+    v18[0] = a1[0];
+    v18[1] = a1[1];
+    *(s32 *)(o + 0xC) = 0;
+    *(s32 *)(o + 0x10) = 0;
+    *(s32 *)(o + 0x14) = 0;
+    *(s32 *)(o + 0x64) = 0;
+    *(s32 *)(o + 0x80) = 0;
+    *(s32 *)(o + 0x84) = 0;
+    *(s32 *)(o + 0x68) = 0;
+    *(s32 *)(o + 0x6C) = 0;
+    *(s32 *)(o + 0x30) = 0;
+    *(s16 *)(o + 0x7E) = 0;
+    *(s16 *)(o + 0x7A) = a3;
+    *(u8 *)(o + 0x71) = pp[3];
+    v18[2] = a1[2];
+    func_8023B630(v18, v34, v24);
+    func_80239398(func_80261408()[D_8005EA0C], o, a2, 0, 0x2000);
 }
