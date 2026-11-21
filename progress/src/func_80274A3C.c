@@ -1,0 +1,5 @@
+void func_80274A3C(s32 *arg0) {
+    u32 t = arg0[0x44/4]; t &= 0xEFFFFFFF; t &= 0xFFFEFFFF; arg0[0x44/4] = t;
+    arg0[0x48/4] = (arg0[0x48/4] & ~0x80) | 0x100;
+    arg0[0x44/4] = ((arg0[0x44/4] | 2) & ~0x10) | 0x08000000;
+}
