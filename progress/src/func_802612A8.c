@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -23,8 +23,6 @@ extern s32 D_80030C5C;
 extern s32 D_8005E9D4;
 
 void func_802612A8(void) {
-    s32 *__base_D_8002D490;
-    s32 *__base_D_8002D494;
     s32 temp_s1;
     s32 temp_s1_2;
     s32 temp_v0;
@@ -33,9 +31,6 @@ void func_802612A8(void) {
     s32 temp_v1_2;
     s32 var_s0;
     s32 var_s0_2;
-    s32 *__base_D_8002D498;
-
-    __base_D_8002D498 = &D_8002D498;
 
     if (D_80030C58 == 0) {
         temp_s1 = D_8005E9D4 + 1;
@@ -67,16 +62,14 @@ void func_802612A8(void) {
             }
         }
     }
-    __base_D_8002D490 = &D_8002D490;
-    if ((*__base_D_8002D490) == 0) {
-        (*__base_D_8002D490) = func_8023904C();
+    if (D_8002D490 == 0) {
+        D_8002D490 = func_8023904C();
     }
-    __base_D_8002D494 = &D_8002D494;
-    if ((*__base_D_8002D494) == 0) {
-        (*__base_D_8002D494) = func_8023904C();
+    if (D_8002D494 == 0) {
+        D_8002D494 = func_8023904C();
     }
-    if ((*(&D_8002D498)) == 0) {
-        (*__base_D_8002D498) = func_8023904C();
+    if (D_8002D498 == 0) {
+        D_8002D498 = func_8023904C();
     }
     if (D_8002E0A0 == 0) {
         D_8002E0A0 = func_8023904C();
