@@ -1,7 +1,7 @@
 {
  "format": 2,
- "saved_at": 1795237320.42865,
- "revision": 1389,
+ "saved_at": 1795237334.338697,
+ "revision": 1391,
  "title": "Shadowman",
  "platform": "n64",
  "game": {
@@ -17273,6 +17273,22 @@
    "timeout": 20,
    "function": "func_802C5AD0",
    "vram": 2150390480
+  },
+  "32235856:2150425968": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802CE570",
+   "vram": 2150425968
   }
  },
  "instructions": "",
@@ -26151,8 +26167,8 @@
   },
   "func_802CE570": {
    "vram": 2150425968,
-   "best_score": 225,
-   "best_by": "permuter-42949675441"
+   "matched_by": "api-claude-sonnet-5-5-3",
+   "readable": false
   },
   "func_802CE5E4": {
    "vram": 2150426084,
