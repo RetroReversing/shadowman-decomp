@@ -26,11 +26,7 @@ void func_802917BC(void) {
 
     __base_D_8007AFF8 = &D_8007AFF8;
     __base_D_8006A4FC = &D_8006A4FC;
-    /*__repair_pointer_balance*/if ((unsigned long)__base_D_8006A4FC & 0x100) {
-func_802BC4F0(7, 1, M2C_FIELD((*__base_D_8007AFF8), s32 *, 0x10C), &D_8007558C, (*(&D_8006A4FC)) + 0x18, (*(&D_8006A4FC)) + 0x24, D_8007B26C);
-} else {
-func_802BC4F0(7, 1, M2C_FIELD((*__base_D_8007AFF8), s32 *, 0x10C), &D_8007558C, (*(&D_8006A4FC)) + 0x18, (*(&D_8006A4FC)) + 0x24, D_8007B26C);
-}
+    func_802BC4F0(7, 1, M2C_FIELD((*__base_D_8007AFF8), s32 *, 0x10C), &D_8007558C, (*(&D_8006A4FC)) + 0x18, (*(&D_8006A4FC)) + 0x24, D_8007B26C);
     func_802BC4F0(8, 1, M2C_FIELD((*__base_D_8007AFF8), s32 *, 0x10C), &D_8007558C, (*(&D_8006A4FC)) + 0x18, (*(&D_8006A4FC)) + 0x24, D_8007B264);
     func_802BC4F0(9, 1, M2C_FIELD((*__base_D_8007AFF8), s32 *, 0x10C), &D_8007558C, (*(&D_8006A4FC)) + 0x18, (*(&D_8006A4FC)) + 0x24, D_8007B268);
 }
