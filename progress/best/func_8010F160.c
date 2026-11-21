@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,7 +12,7 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-M2C_UNK alSynAddPlayer(s32, void *, void *);                /* extern */
+M2C_UNK alSynAddPlayer(s32, void *);                /* extern */
 void *func_8010EED0(M2C_UNK, M2C_UNK, s32, M2C_UNK, s32); /* extern */
 M2C_UNK func_8010F890(void *, void *, s32);         /* extern */
 s32 func_8010F90C(void *, void *);                  /* extern */
@@ -46,7 +46,7 @@ if (var_v1 < (u32) M2C_FIELD(arg1, u32 *, 0)) goto __repair_rows;
     M2C_FIELD(arg0, void **, 4) = arg0;
     M2C_FIELD(arg0, s32 *, 0x38) = (s32) D_80027410;
     M2C_FIELD(arg0, M2C_UNK **, 8) = &D_10F6CC;
-    alSynAddPlayer(D_80027410, arg1, arg0);
+    alSynAddPlayer(D_80027410, arg0);
     sp18 = 5;
     func_8010F9A4(temp_s0, &sp18, M2C_FIELD(arg0, s32 *, 0x48));
     M2C_FIELD(arg0, s32 *, 0x4C) = func_8010F90C(temp_s0, arg0 + 0x28);

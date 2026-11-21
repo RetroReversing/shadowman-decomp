@@ -540,5 +540,14 @@
   "score_before": 235,
   "score_after": 20,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:527f6a0c2448957149b5bdfc5fe9efee393e8de9a432e977fae29fd05e034182"
+ },
+ {
+  "function": "func_80247914",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795225674.830976,
+  "score_before": 590,
+  "score_after": 85,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:82dec1cd70bfb8dc55480e6fd6cd0a9ead6c87be2d192b17abc1fb26464cd58d"
  }
 ]

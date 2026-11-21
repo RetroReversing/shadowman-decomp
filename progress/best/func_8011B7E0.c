@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -24,9 +24,6 @@ f32 func_8011B7E0(f32 arg0, f32 arg1) {
     f32 var_fv0;
     s32 temp_a0;
     s32 var_a0;
-    M2C_UNK *__base_D_102950;
-
-    __base_D_102950 = &D_102950;
 
     var_fa0 = arg0;
     var_fa1 = arg1;
@@ -51,7 +48,7 @@ f32 func_8011B7E0(f32 arg0, f32 arg1) {
                 var_fa0_2 = -var_fa0_2;
             }
             temp_fv1f = var_fa0_2 * var_fa0_2;
-            var_fv0 = (var_fa0_2 * (*(f32 *)0x102930 + (temp_fv1f * (*(f32 *)0x100004 + (temp_fv1f * (*(f32 *)0x100008 + (temp_fv1f * (*(f32 *)0x10000C + (temp_fv1f * (*(f32 *)0x100010 + (temp_fv1f * (*(f32 *)0x100014 + (temp_fv1f * (*(f32 *)0x100018 + (temp_fv1f * *(f32 *)0x10001C))))))))))))))) + *((temp_a0 * 4) + __base_D_102950);
+            var_fv0 = (var_fa0_2 * (*(f32 *)0x102930 + (temp_fv1f * (*(f32 *)0x100004 + (temp_fv1f * (*(f32 *)0x100008 + (temp_fv1f * (*(f32 *)0x10000C + (temp_fv1f * (*(f32 *)0x100010 + (temp_fv1f * (*(f32 *)0x100014 + (temp_fv1f * (*(f32 *)0x100018 + (temp_fv1f * *(f32 *)0x10001C))))))))))))))) + *((temp_a0 * 4) + &D_102950);
             /* Duplicate return node #16. Try simplifying control flow for better match */
             return var_fv0;
         }
