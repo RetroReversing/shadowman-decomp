@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,20 +12,16 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-extern unsigned char D_80069730;
-extern unsigned char D_80069731;
-extern unsigned char D_80069732;
-extern unsigned char D_8005E9E4;
-extern unsigned char D_8005E9E5;
-extern unsigned char D_8005E9E6;
-void *func_8021E320();
-s32 func_80238EF4();
-s32 func_80238F38();
-s32 func_80238F78();
-s32 func_80238F98();
+void *func_8021E320(M2C_UNK);                       /* extern */
+M2C_UNK func_80238EF4(s16 *, u32, s8 *, s16 *);     /* extern */
+M2C_UNK func_80238F38(s16 *, u32, s8 *, s16 *);     /* extern */
+M2C_UNK func_80238F78(s16 *, u32, s8 *, s16 *);     /* extern */
+M2C_UNK func_80238F98(s16 *, u32, s8 *, s16 *);     /* extern */
 extern f32 D_8002D2C8;
 extern f32 D_8002D2CC;
 extern f32 D_8002D2D0;
+extern M2C_UNK D_8005E9E4;
+extern M2C_UNK D_80069730;
 extern u32 D_8006973C;
 extern void *D_80069750;
 extern s32 D_80069838;
@@ -53,10 +49,10 @@ void func_80238C28(void *arg0) {
     f32 temp_fv1;
     f32 temp_fv1_2;
     f32 temp_fv1f;
-    char *var_a0;
-    char *var_a3;
+    s16 *var_a0;
+    s16 *var_a3;
     s32 temp_v0_7;
-    char *var_a2;
+    s8 *var_a2;
     s8 temp_v0_4;
     s8 temp_v0_5;
     s8 temp_v0_6;
@@ -71,20 +67,20 @@ void func_80238C28(void *arg0) {
     temp_v0 = func_8021E320(0x68);
     D_80069750 = temp_v0;
     if (temp_v0 != NULL) {
-        M2C_FIELD(temp_v0, u8 *, 4) = (u8) D_80069730;
-        M2C_FIELD(temp_v0, u8 *, 0) = (u8) D_80069730;
-        M2C_FIELD(D_80069750, u8 *, 5) = (u8) D_80069731;
-        M2C_FIELD(D_80069750, u8 *, 1) = (u8) D_80069731;
-        M2C_FIELD(D_80069750, u8 *, 6) = (u8) D_80069732;
-        M2C_FIELD(D_80069750, u8 *, 2) = (u8) D_80069732;
+        M2C_FIELD(temp_v0, u8 *, 4) = (u8) M2C_FIELD(&D_80069730, u8 *, 0);
+        M2C_FIELD(temp_v0, u8 *, 0) = (u8) M2C_FIELD(&D_80069730, u8 *, 0);
+        M2C_FIELD(D_80069750, u8 *, 5) = (u8) M2C_FIELD(&D_80069730, u8 *, 1);
+        M2C_FIELD(D_80069750, u8 *, 1) = (u8) M2C_FIELD(&D_80069730, u8 *, 1);
+        M2C_FIELD(D_80069750, u8 *, 6) = (u8) M2C_FIELD(&D_80069730, u8 *, 2);
+        M2C_FIELD(D_80069750, u8 *, 2) = (u8) M2C_FIELD(&D_80069730, u8 *, 2);
         var_a2 = temp_v0 + 8;
         if (M2C_FIELD(arg0, u16 *, 0x7E) & 8) {
-            M2C_FIELD(var_a2, u8 *, 4) = (u8) D_8005E9E4;
-            M2C_FIELD(temp_v0, u8 *, 8) = (u8) D_8005E9E4;
-            M2C_FIELD(var_a2, u8 *, 5) = (u8) D_8005E9E5;
-            M2C_FIELD(var_a2, u8 *, 1) = (u8) D_8005E9E5;
-            M2C_FIELD(var_a2, u8 *, 6) = (u8) D_8005E9E6;
-            M2C_FIELD(var_a2, u8 *, 2) = (u8) D_8005E9E6;
+            M2C_FIELD(var_a2, u8 *, 4) = (u8) M2C_FIELD(&D_8005E9E4, u8 *, 0);
+            M2C_FIELD(temp_v0, u8 *, 8) = (u8) M2C_FIELD(&D_8005E9E4, u8 *, 0);
+            M2C_FIELD(var_a2, u8 *, 5) = (u8) M2C_FIELD(&D_8005E9E4, u8 *, 1);
+            M2C_FIELD(var_a2, u8 *, 1) = (u8) M2C_FIELD(&D_8005E9E4, u8 *, 1);
+            M2C_FIELD(var_a2, u8 *, 6) = (u8) M2C_FIELD(&D_8005E9E4, u8 *, 2);
+            M2C_FIELD(var_a2, u8 *, 2) = (u8) M2C_FIELD(&D_8005E9E4, u8 *, 2);
             temp_fv0f = *(f32 *)0x20247C;
             M2C_FIELD(var_a2, s8 *, 8) = (s8) (s32) (-D_8002D2C8 * temp_fv0f);
             M2C_FIELD(var_a2, s8 *, 9) = (s8) (s32) (-D_8002D2CC * temp_fv0f);
@@ -97,13 +93,13 @@ void func_80238C28(void *arg0) {
             var_v1 = var_a2 + 0xA;
             temp_ft0 = *(f32 *)0x202484;
 loop_6:
-            if ((*(s16 *)var_a3 != -1) && (temp_fv0 = sp20 - M2C_FIELD(var_a0, f32 *, -0x1A), sp10 = temp_fv0, temp_fv0_2 = sp24 - M2C_FIELD(var_a0, f32 *, -0x16), sp14 = temp_fv0_2, temp_fv0f_2 = sp28 - M2C_FIELD(var_a0, f32 *, -0x12), sp18 = temp_fv0f_2, temp_fv1 = (temp_fv0 * temp_fv0) + (temp_fv0_2 * temp_fv0_2) + (temp_fv0f_2 * temp_fv0f_2), temp_fv0_3 = M2C_FIELD(var_a0, f32 *, -0xA), (temp_fv1 < temp_fv0_3))) {
+            if ((*var_a3 != -1) && (temp_fv0 = sp20 - M2C_FIELD(var_a0, f32 *, -0x1A), sp10 = temp_fv0, temp_fv0_2 = sp24 - M2C_FIELD(var_a0, f32 *, -0x16), sp14 = temp_fv0_2, temp_fv0f_2 = sp28 - M2C_FIELD(var_a0, f32 *, -0x12), sp18 = temp_fv0f_2, temp_fv1 = (temp_fv0 * temp_fv0) + (temp_fv0_2 * temp_fv0_2) + (temp_fv0f_2 * temp_fv0f_2), temp_fv0_3 = M2C_FIELD(var_a0, f32 *, -0xA), (temp_fv1 < temp_fv0_3))) {
                 temp_fv0f_3 = *(f32 *)0x202480 - (temp_fv1 / temp_fv0_3);
                 temp_fv0_4 = (f32) M2C_FIELD(var_a0, u8 *, -2) * temp_fv0f_3;
                 if (temp_ft0 <= temp_fv0_4) {
                     temp_v0_4 = (s32) (temp_fv0_4 - temp_ft0) | 0x80000000;
                     M2C_FIELD(var_v1, s8 *, -6) = temp_v0_4;
-                    *(s8 *)var_a2 = temp_v0_4;
+                    *var_a2 = temp_v0_4;
                     temp_fv0_5 = (f32) M2C_FIELD(var_a0, u8 *, -1) * temp_fv0f_3;
                     if (temp_ft0 <= temp_fv0_5) {
                         temp_v0_5 = (s32) (temp_fv0_5 - temp_ft0) | 0x80000000;

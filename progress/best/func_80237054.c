@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,13 +12,11 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-extern float D_8005EA34;
-extern float D_8005EA38;
 extern void *D_8005E9F0;
 extern s32 D_8005E9F8;
-extern char D_8005EA30[];
+extern M2C_UNK D_8005EA30;
 extern void *D_80061A10;
-extern char D_80061A20[];
+extern M2C_UNK D_80061A20;
 extern u32 D_80069720;
 
 void func_80237054(void *arg0) {
@@ -51,7 +49,7 @@ void func_80237054(void *arg0) {
     s32 var_t4;
     s32 var_t8;
     s8 var_t0;
-    char *var_t7;
+    u16 *var_t7;
     void *temp_a2;
     void *temp_v1;
     void *temp_v1_2;
@@ -69,8 +67,8 @@ void func_80237054(void *arg0) {
         M2C_FIELD(arg0, f32 *, 0x24) = temp_fv0f;
         sp8 = temp_fv0_2;
         M2C_FIELD(arg0, f32 *, 0x28) = temp_fv0_2;
-        sp0 = M2C_BITWISE(f64, (M2C_BITWISE(f32, (f64) sp0) - D_8005EA34));
-        sp8 = temp_fv0_2 - D_8005EA38;
+        sp0 = M2C_BITWISE(f64, (M2C_BITWISE(f32, (f64) sp0) - M2C_FIELD(&D_8005EA30, f32 *, 4)));
+        sp8 = temp_fv0_2 - M2C_FIELD(&D_8005EA30, f32 *, 8);
         var_t7 = M2C_FIELD(D_8005E9F0, u16 **, 8);
         var_t8 = 0;
         if (M2C_FIELD(D_8005E9F0, s16 *, 0x20) > 0) {
@@ -83,7 +81,7 @@ loop_3:
             temp_fv0_3 = (f32) M2C_FIELD(var_t2, s16 *, 0x14) - sp8;
             sp18 = temp_fv0_3;
             temp_fv0f_2 = M2C_FIELD(arg0, f32 *, 0x10) + (f32) M2C_FIELD(var_t2, u16 *, 0x16);
-            if (!((temp_fv0f_2 * temp_fv0f_2) <= ((temp_fv1f * temp_fv1f) + (temp_fv1 * temp_fv1) + (temp_fv0_3 * temp_fv0_3))) && (var_t4 = 0, var_t3 = M2C_FIELD(D_80061A10, s32 *, 0x20) + (M2C_FIELD((M2C_FIELD(D_80061A10, s32 *, 0x14) + (*(u16 *)var_t7 * 0x12)), u16 *, 6) * 6), (M2C_FIELD(var_t2, u16 *, 0) != 0))) {
+            if (!((temp_fv0f_2 * temp_fv0f_2) <= ((temp_fv1f * temp_fv1f) + (temp_fv1 * temp_fv1) + (temp_fv0_3 * temp_fv0_3))) && (var_t4 = 0, var_t3 = M2C_FIELD(D_80061A10, s32 *, 0x20) + (M2C_FIELD((M2C_FIELD(D_80061A10, s32 *, 0x14) + (*var_t7 * 0x12)), u16 *, 6) * 6), (M2C_FIELD(var_t2, u16 *, 0) != 0))) {
 loop_6:
                 temp_v1 = M2C_FIELD(D_80061A10, s32 *, 0x18) + (M2C_FIELD(var_t3, u16 *, 0) * 6);
                 temp_ft0 = (f32) M2C_FIELD(temp_v1, s16 *, 0) - M2C_BITWISE(f32, sp0);
@@ -103,7 +101,7 @@ loop_6:
                     temp_fv0f_6 = temp_fv0f_5 * temp_fv0f_5 * sp20;
                     if ((u32) D_80069720 < 0xFA0U) {
                         if (M2C_FIELD(temp_a2, u8 *, 3) == 0) {
-                            temp_v1_2 = (D_80069720 * 8) + D_80061A20;
+                            temp_v1_2 = (D_80069720 * 8) + &D_80061A20;
                             M2C_FIELD(temp_v1_2, void **, 0) = temp_a2;
                             D_80069720 += 1;
                             M2C_FIELD(temp_v1_2, s32 *, 4) = (s32) M2C_FIELD(temp_a2, s32 *, 4);

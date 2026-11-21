@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,10 +12,10 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-u8 *func_8021E320(u16);                             /* extern */
-M2C_UNK func_8021E3BC(u8 *, u8, s32, void *);       /* extern */
-M2C_UNK func_80239FCC(f32 *, f32 *, void *);        /* extern */
-M2C_UNK func_8023A048(f32 *, f32 *, void *);        /* extern */
+u8 *func_8021E320();
+s32 func_8021E3BC();
+s32 func_80239FCC();
+s32 func_8023A048();
 
 /* Warning: Gap in callee-saved word stack region.
  * Saved: [0x40, 0x44, 0x48, 0x4c, 0x50, 0x54, 0x58, 0x68, 0x6c, 0x78, 0x7c, 0x88, 0x8c, 0x90, 0x94], gap at: 0x5c. */
@@ -51,13 +51,13 @@ void func_80237B58(void *arg0, void *arg1) {
     f32 temp_fv1f;
     f32 temp_fv1f_2;
     f32 var_fv1;
-    s16 *var_a1;
+    char *var_a1;
     s32 var_a0;
     s32 var_a2;
     s32 var_s4;
     s32 var_v0;
     u8 *temp_v0;
-    u8 *var_s3;
+    char *var_s3;
     void *temp_a0;
     void *temp_s0;
     void *temp_s2;
@@ -104,8 +104,8 @@ void func_80237B58(void *arg0, void *arg1) {
             var_a0 = M2C_FIELD(temp_s2, u16 *, 0x32) - 1;
             if (var_a0 != -1) {
                 var_v1 = var_a1 + 4;
-                __repair_rows: {
-                    temp_ft1f_2 = (f32) *var_a1 - sp20;
+                do {
+                    temp_ft1f_2 = (f32) *(s16 *)var_a1 - sp20;
                     sp30 = temp_ft1f_2;
                     temp_ft1_2 = (f32) M2C_FIELD(var_v1, s16 *, -2) - sp24;
                     sp34 = temp_ft1_2;
@@ -127,13 +127,12 @@ void func_80237B58(void *arg0, void *arg1) {
                             }
                         }
                     }
-                    *var_s3 = (u8) var_v0;
+                    *(u8 *)var_s3 = (u8) var_v0;
                     var_s3 += 1;
                     var_v1 += 6;
                     var_a0 -= 1;
                     var_a1 += 6;
-                }
-if (var_a0 != -1) goto __repair_rows;
+                } while (var_a0 != -1);
             }
             if (var_s4 != 0) {
                 var_a3 = M2C_FIELD(temp_s2, void **, 0x20);

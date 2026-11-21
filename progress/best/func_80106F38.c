@@ -26,7 +26,7 @@ void func_80106F38(void *arg0) {
     s32 temp_t1;
     s32 temp_v1;
     s32 var_v0;
-    u16 var_s0;
+    s32 var_s0;
 
     temp_v1 = M2C_FIELD(arg0, s32 *, 4);
     var_v0 = temp_v1 + 0xFFF;

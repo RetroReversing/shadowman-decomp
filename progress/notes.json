@@ -567,5 +567,104 @@
   "score_before": 415,
   "score_after": 10,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cb52632c9a24145dea41e643c405b6eb65373ae60d2275bd8a5f9b72ebfbbb60"
+ },
+ {
+  "function": "func_8025FD6C",
+  "text": "Score 225: only register/schedule diffs (target copies a0->a1 and hoists lui D_20B3F0 into delay slot). Tried if/else, ternary, signature types, locals, struct stride-28 array. Next: unexplored arg-copy structure (e.g. callee-style wrapper or different decl order of externs).",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227058.616278,
+  "score_before": 890,
+  "score_after": 225,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:7d8b355f7db855b086a1482674deb0cc29c90cca7e5ce170e87aa936f51d0892"
+ },
+ {
+  "function": "func_80269D58",
+  "text": "Best score 90 (rev 53603db99eab261103df): structure right (if a<0 a=0 else {v=x+a; D_80075AA0=<float const at 0x20E254>; x=v; clamp 10000}; flag D_80075AE8). Remaining: float literal is rdata reloc (target uses absolute 0x20E254) and lui $v0,hi(D_80075AA0) scheduled one slot earlier than target. Extern float D_20E254 made it worse (420). Next: find the real float value, try a different const form.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227101.528397,
+  "score_before": 90,
+  "score_after": 90,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:54ebee38cde07fe2d46fc5df85bd125ef1f33f617ef33da7c6130a999e9b0d73"
+ },
+ {
+  "function": "func_8027035C",
+  "text": "Best 310 (rev 6aa3bd176666ec4dcc8d). No call to func_802703A0 really: the 'j func_802703A0' in target is j to epilogue (symbol mislabel at +0x44). Logic: v=(u16)func_802761B0(&D_8007558C,0x44FA0000); D_8007B0A2=v; if((short)v>=0){D_8007AFFE=v; return 1;} else D_8007B0A2=D_8007AFFE; return it. Remaining diff: target has no andi after lhu (extra andi 0xffff in mine), epilogue branch offsets, and 'lui a1,0x44fa' scheduled before addiu a0. Next: try return type unsigned short / (short) call return cast variations to drop andi.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227184.5533051,
+  "score_before": 1390,
+  "score_after": 310,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0df769d473fb34d2acb3ac3b989ad7491b3f3e8a18aa64234d7c7f41b891fa10"
+ },
+ {
+  "function": "func_802701A4",
+  "text": "Best score 70 (register-only diffs): compute r=arg6*arg6 first, then dx,dy,dz temps, d=dx*dx+dy*dy+dz*dz; if(!(d<r)) d=*(f32*)0x213F44; return d. Target has dz*dz result in f1 and r in f2, sum in f0 (mine uses f12 for the partial sum). Early return form and inline expression were worse. Next step: try try_local_repairs / declaring dz*dz via separate temps, or ordering temps (dz before dx).",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227418.980818,
+  "score_before": 630,
+  "score_after": 70,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:76ffb40ac2578cf5d2a347d716585af3dc1080390d74f220ed3a8a998d285a2f"
+ },
+ {
+  "function": "func_80269278",
+  "text": "Best 890 (rev 22f7a505a6e5aea6aba9): r=func_80113AD0(); v=(r%128+0x80)<<8; D_800756A0[...]. Target uses bltzl with delay-slot addiu and loads globals after the division; ours uses bgez and loads globals early, and folds 0x3E into the symbol address (D_800756DE). Struct form/m2c shifts worse. Next: try r as local unsigned/ s16 temp, or declare D_800756A0 as struct and call order tweaks.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227539.987831,
+  "score_before": 1450,
+  "score_after": 890,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:d95e872de9cef84264d26343d936e2790ce7b0d8d5270aa6f5ce4c4cd32bd934"
+ },
+ {
+  "function": "func_80274C6C",
+  "text": "Best score 200: only diff is target `bltz $a0` (delay slot addiu v0,-1) vs ours `bltzl`. Source (rev 5c046aa7f2649330886b): if(D_800311FC!=arg1){if(D_80031200==-1)D_80031200=arg1;return -1;} if(arg0<0)return -1; return func_802922C0(arg0); (s16 args/ret, s32 globals). Tried: ret var (705), if/else-return (1020), swapped branch order (1020). Next step: try s32 return type/arg0 as s32 with (s16) cast, or an unused-looking temp so -1 is loaded before the bltz non-likely.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227586.057088,
+  "score_before": 200,
+  "score_after": 200,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:755d39c2074d8739971421936c58737af5454509b401fc03272636d1d9559328"
+ },
+ {
+  "function": "func_80246A00",
+  "text": "Score 40 (rev 9f02889991c9bc05d8d2): code identical except 4 operand rows \u2013 lui/lwc1 and lui/ldc1 use %hi(.rdata) vs target absolute 0x202A54 / 0x202A58 (float 2^31 and double 2^32 literals from compiler's (u32)float conversion). Source: u32 v=(u32)arg0; v&=~0x3A0; D_80075F50=v; return v; (f32 arg/ret, extern u32 D_80075F50). Likely only unfixable via rdata placement/linker script (rdata of this unit not placed). Next step: check whether linker rdata address for this unit can be set, else accept.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227661.714,
+  "score_before": 500,
+  "score_after": 40,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:b714487c7b4f875d5267e5cc7887706a2929e93b52abfbef1edc57d18ba72f39"
+ },
+ {
+  "function": "func_80246A68",
+  "text": "Score 40 with u32 v=(u32)arg0; v&=~0x3C0; D_80075F50=v; return v; Code is structurally identical; only 4 rows differ: lui/lwc1/ldc1 use .rdata symbol vs target absolute 0x202A60/0x202A68 (compiler-generated u32 conversion constants; rdata of this unit not placed in link). Manual extern-constant rewrite made it worse (1550). Same issue as func_80246A00. Next step: fix at linker/rdata placement level, not C.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227691.557879,
+  "score_before": 40,
+  "score_after": 40,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:c00e29a41c644f7f3075d7f28baf6047dfe786756d54acd0c5f7785dc32fb1c6"
+ },
+ {
+  "function": "func_80246AD0",
+  "text": "Same family as func_80246A00/A68: compiler's (u32)float->float conversion with consts at absolute 0x202A70/78 (rdata not linked). Best 450: u32 v=(u32)arg0; v|=0x80000000; v&=~0x360; D_80075F50=v; return v; (only rdata-address rows + minor order differ from target). Manual version using *(f32*)0x202A70 gives right absolute addressing but 510+ (bc1f instead of bc1tl, order). Next step: keep natural (u32) cast form; solve rdata linking at project level.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227734.7796469,
+  "score_before": 450,
+  "score_after": 450,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:9ffa75d39e02ec99e6c6f4857ce7f158dc381dd293663a6f2cffb2ed60067908"
+ },
+ {
+  "function": "func_80246B38",
+  "text": "Score 40 (rev b800e5ec804336d34484): extern u32 D_80075F50; f32 f(f32 arg0){u32 v=(u32)arg0; v&=~0x2E0; D_80075F50=v; return (f32)v;}. Code identical; only 4 rows differ: lui/lwc1/ldc1 use .rdata reloc vs target absolute 0x202A80/0x202A88 (compiler u32 conversion constants; unit rdata not placed in link). Next step: fix rdata placement at linker level, not C.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227780.157287,
+  "score_before": 450,
+  "score_after": 40,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0bbac71de4c8eab4ec93d934c00e8e89d263a040cc0fa12443b09df3fa54b821"
+ },
+ {
+  "function": "func_80246BA0",
+  "text": "Score 40 (rev ec9d1a9d29886a5a7e80): u32 v=(u32)arg0; v&=~0x1E0; D_80075F50=v; return (f32)v. Code identical; only 4 rows differ (rdata relocs vs absolute 0x202A90/98). Linker/rdata placement issue, not C.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227800.795064,
+  "score_before": 40,
+  "score_after": 40,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:77a3d8f07437373cde09feb5dfc62db32b319cbd71d99556e12ef5a0fb037116"
  }
 ]
