@@ -1017,5 +1017,14 @@
   "score_before": 3153,
   "score_after": 690,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:03cdfdde7890c0c7da0278e1eff09c6f09d9d0d2bdc4e559bf472f29869e26f9"
+ },
+ {
+  "function": "func_802DB2C4",
+  "text": "Low progress after 27 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: register allocation; first differing row 14; 1 differing rows (1 register; advisory).\nTarget: addu $v0, $v0, $a3\nCandidate: addu $v0, $a3, $v0\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = sll $v0, $v0, 2\n  = addu $v0, $v0, $a1\nr T: addu $v0, $v0, $a3 | C: addu $v0, $a3, $v0\n  = lw $v0, 4($v0)\n  = jr $ra\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795236556.465396,
+  "score_before": 15,
+  "score_after": 5,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:598fd5ad3566a8e8983305cd14d7ec0ca2f16b387a53d0d8a59c33124c709ef9"
  }
 ]
