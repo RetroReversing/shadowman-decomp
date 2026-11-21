@@ -13,7 +13,7 @@ typedef s32 M2C_UNK32;
 #endif
 
 M2C_UNK func_8027003C();                            /* extern */
-M2C_UNK func_8027006C(void *, M2C_UNK);             /* extern */
+M2C_UNK func_8027006C(void);             /* extern */
 M2C_UNK func_8027206C(M2C_UNK, M2C_UNK);            /* extern */
 extern void *D_8007AFF8;
 
@@ -22,5 +22,5 @@ void func_802797F4(void) {
     func_8027206C(4, 0);
     M2C_FIELD(D_8007AFF8, s32 *, 0x44) = (s32) (M2C_FIELD(D_8007AFF8, s32 *, 0x44) | 0x20088);
     M2C_FIELD(D_8007AFF8, s32 *, 0x48) = (s32) (M2C_FIELD(D_8007AFF8, s32 *, 0x48) | 0x10);
-    func_8027006C(D_8007AFF8, 0x20088);
+    func_8027006C();
 }
