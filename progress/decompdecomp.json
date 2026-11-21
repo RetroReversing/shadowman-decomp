@@ -1,7 +1,7 @@
 {
  "format": 2,
- "saved_at": 1795224960.293772,
- "revision": 631,
+ "saved_at": 1795224972.106706,
+ "revision": 634,
  "title": "Shadowman",
  "platform": "n64",
  "game": {
@@ -17805,8 +17805,8 @@
   },
   "func_80269998": {
    "vram": 2150013336,
-   "best_score": 60,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_80269A9C": {
    "vram": 2150013596,
