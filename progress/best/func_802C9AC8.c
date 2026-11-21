@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -19,21 +19,13 @@ extern M2C_UNK D_80075518;
 extern M2C_UNK D_80075568;
 
 void func_802C9AC8(void) {
-    M2C_UNK *__base_D_8002DBD0;
-    M2C_UNK *__base_D_80075518;
     if (D_8002D424 & 0x80) {
-        __base_D_80075518 = &D_80075518;
-        func_8023DF7C(&D_80075568, __base_D_80075518, 0x59, 0xA, 0x28, 2);
+        func_8023DF7C(&D_80075568, &D_80075518, 0x59, 0xA, 0x28, 2);
     }
-    __base_D_8002DBD0 = &D_8002DBD0;
-    if (M2C_FIELD(__base_D_8002DBD0, s32 *, 0x18) == 0) {
-        /*__repair_pointer_balance*/if ((unsigned long)__base_D_8002DBD0 & 0x100) {
-func_8023DF7C(&D_80075568, __base_D_80075518, 0x37, 0xA, 0x28, 2);
-} else {
-func_8023DF7C(&D_80075568, __base_D_80075518, 0x37, 0xA, 0x28, 2);
-}
+    if (M2C_FIELD(&D_8002DBD0, s32 *, 0x18) == 0) {
+        func_8023DF7C(&D_80075568, &D_80075518, 0x37, 0xA, 0x28, 2);
     }
-    if (M2C_FIELD(__base_D_8002DBD0, s32 *, 8) != 0) {
-        func_8023DF7C(&D_80075568, __base_D_80075518, 0x59, 0xA, 0x28, 2);
+    if (M2C_FIELD(&D_8002DBD0, s32 *, 8) != 0) {
+        func_8023DF7C(&D_80075568, &D_80075518, 0x59, 0xA, 0x28, 2);
     }
 }

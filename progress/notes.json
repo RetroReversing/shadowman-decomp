@@ -495,5 +495,14 @@
   "score_before": 60,
   "score_after": 0,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:28a57936c9dc71e86543e77fec818fc4575d83658af0f93e9533bf2ed481574b"
+ },
+ {
+  "function": "func_80110C1C",
+  "text": "Best 200: `char*q=*(char**)(a0+0x1C); if(a1==2){int n=*(int*)(a0+0x14); *(int*)(q+(n<<2))=a2; *(int*)(a0+0x14)=n+1;} return 0;` Only diff: target uses sllv with $v0 (=2 from compare) and addu v0,v0,a3 (q second), and store of a2 before store of count. Tried <<arg1, (n<<2)+q, switch, unsigned, store order: all >=200. Next step: try different shift/index forms, e.g. (&q[n]) via int* pointer arithmetic with q loaded after the compare, or a local 'int two=2'.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795224505.5033338,
+  "score_before": 820,
+  "score_after": 200,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:fcbc02e44ac32399ab96b5faa8ca964a68d19ab9bc41e4e2473a80ad0b67fe37"
  }
 ]

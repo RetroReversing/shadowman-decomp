@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,12 +12,12 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-s32 func_80113AD0();                                /* extern */
-f32 func_8022EC3C(f32, s32);                        /* extern */
-void *func_80296BC0(M2C_UNK *);                     /* extern */
-extern M2C_UNK D_80036CD8;
+s32 func_80113AD0();
+f32 func_8022EC3C();
+void *func_80296BC0();
+extern char D_80036CD8[];
 
-void *func_80298710(void) {
+void *func_80298710(s32 arg0, s32 arg1) {
     f32 temp_fv0;
     s32 temp_a0;
     s32 temp_hi;
@@ -25,7 +25,7 @@ void *func_80298710(void) {
     s32 temp_v1;
     void *temp_v0;
 
-    temp_v0 = func_80296BC0(&D_80036CD8);
+    temp_v0 = func_80296BC0(arg0, arg1, D_80036CD8);
     if (temp_v0 != NULL) {
         temp_v0_2 = func_80113AD0();
         temp_hi = MULT_HI(temp_v0_2, 0xB60B60B7);

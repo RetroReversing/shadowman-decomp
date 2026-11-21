@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -23,23 +23,17 @@ extern M2C_UNK D_80075518;
 extern M2C_UNK D_80075568;
 
 void func_802C7524(void) {
-    M2C_UNK *__base_D_80075518;
     if ((M2C_FIELD(&D_80044EB0, s32 *, 0) != 0) && (M2C_FIELD(&D_80044EB0, s16 *, 0x16) != 0)) {
         func_802CBBA8();
         if ((D_8002D420 & 0x28) == 0x28) {
-            __base_D_80075518 = &D_80075518;
-            /*__repair_pointer_balance*/if ((unsigned long)__base_D_80075518 & 0x100) {
-func_802C75B0(&D_80075568, __base_D_80075518);
-} else {
-func_802C75B0(&D_80075568, __base_D_80075518);
-}
+            func_802C75B0(&D_80075568, &D_80075518);
             return;
         }
         if (D_8002D420 & 0x01000000) {
-            func_802C75B0(&D_80075568, __base_D_80075518);
+            func_802C75B0(&D_80075568, &D_80075518);
             return;
         }
-        func_8023DF7C(&D_80075568, __base_D_80075518, 0xBB, 0xA, 0x14, 2);
+        func_8023DF7C(&D_80075568, &D_80075518, 0xBB, 0xA, 0x14, 2);
         /* Duplicate return node #9. Try simplifying control flow for better match */
         func_802C71E4();
         func_802CC190();

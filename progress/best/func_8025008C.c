@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -18,12 +18,6 @@ extern M2C_UNK D_80073370;
 extern M2C_UNK D_80073380;
 
 void func_8025008C(void *arg0) {
-    f32 __repair_store_0;
-    f32 __repair_store_1;
-    f32 __repair_store_2;
-    f32 __repair_store_3;
-    f32 __repair_store_4;
-    f32 __repair_store_5;
     union {
         unsigned char bytes[16];
         struct { f32 value; } view_sp18;
@@ -36,18 +30,12 @@ void func_8025008C(void *arg0) {
     void *temp_v1;
 
     temp_v1 = M2C_FIELD(arg0, void **, 8);
-    __repair_store_0 = (f32) M2C_FIELD(&D_80073370, f32 *, 0);
-    __repair_store_1 = (f32) M2C_FIELD(&D_80073370, f32 *, 4);
-    __repair_store_2 = (f32) M2C_FIELD(&D_80073370, f32 *, 8);
-    __repair_store_3 = (f32) M2C_FIELD(&D_80073380, f32 *, 0);
-    __repair_store_4 = (f32) M2C_FIELD(&D_80073380, f32 *, 4);
-    __repair_store_5 = (f32) M2C_FIELD(&D_80073380, f32 *, 8);
-    M2C_FIELD(temp_v1, f32 *, 0x24) = __repair_store_0;
-    M2C_FIELD(temp_v1, f32 *, 0x28) = __repair_store_1;
-    M2C_FIELD(temp_v1, f32 *, 0x2C) = __repair_store_2;
-    M2C_FIELD(temp_v1, f32 *, 0x18) = __repair_store_3;
-    M2C_FIELD(temp_v1, f32 *, 0x1C) = __repair_store_4;
-    M2C_FIELD(temp_v1, f32 *, 0x20) = __repair_store_5;
+    M2C_FIELD(temp_v1, f32 *, 0x24) = (f32) M2C_FIELD(&D_80073370, f32 *, 0);
+    M2C_FIELD(temp_v1, f32 *, 0x28) = (f32) M2C_FIELD(&D_80073370, f32 *, 4);
+    M2C_FIELD(temp_v1, f32 *, 0x2C) = (f32) M2C_FIELD(&D_80073370, f32 *, 8);
+    M2C_FIELD(temp_v1, f32 *, 0x18) = (f32) M2C_FIELD(&D_80073380, f32 *, 0);
+    M2C_FIELD(temp_v1, f32 *, 0x1C) = (f32) M2C_FIELD(&D_80073380, f32 *, 4);
+    M2C_FIELD(temp_v1, f32 *, 0x20) = (f32) M2C_FIELD(&D_80073380, f32 *, 8);
     func_8023A0DC(*(f32 *)0x2031A4, *(f32 *)0x2031A8, 0, &m2c_initial_frame.view_sp18.value, temp_v1 + 0x34);
     m2c_initial_frame.view_sp18.value = M2C_BITWISE(f64, (m2c_initial_frame.view_sp1C.value + M2C_FIELD(&D_80073370, f32 *, 4)));
     m2c_initial_frame.view_sp20.value += M2C_FIELD(&D_80073370, f32 *, 8);
