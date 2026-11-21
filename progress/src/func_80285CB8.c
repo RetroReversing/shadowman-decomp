@@ -19,9 +19,11 @@ extern void *D_8007AFF8;
 extern s32 D_8007B1D0;
 
 void func_80285CB8(s32 arg0) {
+    M2C_UNK *__base_D_80045930;
     do { func_8027003C(); } while (0);
-    M2C_FIELD(&D_80045930, s32 *, 0x44) = arg0;
-    M2C_FIELD(&D_80045930, s32 *, 0x48) = (s32) M2C_FIELD(D_8007AFF8, s32 *, 0x10C);
+    __base_D_80045930 = &D_80045930;
+    M2C_FIELD(__base_D_80045930, s32 *, 0x44) = arg0;
+    M2C_FIELD(__base_D_80045930, s32 *, 0x48) = (s32) M2C_FIELD(D_8007AFF8, s32 *, 0x10C);
     M2C_FIELD(D_8007AFF8, s32 *, 0x44) = (s32) (M2C_FIELD(D_8007AFF8, s32 *, 0x44) | 0x80);
     func_8027006C(D_8007AFF8);
     D_8007B1D0 = 0;
