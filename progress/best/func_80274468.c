@@ -17,10 +17,14 @@ extern void *D_8006A4FC;
 extern void *D_8007AFF8;
 
 void func_80274468(void) {
+int __repair_literal;
+
     s8 temp_v1;
 
     temp_v1 = M2C_FIELD(D_8007AFF8, s8 *, 0x56);
-    if ((temp_v1 >= -1) && (temp_v1 >= 2) && (temp_v1 == 2)) {
+__repair_literal = 2;
+
+    if ((temp_v1 >= -1) && (temp_v1 >= __repair_literal) && (temp_v1 == 2)) {
         M2C_FIELD(D_8006A4FC, s32 *, 0x10) = 0;
         M2C_FIELD(D_8007AFF8, f32 *, 0xB0) = (f32) *(f32 *)0x214150;
     }

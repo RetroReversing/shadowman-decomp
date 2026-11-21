@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -16,8 +16,6 @@ s32 func_802A6588();
 s32 func_802B5A60();
 
 void func_802B4194(void *arg0, s32 arg1, s32 arg2) {
-    f32 __repair_fzero = 0.0f;
-
     if (arg1 == 2) {
         func_802A6588(arg0, arg2);
     }
@@ -25,8 +23,8 @@ void func_802B4194(void *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s8 *, 0x51) = (s8) ((u8) M2C_FIELD(arg0, s8 *, 0x51) + 1);
         M2C_FIELD(arg0, f32 *, 0x60) = (f32) M2C_FIELD(arg0, f32 *, 0x30);
         M2C_FIELD(arg0, f32 *, 0x64) = (f32) M2C_FIELD(arg0, f32 *, 0x2C);
-        M2C_FIELD(arg0, f32 *, 0x30) = __repair_fzero;
-        M2C_FIELD(arg0, f32 *, 0x2C) = __repair_fzero;
-        func_802B5A60();
+        M2C_FIELD(arg0, f32 *, 0x30) = 0.0f;
+        M2C_FIELD(arg0, f32 *, 0x2C) = 0.0f;
+        func_802B5A60(arg0);
     }
 }

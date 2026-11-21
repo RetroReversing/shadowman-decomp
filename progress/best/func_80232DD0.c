@@ -15,6 +15,7 @@ typedef s32 M2C_UNK32;
 s32 func_8023648C();
 extern s32 D_8005E9FC;
 
+typedef struct { unsigned short field_0; short field_2; } __repair_record_var_s0;
 void func_80232DD0(u16 *arg0, s32 arg1) {
     s32 *__base_D_8005E9FC;
     s16 temp_v0;
@@ -35,11 +36,11 @@ void func_80232DD0(u16 *arg0, s32 arg1) {
         var_s3 -= 1;
         __base_D_8005E9FC = &D_8005E9FC;
         *(u16 *)var_s1 = var_s2 + func_8023648C((*__base_D_8005E9FC));
-        M2C_FIELD(var_s0, u16 *, 0) = (u16) (var_s4 + func_8023648C((*__base_D_8005E9FC)));
+        ((__repair_record_var_s0*)var_s0)->field_0 = (u16) (var_s4 + func_8023648C((*__base_D_8005E9FC)));
         temp_v0 = var_s5 + func_8023648C((*__base_D_8005E9FC));
-        var_s4 = M2C_FIELD(var_s0, u16 *, 0);
+        var_s4 = ((__repair_record_var_s0*)var_s0)->field_0;
         var_s5 = temp_v0;
-        M2C_FIELD(var_s0, s16 *, 2) = temp_v0;
+        ((__repair_record_var_s0*)var_s0)->field_2 = temp_v0;
         var_s0 += 6;
         var_s2 = *(u16 *)var_s1;
         var_s1 += 6;

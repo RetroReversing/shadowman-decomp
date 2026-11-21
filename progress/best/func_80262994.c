@@ -12,7 +12,7 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-s32 func_802629E0(u16, s16, s16 *);                 /* extern */
+s32 func_802629E0(u16);                 /* extern */
 extern s16 D_800273F0;
 extern s16 D_800273F2;
 extern u8 D_8004EC30[];
@@ -27,13 +27,14 @@ s32 func_80262994(u16 **arg0, s32 arg1) {
             D_800273F0 = (u16) D_800273F0 + 1;
             *((temp_a1 * 2) + D_8004EC30) = **arg0;
         }
-        return 1;
+        __shared_return_1:
+    return 1;
     case 4:
         if (D_800273F2 < 0x28) {
-            return func_802629E0(**arg0, D_800273F2, &D_800273F2);
+            return func_802629E0(**arg0);
         }
         /* Duplicate return node #5. Try simplifying control flow for better match */
-        return 1;
+        goto __shared_return_1;
     default:
         return 0;
     }

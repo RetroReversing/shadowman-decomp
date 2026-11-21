@@ -27,9 +27,11 @@ extern M2C_UNK D_80075568;
 extern s32 D_80075580;
 
 void func_802CD170(void) {
+    M2C_UNK *__base_D_8002DBD0;
     func_802CC680();
-    if (M2C_FIELD(&D_8002DBD0, s32 *, 8) != 0) {
-        if (M2C_FIELD(&D_8002DBD0, s32 *, 0x18) != 0) {
+    __base_D_8002DBD0 = &D_8002DBD0;
+    if (M2C_FIELD(__base_D_8002DBD0, s32 *, 8) != 0) {
+        if (M2C_FIELD(__base_D_8002DBD0, s32 *, 0x18) != 0) {
             func_802CD1D4(*(f32 *)0x2187C0);
             return;
         }
@@ -37,23 +39,23 @@ void func_802CD170(void) {
         func_802CD1D4(*(f32 *)0x2187C4);
         return;
     }
-    if (M2C_FIELD(&D_8002DBD0, s32 *, 0x18) != 0) {
+    if (M2C_FIELD(__base_D_8002DBD0, s32 *, 0x18) != 0) {
         func_802CD1D4(*(f32 *)0x2187C4);
         return;
     }
     func_802C3934(*(f32 *)0x2187C8);
     D_80075580 = 0;
-    if (M2C_FIELD(&D_8002DBD0, s32 *, 8) != 0) {
-        if (M2C_FIELD(&D_8002DBD0, s32 *, 0x18) != 0) {
-            func_802CD234(&D_8002DBD0);
+    if (M2C_FIELD(__base_D_8002DBD0, s32 *, 8) != 0) {
+        if (M2C_FIELD(__base_D_8002DBD0, s32 *, 0x18) != 0) {
+            func_802CD234(__base_D_8002DBD0);
             return;
         }
         /* Duplicate return node #12. Try simplifying control flow for better match */
-        func_802CD234(&D_8002DBD0);
+        func_802CD234(__base_D_8002DBD0);
         return;
     }
-    if (M2C_FIELD(&D_8002DBD0, s32 *, 0x18) != 0) {
-        func_802CD234(&D_8002DBD0);
+    if (M2C_FIELD(__base_D_8002DBD0, s32 *, 0x18) != 0) {
+        func_802CD234(__base_D_8002DBD0);
         return;
     }
     D_8003AD20 = *(f32 *)0x2187D4;

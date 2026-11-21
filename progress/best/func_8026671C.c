@@ -26,6 +26,8 @@ extern M2C_UNK D_80075518;
 extern M2C_UNK D_80075598;
 
 void func_8026671C(s32 arg0) {
+    M2C_UNK *__base_D_80030F84;
+    M2C_UNK *__base_D_80075598;
     M2C_UNK *__base_D_80030F78;
     s32 sp18;
     M2C_UNK32 sp1C;
@@ -37,12 +39,14 @@ void func_8026671C(s32 arg0) {
     void *temp_v0;
 
     switch (arg0) {
+        __base_D_80030F84 = &D_80030F84;
         case 1:
-            sp18 = M2C_FIELD(&D_80030F84, s32 *, 0);
-            sp1C = M2C_FIELD(&D_80030F84, M2C_UNK32 *, 4);
-            sp20 = M2C_FIELD(&D_80030F84, s32 *, 8);
+            sp18 = M2C_FIELD(__base_D_80030F84, s32 *, 0);
+            sp1C = M2C_FIELD(__base_D_80030F84, M2C_UNK32 *, 4);
+            sp20 = M2C_FIELD(__base_D_80030F84, s32 *, 8);
             func_8023E724(&D_80075518, 0xD, &sp18, &sp28);
-            temp_v0 = &D_80075598 + 4;
+            __base_D_80075598 = &D_80075598;
+            temp_v0 = __base_D_80075598 + 4;
             sp18 = 0;
             sp20 = 0;
             sp1C = *(M2C_UNK32 *)0x20DEEC;

@@ -28,10 +28,11 @@ s32 func_80275468(s16 arg0) {
             }
             if (*(s16 *)var_v1 == -1) {
                 /* Duplicate return node #4. Try simplifying control flow for better match */
-                return 0;
+                goto __shared_return_0;
             }
         }
         return 1;
     }
+    __shared_return_0:
     return 0;
 }

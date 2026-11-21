@@ -14,7 +14,7 @@ typedef s32 M2C_UNK32;
 
 f32 func_801132A0(f32);                             /* extern */
 f32 func_80113BE0(f32);                             /* extern */
-extern M2C_UNK D_800506D0;
+extern f32 D_800506D0;
 extern M2C_UNK D_800508D0;
 extern M2C_UNK D_80050AD0;
 extern M2C_UNK D_80050CD0;
@@ -32,7 +32,7 @@ void func_8011A8C4(void) {
     f32 temp_fs1f;
     f32 temp_fv0;
     s16 temp_s0_2;
-    u16 temp_v0;
+    s32 temp_v0;
     s16 temp_v0_2;
     s16 var_s1;
     s16 var_s1_2;
@@ -43,7 +43,7 @@ void func_8011A8C4(void) {
     temp_fs1 = *(f32 *)0x102864;
     temp_fs0f = *(f32 *)0x102868;
     var_s1 = 0;
-    do {
+    __repair_rows: {
         temp_fs0 = (((f32) var_s1 * temp_fs1f) + temp_fs1) * temp_fs0f;
         temp_s0 = var_s1 * 4;
         *(temp_s0 + &D_800506D0) = func_801132A0(temp_fs0);
@@ -51,7 +51,8 @@ void func_8011A8C4(void) {
         var_s1 = temp_v0;
         *(temp_s0 + &D_800508D0) = func_80113BE0(temp_fs0);
         *(temp_s0 + &D_80050ED0) = 0;
-    } while (temp_v0 < 0x80);
+    }
+if (temp_v0 < 0x80) goto __repair_rows;
     var_s1_2 = 0;
     temp_fs0f_2 = *(f32 *)0x10286C;
     do {

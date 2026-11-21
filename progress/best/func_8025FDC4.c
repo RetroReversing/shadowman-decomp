@@ -20,12 +20,12 @@ extern u8 D_80074C32;
 void func_8025FDC4(void) {
     char *__base_D_209890;
     __base_D_209890 = D_209890;
-    if (M2C_FIELD(((D_80074BB0 * 0x34) + __base_D_209890), s16 *, 8) != 0) {
+    if (M2C_FIELD(((D_80074BB0 * 0x34) + __base_D_209890), s16 *, 8) == 0) {
+        func_8025FE04(__base_D_209890);
+    } else {
         D_80074C32 = 2;
         if ((u32) (D_80074BB0 - 4) >= 0xCU) {
             D_80074C32 |= 4;
         }
-    } else {
-        func_8025FE04(__base_D_209890);
     }
 }

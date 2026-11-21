@@ -20,13 +20,15 @@ s16 func_80109530();                                /* extern */
 extern M2C_UNK D_8001E5B0;
 
 s16 func_80109450(s16 arg0, s16 arg1, M2C_UNK arg2) {
+    M2C_UNK *__base_D_8001E5B0;
     s16 ret;
 s16 __repair_result_ret;
     char sp18[0x10];
     f32 temp_fv0;
 
     func_80108DA8(sp18, arg2);
-    temp_fv0 = func_80108D1C(sp18, (&D_8001E5B0)[arg1 * 3]);
+    __base_D_8001E5B0 = &D_8001E5B0;
+    temp_fv0 = func_80108D1C(sp18, (__base_D_8001E5B0)[arg1 * 3]);
     if (arg0 != -1) {
         func_80108A18(arg0 & 0xFF, arg1, 0, 0x3F, (s32) (s16) (s32) temp_fv0, *(f32 *)0x100690);
         __repair_result_ret = func_80109530();

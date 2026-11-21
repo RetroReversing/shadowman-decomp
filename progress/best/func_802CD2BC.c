@@ -29,6 +29,7 @@ extern char D_80075518[];
 extern char D_80075568[];
 
 void func_802CD2BC(void) {
+    int *__base_D_8002DBE8;
     s32 *__base_D_8002D420;
     s32 *__base_D_80075518;
 
@@ -54,15 +55,28 @@ void func_802CD2BC(void) {
         }
     }
     if (D_8002DBD8 != 0) {
-        if (D_8002DBE8 != 0) {
-            func_802CD428();
+        __base_D_8002DBE8 = &D_8002DBE8;
+        if ((*__base_D_8002DBE8) != 0) {
+            /*__repair_pointer_balance*/if ((unsigned long)__base_D_8002DBE8 & 0x10000) {
+if ((unsigned long)__base_D_8002DBE8 & 0x100) {
+func_802CD428();
+} else {
+func_802CD428();
+}
+} else {
+if ((unsigned long)__base_D_8002DBE8 & 0x100) {
+func_802CD428();
+} else {
+func_802CD428();
+}
+}
             return;
         }
         /* Duplicate return node #16. Try simplifying control flow for better match */
         func_802CD424();
         return;
     }
-    if (D_8002DBE8 == 0) {
+    if ((*__base_D_8002DBE8) == 0) {
         D_8003AD50 = *(f32 *)0x2187E0;
     } else {
         func_802CD424();

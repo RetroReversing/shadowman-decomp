@@ -56,7 +56,7 @@ void func_802BDD60(void) {
                 var_s2 = 0;
                 __base_D_80045440 = &D_80045440;
                 var_s0 = __base_D_80045440 + 4;
-                do {
+                __repair_rows: {
                     if (M2C_FIELD(var_s0, s32 *, 0xC) == 0) {
                         var_fv1f = M2C_FIELD(&D_80075568, f32 *, 0x28) - M2C_FIELD(var_s0, f32 *, 4);
                         temp_ft0 = M2C_FIELD(&D_80075568, f32 *, 0x24) - M2C_FIELD(var_s0, f32 *, 0);
@@ -79,7 +79,8 @@ void func_802BDD60(void) {
                     }
                     var_s2 += 1;
                     var_s0 += 0x20;
-                } while (var_s2 < 0xFU);
+                }
+if (var_s2 < 0xFU) goto __repair_rows;
             }
         } else {
             func_802BDDEC();

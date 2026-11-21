@@ -18,12 +18,14 @@ s32 func_801077E0();
 extern char D_8004B420[];
 
 void *func_80107454(void) {
+    char *__base_D_8004B420;
     u16 temp_v0;
     void *temp_s0;
     void *temp_v0_2;
 
-    temp_s0 = M2C_FIELD(D_8004B420, void **, 0x1378);
-    do { func_801073A0(D_8004B420 + 0x1378, temp_s0); } while (0);
+    __base_D_8004B420 = D_8004B420;
+    temp_s0 = M2C_FIELD(__base_D_8004B420, void **, 0x1378);
+    do { func_801073A0(__base_D_8004B420 + 0x1378, temp_s0); } while (0);
     func_801077E0(temp_s0);
     temp_v0 = M2C_FIELD(temp_s0, const u16 *, 8);
     if (temp_v0 != 0xFFFF) {

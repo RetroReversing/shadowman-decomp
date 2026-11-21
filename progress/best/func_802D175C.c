@@ -15,8 +15,8 @@ void func_802D175C(s16 *arg0, s32 arg1) {
     void *var_s0;
 
     var_s1 = arg0;
-    var_s3 = arg1;
     var_s0 = var_s1 + 4;
+    var_s3 = arg1;
     do {
         __base_D_8005E9FC = &D_8005E9FC;
         *(s16 *)var_s1 = func_8023648C(arg0, (*__base_D_8005E9FC));
@@ -30,7 +30,7 @@ void func_802D175C(s16 *arg0, s32 arg1) {
             (*(s16 *)((char *)(var_s0) + 0)) = temp_v0;
         }
         var_s0 += 6;
-        var_s3 -= 1;
+        var_s3--;
         var_s1 += 6;
     } while (var_s3 != 0);
 }

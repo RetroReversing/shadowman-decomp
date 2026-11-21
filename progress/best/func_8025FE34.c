@@ -22,15 +22,18 @@ s32 func_8025FE34(s32 arg0) {
 
     var_v1 = 0;
     var_s0 = &D_80030630;
-loop_1:
-    var_v1 += 1;
-    if (M2C_FIELD(var_s0, s16 *, 0) == arg0) {
-        func_8025FDC4();
-        return func_8025FE8C(arg0);
+    for (;;) {/*__repair_loop_weight*/do {
+        var_v1 += 1;} while (0);
+        if (M2C_FIELD(var_s0, s16 *, 0) == arg0) {/*__repair_call_balance*/if(var_v1){
+            func_8025FDC4();}else{
+            func_8025FDC4();}
+            return func_8025FE8C(arg0);
+        }
+        var_s0 += 8;
+        if (var_v1 >= 0x1E) {
+            return 0;
+        }
+        continue;
+        break;
     }
-    var_s0 += 8;
-    if (var_v1 >= 0x1E) {
-        return 0;
-    }
-    goto loop_1;
 }

@@ -1,16 +1,4 @@
 /* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
 
 extern int D_8007DC08;
 extern signed char D_8007DC06;
@@ -36,6 +24,7 @@ extern s32 D_80075B10;
 extern char D_8007DB78[];
 
 void func_80103060(s32 arg0, s32 *arg1) {
+    short *__base_D_80000320;
     int *__base_D_8000031C;
     s32 *var_a1;
     s32 var_a0;
@@ -43,8 +32,8 @@ void func_80103060(s32 arg0, s32 *arg1) {
 
     var_a1 = arg1;
     var_a0 = (s32) &D_4A440 | 0x80000000;
-    var_v1 = 0;
     if (D_34280 != NULL) {
+        var_v1 = 0;
         var_a1 = D_34280;
         do {
             *(s32 *)var_a0 = 0;
@@ -63,7 +52,8 @@ void func_80103060(s32 arg0, s32 *arg1) {
             return;
         }
         /* Duplicate return node #8. Try simplifying control flow for better match */
-        D_80000320 = 0;
+        (*__base_D_80000320) = 0;
+        __base_D_80000320 = &D_80000320;
         D_80000322 = 0;
         (*__base_D_8000031C) = 0x0C0DFACE;
         D_80000324 = 0x1E;
@@ -77,7 +67,7 @@ void func_80103060(s32 arg0, s32 *arg1) {
         func_801069C0(D_103298, 0x80, 0, 0);
         return;
     }
-    D_80000320 = 0;
+    (*__base_D_80000320) = 0;
     D_80000322 = 0;
     (*__base_D_8000031C) = 0x0C0DFACE;
     D_80000324 = 0x1E;

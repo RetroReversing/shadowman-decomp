@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -12,15 +12,10 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-extern float D_8007558C;
-extern float D_80075594;
-extern float D_8007BE68;
-extern float D_8007BE70;
-extern char D_80075568[];
+extern M2C_UNK D_80075568;
+extern M2C_UNK D_8007BE68;
 
 void func_8024F2DC(void *arg0) {
-    float *__base_D_8007BE68;
-    float *__base_D_8007BE70;
     f32 sp0;
     f32 sp8;
     f32 temp_fv0;
@@ -29,13 +24,11 @@ void func_8024F2DC(void *arg0) {
     void *temp_v1;
 
     temp_v1 = M2C_FIELD(arg0, void **, 8);
-    temp_fv0 = D_8007558C - M2C_FIELD(temp_v1, f32 *, 0x24);
+    temp_fv0 = M2C_FIELD(&D_80075568, f32 *, 0x24) - M2C_FIELD(temp_v1, f32 *, 0x24);
     temp_fv1f = *(f32 *)0x2030F0;
     sp0 = temp_fv0;
-    temp_fv1 = D_80075594 - M2C_FIELD(temp_v1, f32 *, 0x2C);
+    temp_fv1 = M2C_FIELD(&D_80075568, f32 *, 0x2C) - M2C_FIELD(temp_v1, f32 *, 0x2C);
     sp8 = temp_fv1;
-    __base_D_8007BE68 = &D_8007BE68;
-    (*__base_D_8007BE68) = (f32) ((*__base_D_8007BE68) + (temp_fv0 * temp_fv1f));
-    __base_D_8007BE70 = &D_8007BE70;
-    (*__base_D_8007BE70) = (f32) ((*__base_D_8007BE70) + (temp_fv1 * temp_fv1f));
+    M2C_FIELD(&D_8007BE68, f32 *, 0) = (f32) (M2C_FIELD(&D_8007BE68, f32 *, 0) + (temp_fv0 * temp_fv1f));
+    M2C_FIELD(&D_8007BE68, f32 *, 8) = (f32) (M2C_FIELD(&D_8007BE68, f32 *, 8) + (temp_fv1 * temp_fv1f));
 }

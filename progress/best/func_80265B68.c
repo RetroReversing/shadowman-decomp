@@ -12,7 +12,7 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-s32 func_80108B30(s32);                             /* extern */
+s32 func_80108B30(void);                             /* extern */
 M2C_UNK func_80109DB4(M2C_UNK);                     /* extern */
 M2C_UNK func_8011BA20(s32 *, M2C_UNK, M2C_UNK);     /* extern */
 M2C_UNK func_8022B114(M2C_UNK, f32, f32, M2C_UNK);  /* extern */
@@ -51,7 +51,8 @@ void func_80265B68(s32 arg0) {
         unsigned char bytes[80];
         struct { s32 value; } view_sp18;
         struct { unsigned char pad[4]; s32 value; } view_sp1C;
-        struct { unsigned char pad[8]; f32 value; } view_sp20;
+        struct { unsigned char pad[8]; f32 value;
+f32 __repair_value_2; } view_sp20;
         struct { unsigned char pad[16]; f32 value; } view_sp28;
         struct { unsigned char pad[20]; f32 value; } view_sp2C;
         struct { unsigned char pad[24]; f32 value; } view_sp30;
@@ -97,7 +98,7 @@ void func_80265B68(s32 arg0) {
         temp_fs0 = *(f32 *)0x20DEC8;
         m2c_initial_frame.view_sp18.value = 0;
         m2c_initial_frame.view_sp1C.value = 0;
-        m2c_initial_frame.view_sp20.value = temp_fs0;
+        m2c_initial_frame.view_sp20.__repair_value_2 = temp_fs0;
         if (D_800752D0 != 0) {
             m2c_initial_frame.view_sp28.value = M2C_FIELD(D_8005EA2C, f32 *, 0);
             m2c_initial_frame.view_sp2C.value = M2C_FIELD(D_8005EA2C, f32 *, 4);
@@ -144,7 +145,7 @@ block_18:
             func_80265E6C();
             return;
         }
-        if (func_80108B30(arg0) == 0) {
+        if (func_80108B30() == 0) {
             func_80109DB4(1);
         }
         func_802A6548(&D_8007558C, 0x44);

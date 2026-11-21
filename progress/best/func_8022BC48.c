@@ -28,7 +28,7 @@ void func_8022BC48(void *arg0, s32 arg1, s32 arg2) {
 
     temp_lo = M2C_FIELD(arg0, u8 *, 4) * (M2C_FIELD(arg0, u8 *, 5) - 1);
     temp_s1 = D_80059794 + temp_lo;
-    func_8022B840(arg0, arg1, arg2, temp_lo);
+    func_8022B840(arg0, arg1, arg2);
     var_a1 = 0;
     if (M2C_FIELD(arg0, u8 *, 5) != 0) {
         do {

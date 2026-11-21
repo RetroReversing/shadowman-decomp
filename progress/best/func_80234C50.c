@@ -19,6 +19,8 @@ extern s32 D_80061988;
 extern void *D_80061A10;
 
 s32 func_80234C50(s32 arg0) {
+void *__repair_cached_pointer = D_80061A10;
+
 char *__repair_addr;
 
     s32 var_v0;
@@ -26,7 +28,7 @@ char *__repair_addr;
 __repair_addr = (char *)((arg0 * 0x22) + D_80061988);
 
 
-    temp_v1 = M2C_FIELD(D_80061A10, s32 *, 0x1C) + (*(s32 *)(__repair_addr) * 0x10);
+    temp_v1 = M2C_FIELD(__repair_cached_pointer, s32 *, 0x1C) + (*(s32 *)(__repair_addr) * 0x10);
     var_v0 = -1;
     if (!(((M2C_FIELD(temp_v1, f32 *, 0) * D_8005EA70) + (M2C_FIELD(temp_v1, f32 *, 4) * D_8005EA74) + (M2C_FIELD(temp_v1, f32 *, 8) * D_8005EA78) + M2C_FIELD(temp_v1, f32 *, 0xC)) < 0.0f)) {
         var_v0 = 1;

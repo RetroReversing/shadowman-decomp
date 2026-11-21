@@ -42,7 +42,11 @@ void func_802DA500(void) {
             func_802DA594();
             return;
         }
-        func_802DA2BC(D_800596B0);
-        (*__base_D_8001E400) = 0;
+        /*__repair_pointer_balance*/if ((unsigned long)__base_D_8001E400 & 0x100) {
+func_802DA2BC(D_800596B0);
+} else {
+func_802DA2BC(D_800596B0);
+}
+        (*(&D_8001E400)) = 0;
     }
 }
