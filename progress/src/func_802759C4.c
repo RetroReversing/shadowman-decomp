@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -16,7 +16,6 @@ f32 func_802759C4(f32 arg0) {
     f32 temp_fv0f;
     f32 temp_fv1;
     f32 var_fv0;
-f32 __repair_var_fv0_2;
 
     temp_fv0f = *(f32 *)0x214288;
     var_fv0 = arg0;
@@ -25,7 +24,7 @@ f32 __repair_var_fv0_2;
         var_fv0 = temp_fv1;
     }
     if (temp_fv0f < var_fv0) {
-        __repair_var_fv0_2 = temp_fv0f;
+        var_fv0 = temp_fv0f;
     }
-    return __repair_var_fv0_2;
+    return var_fv0;
 }
