@@ -60003,6 +60003,106 @@
    "vram": 2150040120,
    "unit": "code_8026C95C_1E5FE18",
    "mode": "rom"
+  },
+  "func_802375D4": {
+   "format": 1,
+   "verdict": "exact",
+   "abi": {
+    "arch": "mips",
+    "big_endian": true,
+    "gp": 0,
+    "platform": "n64",
+    "rom_sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c"
+   },
+   "symbols_sha256": "a361712f532cff376852076f5eb3f44e4b25eac5491fa4aa97baedec65e3e759",
+   "recorded_at": 1795224881.290475,
+   "attempt_id": 42949682281,
+   "source_sha256": "4e5d7dee42adbf16376c14150bc581ed7b82e514494f50e88ad2a2a945003ef9",
+   "header_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1",
+   "context_version": 1,
+   "compiler": {
+    "toolchain": "sn-n64-281",
+    "flags": [
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64"
+    ],
+    "timeout": 20
+   },
+   "compiler_identity": {
+    "toolchain": "sn-n64-281",
+    "registry_sha256": "4cade6cb1458c9ea1167101bf052e1bc48261c13a670101116c580cf734257e0",
+    "install_sha256": "d949422c5b7c39402c79d468bd890710d5bd3eb8ba3929116a8a5543a4a7191f",
+    "executables": {
+     "cc1n64.exe": "d90df1028c46d826e37146dbcc3e3385f78c59e05a9ddd952daa94c9ad379d9c"
+    }
+   },
+   "settings": {
+    "mode": "rom",
+    "platform": "n64",
+    "compiler": {
+     "toolchain": "sn-n64-281",
+     "flags": [
+      "-G0",
+      "-mips3",
+      "-O2",
+      "-mgas",
+      "-meb",
+      "-mcpu=VR4300",
+      "-mhard-float",
+      "-mfp64"
+     ],
+     "timeout": 20
+    },
+    "settings_source": "compile invocation snapshot",
+    "gp": 0,
+    "big_endian": true,
+    "rom": {
+     "sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c",
+     "game_code": "NSDE",
+     "region": "North America",
+     "byte_order": "z64"
+    },
+    "effective_command": [
+     "/Users/a/Documents/GitHub/decompdecomp-rr/.venv/bin/python",
+     "/Users/a/Documents/GitHub/decompdecomp-rr/src/decompnet/consoles/n64/sn64.py",
+     "--cc",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cc1n64.exe",
+     "--cpp",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cppn64.exe",
+     "--assembler",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/asn64.exe",
+     "--converter",
+     "/Users/a/Library/Application Support/decompnet/toolchains/psyq-obj-parser/psyq-obj-parser",
+     "--runner",
+     "/Users/a/Library/Application Support/decompnet/toolchains/wibo/wibo",
+     "{src}",
+     "{obj}",
+     "{include}",
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64"
+    ],
+    "language": "c",
+    "context_unit": "",
+    "scoring_revision": "15e8fb22810d7914188643b45b306dd8c980e892c87fc3b92ab66645816d394d",
+    "context_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1"
+   },
+   "target_sha256": "b70b347f4386a2d019b521990abb8b08bda3d151cef49624e3735e089dc58498",
+   "relocations_sha256": "18d0c9785beeb6985c99923d47be7ae789f38a37b6c4631d9be1617363e6a2d1",
+   "vram": 2149807572,
+   "unit": "code_8021D4C0_1E271B4",
+   "mode": "rom"
   }
  },
  "sources": {
@@ -60703,7 +60803,8 @@
   "a2935681df4c1438d2efc1729307b312b1b17e08a3d420fed4a995a857e7398b": "typedef struct { f32 key; s32 val; } HeapItem;\n\nvoid func_8010C7A4(u32 n, HeapItem *ra) {\n    u32 l, ir, i, j;\n    HeapItem rra;\n\n    if (n < 2) return;\n    l = (n >> 1) + 1;\n    ir = n;\n    for (;;) {\n        if (l > 1) {\n            l--;\n            rra = ra[l];\n        } else {\n            rra = ra[ir];\n            ra[ir] = ra[1];\n            ir--;\n            if (ir == 1) {\n                ra[1] = rra;\n                return;\n            }\n        }\n        i = l;\n        j = l << 1;\n        while (j <= ir) {\n            if (j < ir && ra[j].key < ra[j + 1].key) j++;\n            if (rra.key < ra[j].key) {\n                ra[i] = ra[j];\n                i = j;\n                j <<= 1;\n            } else {\n                break;\n            }\n        }\n        ra[i] = rra;\n    }\n}",
   "853be3b26066b4629b38a2c1d2b4f80a6ea975528410c119e9304d59d29e7b88": "extern s32 D_80027700[];\nextern u8 D_8004EF60[];\nextern u8 D_8007E680[];\nextern u8 D_8004EE30;\nextern u8 D_8004F060[];\nvoid func_80116D80(s32, s32, s32);\nu8 func_80115528(void *);\nvoid func_80115764(void);\nvoid func_801157D0(void);\nvoid func_80115800(s32, void *);\n\ntypedef struct { u8 b[0x28]; } Blk;\n\nu32 func_801144F0(s32 *a)\n{\n  Blk sp10;\n  u8 *p = D_8007E680;\n  s32 i;\n  u32 r;\n\n  if (D_80027700[a[2]] == 0)\n    return 5;\n  func_80115764();\n  D_8004EE30 = 3;\n  func_80115800(1, D_8004EF60 + (a[2] << 6));\n  func_80116D80(a[1], 0, 1);\n  func_80115800(0, p);\n  func_80116D80(a[1], 0, 1);\n  if (a[2] != 0)\n  {\n    for (i = 0; i < a[2]; i++)\n      p++;\n  }\n  sp10 = *(Blk *)p;\n  r = (sp10.b[2] & 0xC0) >> 4;\n  if (r == 0 && func_80115528(D_8004F060) != sp10.b[0x26])\n    r = 4;\n  func_801157D0();\n  return r;\n}",
   "543b7718a5d97dd28b39f85eb107131861e62e2ad43f273613947fd3a7605ee5": "typedef struct { f32 x, y, z; } Vec3f;\ntypedef struct {\n    s32 a[256];\n    s32 b[256];\n    Vec3f c[256];\n    Vec3f d[256];\n    Vec3f e;\n    s32 pad[2];\n    s32 f;\n    s32 g;\n} Unk;\nextern Unk *D_80036960;\nextern Vec3f D_800369F8[];\nextern Vec3f D_80036A28[];\nextern Vec3f D_80036A58[];\nextern s32 D_80074BB0;\nextern Vec3f D_80075568[];\nextern Vec3f D_8007B650;\nextern void *func_80103878(s32, s32, s32);\nextern void func_8011BA20(void *, s32, s32);\nextern s32 func_80113AD0(void);\nextern void func_80234B70(void *);\nextern void func_80109318(s32, void *, s32);\n\nvoid func_80295544(void) {\n    s32 i;\n    if (D_80036960 == NULL) {\n        D_80036960 = func_80103878(0x201C, 2, 0);\n        func_8011BA20(D_80036960, 0, 0x201C);\n        D_80036960->f = 0x100;\n        for (i = 0; i < 256; i++) {\n            D_80036960->a[i] = func_80113AD0() % 511;\n            D_80036960->b[i] = func_80113AD0() % 2 + 1;\n        }\n        for (i = 0; i < 256; i++) {\n            D_80036960->c[i].x = func_80113AD0() % 320 - 160;\n            D_80036960->c[i].y = func_80113AD0() % 320 - 160;\n            D_80036960->c[i].z = func_80113AD0() % 320 - 160;\n            func_80234B70(&D_80036960->c[i]);\n            D_80036960->d[i].x = func_80113AD0() % 320;\n            D_80036960->d[i].y = func_80113AD0() % 320;\n            D_80036960->d[i].z = func_80113AD0() % 320;\n        }\n        D_80036960->e = D_80075568[3];\n        D_8007B650 = D_80075568[3];\n        func_80109318(0x1AB, &D_80075568[3], 0);\n        switch (D_80074BB0) {\n        case 9:\n            for (i = 0; i < 4; i++) func_80109318(0x1AA, &D_800369F8[i], 0);\n            break;\n        case 12:\n            for (i = 0; i < 4; i++) func_80109318(0x1AA, &D_80036A28[i], 0);\n            break;\n        case 14:\n            for (i = 0; i < 4; i++) func_80109318(0x1AA, &D_80036A58[i], 0);\n            break;\n        }\n    }\n}\n",
-  "978df2f718b95ba7856826b3851b1b896fb8c96e91b8f55781c3473f5d552ac9": "/* identical to func_8010C7A4 (matched), with its names changed by decompdecomp */\ntypedef struct { f32 key; s32 val; } HeapItem;\n\nvoid func_80270238(u32 n, HeapItem *ra) {\n    u32 l, ir, i, j;\n    HeapItem rra;\n\n    if (n < 2) return;\n    l = (n >> 1) + 1;\n    ir = n;\n    for (;;) {\n        if (l > 1) {\n            l--;\n            rra = ra[l];\n        } else {\n            rra = ra[ir];\n            ra[ir] = ra[1];\n            ir--;\n            if (ir == 1) {\n                ra[1] = rra;\n                return;\n            }\n        }\n        i = l;\n        j = l << 1;\n        while (j <= ir) {\n            if (j < ir && ra[j].key < ra[j + 1].key) j++;\n            if (rra.key < ra[j].key) {\n                ra[i] = ra[j];\n                i = j;\n                j <<= 1;\n            } else {\n                break;\n            }\n        }\n        ra[i] = rra;\n    }\n}"
+  "978df2f718b95ba7856826b3851b1b896fb8c96e91b8f55781c3473f5d552ac9": "/* identical to func_8010C7A4 (matched), with its names changed by decompdecomp */\ntypedef struct { f32 key; s32 val; } HeapItem;\n\nvoid func_80270238(u32 n, HeapItem *ra) {\n    u32 l, ir, i, j;\n    HeapItem rra;\n\n    if (n < 2) return;\n    l = (n >> 1) + 1;\n    ir = n;\n    for (;;) {\n        if (l > 1) {\n            l--;\n            rra = ra[l];\n        } else {\n            rra = ra[ir];\n            ra[ir] = ra[1];\n            ir--;\n            if (ir == 1) {\n                ra[1] = rra;\n                return;\n            }\n        }\n        i = l;\n        j = l << 1;\n        while (j <= ir) {\n            if (j < ir && ra[j].key < ra[j + 1].key) j++;\n            if (rra.key < ra[j].key) {\n                ra[i] = ra[j];\n                i = j;\n                j <<= 1;\n            } else {\n                break;\n            }\n        }\n        ra[i] = rra;\n    }\n}",
+  "4e5d7dee42adbf16376c14150bc581ed7b82e514494f50e88ad2a2a945003ef9": "/* identical to func_80237570 (matched), with its names changed by decompdecomp */\nextern void *D_80069738;\nvoid func_80237470(void *);\nvoid func_80236DB8(void *);\nint func_80236B20(void *);\nvoid func_80237054(void *);\nvoid func_802375D4(char *a) {\n    if (*(void **)(a + 0x30) != D_80069738) {\n        func_80237470(a);\n    } else {\n        func_80236DB8(a);\n        if (func_80236B20(a)) {\n            func_80237054(a);\n        }\n    }\n}"
  },
  "headers": {
   "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1": "/* context.h for Shadowman: shared by every function. Agents grow it with edit_context:\n * add a prototype or struct the moment you work one out, so the next function benefits. */\n\ntypedef signed char s8;\ntypedef unsigned char u8;\ntypedef signed short s16;\ntypedef unsigned short u16;\ntypedef signed int s32;\ntypedef unsigned int u32;\ntypedef signed long long s64;\ntypedef unsigned long long u64;\ntypedef float f32;\ntypedef double f64;\ntypedef volatile u8 vu8;\ntypedef volatile u16 vu16;\ntypedef volatile u32 vu32;\ntypedef volatile s32 vs32;\ntypedef int s32_bool;\n\n#define NULL ((void *)0)\n#define TRUE 1\n#define FALSE 0\n#define ARRAY_COUNT(arr) (s32)(sizeof(arr) / sizeof(arr[0]))\n"
