@@ -1,7 +1,7 @@
 {
  "format": 2,
- "saved_at": 1795234559.191958,
- "revision": 1229,
+ "saved_at": 1795234706.534558,
+ "revision": 1239,
  "title": "Shadowman",
  "platform": "n64",
  "game": {
@@ -21281,8 +21281,8 @@
   },
   "func_8025DBE4": {
    "vram": 2149964772,
-   "best_score": 2440,
-   "best_by": "permuter-42949674304"
+   "matched_by": "api-claude-sonnet-5-5-3",
+   "readable": false
   },
   "func_8025DCDC": {
    "vram": 2149965020,
