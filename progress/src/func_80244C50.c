@@ -1,13 +1,12 @@
-typedef struct B { int pad0[2]; int f8; struct B2 *f10; } B;
 typedef struct B2 { int pad[8]; int f20; } B2;
-typedef struct P { int pad0[2]; int f8; B2 *f10; } P;
+typedef struct P { int pad0[2]; int f8; int pad1; B2 *f10; } P;
 typedef struct Q { int f0; int pad[9]; int f28; int f2C; int f30; } Q;
 typedef struct O { char pad[0x68]; P *f68; Q *f6C; } O;
 typedef struct A { int pad0[2]; int state; O *obj; int pad1[2]; int val; } A;
 extern int func_80245684(A *);
 extern void func_80245614(A *);
 int func_80244C50(A *a) {
-    switch (a->state) {
+    switch ((unsigned)a->state) {
     case 1:
         if (func_80245684(a) != 0) {
             O *o = a->obj;
@@ -22,6 +21,9 @@ int func_80244C50(A *a) {
             }
             a->state = 3;
         }
+        break;
+    case 0:
+    case 2:
         break;
     case 3:
         func_80245614(a);
