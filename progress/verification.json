@@ -88909,6 +88909,106 @@
    "vram": 2150473564,
    "unit": "code_802D7DD0",
    "mode": "rom"
+  },
+  "func_802CDDF0": {
+   "format": 1,
+   "verdict": "exact",
+   "abi": {
+    "arch": "mips",
+    "big_endian": true,
+    "gp": 0,
+    "platform": "n64",
+    "rom_sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c"
+   },
+   "symbols_sha256": "a361712f532cff376852076f5eb3f44e4b25eac5491fa4aa97baedec65e3e759",
+   "recorded_at": 1795240413.2443619,
+   "attempt_id": 42949687109,
+   "source_sha256": "301f7774852b464fff25a000a12a964e1bed35ecf16cd8bde578c9baaec268f4",
+   "header_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1",
+   "context_version": 1,
+   "compiler": {
+    "toolchain": "sn-n64-281",
+    "flags": [
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64"
+    ],
+    "timeout": 20
+   },
+   "compiler_identity": {
+    "toolchain": "sn-n64-281",
+    "registry_sha256": "4cade6cb1458c9ea1167101bf052e1bc48261c13a670101116c580cf734257e0",
+    "install_sha256": "d949422c5b7c39402c79d468bd890710d5bd3eb8ba3929116a8a5543a4a7191f",
+    "executables": {
+     "cc1n64.exe": "d90df1028c46d826e37146dbcc3e3385f78c59e05a9ddd952daa94c9ad379d9c"
+    }
+   },
+   "settings": {
+    "mode": "rom",
+    "platform": "n64",
+    "compiler": {
+     "toolchain": "sn-n64-281",
+     "flags": [
+      "-G0",
+      "-mips3",
+      "-O2",
+      "-mgas",
+      "-meb",
+      "-mcpu=VR4300",
+      "-mhard-float",
+      "-mfp64"
+     ],
+     "timeout": 20
+    },
+    "settings_source": "compile invocation snapshot",
+    "gp": 0,
+    "big_endian": true,
+    "rom": {
+     "sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c",
+     "game_code": "NSDE",
+     "region": "North America",
+     "byte_order": "z64"
+    },
+    "effective_command": [
+     "/Users/a/Documents/GitHub/decompdecomp-rr/.venv/bin/python",
+     "/Users/a/Documents/GitHub/decompdecomp-rr/src/decompnet/consoles/n64/sn64.py",
+     "--cc",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cc1n64.exe",
+     "--cpp",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cppn64.exe",
+     "--assembler",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/asn64.exe",
+     "--converter",
+     "/Users/a/Library/Application Support/decompnet/toolchains/psyq-obj-parser/psyq-obj-parser",
+     "--runner",
+     "/Users/a/Library/Application Support/decompnet/toolchains/wibo/wibo",
+     "{src}",
+     "{obj}",
+     "{include}",
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64"
+    ],
+    "language": "c",
+    "context_unit": "",
+    "scoring_revision": "15e8fb22810d7914188643b45b306dd8c980e892c87fc3b92ab66645816d394d",
+    "context_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1"
+   },
+   "target_sha256": "a2697b8b59d8e13e2eb32008deea16230832b00ec019cea6bdd2fb1abb9698d3",
+   "relocations_sha256": "4ccaecbff9734f0c4c95c982d1698121d4bdeb2b70b24e01524f7cca6a78ecd6",
+   "vram": 2150424048,
+   "unit": "code_802BF468",
+   "mode": "rom"
   }
  },
  "sources": {
@@ -89897,7 +89997,8 @@
   "9da5213012fdb32803c5c584dcb22710a03c06ce97efde6c6b4688bb4f59376a": "extern void func_8023DF7C(void *, void *, s32, s32, s32, s32);\nextern void func_802C71E4(void);\nextern void func_802CC190(void);\ntypedef struct { s32 a; s32 b; f32 c; } S30E40;\ntypedef struct { u8 pad[0x10]; f32 f; } S568;\ntypedef struct { u8 pad[0x2E]; s16 h; } S518;\nextern s32 D_8002D420;\nextern S30E40 D_80030E40;\nextern f32 D_800458A8;\nextern S518 D_80075518;\nextern S568 D_80075568;\n\nvoid func_802C75E4(void) {\n    if (D_80075518.h == 0) {\n        D_80030E40.a = 0;\n    }\n    if (D_80075568.f <= 0.0f) {\n        if (D_80075518.h >= 7) {\n            func_8023DF7C(&D_80075568, &D_80075518, 0x93, 0xA, 0x28, 2);\n        }\n    }\n    if (D_80030E40.a >= 0x19) {\n        func_8023DF7C(&D_80075568, &D_80075518, 0x93, 0xA, 0x4B, 2);\n    }\n    if (D_8002D420 & 0x80) {\n        D_80030E40.c = D_800458A8;\n    }\n    func_802C71E4();\n    func_802CC190();\n}\n",
   "64861d0332cf32d6457f7a8e1f3b3432cff0d7ba3d487391569b72eac481d508": "extern void func_8023DF7C(void *, void *, s32, s32, s32, s32);\nextern void func_802C71E4(void);\nextern void func_802CC190(void);\ntypedef struct { s32 a; s32 b; f32 c; } S30E40;\ntypedef struct { u8 pad[0x10]; f32 f; } S568;\ntypedef struct { u8 pad[0x2E]; s16 h; } S518;\nextern s32 D_8002D420;\nextern S30E40 D_80030E40;\nextern f32 D_800458A8;\nextern S518 D_80075518;\nextern S568 D_80075568;\n\nvoid func_802C76CC(void) {\n    if (D_80075518.h == 0) {\n        D_80030E40.a = 0;\n    }\n    if (D_80075568.f <= 0.0f) {\n        if (D_80075518.h >= 7) {\n            func_8023DF7C(&D_80075568, &D_80075518, 0x97, 0xA, 0x28, 2);\n        }\n    }\n    if (D_80030E40.a >= 0x19) {\n        func_8023DF7C(&D_80075568, &D_80075518, 0x97, 0xA, 0x4B, 2);\n    }\n    if (D_8002D420 & 0x80) {\n        D_80030E40.c = D_800458A8;\n    }\n    func_802C71E4();\n    func_802CC190();\n}\n",
   "ec2a0b9c40b8c8c4a2c15e9dca70b904aa5a3fecc87bfb8b26992ff62dc2d1f3": "typedef struct { f32 x, y, z; } Vec3;\ntypedef struct { u8 pad0[0x24]; Vec3 pos; f32 pad; f32 m[3][3]; } Obj;\nextern char D_80075598[];\nextern void func_802BAAF8(Vec3 *, Vec3 *, f32);\n\nvoid func_802CB0EC(void) {\n    Vec3 in;\n    Vec3 out;\n    Vec3 p;\n    Vec3 *pi = &in;\n    f32 (*m)[3] = (f32 (*)[3])(D_80075598 + 4);\n    Obj *o;\n    f32 c;\n    in.x = 0.0f;\n    in.y = 0.0f;\n    in.z = *(f32 *)0x21867C;\n    out.x = pi->y * m[0][1] + pi->z * m[0][2];\n    out.y = pi->y * m[1][1] + pi->z * m[1][2];\n    out.z = pi->y * m[2][1] + pi->z * m[2][2];\n    o = (Obj *)((char *)m - 0x34);\n    c = *(f32 *)0x218680;\n    out.x += o->pos.x;\n    out.y += o->pos.y - c;\n    out.z += o->pos.z;\n    p = *(Vec3 *)((char *)m - 0x10);\n    p.y -= c;\n    func_802BAAF8(&p, &out, 1.0f);\n}\n",
-  "1a8dec2119858ed7fc3769bddb8a4e9fd93def4c0647505714dbd1cca3baf8d0": "u8 func_802D9F5C(u8 c) {\n    if ((u8)(c - 0x10) < 0xA) {\n        return c + 0x20;\n    }\n    if ((u8)(c - 0x1A) < 0x1A) {\n        return c + 0x27;\n    }\n    switch (c) {\n    case 0x00: return 0;\n    case 0x0F: return 0x20;\n    case 0x34: return 0x21;\n    case 0x35: return 0x22;\n    case 0x36: return 0x23;\n    case 0x37: return 0x27;\n    case 0x38: return 0x2A;\n    case 0x39: return 0x2B;\n    case 0x3A: return 0x2C;\n    case 0x3B: return 0x2D;\n    case 0x3C: return 0x2E;\n    case 0x3D: return 0x2F;\n    case 0x3E: return 0x3A;\n    case 0x3F: return 0x3D;\n    case 0x40: return 0x3F;\n    case 0x41: return 0x40;\n    }\n    return 0xFF;\n}\n"
+  "1a8dec2119858ed7fc3769bddb8a4e9fd93def4c0647505714dbd1cca3baf8d0": "u8 func_802D9F5C(u8 c) {\n    if ((u8)(c - 0x10) < 0xA) {\n        return c + 0x20;\n    }\n    if ((u8)(c - 0x1A) < 0x1A) {\n        return c + 0x27;\n    }\n    switch (c) {\n    case 0x00: return 0;\n    case 0x0F: return 0x20;\n    case 0x34: return 0x21;\n    case 0x35: return 0x22;\n    case 0x36: return 0x23;\n    case 0x37: return 0x27;\n    case 0x38: return 0x2A;\n    case 0x39: return 0x2B;\n    case 0x3A: return 0x2C;\n    case 0x3B: return 0x2D;\n    case 0x3C: return 0x2E;\n    case 0x3D: return 0x2F;\n    case 0x3E: return 0x3A;\n    case 0x3F: return 0x3D;\n    case 0x40: return 0x3F;\n    case 0x41: return 0x40;\n    }\n    return 0xFF;\n}\n",
+  "301f7774852b464fff25a000a12a964e1bed35ecf16cd8bde578c9baaec268f4": "typedef struct { char pad[8]; s16 v; char pad2[0x34-0xA]; } E;\ntypedef struct { char pad[0x44]; char *p44; } S;\ntypedef struct { char pad[0x14C]; f32 f; } T;\nextern E D_209890[];\nextern s32 D_8002D420;\nextern s32 D_80074BB0;\nextern char D_80075518[];\nextern char D_80075568[];\n#define D_218824 (*(f32 *)0x218824)\nvoid func_80268E6C(s32, s32);\ns32 func_80268AF8(s32);\nvoid func_8026B618(s32, s32);\nvoid func_8023DF7C(char *, char *, s32, s32, s32, s32);\n\nvoid func_802CDDF0(void) {\n    func_80268E6C(4, -0x2710);\n    func_8026B618(0, 0);\n    if (D_209890[D_80074BB0].v == 0) {\n        if ((D_8002D420 & 0x900) == 0x100) {\n            ((T *)((S *)D_80075518)->p44)->f = D_218824;\n            func_8023DF7C(D_80075568, D_80075518, 0xD7, 0xA, 0, 0);\n        }\n    } else if (D_8002D420 & 0x100) {\n        if (func_80268AF8(3) != 0) {\n            func_8023DF7C(D_80075568, D_80075518, 0xDD, 0xA, 0, 0);\n            return;\n        }\n        ((T *)((S *)D_80075518)->p44)->f = D_218824;\n        func_8023DF7C(D_80075568, D_80075518, 0xDE, 0xA, 0, 0);\n    }\n}"
  },
  "headers": {
   "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1": "/* context.h for Shadowman: shared by every function. Agents grow it with edit_context:\n * add a prototype or struct the moment you work one out, so the next function benefits. */\n\ntypedef signed char s8;\ntypedef unsigned char u8;\ntypedef signed short s16;\ntypedef unsigned short u16;\ntypedef signed int s32;\ntypedef unsigned int u32;\ntypedef signed long long s64;\ntypedef unsigned long long u64;\ntypedef float f32;\ntypedef double f64;\ntypedef volatile u8 vu8;\ntypedef volatile u16 vu16;\ntypedef volatile u32 vu32;\ntypedef volatile s32 vs32;\ntypedef int s32_bool;\n\n#define NULL ((void *)0)\n#define TRUE 1\n#define FALSE 0\n#define ARRAY_COUNT(arr) (s32)(sizeof(arr) / sizeof(arr[0]))\n"
