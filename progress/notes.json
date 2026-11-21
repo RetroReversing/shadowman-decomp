@@ -1,0 +1,490 @@
+[
+ {
+  "function": "func_80116750",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122930.145737,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80119470",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122930.4967208,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80227024",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122930.851867,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80230AA0",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122931.2486348,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802387D0",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122931.600269,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802457C8",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122931.946625,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80246710",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122932.354024,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80248C7C",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122932.702497,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_8024B7F8",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122933.056587,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_8025B2E8",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122933.504856,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_8025B644",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122933.972435,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80261298",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122934.320965,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802612A0",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122934.670975,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_8026E36C",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122935.373004,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80272828",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122936.1231291,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80273634",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122936.4929888,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80273FF8",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122936.847411,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802745BC",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122937.2030358,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80282738",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122937.7122188,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_8028AB1C",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122938.0733829,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_8028C200",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122938.431306,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80291AC8",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122938.873869,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_80296A20",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122939.2424698,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802A5C54",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122939.602162,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802AE894",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122940.096778,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802B037C",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122940.455837,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802B03C4",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122940.820299,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802B03CC",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122941.173653,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802B1594",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122941.717312,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802B50C8",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122942.158155,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802B6E00",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122942.5130932,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802BA110",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122942.9125729,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802BA2CC",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122943.981963,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802BA2DC",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122944.7283578,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802BBAE4",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122945.176757,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802C37B4",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122945.657643,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802C392C",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122946.107651,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802C8A10",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122946.661217,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802CB820",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122947.044984,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802CE42C",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122947.428444,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802CE434",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122947.774296,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802D33C4",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122948.193175,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802D33CC",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122949.117228,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802D33DC",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122949.7055218,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802D3780",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122950.039337,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802D3788",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122950.868831,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802D3904",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122951.215072,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802D3A78",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122951.548809,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802D3C88",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122951.88236,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_802D9178",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122952.396715,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "alEvtqFlush",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 120-byte function fingerprint 25be484bdc42390a30a550b6a54b008d2a3d4b94; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122973.7112021,
+  "score_before": null,
+  "score_after": null
+ },
+ {
+  "function": "alSndpPlay",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 96-byte function fingerprint 12310420751f76dd040ee0fcf1a1bfc87f861b1d; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122973.8869529,
+  "score_before": null,
+  "score_after": null
+ },
+ {
+  "function": "alSndpSetFXMix",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 76-byte function fingerprint f88f1a8d03bbf02d9d7e9b3b8299d90391b9891b; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122973.976767,
+  "score_before": null,
+  "score_after": null
+ },
+ {
+  "function": "alSndpSetPan",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 76-byte function fingerprint b62cf61249926294d25fbed949f482a5c07fbdef; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122974.0547671,
+  "score_before": null,
+  "score_after": null
+ },
+ {
+  "function": "alSndpSetVol",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 76-byte function fingerprint ff11266b7e0616c03fbebc830fd1cba327a0ccee; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122974.126754,
+  "score_before": null,
+  "score_after": null
+ },
+ {
+  "function": "alSndpStop",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 72-byte function fingerprint 16db5926118a5947ad79f9ee9d9f49c991a9a5cb; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122974.20045,
+  "score_before": null,
+  "score_after": null
+ },
+ {
+  "function": "alSynFreeVoice",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 156-byte function fingerprint 5c31593d0cd52769a193785863328bd806bf785f; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122974.273844,
+  "score_before": null,
+  "score_after": null
+ },
+ {
+  "function": "osWritebackDCacheAll",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 40-byte function fingerprint d063d68b0cddb4d55a854c220d43957d00a231e6; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122974.346987,
+  "score_before": null,
+  "score_after": null
+ },
+ {
+  "function": "alLink",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 32-byte function fingerprint 532acd11d332cb364420fcdb08d6295a51f95f38; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122974.420181,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "osViSwapBuffer",
+  "text": "exact relocation-normalized SDK signature. Exact relocation-normalized 68-byte function fingerprint c3cc6543443f335dc17fa73d44265903aa3a5a57; one name across selected SDK signatures, unique target fingerprint. Libraries: built in / decompals/ultralib e24c836796df. Name inferred from library code; not a verified C match.",
+  "by": "autopilot",
+  "created_at": 1795122974.492894,
+  "score_before": 0,
+  "score_after": 0
+ },
+ {
+  "function": "func_8026ED04",
+  "text": "Autopilot matched from MIPS leaf template",
+  "by": "autopilot",
+  "created_at": 1795122976.1509671,
+  "score_before": 0,
+  "score_after": 0
+ }
+]

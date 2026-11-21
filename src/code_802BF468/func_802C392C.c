@@ -1,0 +1,3 @@
+#include "common.h"
+
+void func_802C392C(void) {}
