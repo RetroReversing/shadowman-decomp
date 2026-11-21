@@ -17,11 +17,12 @@ s32 func_80245D1C(s32);                             /* extern */
 extern M2C_UNK D_8002DBD0;
 
 s32 func_8024322C(void *arg0) {
+    M2C_UNK *__base_D_8002DBD0;
     s32 temp_v0;
     s32 var_v0;
 
     var_v0 = 0;
-    if ((func_8024319C() == 1) && ((temp_v0 = func_80245D1C(M2C_FIELD(M2C_FIELD(arg0, void **, 0x10), s32 *, 0x44)), (M2C_FIELD(&D_8002DBD0, s32 *, 4) == temp_v0)) || (var_v0 = 0, (M2C_FIELD(&D_8002DBD0, s32 *, 0x14) == temp_v0)))) {
+    if ((func_8024319C() == 1) && ((temp_v0 = func_80245D1C(M2C_FIELD(M2C_FIELD(arg0, void **, 0x10), s32 *, 0x44)), (M2C_FIELD((__base_D_8002DBD0 = &D_8002DBD0), s32 *, 4) == temp_v0)) || (var_v0 = 0, (M2C_FIELD(__base_D_8002DBD0, s32 *, 0x14) == temp_v0)))) {
         var_v0 = 1;
     }
     return var_v0;
