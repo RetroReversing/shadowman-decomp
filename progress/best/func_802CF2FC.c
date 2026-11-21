@@ -1,33 +1,20 @@
-/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-s32 func_80109918(M2C_UNK *, M2C_UNK, s16);         /* extern */
-M2C_UNK func_8023DF7C(M2C_UNK *, M2C_UNK *, M2C_UNK, M2C_UNK, s32, s32); /* extern */
-M2C_UNK func_8026B618(M2C_UNK, M2C_UNK);            /* extern */
+typedef struct { int a; int b; } P;
 extern s32 D_8002D420;
-extern M2C_UNK D_80075500;
-extern M2C_UNK D_80075518;
-extern M2C_UNK D_80075568;
-extern M2C_UNK D_8007558C;
+extern P D_80075500;
+extern char D_80075518[];
+extern char D_80075568[];
+extern char D_8007558C[];
+int func_80109918(char *, int, s16);
+void func_8023DF7C();
+void func_8026B618(int, int);
 
 void func_802CF2FC(void) {
-    if (M2C_FIELD(&D_80075500, s32 *, 4) == 0) {
-        M2C_FIELD(&D_80075500, s32 *, 4) = func_80109918(&D_8007558C, 0x7F, *(s16 *)0x216C56);
+    if (D_80075500.b == 0) {
+        D_80075500.b = func_80109918(D_8007558C, 0x7F, *(s16 *)0x216C56);
     }
     func_8026B618(1, 1);
     if (!(D_8002D420 & 0x200)) {
-        func_8023DF7C(&D_80075568, &D_80075518, 0x107, 0xA, 0x78, 1);
+        func_8023DF7C(D_80075568, D_80075518, 0x107, 0xA, 0x78, 1);
         func_8026B618(1, 0);
     }
 }

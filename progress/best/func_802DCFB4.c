@@ -1,6 +1,4 @@
-/* adapted from similar verified C in __osPfsGetOneChannelData in PENNY RACERS (matched), with its names changed by decompdecomp */
-/* identical to func_802DCFB4 in V-RALLY-PAL (local match library) (matched), with its names changed by decompdecomp */
-extern u8 D_800D555E[];
+extern u8 D_8007E680[];
 
 void func_802DCFB4(s32 arg0, u8 *arg1) {
     struct { u8 b[6]; } sp;
@@ -8,7 +6,7 @@ void func_802DCFB4(s32 arg0, u8 *arg1) {
     s32 i;
     u8 flag;
 
-    src = D_800D555E + 0x7E82;
+    src = D_8007E680;
     for (i = 0; i < arg0; i++) {
         src++;
     }

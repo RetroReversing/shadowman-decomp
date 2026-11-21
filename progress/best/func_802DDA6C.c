@@ -1,53 +1,27 @@
-/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
+typedef struct { u8 b[8]; } Ent;
 extern u8 D_8004EDEC;
-extern s8 D_8004EE30;
-extern s8 D_8007E680;
+extern u8 D_8004EE30;
+extern Ent D_8007E680[];
 
-void func_802DDA6C(s8 arg0) {
-    s8 sp0;
-    s8 sp1;
-    s8 sp2;
-    s8 sp3;
-    s8 sp4;
-    s8 sp5;
-    s8 sp6;
-    s8 sp7;
-    s32 var_a2;
-    s8 *var_a3;
+void func_802DDA6C(u8 arg0) {
+    Ent e;
+    Ent *p;
+    s32 i;
 
-    var_a3 = &D_8007E680;
-    var_a2 = 0;
+    p = D_8007E680;
+    i = 0;
     D_8004EE30 = arg0;
-    M2C_FIELD(&D_8007E680, s32 *, 0x3C) = 1;
-    sp0 = 0xFF;
-    sp1 = 1;
-    sp2 = 3;
-    sp3 = arg0;
-    sp4 = 0xFF;
-    sp5 = 0xFF;
-    sp6 = 0xFF;
-    sp7 = 0xFF;
-    if (D_8004EDEC != 0) {
-        __repair_rows: {
-            M2C_FIELD(var_a3, s8 *, 0) = M2C_UNALIGNED32(sp0);
-            M2C_FIELD(var_a3, M2C_UNK *, 4) = M2C_UNALIGNED32(sp4);
-            var_a2 += 1;
-            var_a3 += 8;
-        }
-if (var_a2 < (s32) D_8004EDEC) goto __repair_rows;
+    *(s8 *)((u8 *)D_8007E680 + 0x3C) = 1;
+    e.b[0] = 0xFF;
+    e.b[1] = 1;
+    e.b[2] = 3;
+    e.b[3] = arg0;
+    e.b[4] = 0xFF;
+    e.b[5] = 0xFF;
+    e.b[6] = 0xFF;
+    e.b[7] = 0xFF;
+    for (i = 0; i < D_8004EDEC; i++) {
+        *p++ = e;
     }
-    *var_a3 = 0xFE;
+    p->b[0] = 0xFE;
 }

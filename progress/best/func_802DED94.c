@@ -1,30 +1,12 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+typedef struct { s32 f0; s32 f4; s32 f8; char pad[0x59]; u8 f65; } A;
+s32 func_80115120(s32, s32, s32, u8 *, s32);
 
-M2C_UNK func_80115120(s32, s32, M2C_UNK, u8 *, s32); /* extern */
+void func_802DED94(A *arg0) {
+    u8 buf[32];
+    s32 i;
 
-void func_802DED94(void *arg0) {
-    u8 sp18[32];
-    s32 var_a0;
-    u8 *var_v1;
-
-    var_a0 = 0;
-    var_v1 = sp18;
-    do {
-        var_a0 += 1;
-        *var_v1 = M2C_FIELD(arg0, u8 *, 0x65);
-        var_v1 = &sp18[var_a0];
-    } while (var_a0 < 0x20);
-    func_80115120(M2C_FIELD(arg0, s32 *, 4), M2C_FIELD(arg0, s32 *, 8), 0x400, sp18, 0);
+    for (i = 0; i < 32; i++) {
+        buf[i] = arg0->f65;
+    }
+    func_80115120(arg0->f4, arg0->f8, 0x400, buf, 0);
 }

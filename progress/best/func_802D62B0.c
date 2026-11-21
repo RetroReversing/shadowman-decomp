@@ -1,42 +1,23 @@
-/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+struct P { int a; int b; };
+struct Q { int x; int i; int j; int y; int z; };
+extern int D_80045EE0[];
+extern struct P *D_80045F30[];
+extern int D_8007DA70[];
 
-extern M2C_UNK D_80045EE0;
-extern M2C_UNK D_80045F30;
-extern M2C_UNK D_8007DA70;
-
-void func_802D62B0(void *arg0) {
-    s32 *temp_v1_2;
-    s32 temp_a0;
-    s32 temp_a2;
-    s32 temp_v0;
-    s32 temp_v1;
-    void *temp_a1;
-
-    temp_a2 = M2C_FIELD(arg0, s32 *, 4) * 4;
-    temp_a1 = (M2C_FIELD(arg0, s32 *, 8) * 8) + *(temp_a2 + &D_80045F30);
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(temp_a1, s32 *, 4);
-    temp_v0 = *(temp_a2 + &D_80045EE0);
-    temp_v1 = M2C_FIELD(temp_a1, s32 *, 0);
-    if (temp_v0 == temp_v1) {
-        M2C_FIELD(arg0, s32 *, 0x10) = temp_v0;
-        return;
+void func_802D62B0(struct Q *arg0) {
+    int k = arg0->i;
+    struct P *p = &D_80045F30[k][arg0->j];
+    arg0->j = p->b;
+    if (D_80045EE0[k] != p->a) {
+        arg0->z = p->a;
+        if (D_8007DA70[k] == 0 || D_8007DA70[k] == p->a) {
+            D_8007DA70[k] = p->a;
+        }
+    } else {
+        arg0->z = D_80045EE0[k];
     }
-    M2C_FIELD(arg0, s32 *, 0x10) = temp_v1;
-    temp_v1_2 = temp_a2 + &D_8007DA70;
-    temp_a0 = *temp_v1_2;
-    if ((temp_a0 == 0) || (temp_a0 == M2C_FIELD(temp_a1, s32 *, 0))) {
-        *temp_v1_2 = M2C_FIELD(temp_a1, s32 *, 0);
+    return;
+    if (D_8007DA70[k] == 0 || D_8007DA70[k] == p->a) {
+        D_8007DA70[k] = p->a;
     }
 }

@@ -1,7 +1,7 @@
 {
  "format": 2,
- "saved_at": 1795238890.892388,
- "revision": 1477,
+ "saved_at": 1795238929.2578208,
+ "revision": 1478,
  "title": "Shadowman",
  "platform": "n64",
  "game": {
@@ -17721,6 +17721,166 @@
    "timeout": 20,
    "function": "func_802CE37C",
    "vram": 2150425468
+  },
+  "32258160:2150448272": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802D3C90",
+   "vram": 2150448272
+  },
+  "32303476:2150493588": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802DED94",
+   "vram": 2150493588
+  },
+  "32287336:2150477448": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802DAE88",
+   "vram": 2150477448
+  },
+  "32251040:2150441152": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802D20C0",
+   "vram": 2150441152
+  },
+  "32254484:2150444596": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802D2E34",
+   "vram": 2150444596
+  },
+  "32295828:2150485940": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802DCFB4",
+   "vram": 2150485940
+  },
+  "32258888:2150449000": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802D3F68",
+   "vram": 2150449000
+  },
+  "32222080:2150412192": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802CAFA0",
+   "vram": 2150412192
+  },
+  "32209696:2150399808": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802C7F40",
+   "vram": 2150399808
+  },
+  "32215892:2150406004": {
+   "toolchain": "sn-n64-281",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-O2",
+    "-mgas",
+    "-meb",
+    "-mcpu=VR4300",
+    "-mhard-float",
+    "-mfp64"
+   ],
+   "timeout": 20,
+   "function": "func_802C9774",
+   "vram": 2150406004
   }
  },
  "instructions": "",
@@ -26246,13 +26406,13 @@
   },
   "func_802C7A50": {
    "vram": 2150398544,
-   "best_score": 705,
-   "best_by": "autopilot"
+   "best_score": 160,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802C7F40": {
    "vram": 2150399808,
-   "best_score": 1070,
-   "best_by": "autopilot"
+   "best_score": 20,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802C7FF4": {
    "vram": 2150399988,
@@ -26321,8 +26481,8 @@
   },
   "func_802C9774": {
    "vram": 2150406004,
-   "best_score": 2150,
-   "best_by": "permuter-42949675376"
+   "best_score": 390,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802C9830": {
    "vram": 2150406192,
@@ -26371,8 +26531,8 @@
   },
   "func_802CAFA0": {
    "vram": 2150412192,
-   "best_score": 480,
-   "best_by": "autopilot"
+   "best_score": 390,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802CB040": {
    "vram": 2150412352,
@@ -26706,8 +26866,8 @@
   },
   "func_802CF2FC": {
    "vram": 2150429436,
-   "best_score": 670,
-   "best_by": "autopilot"
+   "best_score": 10,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802CF39C": {
    "vram": 2150429596,
@@ -26816,8 +26976,8 @@
   },
   "func_802D20C0": {
    "vram": 2150441152,
-   "best_score": 100,
-   "best_by": "permuter-42949675489"
+   "best_score": 40,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802D2130": {
    "vram": 2150441264,
@@ -27011,13 +27171,13 @@
   },
   "func_802D3C90": {
    "vram": 2150448272,
-   "best_score": 285,
-   "best_by": "permuter-42949675535"
+   "best_score": 30,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802D3CC4": {
    "vram": 2150448324,
-   "best_score": 1595,
-   "best_by": "autopilot"
+   "best_score": 1115,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802D3D50": {
    "vram": 2150448464,
@@ -27051,13 +27211,13 @@
   },
   "func_802D3F68": {
    "vram": 2150449000,
-   "best_score": 2740,
-   "best_by": "permuter-42949675543"
+   "best_score": 340,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802D3FF8": {
    "vram": 2150449144,
-   "best_score": 495,
-   "best_by": "autopilot"
+   "best_score": 135,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802D4280": {
    "vram": 2150449792,
@@ -27171,8 +27331,8 @@
   },
   "func_802D4DAC": {
    "vram": 2150452652,
-   "best_score": 630,
-   "best_by": "autopilot"
+   "best_score": 130,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802D4E18": {
    "vram": 2150452760,
@@ -27181,8 +27341,8 @@
   },
   "func_802D4E84": {
    "vram": 2150452868,
-   "best_score": 600,
-   "best_by": "permuter-42949675571"
+   "best_score": 180,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802D4F38": {
    "vram": 2150453048,
@@ -27316,8 +27476,8 @@
   },
   "func_802D62B0": {
    "vram": 2150458032,
-   "best_score": 345,
-   "best_by": "autopilot"
+   "best_score": 50,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802D65E8": {
    "vram": 2150458856,
@@ -27336,8 +27496,8 @@
   },
   "func_802D69E0": {
    "vram": 2150459872,
-   "best_score": 180,
-   "best_by": "permuter-42949675607"
+   "best_score": 165,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802D6A1C": {
    "vram": 2150459932,
@@ -27476,8 +27636,8 @@
   },
   "func_802DAE88": {
    "vram": 2150477448,
-   "best_score": 835,
-   "best_by": "permuter-42949675647"
+   "best_score": 394,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802DAEE8": {
    "vram": 2150477544,
@@ -27536,13 +27696,13 @@
   },
   "func_802DCF28": {
    "vram": 2150485800,
-   "best_score": 220,
-   "best_by": "permuter-42949675666"
+   "best_score": 195,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802DCFB4": {
    "vram": 2150485940,
-   "best_score": 20,
-   "best_by": "autopilot"
+   "best_score": 10,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802DD8F0": {
    "vram": 2150488304,
@@ -27551,8 +27711,8 @@
   },
   "func_802DDA6C": {
    "vram": 2150488684,
-   "best_score": 4747,
-   "best_by": "autopilot"
+   "best_score": 765,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_802DEC54": {
    "vram": 2150493268,
@@ -27566,8 +27726,8 @@
   },
   "func_802DED94": {
    "vram": 2150493588,
-   "best_score": 425,
-   "best_by": "autopilot"
+   "best_score": 200,
+   "best_by": "api-claude-sonnet-5-5-3"
   },
   "func_80237570": {
    "vram": 2149807472,
@@ -27978,6 +28138,11 @@
    "vram": 2150473412,
    "matched_by": "api-claude-sonnet-5-5-3",
    "readable": false
+  },
+  "func_802D2E34": {
+   "vram": 2150444596,
+   "best_score": 325,
+   "best_by": "api-claude-sonnet-5-5-3"
   }
  },
  "function_headers": {
