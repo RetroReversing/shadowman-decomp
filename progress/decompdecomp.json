@@ -1,7 +1,7 @@
 {
  "format": 2,
- "saved_at": 1795319254.1982799,
- "revision": 1977,
+ "saved_at": 1795319260.670815,
+ "revision": 1978,
  "title": "Shadowman",
  "platform": "n64",
  "game": {
@@ -6458,7 +6458,8 @@
   "local_source_42949673361": "common_local_source_42949673361.h",
   "code_80103060_00C518": "common_code_80103060_00C518.h",
   "code_802947B4_1E89930": "common_code_802947B4_1E89930.h",
-  "code_80103060_0182C0": "common_code_80103060_0182C0.h"
+  "code_80103060_0182C0": "common_code_80103060_0182C0.h",
+  "code_802947B4_1EA6D08": "common_code_802947B4_1EA6D08.h"
  },
  "functions": {
   "func_80103060": {
@@ -14503,8 +14504,8 @@
   },
   "func_802B7128": {
    "vram": 2150330664,
-   "best_score": 140,
-   "best_by": "permuter-42949675184"
+   "matched_by": "permuter-42949675184",
+   "readable": false
   },
   "func_802B717C": {
    "vram": 2150330748,

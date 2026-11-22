@@ -15,7 +15,9 @@ typedef s32 M2C_UNK32;
 extern M2C_UNK D_8007DB78;
 
 void func_802B7128(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x54) = (f32) (M2C_FIELD(arg0, f32 *, 0x54) + (M2C_FIELD(arg0, f32 *, 0x6C) * M2C_FIELD(&D_8007DB78, f32 *, 0x14)));
-    M2C_FIELD(arg0, f32 *, 0x58) = (f32) (M2C_FIELD(arg0, f32 *, 0x58) + (M2C_FIELD(arg0, f32 *, 0x70) * M2C_FIELD(&D_8007DB78, f32 *, 0x14)));
-    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) (M2C_FIELD(arg0, f32 *, 0x5C) + (M2C_FIELD(arg0, f32 *, 0x74) * M2C_FIELD(&D_8007DB78, f32 *, 0x14)));
+    M2C_UNK *__base_D_8007DB78;
+    __base_D_8007DB78 = &D_8007DB78;
+    M2C_FIELD(arg0, f32 *, 0x54) = (f32) (M2C_FIELD(arg0, f32 *, 0x54) + (M2C_FIELD(arg0, f32 *, 0x6C) * M2C_FIELD(__base_D_8007DB78, f32 *, 0x14)));
+    M2C_FIELD(arg0, f32 *, 0x58) = (f32) (M2C_FIELD(arg0, f32 *, 0x58) + (M2C_FIELD(arg0, f32 *, 0x70) * M2C_FIELD(__base_D_8007DB78, f32 *, 0x14)));
+    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) (M2C_FIELD(arg0, f32 *, 0x5C) + (M2C_FIELD(arg0, f32 *, 0x74) * M2C_FIELD(__base_D_8007DB78, f32 *, 0x14)));
 }
