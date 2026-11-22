@@ -16,7 +16,6 @@ typedef s32 M2C_UNK32;
 s32 func_80118480();                                /* extern */
 
 s32 func_801176C0(s32 arg0) {
-    s32 var_v0;
 
     if (arg0 < 0) {
         if ((u32) arg0 <= 0x9FFFFFFFU) {
@@ -25,9 +24,5 @@ s32 func_801176C0(s32 arg0) {
         goto block_4;
     }
 block_4:
-    var_v0 = arg0 & 0x1FFFFFFF;
-    if ((u32) (arg0 + 0x60000000) > 0x1FFFFFFFU) {
-        var_v0 = func_80118480();
-    }
-    return var_v0;
+    return ((u32) (arg0 + 0x60000000) <= 0x1FFFFFFFU) ? arg0 & 0x1FFFFFFF : func_80118480();
 }
