@@ -1,3 +1,4 @@
+/* Partial candidate from function #73014445055 in project #17; rechecked locally. */
 /* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
@@ -12,16 +13,16 @@ typedef s32 M2C_UNK32;
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-s32 func_801131E8();                                /* extern */
-s32 func_801131EC();                                /* extern */
-
 s32 func_801131C0(void *arg0, s32 arg1, s32 arg2) {
-    if (arg1 != 1) {
-        if (arg1 != 6) {
-            return func_801131EC();
-        }
+    switch (arg1) {                                 /* irregular */
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0) = arg2;
+block_5:
+        return 0;
+    case 6:
         M2C_FIELD(arg0, s32 *, 0x14) = arg2;
+        goto block_5;
+    default:
         return 0;
     }
-    return func_801131E8();
 }

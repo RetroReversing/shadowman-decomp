@@ -21,6 +21,7 @@ extern void *D_8005EA2C;
 extern s32 D_80074BB0;
 
 void *func_802D54EC(void *arg0) {
+    char *__base_D_80045930;
     s32 temp_v1;
 
     temp_v1 = M2C_FIELD(arg0, s32 *, 0x14);
@@ -40,7 +41,8 @@ void *func_802D54EC(void *arg0) {
                 return func_802D55F0();
             }
             if ((u32) (D_80074BB0 - 0x10) < 4U) {
-                func_80109318(M2C_FIELD(arg0, s16 *, 6), M2C_FIELD(((M2C_BITWISE(s32, M2C_FIELD(arg0, f32 *, 8)) * 0x14) + D_80045930), s32 *, 8), 0);
+                __base_D_80045930 = D_80045930;
+                func_80109318(M2C_FIELD(arg0, s16 *, 6), M2C_FIELD(((M2C_BITWISE(s32, M2C_FIELD(arg0, f32 *, 8)) * 0x14) + __base_D_80045930), s32 *, 8), 0);
             }
             return arg0 + 0x18;
         }

@@ -995,15 +995,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:eced4cae17a38d881a1eb24a6e75d09e426e5e9ff0b10cc94f8bea0328310575"
  },
  {
-  "function": "func_80254840",
-  "text": "Best 325 (rev af91be03ebd1d7491db1): instruction-identical except register allocation: target a=s4,ret=s3,pos=s2 (pos=a+0x24 hoisted); mine a=s2,pos=s4. Structure: goto-loop with if(n!=NULL){pos=a->pos; loop: if(n->next){...; n=n->next; if(n)goto loop;}}. Declaration reordering, for(;;), call-init no help; not hoisting pos is worse (641). Next step: try different var lifetimes e.g. pos declared as s32 offset or use a second temp for a->h.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795232175.408918,
-  "score_before": 445,
-  "score_after": 325,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:a09e3d51e54b70b67ceb6661411eeded3f8f63a67ff566bf99b5d1e916b9958a"
- },
- {
   "function": "func_8026FCC4",
   "text": "Signature is (V a, V b, f32 a6) with V={f32 x,y,z} passed by value (a0-a3 + stack 0x10,0x14, a6 at 0x18). Body: if(!(D_8007AFF8->flags&0x400)){copy a->+0xE4, b->+0xF0; ->b7C=(u32)a6 (float->u32 cast; const 0x213F2C is the 2^31 literal); ->b53=0; flags|=0x400}. Best 900 (rev cc5ceef35636e47f021d). Remaining: t lives in a0 (mine) vs v1 (target, target does 'move a0,v1' in bc1t delay slot), constant load lui at/lwc1 placed after stores in target but before in mine; a6 lwc1 f1 vs f2. The .rdata literal also can't link at ROM address (diagnostic). Next step: try different local lifetime so t gets v1, e.g. u32 temp for cast, or reading a6 into local before the flag check.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1166,15 +1157,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:5f408c9facb8b8433e1dea251d0718e9a4dc70cf65b835f10867b2a630e3d926"
  },
  {
-  "function": "func_8027A428",
-  "text": "Score 940 with struct-typed C (P at D_80075568 x@0x24,z@0x2C; V 0x34 stride; S list@0xC). Remaining: target does lhu a0 then sll/sra for (s16) index, we emit lh; also register allocation (t0 loop counter, t1 = &D_80075568 hoisted, t3=hi(D_8007B0FC)). Tried u16/u32/s16 idx, mult form. Next step: keep the D_8007B0FC store as a separate read (e.g. idx via D_8007B0FC = *l; use D_8007B0FC reload) or 'while' loop shapes.\nidx type variants, multiplication form\nno change in asm; lh instead of lhu+sll/sra",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795234898.34958,
-  "score_before": 1445,
-  "score_after": 940,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:d95d58b2912f710d1f1660a90e820f11b90c9da514c7507e4e634a2ba8eeaad4"
- },
- {
   "function": "func_8025CE84",
   "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: register allocation; first differing row 23; 13 differing rows (13 register; advisory).\nTarget: mtc1 $v1, $f2\nCandidate: mtc1 $v1, $f4\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = lh $v1, 0x18($a1)\n  = lwc1 $f0, 0x30($a0)\nr T: mtc1 $v1, $f2 | C: mtc1 $v1, $f4\nr T: cvt.s.w $f2, $f2 | C: cvt.s.w $f4, $f4\nr T: sub.s $f2, $f2, $f0 | C: sub.s $f4, $f4, $f0\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1299,15 +1281,6 @@
   "score_before": 100,
   "score_after": 40,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2253b195e31ad9c523b21a1b2728ea7bed04c0764a16c214ff4f4c381d90922f"
- },
- {
-  "function": "func_802D4DAC",
-  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795236815.634249,
-  "score_before": 630,
-  "score_after": 130,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0665e1d26d511d4dda7db95233d33724a914764265eb7f931f1e76233f35ca96"
  },
  {
   "function": "func_802D2E34",
@@ -1701,5 +1674,32 @@
   "score_before": 1075,
   "score_after": 880,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:a9d910c99d207ffca9bb71d925d154ad74607a2a1bd5a1549380454c20d831ad"
+ },
+ {
+  "function": "func_80254840",
+  "text": "Best 325 (rev af91be03ebd1d7491db1): instruction-identical except register allocation: target a=s4,ret=s3,pos=s2 (pos=a+0x24 hoisted); mine a=s2,pos=s4. Structure: goto-loop with if(n!=NULL){pos=a->pos; loop: if(n->next){...; n=n->next; if(n)goto loop;}}. Declaration reordering, for(;;), call-init no help; not hoisting pos is worse (641). Next step: try different var lifetimes e.g. pos declared as s32 offset or use a second temp for a->h.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795232175.408918,
+  "score_before": 445,
+  "score_after": 325,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:a09e3d51e54b70b67ceb6661411eeded3f8f63a67ff566bf99b5d1e916b9958a"
+ },
+ {
+  "function": "func_8027A428",
+  "text": "Score 940 with struct-typed C (P at D_80075568 x@0x24,z@0x2C; V 0x34 stride; S list@0xC). Remaining: target does lhu a0 then sll/sra for (s16) index, we emit lh; also register allocation (t0 loop counter, t1 = &D_80075568 hoisted, t3=hi(D_8007B0FC)). Tried u16/u32/s16 idx, mult form. Next step: keep the D_8007B0FC store as a separate read (e.g. idx via D_8007B0FC = *l; use D_8007B0FC reload) or 'while' loop shapes.\nidx type variants, multiplication form\nno change in asm; lh instead of lhu+sll/sra",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795234898.34958,
+  "score_before": 1445,
+  "score_after": 940,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:d95d58b2912f710d1f1660a90e820f11b90c9da514c7507e4e634a2ba8eeaad4"
+ },
+ {
+  "function": "func_802D4DAC",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795236815.634249,
+  "score_before": 630,
+  "score_after": 130,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0665e1d26d511d4dda7db95233d33724a914764265eb7f931f1e76233f35ca96"
  }
 ]

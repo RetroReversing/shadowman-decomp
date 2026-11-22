@@ -13,23 +13,21 @@ void func_8027A428(void) {
     u16 best;
     f32 max = *(f32 *)0x214464;
     f32 d;
-    u16 idx;
     V *v;
 
     l = D_8007AFF8->list;
     best = *l++;
     i = 0;
     do {
-        idx = *l;
-        v = &D_80036944[(s16)idx];
+        D_8007B0FC = *l;
+        v = &D_80036944[(s16)D_8007B0FC];
         d = fabsf(D_80075568.x - v->x) + fabsf(D_80075568.z - v->z);
         l++;
-        D_8007B0FC = idx;
         if (max < d) {
             D_8007AFF8->bx = v->x;
             max = d;
             D_8007AFF8->by = v->y;
-            best = idx;
+            best = D_8007B0FC;
             D_8007AFF8->bz = v->z;
         }
         i++;
