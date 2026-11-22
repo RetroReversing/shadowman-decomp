@@ -19,12 +19,14 @@ s32 func_80107A60();
 extern char D_8004B420[];
 extern char D_80080000[];
 
-void func_801077E0(void *arg0) {
+void func_801077E0(void *arg0_in) {
+  void * arg0;
     char *__base_D_8004B420;
-    u8 temp_a0;
-    u8 temp_a0_2;
+    s32 temp_a0;
+    s32 temp_a0_2;
     void *temp_v1;
     void *temp_v1_2;
+  arg0 = arg0_in;
 
     if (M2C_FIELD(arg0, u8 *, 0xB) != 0xFF) {
         if (M2C_FIELD(arg0, u16 *, 8) & 1) {

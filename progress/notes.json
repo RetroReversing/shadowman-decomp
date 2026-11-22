@@ -626,15 +626,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:82dec1cd70bfb8dc55480e6fd6cd0a9ead6c87be2d192b17abc1fb26464cd58d"
  },
  {
-  "function": "func_8026E230",
-  "text": "Best 370 (rev 696f408c88aac6c1066b / 2a7f463d4f00235fe4bc): idx via if(arg0<0) idx=arg0+7; idx>>=3; mask=1<<(arg0-idx*8) computed before load; return D_80075F68[idx&0xFF]&mask. Remaining: extra 'move $v1,$a0' before bgez (target branches on $a0 directly, move in delay slot) plus register assignment. Next step: try arg0 as different type or idx declared as a second parameter-free local with different usage order.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795225748.760912,
-  "score_before": 820,
-  "score_after": 370,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cd30097a69157db521bbdeb599960f06898c7bdd29791528492891c77ed692c0"
- },
- {
   "function": "func_802721D8",
   "text": "Target: jal func_80113AD0 (move s0,a0 in delay), sll/sra s0 16, 'div $zero,$v0,$s0; mfhi' with NO zero-check/break. Our C `s16 f(s16 a){return func() % a;}` generates identical core but adds bnez/break 7 + -1 overflow checks (score 900); unsigned also adds checks. -mno-check-zero-division flag not accepted. Tried s32 arg/cast, (arg|1), manual r-(r/a)*a: worse. Next step: find how other matched functions in this game emit unchecked div (maybe divisor provably nonzero / different flag or hand asm); possibly not plain C.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1157,15 +1148,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2beb1c8c21c2f2c5965fffd824fbe106c38d674ec014892fbdb0afd83c1b98c4"
  },
  {
-  "function": "func_802D4538",
-  "text": "Score 205 with struct-typed C (S{a,idx,c}; D_8002C2A0 struct w/ s16 at 0x1A2; u16 D_80045C54[]). Only diff: target schedules `lhu $v1; addiu $v0,$s1,0xC; sh $v1` (return value computed before store, lhu uses v1); mine does lhu v0; sh; addiu. Tried temps for return, post-increment, u16/s16 types: no change. Next step: try making return pointer a global/second-stage expression, or char* arg with explicit local pointer to D_8002C2A0 base.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795235702.801562,
-  "score_before": 20,
-  "score_after": 20,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:f2271ef352008481f9280edae6cc9f3ba370700b13a8b748585326aac85a1e2a"
- },
- {
   "function": "func_802D3FF8",
   "text": "Score 135: only diff is ordering/regs of `lui v1/addiu v1` (base) vs `lw a1,4(a0)` (target: lui, lw a1, addiu; index in a1 not v1). Structure: f32 *p=(f32*)&D_8007BF58tbl[arg0[1]] with stride 0x18 (E{s32 x[6]}), p[2..7] copied to base+0x1F4,1F8,1FC,20C,210,214, D_80030C74=2 before last store, return arg0+8. Next step: try the index in a separate s32 local and different declaration orders, or struct with real tbl[] type.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1523,15 +1505,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:45484f49aa45bba6b1e407bba463421a143ee5717b41d8e601fd9dc3940ec3db"
  },
  {
-  "function": "func_80239408",
-  "text": "Best 235 (rev bd7240f9c6ef6b600e41). Semantics: free-list pop: if(D_800698B4){D_800698B4=D_800698B4->next;return;} else p=func_801043F8(0x1C,2,0); p->next=0;p->b=0. (Not a call to func_8023943C; draft was wrong.) Remaining diff: target uses a0 for lui hi, v1 for loaded head, and has extra 'move v1,v0; move v0,v1' after the alloc call. Tried head-pointer local, p/q temp, gcc-2.7.2-kmc (340), local repairs: no change.\np/q temps, S** head, gcc2.7.2 compiler\nunchanged 235",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795241575.509609,
-  "score_before": 845,
-  "score_after": 235,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:144047365358b16fa04ab5dcd77ec0fa48e57bdb65b2d9a03f4903a726d29c23"
- },
- {
   "function": "func_80225570",
   "text": "Stuck at 555. Target loads D_800591E0 hi first (a1), uses and-mask reg a2=-0x41 reused as call arg, mult after the lw. Ours emits extra 'move a2,v1' and different lui order. Tried: temp locals, shared mask var, ~0x40, <<1, order swaps: all identical output. Next step: try declaring D_800591E0 differently (u32/volatile or via a struct/array symbol) or the multiply inside a macro-like inline with s16/u16 casts.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1719,5 +1692,32 @@
   "score_before": 450,
   "score_after": 450,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:ec06e20b64645e8ee981d09f019f1a32f68e92e56e0329139e089c70c8bbc0a5"
+ },
+ {
+  "function": "func_8026E230",
+  "text": "Best 370 (rev 696f408c88aac6c1066b / 2a7f463d4f00235fe4bc): idx via if(arg0<0) idx=arg0+7; idx>>=3; mask=1<<(arg0-idx*8) computed before load; return D_80075F68[idx&0xFF]&mask. Remaining: extra 'move $v1,$a0' before bgez (target branches on $a0 directly, move in delay slot) plus register assignment. Next step: try arg0 as different type or idx declared as a second parameter-free local with different usage order.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795225748.760912,
+  "score_before": 820,
+  "score_after": 370,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cd30097a69157db521bbdeb599960f06898c7bdd29791528492891c77ed692c0"
+ },
+ {
+  "function": "func_802D4538",
+  "text": "Score 205 with struct-typed C (S{a,idx,c}; D_8002C2A0 struct w/ s16 at 0x1A2; u16 D_80045C54[]). Only diff: target schedules `lhu $v1; addiu $v0,$s1,0xC; sh $v1` (return value computed before store, lhu uses v1); mine does lhu v0; sh; addiu. Tried temps for return, post-increment, u16/s16 types: no change. Next step: try making return pointer a global/second-stage expression, or char* arg with explicit local pointer to D_8002C2A0 base.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795235702.801562,
+  "score_before": 20,
+  "score_after": 20,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:f2271ef352008481f9280edae6cc9f3ba370700b13a8b748585326aac85a1e2a"
+ },
+ {
+  "function": "func_80239408",
+  "text": "Best 235 (rev bd7240f9c6ef6b600e41). Semantics: free-list pop: if(D_800698B4){D_800698B4=D_800698B4->next;return;} else p=func_801043F8(0x1C,2,0); p->next=0;p->b=0. (Not a call to func_8023943C; draft was wrong.) Remaining diff: target uses a0 for lui hi, v1 for loaded head, and has extra 'move v1,v0; move v0,v1' after the alloc call. Tried head-pointer local, p/q temp, gcc-2.7.2-kmc (340), local repairs: no change.\np/q temps, S** head, gcc2.7.2 compiler\nunchanged 235",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795241575.509609,
+  "score_before": 845,
+  "score_after": 235,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:144047365358b16fa04ab5dcd77ec0fa48e57bdb65b2d9a03f4903a726d29c23"
  }
 ]

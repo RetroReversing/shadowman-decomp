@@ -53,27 +53,24 @@ void func_80230EEC(void *arg0) {
         } while ((u32) (var_s2 & 0xFFFF) < sp10);
         var_s2_2 = 0;
         if (sp10 != 0) {
-            var_s0 = 0 & 0xFFFF;
-            do {
-                temp_s0_2 = temp_v0_2 + (var_s0 << 6);
-                func_80104EC4(temp_s0_2, 2, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 4, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 8, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0xC, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x10, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x14, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x18, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x1C, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x20, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x24, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x28, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x2C, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x30, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x34, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x38, 4, 1, temp_v0);
-                func_80104EC4(temp_s0_2 + 0x3C, 4, 1, temp_v0);
+do {
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)), 2, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 4, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 8, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0xC, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x10, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x14, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x18, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x1C, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x20, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x24, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x28, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x2C, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x30, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x34, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x38, 4, 1, temp_v0);
+                func_80104EC4((temp_v0_2 + ((var_s2_2 & 0xFFFF) << 6)) + 0x3C, 4, 1, temp_v0);
                 var_s2_2 += 1;
-                var_s0 = var_s2_2 & 0xFFFF;
             } while ((u32) (var_s2_2 & 0xFFFF) < sp10);
         }
     }
