@@ -600,15 +600,6 @@
   "score_after": 710
  },
  {
-  "function": "func_8026F8E8",
-  "text": "Target: sw a0..a2 to 0..8($sp), jr ra, sw a3 in delay slot (empty varargs-like fn, e.g. stubbed printf). `void f(const char*fmt, ...){}` gives all 4 sw then jr; nop (score 330) \u2014 only delay-slot fill differs. K&R / plain 4 int args emit nothing. Tried &fmt+4, float first arg, int return. Next step: find how a varargs stub gets delay-slot filled (e.g. non-void return type with different arg count, or look at other matched empty-varargs stubs via find_similar).",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795225025.7315981,
-  "score_before": 500,
-  "score_after": 320,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2f9151054bd623b40848bf57222fb08f292861a551d567b06c008adf4ab33458"
- },
- {
   "function": "func_8027280C",
   "text": "[Released without compiling it once; notes not checked by a compile.] Not standalone: a switch-case tail merged with neighbours (func_802727EC..func_80272828 jump to shared epilogue at func_80272810 and use the caller's stack frame/ra). The real function starts earlier (before 0x802727A0). Needs boundary merge, not C for this piece.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1719,5 +1710,14 @@
   "score_before": 1595,
   "score_after": 1115,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cfa029bba05bccc4cb4c1b72db8e9a060fbf31a6b6f58efed33262dcacde867f"
+ },
+ {
+  "function": "func_8026F8E8",
+  "text": "Target: sw a0..a2 to 0..8($sp), jr ra, sw a3 in delay slot (empty varargs-like fn, e.g. stubbed printf). `void f(const char*fmt, ...){}` gives all 4 sw then jr; nop (score 330) \u2014 only delay-slot fill differs. K&R / plain 4 int args emit nothing. Tried &fmt+4, float first arg, int return. Next step: find how a varargs stub gets delay-slot filled (e.g. non-void return type with different arg count, or look at other matched empty-varargs stubs via find_similar).",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795225025.7315981,
+  "score_before": 500,
+  "score_after": 320,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2f9151054bd623b40848bf57222fb08f292861a551d567b06c008adf4ab33458"
  }
 ]

@@ -7859,6 +7859,23 @@
    "timeout": 20,
    "function": "func_80113F30",
    "vram": 2148613936
+  },
+  "31847624:2150037736": {
+   "function": "func_8026F8E8",
+   "vram": 2150037736,
+   "toolchain": "ido-7.1",
+   "flags": [
+    "-O2",
+    "-G",
+    "0",
+    "-mips2",
+    "-32",
+    "-non_shared",
+    "-Xcpluscomm",
+    "-Wab,-r4300_mul",
+    "-DNON_MATCHING"
+   ],
+   "timeout": 20
   }
  },
  "instructions": "",
@@ -7908,7 +7925,8 @@
   "code_8026C95C_1E6BA60": "common_code_8026C95C_1E6BA60.h",
   "code_80103060_00A678": "common_code_80103060_00A678.h",
   "code_8021D4C0_1E15908": "common_code_8021D4C0_1E15908.h",
-  "code_80103060_014B30": "common_code_80103060_014B30.h"
+  "code_80103060_014B30": "common_code_80103060_014B30.h",
+  "exact_match_42949674544_28": "common_exact_match_42949674544_28.h"
  },
  "functions": {
   "func_80103060": {
@@ -13603,8 +13621,8 @@
   },
   "func_8026F8E8": {
    "vram": 2150037736,
-   "best_score": 320,
-   "best_by": "api-claude-sonnet-5-5-3"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_8026F9B4": {
    "vram": 2150037940,
