@@ -1004,15 +1004,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:eced4cae17a38d881a1eb24a6e75d09e426e5e9ff0b10cc94f8bea0328310575"
  },
  {
-  "function": "func_8026F8FC",
-  "text": "Score 40: all instructions match except 4 operand rows (lui $at,0x21 / lwc1 0x3f04, 0x3f08) \u2014 float constants live at ROM address 0x213F04/08 which is not in a loaded/split part of ROM (read_data fails), so our .rdata refs cannot match. Constants guessed 1.0f (compare) and 2.0f (store); real values unknown. Control flow solved by: if(timer!=0){...; return 1;} return 0; inside f6c==1.0f block, final return 1. Next step: load/split rdata region at 0x213F00 and set constants to real values (or define them as extern f32 at that address).",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795232077.785832,
-  "score_before": 490,
-  "score_after": 40,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:fd24b73ca6814ad3504ebbd9077315972cc70352750ec4deade4c123f1c826ec"
- },
- {
   "function": "func_80254840",
   "text": "Best 325 (rev af91be03ebd1d7491db1): instruction-identical except register allocation: target a=s4,ret=s3,pos=s2 (pos=a+0x24 hoisted); mine a=s2,pos=s4. Structure: goto-loop with if(n!=NULL){pos=a->pos; loop: if(n->next){...; n=n->next; if(n)goto loop;}}. Declaration reordering, for(;;), call-init no help; not hoisting pos is worse (641). Next step: try different var lifetimes e.g. pos declared as s32 offset or use a second temp for a->h.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1092,15 +1083,6 @@
   "score_before": 2568,
   "score_after": 465,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:4e24762e548c7f2568861d3a2bf2bf282856441fdb29783f6d8431fe7feeb138"
- },
- {
-  "function": "func_80243E5C",
-  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: instruction order / control flow; first differing row 27; 10 differing rows (1 opcode, 6 register, 2 operand, 1 inserted; advisory).\nTarget: lw $v0, 0x1c($s0)\nCandidate: lw $v1, 0x1c($s0)\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = j func_80243E5C+0xc0\n  = sw $v0, 8($s0)\nr T: lw $v0, 0x1c($s0) | C: lw $v1, 0x1c($s0)\nr T: lw $v1, 0x38($s0) | C: lw $v0, 0x38($s0)\nr T: bltzl $v0, 0x7c | C: bltzl $v1, 0x7c\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795233407.869714,
-  "score_before": 2225,
-  "score_after": 295,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:6a36c08e3524d947161bc9b1d16c707b1ae6e571694641b9bc7296081bbebb22"
  },
  {
   "function": "func_8025D960",
@@ -1227,15 +1209,6 @@
   "score_before": 1245,
   "score_after": 380,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:1c60ed8b1ef95915ae17df8d9f2e1be34317f2de07c1a7d1286a3db149ba40ce"
- },
- {
-  "function": "func_8026B618",
-  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: instruction order / control flow; first differing row 11; 20 differing rows (1 opcode, 9 register, 1 branch target, 4 reordered, 1 inserted, 4 deleted; advisory).\nTarget: beq $v1, $v0, 0xec\nCandidate: beq $v1, $v0, 0xe0\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = lw $v1, 0x30($s0)\n  = addiu $v0, $zero, -1\ni T: beq $v1, $v0, 0xec | C: beq $v1, $v0, 0xe0\n  = addu $v0, $s1, $a0\n  = move $a0, $s1\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795235468.813445,
-  "score_before": 3153,
-  "score_after": 690,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:03cdfdde7890c0c7da0278e1eff09c6f09d9d0d2bdc4e559bf472f29869e26f9"
  },
  {
   "function": "func_8027BE80",
@@ -1489,15 +1462,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:28f3c66476ef90cdb0ec0672e3fdfc39b3e0efa6fb7d7f3de343c63d49185593"
  },
  {
-  "function": "func_802CC388",
-  "text": "Same unchecked-div blocker as func_802721D8/func_80274124: target 'div $zero,$v0,$s0; mfhi' with no bnez/break7 or -1 checks; sn-n64-281 always emits checks (s32 and u32 tried; -mno-check-zero-division/-divide-checks/-divide-traps invalid; other compilers worse). Correct structure (rev 086379533c3c, score 1170 only due to div checks): func_8011BA20(&b,0,0xC) is memset(vec,0,12) (NOT arg0-taking), a=D_2186F8 as 12-byte struct copy, float const D_218704 (0x218704). Remaining float reg order: target loads D_80075590 into f1 then sub (f1 - b.y), D_800754F0 into f0. Next step: find source form that makes gcc omit zero check (e.g. hand-expanded divide via asm-free trick) or accept needs compiler-flag change.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795239388.8401139,
-  "score_before": 1793,
-  "score_after": 885,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:149bbe276f23233f9f9d38c1379d1a246031d28205dd8c9d40b0882f01be93bc"
- },
- {
   "function": "func_802D175C",
   "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: calls / arguments; first differing row 3; 29 differing rows (1 opcode, 18 register, 1 branch target, 3 operand, 2 reordered, 3 inserted, 1 deleted; advisory).\nTarget: sw $s3, 0x1c($sp)\nCandidate: sw $s4, 0x20($sp)\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = sw $s1, 0x14($sp)\n  = move $s1, $a0\ni T: sw $s3, 0x1c($sp) | C: sw $s4, 0x20($sp)\nr T: move $s3, $a1 | C: move $s4, $a1\ni T: sw $s4, 0x20($sp) | C: sw $s3, 0x1c($sp)\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.\n\nStuck at 170. Only difference: after the first call the target hoists `lw a0` above `sh v0,0(s1)`, so the sh fills the 2nd jal's delay slot. Mine emits sh then lw a0 then jal with a nop delay (55 vs 54 insns). Tried: q pointer (q=arg0+2), s32/s16 return types, while-vs-do loop forms, temporaries. No change. Next step: try a different source for the first store, e.g. a volatile-free store through a separate pointer variable, or have the first call's result go through an s32 temp that is stored after the second call's argument load.\npointer forms, return types, loop forms\nunchanged 170, extra nop delay slot",
   "by": "api-claude-sonnet-5-5-3",
@@ -1701,5 +1665,41 @@
   "score_before": 475,
   "score_after": 475,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cc34a1dcc194f6cf3ffed57764b852496984e3c960854d80ea701e6f9d53d74e"
+ },
+ {
+  "function": "func_8026F8FC",
+  "text": "Score 40: all instructions match except 4 operand rows (lui $at,0x21 / lwc1 0x3f04, 0x3f08) \u2014 float constants live at ROM address 0x213F04/08 which is not in a loaded/split part of ROM (read_data fails), so our .rdata refs cannot match. Constants guessed 1.0f (compare) and 2.0f (store); real values unknown. Control flow solved by: if(timer!=0){...; return 1;} return 0; inside f6c==1.0f block, final return 1. Next step: load/split rdata region at 0x213F00 and set constants to real values (or define them as extern f32 at that address).",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795232077.785832,
+  "score_before": 490,
+  "score_after": 40,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:fd24b73ca6814ad3504ebbd9077315972cc70352750ec4deade4c123f1c826ec"
+ },
+ {
+  "function": "func_80243E5C",
+  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: instruction order / control flow; first differing row 27; 10 differing rows (1 opcode, 6 register, 2 operand, 1 inserted; advisory).\nTarget: lw $v0, 0x1c($s0)\nCandidate: lw $v1, 0x1c($s0)\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = j func_80243E5C+0xc0\n  = sw $v0, 8($s0)\nr T: lw $v0, 0x1c($s0) | C: lw $v1, 0x1c($s0)\nr T: lw $v1, 0x38($s0) | C: lw $v0, 0x38($s0)\nr T: bltzl $v0, 0x7c | C: bltzl $v1, 0x7c\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795233407.869714,
+  "score_before": 2225,
+  "score_after": 295,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:6a36c08e3524d947161bc9b1d16c707b1ae6e571694641b9bc7296081bbebb22"
+ },
+ {
+  "function": "func_8026B618",
+  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: instruction order / control flow; first differing row 11; 20 differing rows (1 opcode, 9 register, 1 branch target, 4 reordered, 1 inserted, 4 deleted; advisory).\nTarget: beq $v1, $v0, 0xec\nCandidate: beq $v1, $v0, 0xe0\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = lw $v1, 0x30($s0)\n  = addiu $v0, $zero, -1\ni T: beq $v1, $v0, 0xec | C: beq $v1, $v0, 0xe0\n  = addu $v0, $s1, $a0\n  = move $a0, $s1\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795235468.813445,
+  "score_before": 3153,
+  "score_after": 690,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:03cdfdde7890c0c7da0278e1eff09c6f09d9d0d2bdc4e559bf472f29869e26f9"
+ },
+ {
+  "function": "func_802CC388",
+  "text": "Same unchecked-div blocker as func_802721D8/func_80274124: target 'div $zero,$v0,$s0; mfhi' with no bnez/break7 or -1 checks; sn-n64-281 always emits checks (s32 and u32 tried; -mno-check-zero-division/-divide-checks/-divide-traps invalid; other compilers worse). Correct structure (rev 086379533c3c, score 1170 only due to div checks): func_8011BA20(&b,0,0xC) is memset(vec,0,12) (NOT arg0-taking), a=D_2186F8 as 12-byte struct copy, float const D_218704 (0x218704). Remaining float reg order: target loads D_80075590 into f1 then sub (f1 - b.y), D_800754F0 into f0. Next step: find source form that makes gcc omit zero check (e.g. hand-expanded divide via asm-free trick) or accept needs compiler-flag change.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795239388.8401139,
+  "score_before": 1793,
+  "score_after": 885,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:149bbe276f23233f9f9d38c1379d1a246031d28205dd8c9d40b0882f01be93bc"
  }
 ]

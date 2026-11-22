@@ -33,7 +33,7 @@ void func_8022C1CC(void *arg0, s32 arg1) {
             }
             temp_lo = var_v1 * temp_s1;
             var_s0 += 1;
-            func_80103480(D_80059794 + temp_lo, M2C_FIELD(arg0, s32 *, 0xC) + var_s2, temp_s1, temp_lo);
+            func_80103480(D_80059794 + temp_lo, M2C_FIELD(arg0, s32 *, 0xC) + var_s2, temp_s1);
             var_s2 += temp_s1;
         } while (var_s0 < (s32) M2C_FIELD(arg0, u8 *, 5));
     }

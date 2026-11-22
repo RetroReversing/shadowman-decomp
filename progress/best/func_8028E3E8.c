@@ -20,7 +20,7 @@ extern void *D_8006A4FC;
 
 /* Warning: Gap in callee-saved word stack region.
  * Saved: [0x28, 0x2c, 0x30, 0x34, 0x40, 0x44, 0x58, 0x5c, 0x60, 0x64], gap at: 0x38. */
-void func_8028E3E8(f32 arg0, f32 arg1, M2C_UNK arg2, f32 arg3) {
+void func_8028E3E8(f32 arg0, f32 arg1, f32 arg2, f32 arg3) {
     union {
         unsigned char bytes[16];
         struct { f32 value; } view_sp18;
@@ -52,9 +52,9 @@ void func_8028E3E8(f32 arg0, f32 arg1, M2C_UNK arg2, f32 arg3) {
     if (temp_ft0 > 0.0f) {
         temp_fv0f = *(f32 *)0x215520;
         do {
-            var_fs1f = (var_fs1f + (m2c_initial_frame.view_sp18.value * temp_fv0f)) * arg3;
-            var_fs2f = (var_fs2f + (m2c_initial_frame.view_sp20.value * temp_fv0f)) * arg3;
-            var_fs2 = (var_fs2 + (m2c_initial_frame.view_sp1C.value * temp_fv0f)) * arg3;
+            var_fs1f = (var_fs1f + (m2c_initial_frame.view_sp18.value * (*(f32 *)0x215520))) * arg3;
+            var_fs2 = (var_fs2 + (m2c_initial_frame.view_sp1C.value * (*(f32 *)0x215520))) * arg3;
+            var_fs2f = (var_fs2f + (m2c_initial_frame.view_sp20.value * (*(f32 *)0x215520))) * arg3;
             var_fv1f += *(f32 *)0x215524;
             var_fa0 += var_fs1f;
             var_fa1 += var_fs2;

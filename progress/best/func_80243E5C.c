@@ -8,8 +8,8 @@ s32 func_80243E5C(A *a) {
     case 1:
         if (b->h == 1) {
             if (func_80245684(a) != 0) {
-                a->acc = 0;
                 a->state = 2;
+                a->acc = 0;
             }
         } else {
             a->state = 0;
@@ -20,7 +20,7 @@ s32 func_80243E5C(A *a) {
             s32 d = a->d;
             s32 e = a->acc;
             if (d < 0) d = -d;
-            a->acc = e + d;
+            a->acc = (d) + (e);
             b->f += (f32)a->d;
             if (a->acc >= a->lim) a->state = 3;
         }

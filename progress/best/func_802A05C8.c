@@ -32,7 +32,7 @@ void func_802A05C8(void *arg0) {
         M2C_FIELD(arg0, f32 *, 0x54) = (f32) (temp_fv0 - D_8007DB8C);
         return;
     }
-    if (func_80232BD8(arg0, 0x42C80000, 0) != 0) {
+    if (func_80232BD8(arg0) != 0) {
         func_80109318(0x10E, arg0, 0);
         temp_v0 = func_80296BC0(arg0, 0, D_80036D10);
         if (temp_v0 != NULL) {
