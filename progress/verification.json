@@ -95216,6 +95216,109 @@
    "vram": 2148620048,
    "unit": "code_80103060_016310",
    "mode": "rom"
+  },
+  "func_8028D200": {
+   "format": 1,
+   "verdict": "exact",
+   "abi": {
+    "arch": "mips",
+    "big_endian": true,
+    "gp": 0,
+    "platform": "n64",
+    "rom_sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c"
+   },
+   "symbols_sha256": "a361712f532cff376852076f5eb3f44e4b25eac5491fa4aa97baedec65e3e759",
+   "recorded_at": 1795345046.3056798,
+   "attempt_id": 42949690402,
+   "source_sha256": "e51947ec55973ea740f2a4e0a56411765fc623a19baf4e0fa58d5b2651f7698a",
+   "header_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1",
+   "context_version": 1,
+   "compiler": {
+    "toolchain": "sn-n64-281",
+    "flags": [
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64",
+     "-ffast-math"
+    ],
+    "timeout": 20
+   },
+   "compiler_identity": {
+    "toolchain": "sn-n64-281",
+    "registry_sha256": "1ce0cbda45be2c8a012807ac4c455b608580e09ba8bb5707a89fca5af82cae79",
+    "install_sha256": "d949422c5b7c39402c79d468bd890710d5bd3eb8ba3929116a8a5543a4a7191f",
+    "executables": {
+     "cc1n64.exe": "d90df1028c46d826e37146dbcc3e3385f78c59e05a9ddd952daa94c9ad379d9c"
+    }
+   },
+   "settings": {
+    "mode": "rom",
+    "platform": "n64",
+    "compiler": {
+     "toolchain": "sn-n64-281",
+     "flags": [
+      "-G0",
+      "-mips3",
+      "-O2",
+      "-mgas",
+      "-meb",
+      "-mcpu=VR4300",
+      "-mhard-float",
+      "-mfp64",
+      "-ffast-math"
+     ],
+     "timeout": 20
+    },
+    "settings_source": "compile invocation snapshot",
+    "gp": 0,
+    "big_endian": true,
+    "rom": {
+     "sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c",
+     "game_code": "NSDE",
+     "region": "North America",
+     "byte_order": "z64"
+    },
+    "effective_command": [
+     "/Users/a/Documents/GitHub/decompdecomp-rr/.venv/bin/python",
+     "/Users/a/Documents/GitHub/decompdecomp-rr/src/decompnet/consoles/n64/sn64.py",
+     "--cc",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cc1n64.exe",
+     "--cpp",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cppn64.exe",
+     "--assembler",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/asn64.exe",
+     "--converter",
+     "/Users/a/Library/Application Support/decompnet/toolchains/psyq-obj-parser/psyq-obj-parser",
+     "--runner",
+     "/Users/a/Library/Application Support/decompnet/toolchains/wibo/wibo",
+     "{src}",
+     "{obj}",
+     "{include}",
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64",
+     "-ffast-math"
+    ],
+    "language": "c",
+    "context_unit": "",
+    "scoring_revision": "170c4ead954da020abb0b11063ac3fbb5ddc0ed8f4bb118b9d70786d3f484c9a",
+    "context_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1"
+   },
+   "target_sha256": "3a921d44dc1a94b8d11ca5868d5bbd56fb471c5366e30eb3f7a536f3dbddb1e9",
+   "relocations_sha256": "119ec2285a95c04457d78232514e1578fec414f815017c548e025a56ece20eb3",
+   "vram": 2150158848,
+   "unit": "code_8026C95C_1E7CDE0",
+   "mode": "rom"
   }
  },
  "sources": {
@@ -96268,7 +96371,8 @@
   "05817f7d9c5d113a1fbb96ed5e9646b72107a73c8ce69089a3ad56b7c56fd03f": "/* Partial candidate from function #85899348303 in project #20; rechecked locally. */\n/* adapted from similar verified C in alSynSetPan in Asteroids Hyper 64 (matched), with its names changed by decompdecomp */\n/* identical to func_801101B0 in V-RALLY-PAL (local match library) (matched), with its names changed by decompdecomp */\nvoid *__allocParam();\n\n/* Queues a pan change for a voice. If the voice has a handler and a parameter block can be\n * allocated, the block gets type 0xC, the pan value (low byte), a time of the synth's time\n * (+0x1C) plus the voice object's +0xD8 field, and no next link. The voice's object at +0xC\n * then gets it through its handler (msg 3). */\nvoid func_801101B0(void *synth, void *voice, s32 pan)\n{\n  s32 (*handler)(void *, s32, void *);\n  s32 time;\n  s32 panValue;\n  void *param;\n  void *obj;\n  void *voicePtr;\n  void *synthPtr;\n\n  voicePtr = voice;\n  handler = *((s32 (**)(void *, s32, void *)) (((char *) voicePtr) + 8));\n  synthPtr = synth;\n  panValue = pan;\n  if (handler != NULL)\n  {\n    param = __allocParam();\n    if (param != NULL)\n    {\n      handler = *((s32 (**)(void *, s32, void *)) (((char *) voicePtr) + 8));\n      time = *((s32 *) (((char *) synthPtr) + 0x1C));\n      obj = *((void **) (((char *) handler) + 0xD8));\n      *((s16 *) (((char *) param) + 8)) = 0xC;\n      handler = (s32 (*)(void *, s32, void *)) 0xC;\n      do\n      {\n#ifdef PORT\n        *((s32 *) (((char *) param) + 0xC)) = panValue & 0xFF;\n        *((s32 *) (((char *) param) + 0)) = 0;\n        time += *((s32 *) (((char *) handler) + 0xD8));\n#else\n        handler = (s32 (*)(void *, s32, void *)) (panValue & 0xFF);\n        do { *((s32 (**)(void *, s32, void *)) (((char *) param) + 0xC)) = handler; *((s32 *) (((char *) param) + 0)) = 0; } while (0);\n        time += obj;\n#endif\n        *((s32 *) (((char *) param) + 4)) = time;\n      }\n      while (0);\n      handler = *((s32 (**)(void *, s32, void *)) (((char *) voicePtr) + 8));\n      obj = *((void **) (((char *) handler) + 0xC));\n      handler = *((s32 (**)(void *, s32, void *)) (((char *) obj) + 8));\n      handler(obj, 3, param);\n    }\n  }\n}\n",
   "a46178356fc193c62e754555bdf7849ef0a1e6701e5d3fc09157690697067bdc": "/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\nM2C_UNK func_80116750(M2C_UNK *, M2C_UNK *, M2C_UNK); /* extern */\nextern M2C_UNK D_102150;\nextern M2C_UNK D_102154;\n\ns32 func_80110A50(void *arg0, void **arg1) {\n    s32 var_s0;\n    void *var_a0;\n\n    var_s0 = 0x7FFFFFFF;\n    if (M2C_FIELD(arg0, void **, 0) == NULL) {\n        func_80116750(&D_102150, &D_102154, 0x133);\n    }\n    *arg1 = NULL;\n    var_a0 = M2C_FIELD(arg0, void **, 0);\n    if (var_a0 != NULL) {\n        do {\n            if ((M2C_FIELD(var_a0, s32 *, 0x10) - M2C_FIELD(arg0, s32 *, 0x20)) < var_s0) {\n                *arg1 = var_a0;\n                var_s0 = M2C_FIELD(var_a0, s32 *, 0x10) - M2C_FIELD(arg0, s32 *, 0x20);\n            }\n            var_a0 = M2C_FIELD(var_a0, void **, 0);\n        } while (var_a0 != NULL);\n    }\n    return M2C_FIELD(*arg1, s32 *, 0x10);\n}\n",
   "73a642f965b28dca85d080f35dd2280fc9424a788c75491adac44823b005ca70": "/* Partial candidate from function #73014445055 in project #17; rechecked locally. */\n/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\ns32 func_801131C0(void *arg0, s32 arg1, s32 arg2) {\n    switch (arg1) {                                 /* irregular */\n    case 1:\n        M2C_FIELD(arg0, s32 *, 0) = arg2;\nblock_5:\n        return 0;\n    case 6:\n        M2C_FIELD(arg0, s32 *, 0x14) = arg2;\n        goto block_5;\n    default:\n        return 0;\n    }\n}\n",
-  "12a053c4eb8e0c0551b9be51f921ebbd3b88d359e37965cd412e71fc373b6c0c": "/* adapted from similar verified C in func_8003F410 in PENNY RACERS (matched), with its names changed by decompdecomp */\n/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\nM2C_UNK osCreateMesgQueue(M2C_UNK *, M2C_UNK *, M2C_UNK); /* extern */\nM2C_UNK func_80116EB0(M2C_UNK *, M2C_UNK, M2C_UNK); /* extern */\nextern s32 D_80027710;\nextern M2C_UNK D_8004F080;\nextern M2C_UNK D_8004F088;\n\nvoid func_80115710(void) {\n    D_80027710 = 1;\n    osCreateMesgQueue(&D_8004F088, &D_8004F080, 1);\n    func_80116EB0(&D_8004F088, 0, 0);\n}\n"
+  "12a053c4eb8e0c0551b9be51f921ebbd3b88d359e37965cd412e71fc373b6c0c": "/* adapted from similar verified C in func_8003F410 in PENNY RACERS (matched), with its names changed by decompdecomp */\n/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\nM2C_UNK osCreateMesgQueue(M2C_UNK *, M2C_UNK *, M2C_UNK); /* extern */\nM2C_UNK func_80116EB0(M2C_UNK *, M2C_UNK, M2C_UNK); /* extern */\nextern s32 D_80027710;\nextern M2C_UNK D_8004F080;\nextern M2C_UNK D_8004F088;\n\nvoid func_80115710(void) {\n    D_80027710 = 1;\n    osCreateMesgQueue(&D_8004F088, &D_8004F080, 1);\n    func_80116EB0(&D_8004F088, 0, 0);\n}\n",
+  "e51947ec55973ea740f2a4e0a56411765fc623a19baf4e0fa58d5b2651f7698a": "/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\nextern void *D_8006A4FC;\nextern void *D_8007AFF8;\n\ns32 func_8028D200(f32 arg0) {\n    f32 temp_fv0;\n    f32 temp_fv0f;\n    f32 temp_fv1;\n    s32 var_v0;\n\n    temp_fv0 = fabsf(M2C_FIELD(D_8006A4FC, f32 *, 0x24) - M2C_FIELD(D_8007AFF8, f32 *, 0x70));\n    temp_fv1 = fabsf(M2C_FIELD(D_8006A4FC, f32 *, 0x2C) - M2C_FIELD(D_8007AFF8, f32 *, 0x78));\n    temp_fv0f = fabsf(M2C_FIELD(D_8006A4FC, f32 *, 0x28) - M2C_FIELD(D_8007AFF8, f32 *, 0x74));\n    var_v0 = 1;\n    if (!((f32) sqrt((f64) ((temp_fv0 * temp_fv0) + (temp_fv1 * temp_fv1) + (temp_fv0f * temp_fv0f))) < arg0)) {\n        var_v0 = 0;\n    }\n    return var_v0;\n}\n"
  },
  "headers": {
   "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1": "/* context.h for Shadowman: shared by every function. Agents grow it with edit_context:\n * add a prototype or struct the moment you work one out, so the next function benefits. */\n\ntypedef signed char s8;\ntypedef unsigned char u8;\ntypedef signed short s16;\ntypedef unsigned short u16;\ntypedef signed int s32;\ntypedef unsigned int u32;\ntypedef signed long long s64;\ntypedef unsigned long long u64;\ntypedef float f32;\ntypedef double f64;\ntypedef volatile u8 vu8;\ntypedef volatile u16 vu16;\ntypedef volatile u32 vu32;\ntypedef volatile s32 vs32;\ntypedef int s32_bool;\n\n#define NULL ((void *)0)\n#define TRUE 1\n#define FALSE 0\n#define ARRAY_COUNT(arr) (s32)(sizeof(arr) / sizeof(arr[0]))\n",
