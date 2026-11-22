@@ -11,7 +11,7 @@ typedef struct
   signed char field_E;
   signed char field_F;
 } __repair_record_arg0;
-void func_80222C6C(void *arg0, f32 arg1, f32 arg2, f32 arg3, s32 arg4, f32 arg5, f32 arg6, volatile unsigned int arg7, s32 arg8, s32 arg9, s32 arg10, void *arg11)
+void func_80222C6C(void *arg0, f32 arg1, f32 arg2, f32 arg3, s32 arg4, f32 arg5, f32 arg6, volatile unsigned int arg7, s32 arg8, s32 arg9, volatile long arg10, void *arg11)
 {
   ((__repair_record_arg0 *) arg0)->field_0 = (s16) ((s32) arg1);
   ((__repair_record_arg0 *) arg0)->field_2 = (s16) ((s32) arg2);

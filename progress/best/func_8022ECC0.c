@@ -5,7 +5,7 @@ typedef s32 M2C_UNK;
 typedef s8 M2C_UNK8;
 typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_FIELD(expr, type_ptr, offset) (((struct { __typeof__(*(type_ptr)0) v; } *)((s8 *)(expr) + (offset)))->v)
 #define M2C_BITWISE(type, expr) ((type)(expr))
 #define M2C_ERROR(desc) (0)
 #define M2C_CARRY 0
@@ -16,15 +16,16 @@ extern float D_8002D204;
 s32 func_8022EEB8();
 extern char D_8002C100[];
 extern u16 D_8002C110;
-extern u16 D_8002C112;
+extern s16 D_8002C112;
 extern s32 D_8002C240;
 extern char D_8002D200[];
 extern void *D_8005387C;
 extern void *D_80056998;
-extern void *D_800569A4;
+extern void *volatile D_800569A4;
 extern char D_80059820[];
 
 void func_8022ECC0(s16 arg0, s16 arg1) {
+    char *__base_D_80059820;
     s32 *temp_v0;
     f32 temp_fv1;
     s16 temp_v1_2;
@@ -42,12 +43,12 @@ void func_8022ECC0(s16 arg0, s16 arg1) {
     void *temp_t3;
 
     temp_a3 = D_8005387C;
-    temp_t1 = D_8005387C + 8;
+    temp_t1 = (void *)(D_8005387C); temp_t1 = (void *)((char *)temp_t1 + (s32)(8));
     temp_t0 = D_80056998;
-    temp_t2 = D_80056998 + 8;
+    temp_t2 = (void *)(D_80056998); temp_t2 = (void *)((char *)temp_t2 + (s32)(8));
     temp_a2 = D_800569A4;
     temp_fv1 = *(f32 *)0x20214C;
-    temp_t3 = D_800569A4 + 8;
+    temp_t3 = (void *)(D_800569A4); temp_t3 = (void *)((char *)temp_t3 + (s32)(8));
     D_8005387C = temp_t1;
     D_80056998 = temp_t2;
     D_800569A4 = temp_t3;
@@ -63,9 +64,11 @@ void func_8022ECC0(s16 arg0, s16 arg1) {
     M2C_FIELD(temp_a2, s32 *, 0) = temp_a0;
     M2C_FIELD(temp_a2, s32 *, 4) = temp_v1;
     if (temp_a1 == 0) {
+void *__repair_cached_pointer = D_8005387C;
+
         D_8005387C = temp_t1 + 8;
         D_80056998 = temp_t2 + 8;
-        M2C_FIELD(D_8005387C, s32 *, 8) = 0xDC080008;
+        M2C_FIELD(__repair_cached_pointer, s32 *, 8) = 0xDC080008;
         M2C_FIELD(temp_t1, s32 **, 4) = D_8002C100;
         M2C_FIELD(D_80056998, s32 *, 8) = 0xDC080008;
         M2C_FIELD(temp_t2, s32 **, 4) = D_8002C100;
@@ -77,7 +80,8 @@ void func_8022ECC0(s16 arg0, s16 arg1) {
     D_8005387C = temp_t1 + 8;
     D_80056998 = temp_t2 + 8;
     D_800569A4 = temp_t3 + 8;
-    temp_v0 = (D_8002C240 * 0x10) + D_80059820;
+    __base_D_80059820 = D_80059820;
+    temp_v0 = (D_8002C240 * 0x10) + __base_D_80059820;
     M2C_FIELD(temp_v0, s16 *, 4) = 0x3FF;
     temp_v1_2 = D_8002C110 * 2;
     M2C_FIELD(temp_v0, s16 *, 0) = temp_v1_2;

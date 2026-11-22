@@ -1,7 +1,7 @@
 void func_802398C8(void *arg0, void *arg1, void *arg2)
 {
-  f32 temp_ft0;
   f32 temp_ft0f;
+  f32 temp_ft0;
   f32 temp_ft1;
   f32 temp_fv0;
   s32 temp_v0;
@@ -23,14 +23,14 @@ void func_802398C8(void *arg0, void *arg1, void *arg2)
     var_a3 = 0;
     var_v1 = arg1;
     temp_ft0 = *((f32 *) (((char *) var_a0) + 0));
-    temp_ft0f = *((f32 *) (((char *) var_a0) + 4));
     temp_ft1 = *((f32 *) (((char *) var_a0) + 8));
+    temp_ft0f = *((f32 *) (((char *) var_a0) + 4));
     loop_2:
     temp_v0 = var_a3 + var_t0;
 
     var_a3 += 1;
     *((s32 *) ((temp_v0 * 4) + arg2)) = ((temp_ft0 * (*((f32 *) (((char *) var_v1) + 0)))) + (temp_ft0f * (*((f32 *) (((char *) var_v1) + 0xC))))) + (temp_ft1 * (*((f32 *) (((char *) var_v1) + 0x18))));
-    var_v1 += 4;
+ do { var_v1 += 4; } while (0);
     if (var_a3 < 3U)
     {
       if (temp_ft0f)
@@ -51,4 +51,3 @@ void func_802398C8(void *arg0, void *arg1, void *arg2)
   }
   while (var_t0 < 9U);
 }
-
