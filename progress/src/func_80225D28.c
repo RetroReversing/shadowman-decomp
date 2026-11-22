@@ -5,14 +5,15 @@ typedef s32 M2C_UNK;
 typedef s8 M2C_UNK8;
 typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_FIELD(expr, type_ptr, offset) (((struct { __typeof__(*(type_ptr)0) v; } *)((s8 *)(expr) + (offset)))->v)
+#define M2C_FIELD_PTR(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 #define M2C_ERROR(desc) (0)
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
 
-extern s16 D_800591F0;
+extern u16 D_800591F0;
 extern s16 D_800591F2;
 extern s16 D_800591F4;
 extern s16 D_80059400;
@@ -38,7 +39,7 @@ void func_80225D28(void) {
     D_80059402 = -1;
     D_80059400 = -1;
     D_8005941C = 0;
-    temp_fv1f = M2C_FIELD(D_8005E9EC, f32 *, 0x24);
+    temp_fv1f = M2C_FIELD_PTR(D_8005E9EC, f32 *, 0x24);
     temp_v0 = D_8005E9EC + 0x24;
     temp_v1 = D_8005EA2C + 0x3C;
     temp_ft1 = M2C_FIELD(temp_v0, f32 *, 4);
