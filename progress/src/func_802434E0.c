@@ -3,12 +3,12 @@ extern void func_80245614(void *);
 extern void func_8026E4CC(void *, int);
 extern void func_80107D8C(int, int, int, int);
 extern void func_80109318(int, void *, int);
-extern void func_8023AFD0(void *, int);
+extern void func_8023AFD0(void *);
 
 int func_802434E0(void *arg0) {
     char *obj;
     int *p;
-    switch (*(int *)((char *)arg0 + 8)) {
+    switch ((u32)(*(int *)((char *)arg0 + 8))) {
     case 1:
         if (func_80245684(arg0) != 0) {
             obj = *(char **)((char *)arg0 + 0xC);
@@ -25,8 +25,10 @@ int func_802434E0(void *arg0) {
                 func_80107D8C(0, 0xB, 1, 0x7F);
                 func_80109318(0x15A, obj + 0x24, 0);
                 break;
+            case 428:
+                break;
             }
-            func_8023AFD0(obj, 0);
+            func_8023AFD0(obj);
             *(int *)((char *)arg0 + 8) = 3;
         }
         break;

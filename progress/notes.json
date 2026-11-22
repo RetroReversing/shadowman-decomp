@@ -1139,15 +1139,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:59c656ed54a298176333d4ca9ba1c9e86d648692db95a472f3ae42602dc7e86a"
  },
  {
-  "function": "func_802434E0",
-  "text": "Best 1270 (switch on state at +8: case1 body, case0/2 break, case3 func_80245614; inner switch 0x174/0x1AB on *(short*)(obj->0x88+0x14)). Target outer compare order is 1,0,2,3 with beq-to-body, no slti range check; mine emits slti<2. If-chain gives 2225. Also inner switch branch layout differs (bne vs beq at 0x1AB/0x174). Next step: try inner switch as if/else (==0x1AB first, then ==0x174) and outer as switch with case 3 listed before 1.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795234616.291877,
-  "score_before": 2225,
-  "score_after": 1270,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:d98ca44cfc030cbea7f8b51004dd07fb342bf0732cd3e011be0f19928e449563"
- },
- {
   "function": "func_802734B0",
   "text": "Note: \"func_80273580\" is NOT a callee; it's the epilogue inside this function (j with v0=1 => `return 1`). Best form: do-while with two pointers e (s16*, +=14) and p=(s32*)(e+2) (+=7) plus i counter, guarded by if(count>0); score 325 with only ordering diffs (target hoists `addiu s6,0,5` before `addiu s0,s1,4`; reg alloc s0/s4 swapped: target s0=&D_8002D2B4 hi, s5 copy, s4=&D_8005E9F0 hi). Next step: try a local pointer to D_8002D2B4/D_8005E9F0 or reorder p init.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1701,5 +1692,14 @@
   "score_before": 475,
   "score_after": 475,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cc34a1dcc194f6cf3ffed57764b852496984e3c960854d80ea701e6f9d53d74e"
+ },
+ {
+  "function": "func_802434E0",
+  "text": "Best 1270 (switch on state at +8: case1 body, case0/2 break, case3 func_80245614; inner switch 0x174/0x1AB on *(short*)(obj->0x88+0x14)). Target outer compare order is 1,0,2,3 with beq-to-body, no slti range check; mine emits slti<2. If-chain gives 2225. Also inner switch branch layout differs (bne vs beq at 0x1AB/0x174). Next step: try inner switch as if/else (==0x1AB first, then ==0x174) and outer as switch with case 3 listed before 1.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795234616.291877,
+  "score_before": 2225,
+  "score_after": 1270,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:d98ca44cfc030cbea7f8b51004dd07fb342bf0732cd3e011be0f19928e449563"
  }
 ]
