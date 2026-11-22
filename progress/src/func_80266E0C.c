@@ -1,4 +1,4 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -19,25 +19,19 @@ extern s32 D_80030C5C;
 extern s32 D_8005E9D4;
 
 void func_80266E0C(s32 arg0, s32 arg1) {
-int __repair_literal;
-
     s32 var_s0;
     s32 var_s1;
 
     var_s1 = 0;
-__repair_literal = 0;
-
-    if ((D_8005E9D4 + 1) > __repair_literal) {
-        var_s0 = 0;
+    if ((D_8005E9D4 + 1) > 0) {
         do {
             if (arg0 & 1) {
-                func_80266BA4(*(s32 *)*(s32 *)(var_s0 + D_80030C5C), arg0, arg1);
+                func_80266BA4(*(s32 *)*(s32 *)((var_s1 * 4) + D_80030C5C), arg0, arg1);
             }
             if (arg0 & ~1) {
-                func_80266BA4(*(s32 *)*(s32 *)(var_s0 + D_80030C58), arg0, arg1);
+                func_80266BA4(*(s32 *)*(s32 *)((var_s1 * 4) + D_80030C58), arg0, arg1);
             }
             var_s1 += 1;
-            var_s0 += 4;
         } while (var_s1 < (D_8005E9D4 + 1));
     }
     if (arg0 & 2) {
