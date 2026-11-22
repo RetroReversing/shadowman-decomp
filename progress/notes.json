@@ -869,15 +869,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:4088fe3f26aa1594308404542c0e57e244eb1c7213d9d3be3f838ada1e72607e"
  },
  {
-  "function": "func_8026A38C",
-  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795230074.502553,
-  "score_before": 205,
-  "score_after": 55,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:426924166aade2fd9cf07b7488b1dcbe95b4331f812f4e5d5117b8c52c2b2e43"
- },
- {
   "function": "func_80272538",
   "text": "Struct S34 {s32;f32 x;f32 y;s32 z;f32 w;pad[0x20]} array at D_80036944, returns func_802701A4(...) != 0.0f; arg s32 &=0xFF. Instruction set matches (37 insns); only load ordering differs: target loads D_80036944 (lui a0) then computes index*52 then loads D_8006A4FC; mine loads D_8006A4FC first. Tried local p/q, inline index; 1231 best. Next step: try D_80036944 declared as s32/void* base with explicit byte offsets, or 'arg0 & 0xFF' index as separate local u8.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1710,5 +1701,23 @@
   "score_before": 2370,
   "score_after": 0,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:6a194923280801e8aaf7cdb561aae352441917dd7e6b2026fc770e0f3cc9aa6a"
+ },
+ {
+  "function": "func_8026A38C",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230074.502553,
+  "score_before": 205,
+  "score_after": 55,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:426924166aade2fd9cf07b7488b1dcbe95b4331f812f4e5d5117b8c52c2b2e43"
+ },
+ {
+  "function": "func_8026A38C",
+  "text": "Autopilot matched from saved near miss",
+  "by": "autopilot",
+  "created_at": 1795319902.600045,
+  "score_before": 205,
+  "score_after": 0,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:426924166aade2fd9cf07b7488b1dcbe95b4331f812f4e5d5117b8c52c2b2e43"
  }
 ]
