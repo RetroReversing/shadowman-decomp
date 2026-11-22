@@ -1523,15 +1523,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:45484f49aa45bba6b1e407bba463421a143ee5717b41d8e601fd9dc3940ec3db"
  },
  {
-  "function": "func_8023981C",
-  "text": "Target: lui/addiu a3=&D_800698C0 first, then lw D_8002D3F0, a2=0, dec, sw, sll a1,v0,2; loop: addu v0,a1,a3; addiu a1,0x100; lwc1; swc1 0(a0); a0+=4; a2<12. Target uses a0 directly (no move a0 copy) \u2014 my versions (for loop, do-while w/ byte base ptr, f32 ptr) all add 'move aX,a0' and score 560-975. Best of mine: do-while with char *base=D_800698C0, off=(--D_8002D3F0)*4: 560. Saved best 450 (explicit goto). Next step: try arg0 as f32 *arg0 modified in place with while-loop and base pointer declared as a local f32* initialised before decrement.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795241497.537237,
-  "score_before": 450,
-  "score_after": 450,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:ec06e20b64645e8ee981d09f019f1a32f68e92e56e0329139e089c70c8bbc0a5"
- },
- {
   "function": "func_80239408",
   "text": "Best 235 (rev bd7240f9c6ef6b600e41). Semantics: free-list pop: if(D_800698B4){D_800698B4=D_800698B4->next;return;} else p=func_801043F8(0x1C,2,0); p->next=0;p->b=0. (Not a call to func_8023943C; draft was wrong.) Remaining diff: target uses a0 for lui hi, v1 for loaded head, and has extra 'move v1,v0; move v0,v1' after the alloc call. Tried head-pointer local, p/q temp, gcc-2.7.2-kmc (340), local repairs: no change.\np/q temps, S** head, gcc2.7.2 compiler\nunchanged 235",
   "by": "api-claude-sonnet-5-5-3",
@@ -1719,5 +1710,14 @@
   "score_before": 235,
   "score_after": 20,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:527f6a0c2448957149b5bdfc5fe9efee393e8de9a432e977fae29fd05e034182"
+ },
+ {
+  "function": "func_8023981C",
+  "text": "Target: lui/addiu a3=&D_800698C0 first, then lw D_8002D3F0, a2=0, dec, sw, sll a1,v0,2; loop: addu v0,a1,a3; addiu a1,0x100; lwc1; swc1 0(a0); a0+=4; a2<12. Target uses a0 directly (no move a0 copy) \u2014 my versions (for loop, do-while w/ byte base ptr, f32 ptr) all add 'move aX,a0' and score 560-975. Best of mine: do-while with char *base=D_800698C0, off=(--D_8002D3F0)*4: 560. Saved best 450 (explicit goto). Next step: try arg0 as f32 *arg0 modified in place with while-loop and base pointer declared as a local f32* initialised before decrement.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795241497.537237,
+  "score_before": 450,
+  "score_after": 450,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:ec06e20b64645e8ee981d09f019f1a32f68e92e56e0329139e089c70c8bbc0a5"
  }
 ]

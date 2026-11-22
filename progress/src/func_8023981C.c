@@ -22,6 +22,9 @@ void func_8023981C(f32 *arg0) {
     s32 temp_v0;
     s32 var_a1;
     s32 var_a2;
+    char *__base_D_800698C0;
+
+    __base_D_800698C0 = D_800698C0;
 
     var_a0 = arg0;
     var_a2 = 0;
@@ -30,7 +33,7 @@ void func_8023981C(f32 *arg0) {
     var_a1 = temp_v0 * 4;
     (*__base_D_8002D3F0) = temp_v0;
     do {
-        temp_v0_2 = var_a1 + D_800698C0;
+        temp_v0_2 = (void *) ((var_a1) + (s32) __base_D_800698C0);
         var_a1 += 0x100;
         var_a2 += 1;
         *(f32 *)var_a0 = *temp_v0_2;
