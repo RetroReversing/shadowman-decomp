@@ -1112,15 +1112,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:5f408c9facb8b8433e1dea251d0718e9a4dc70cf65b835f10867b2a630e3d926"
  },
  {
-  "function": "func_8025CE84",
-  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: register allocation; first differing row 23; 13 differing rows (13 register; advisory).\nTarget: mtc1 $v1, $f2\nCandidate: mtc1 $v1, $f4\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = lh $v1, 0x18($a1)\n  = lwc1 $f0, 0x30($a0)\nr T: mtc1 $v1, $f2 | C: mtc1 $v1, $f4\nr T: cvt.s.w $f2, $f2 | C: cvt.s.w $f4, $f4\nr T: sub.s $f2, $f2, $f0 | C: sub.s $f4, $f4, $f0\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795235086.474275,
-  "score_before": 1720,
-  "score_after": 65,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:b554921b59596aab394989564320660bcd36bcf766ed8eb6e6b26a1287d5166a"
- },
- {
   "function": "func_802452B8",
   "text": "Best 690 (rev 5600f1d212720b45140c): switch(*(s32*)(self+8)) with case 0 break,1,2,3 inside \"if(obj==0) return 1;\". Target does linear chain: beql ==1 (a0=&tmp in delay), beqz ==0 -> exit, ==2, ==3, default j end. Mine emits slti v1,2 split instead. If-chain and if(st==1)+switch tried: worse. Next step: find source form making case 0 distinct from default (e.g. default with different tail/ different state var type).",
   "by": "api-claude-sonnet-5-5-3",
@@ -1719,5 +1710,14 @@
   "score_before": 350,
   "score_after": 350,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2beb1c8c21c2f2c5965fffd824fbe106c38d674ec014892fbdb0afd83c1b98c4"
+ },
+ {
+  "function": "func_8025CE84",
+  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: register allocation; first differing row 23; 13 differing rows (13 register; advisory).\nTarget: mtc1 $v1, $f2\nCandidate: mtc1 $v1, $f4\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = lh $v1, 0x18($a1)\n  = lwc1 $f0, 0x30($a0)\nr T: mtc1 $v1, $f2 | C: mtc1 $v1, $f4\nr T: cvt.s.w $f2, $f2 | C: cvt.s.w $f4, $f4\nr T: sub.s $f2, $f2, $f0 | C: sub.s $f4, $f4, $f0\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795235086.474275,
+  "score_before": 1720,
+  "score_after": 65,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:b554921b59596aab394989564320660bcd36bcf766ed8eb6e6b26a1287d5166a"
  }
 ]
