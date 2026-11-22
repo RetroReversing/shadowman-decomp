@@ -1139,15 +1139,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:1c60ed8b1ef95915ae17df8d9f2e1be34317f2de07c1a7d1286a3db149ba40ce"
  },
  {
-  "function": "func_8027BE80",
-  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795235515.3797262,
-  "score_before": 350,
-  "score_after": 350,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2beb1c8c21c2f2c5965fffd824fbe106c38d674ec014892fbdb0afd83c1b98c4"
- },
- {
   "function": "func_802D3FF8",
   "text": "Score 135: only diff is ordering/regs of `lui v1/addiu v1` (base) vs `lw a1,4(a0)` (target: lui, lw a1, addiu; index in a1 not v1). Structure: f32 *p=(f32*)&D_8007BF58tbl[arg0[1]] with stride 0x18 (E{s32 x[6]}), p[2..7] copied to base+0x1F4,1F8,1FC,20C,210,214, D_80030C74=2 before last store, return arg0+8. Next step: try the index in a separate s32 local and different declaration orders, or struct with real tbl[] type.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1719,5 +1710,14 @@
   "score_before": 845,
   "score_after": 235,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:144047365358b16fa04ab5dcd77ec0fa48e57bdb65b2d9a03f4903a726d29c23"
+ },
+ {
+  "function": "func_8027BE80",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795235515.3797262,
+  "score_before": 350,
+  "score_after": 350,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2beb1c8c21c2f2c5965fffd824fbe106c38d674ec014892fbdb0afd83c1b98c4"
  }
 ]
