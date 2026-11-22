@@ -39,9 +39,9 @@ void func_802315A0(void *arg0, void *arg1) {
     var_fv1f = (f32) M2C_FIELD(temp_a2, s16 *, 4);
     var_fv0f = var_fv1f;
     if ((s32) __repair_inline(temp_v1, 1)) {
-        var_v1 = temp_a2 + 4;
         var_a2 = temp_a2 + 6;
-        __repair_rows: {
+        var_v1 = temp_a2 + 4;
+        do { {
             temp_fv0 = (f32) *(s16 *)var_a2;
             var_v1 += 6;
             if (temp_fv0 < var_ft0) {
@@ -63,11 +63,11 @@ void func_802315A0(void *arg0, void *arg1) {
             }
             if (var_fv1f < temp_fv0_3) {
                 var_fv1f = temp_fv0_3;
-            }
-            var_a3 += 1;
+            }/*__repair_loop_weight*/do {do {do {
+            var_a3 += 1;} while (0);} while (0);} while (0);
             var_a2 += 6;
         }
-if (var_a3 < (s32) temp_v1) goto __repair_rows;
+} while (var_a3 < (s32) temp_v1);
     }
     M2C_FIELD(arg1, s16 *, 0) = (s16) (s32) var_ft0;
     M2C_FIELD(arg1, s16 *, 4) = (s16) (s32) var_fv1;

@@ -1,37 +1,26 @@
-/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
 s32 func_80236B20();
 s32 func_80236B64();
 extern u16 D_80052776;
-
-void func_80236EEC(void *arg0) {
-    u16 temp_a0;
-    u16 temp_v0;
-
-    temp_a0 = M2C_FIELD(arg0, u16 *, 0x42) - D_80052776;
-    M2C_FIELD(arg0, u16 *, 0x42) = temp_a0;
-    if ((temp_a0 << 0x10) <= 0) {
-        temp_v0 = M2C_FIELD(arg0, u16 *, 0x40) + 1;
-        M2C_FIELD(arg0, u16 *, 0x40) = temp_v0;
-        M2C_FIELD(arg0, u16 *, 0x42) = (u16) (temp_a0 + M2C_FIELD(arg0, u16 *, 0x50));
-        if (*(s32 *)(M2C_FIELD(arg0, s32 *, 0x44) + (s16) temp_v0) == 0) {
-            M2C_FIELD(arg0, u16 *, 0x40) = 0U;
-        }
-        M2C_FIELD(arg0, f32 *, 0x18) = (f32) ((f32) (*(s32 *)(M2C_FIELD(arg0, s32 *, 0x44) + (s16) M2C_FIELD(arg0, u16 *, 0x40)) - 0x30) * *(f32 *)0x202400);
+void func_80236EEC(void *arg0)
+{
+  u16 temp_a0;
+  u16 temp_v0;
+  temp_a0 = (*((u16 *) (((char *) arg0) + 0x42))) - D_80052776;
+  *((u16 *) (((char *) arg0) + 0x42)) = temp_a0;
+  if ((temp_a0 << 0x10) <= 0)
+  {
+    temp_v0 = (*((u16 *) (((char *) arg0) + 0x40))) + 1;
+    *((u16 *) (((char *) arg0) + 0x40)) = temp_v0;
+    *((u16 *) (((char *) arg0) + 0x42)) = (u16) (temp_a0 + (*((u16 *) (((char *) arg0) + 0x50))));
+    if ((*((s32 *) ((*((s32 *) (((char *) arg0) + 0x44))) + ((s16) temp_v0)))) == 0)
+    {
+      *((u16 *) (((char *) arg0) + 0x40)) = 0U;
     }
-    if (func_80236B20(arg0) != 0) {
-        func_80236B64(arg0);
-    }
+    *((f32 *) (((char *) arg0) + 0x18)) = (f32) (((f32) ((unsigned char) ((*((s32 *) ((*((s32 *) (((char *) arg0) + 0x44))) + ((s16) (*((u16 *) (((char *) arg0) + 0x40))))))) - 0x30))) * (*((f32 *) 0x202400)));
+  }
+  if (func_80236B20(arg0) != 0)
+  {
+    func_80236B64(arg0);
+  }
 }
+

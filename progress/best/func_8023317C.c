@@ -24,8 +24,8 @@ void func_8023317C(f32 *arg0, s32 arg1) {
 
     temp_fs0 = *(f32 *)0x2022E0;
     var_s1 = arg0;
-    var_s2 = arg1;
     var_s0 = var_s1 + 0xC;
+    var_s2 = arg1;
     do {
         var_s2 -= 1;
         __base_D_8005E9FC = &D_8005E9FC;

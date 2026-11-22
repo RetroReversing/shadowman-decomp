@@ -1103,15 +1103,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:59c656ed54a298176333d4ca9ba1c9e86d648692db95a472f3ae42602dc7e86a"
  },
  {
-  "function": "func_802734B0",
-  "text": "Note: \"func_80273580\" is NOT a callee; it's the epilogue inside this function (j with v0=1 => `return 1`). Best form: do-while with two pointers e (s16*, +=14) and p=(s32*)(e+2) (+=7) plus i counter, guarded by if(count>0); score 325 with only ordering diffs (target hoists `addiu s6,0,5` before `addiu s0,s1,4`; reg alloc s0/s4 swapped: target s0=&D_8002D2B4 hi, s5 copy, s4=&D_8005E9F0 hi). Next step: try a local pointer to D_8002D2B4/D_8005E9F0 or reorder p init.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795234812.621231,
-  "score_before": 3453,
-  "score_after": 320,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:5f408c9facb8b8433e1dea251d0718e9a4dc70cf65b835f10867b2a630e3d926"
- },
- {
   "function": "func_802452B8",
   "text": "Best 690 (rev 5600f1d212720b45140c): switch(*(s32*)(self+8)) with case 0 break,1,2,3 inside \"if(obj==0) return 1;\". Target does linear chain: beql ==1 (a0=&tmp in delay), beqz ==0 -> exit, ==2, ==3, default j end. Mine emits slti v1,2 split instead. If-chain and if(st==1)+switch tried: worse. Next step: find source form making case 0 distinct from default (e.g. default with different tail/ different state var type).",
   "by": "api-claude-sonnet-5-5-3",
@@ -1218,15 +1209,6 @@
   "score_before": 325,
   "score_after": 325,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0502613dbc64a2a0451422b46b64ac11700f93b400a671cf8bf612767a960b11"
- },
- {
-  "function": "func_802D3CC4",
-  "text": "Best 1115 (u8 D_21AB8C[] with i*4+1, s16 cast for <0 test). Target: D_80045C3C read as lbu, no andi, store of i+1 BEFORE table loads, i*4 recomputed twice, D_80075F20 base via lui + later addiu a1 (struct/array). Tried struct E{u8 a,b,c,d}, s32 i (store sunk into branch -> fewer insns), volatile (adds andi), D_80045C3C++ form. Next step: try `u8 *` pointer-based form: p=&D_21AB8C[...]; or D_80075F20 as s16/u8[2] with index expression, and get lh via s16 table struct {s16 h; s16 l;}.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795237071.2768,
-  "score_before": 1595,
-  "score_after": 1115,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cfa029bba05bccc4cb4c1b72db8e9a060fbf31a6b6f58efed33262dcacde867f"
  },
  {
   "function": "func_802D3F68",
@@ -1719,5 +1701,23 @@
   "score_before": 1720,
   "score_after": 65,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:b554921b59596aab394989564320660bcd36bcf766ed8eb6e6b26a1287d5166a"
+ },
+ {
+  "function": "func_802734B0",
+  "text": "Note: \"func_80273580\" is NOT a callee; it's the epilogue inside this function (j with v0=1 => `return 1`). Best form: do-while with two pointers e (s16*, +=14) and p=(s32*)(e+2) (+=7) plus i counter, guarded by if(count>0); score 325 with only ordering diffs (target hoists `addiu s6,0,5` before `addiu s0,s1,4`; reg alloc s0/s4 swapped: target s0=&D_8002D2B4 hi, s5 copy, s4=&D_8005E9F0 hi). Next step: try a local pointer to D_8002D2B4/D_8005E9F0 or reorder p init.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795234812.621231,
+  "score_before": 3453,
+  "score_after": 320,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:5f408c9facb8b8433e1dea251d0718e9a4dc70cf65b835f10867b2a630e3d926"
+ },
+ {
+  "function": "func_802D3CC4",
+  "text": "Best 1115 (u8 D_21AB8C[] with i*4+1, s16 cast for <0 test). Target: D_80045C3C read as lbu, no andi, store of i+1 BEFORE table loads, i*4 recomputed twice, D_80075F20 base via lui + later addiu a1 (struct/array). Tried struct E{u8 a,b,c,d}, s32 i (store sunk into branch -> fewer insns), volatile (adds andi), D_80045C3C++ form. Next step: try `u8 *` pointer-based form: p=&D_21AB8C[...]; or D_80075F20 as s16/u8[2] with index expression, and get lh via s16 table struct {s16 h; s16 l;}.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795237071.2768,
+  "score_before": 1595,
+  "score_after": 1115,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cfa029bba05bccc4cb4c1b72db8e9a060fbf31a6b6f58efed33262dcacde867f"
  }
 ]

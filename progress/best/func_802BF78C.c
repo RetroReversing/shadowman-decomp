@@ -29,6 +29,7 @@ extern u8 D_8007BDF8;
 extern M2C_UNK D_8007BEA8;
 
 void func_802BF78C(void *arg0) {
+    M2C_UNK *__base_D_80075518;
     void * __repair_hoisted;
 
     s32 *__base_D_8005EA2C;
@@ -41,16 +42,16 @@ void func_802BF78C(void *arg0) {
     void *temp_v0;
 
     __repair_hoisted = M2C_FIELD(arg0, void **, 8);
-    if ((D_80074BF4 & 2) && (M2C_FIELD(&D_80075518, s16 *, 4) != 0xB0) && (D_8007BDF8 != 0) && (D_800752D0 == 0) && ((temp_s1 = __repair_hoisted, !(D_80045440 > 0.0f)) || (temp_v0 = (D_80072BE4 << 6) + M2C_FIELD(&D_80075518, s32 *, 0x40), temp_fv0f = M2C_FIELD(temp_v0, f32 *, 0x24) - M2C_FIELD(&D_8007BEA8, f32 *, 0), temp_fv1f = M2C_FIELD(temp_v0, f32 *, 0x28) - M2C_FIELD(&D_8007BEA8, f32 *, 4), temp_fv0 = M2C_FIELD(temp_v0, f32 *, 0x2C) - M2C_FIELD(&D_8007BEA8, f32 *, 8), !(((temp_fv0f * temp_fv0f) + (temp_fv1f * temp_fv1f) + (temp_fv0 * temp_fv0)) < D_80045440)))) {
+    if ((D_80074BF4 & 2) && (M2C_FIELD((__base_D_80075518 = &D_80075518), s16 *, 4) != 0xB0) && (D_8007BDF8 != 0) && (D_800752D0 == 0) && ((temp_s1 = __repair_hoisted, !(D_80045440 > 0.0f)) || (temp_v0 = (D_80072BE4 << 6) + M2C_FIELD(__base_D_80075518, s32 *, 0x40), temp_fv0f = M2C_FIELD(temp_v0, f32 *, 0x24) - M2C_FIELD(&D_8007BEA8, f32 *, 0), temp_fv1f = M2C_FIELD(temp_v0, f32 *, 0x28) - M2C_FIELD(&D_8007BEA8, f32 *, 4), temp_fv0 = M2C_FIELD(temp_v0, f32 *, 0x2C) - M2C_FIELD(&D_8007BEA8, f32 *, 8), !(((temp_fv0f * temp_fv0f) + (temp_fv1f * temp_fv1f) + (temp_fv0 * temp_fv0)) < D_80045440)))) {
         __base_D_8005EA2C = &D_8005EA2C;
         func_802397D0((*__base_D_8005EA2C) + 0x3C);
         func_8023AFD0(temp_s1);
         func_8023B094(temp_s1);
-        func_802398C8(M2C_FIELD(&D_80075518, s32 *, 0x40) + (D_80072BE4 << 6), temp_s1 + 0x34, sp10);
+        func_802398C8(M2C_FIELD(__base_D_80075518, s32 *, 0x40) + (D_80072BE4 << 6), temp_s1 + 0x34, sp10);
         temp_a0 = (*__base_D_8005EA2C) + 0x3C;
         func_802398C8(temp_a0, sp10, temp_a0);
         D_8002C1B0 = M2C_FIELD(temp_s1, s32 *, 0x80);
         func_802244AC(temp_s1, 1);
-        func_8023981C((*__base_D_8005EA2C) + 0x3C);
+        do { func_8023981C((*__base_D_8005EA2C) + 0x3C); } while (0);
     }
 }
