@@ -1202,15 +1202,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:eec0d01b79f24ffd290abb6122f590ab943f8f0664b77e6314f88ef7f0d39399"
  },
  {
-  "function": "func_802DCFB4",
-  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795237204.406174,
-  "score_before": 20,
-  "score_after": 10,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:08e6f5412b3e059b9a0d1460893afd8091022489f0934ab81959d331942520a5"
- },
- {
   "function": "func_802CF268",
   "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: register allocation; first differing row 8; 2 differing rows (2 register; advisory).\nTarget: lui $v0, 0x21\nCandidate: lui $a2, 0x21\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = lui $a0, %hi(D_8007558C)\n  = addiu $a0, $a0, %lo(D_8007558C)\nr T: lui $v0, 0x21 | C: lui $a2, 0x21\nr T: lh $a2, 0x6c56($v0) | C: lh $a2, 0x6c56($a2)\n  = jal func_80109918\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1719,5 +1710,14 @@
   "score_before": 755,
   "score_after": 200,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:45484f49aa45bba6b1e407bba463421a143ee5717b41d8e601fd9dc3940ec3db"
+ },
+ {
+  "function": "func_802DCFB4",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795237204.406174,
+  "score_before": 20,
+  "score_after": 10,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:08e6f5412b3e059b9a0d1460893afd8091022489f0934ab81959d331942520a5"
  }
 ]

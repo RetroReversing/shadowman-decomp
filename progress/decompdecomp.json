@@ -8398,6 +8398,19 @@
    "timeout": 20,
    "function": "func_802C93DC",
    "vram": 2150405084
+  },
+  "32295828:2150485940": {
+   "toolchain": "gcc-2.8.1-pm-sn-as",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-mgp32",
+    "-mfp32",
+    "-O2"
+   ],
+   "timeout": 20,
+   "function": "func_802DCFB4",
+   "vram": 2150485940
   }
  },
  "instructions": "",
@@ -8451,7 +8464,8 @@
   "exact_match_42949674544_28": "common_exact_match_42949674544_28.h",
   "code_80103060_013070": "common_code_80103060_013070.h",
   "code_80103060_011564": "common_code_80103060_011564.h",
-  "code_80103060_016E00": "common_code_80103060_016E00.h"
+  "code_80103060_016E00": "common_code_80103060_016E00.h",
+  "code_802D7DD0": "common_code_802D7DD0.h"
  },
  "functions": {
   "func_80103060": {
@@ -18531,8 +18545,8 @@
   },
   "func_802DCFB4": {
    "vram": 2150485940,
-   "best_score": 10,
-   "best_by": "api-claude-sonnet-5-5-3"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_802DD030": {
    "vram": 2150486064,
