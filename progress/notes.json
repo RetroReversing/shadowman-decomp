@@ -609,15 +609,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2f9151054bd623b40848bf57222fb08f292861a551d567b06c008adf4ab33458"
  },
  {
-  "function": "func_80265464",
-  "text": "Best C `return D_800754F0 > 5.0f;` score 20: only diff is constant reference \u2014 target uses lui $at,0x21 / lwc1 -0x2150($at) (abs addr 0x20DEB0, no symbol/rom data; probably unlinked .rdata literal address from original link), mine uses .rdata reloc. Using *(float*)0x20DEB0 or extern D_0020DEB0 reorders loads and is worse (220-235). Next step: find a way to make the literal land at 0x20DEB0 (linker/rdata placement), probably not fixable in C.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795225113.2997801,
-  "score_before": 235,
-  "score_after": 20,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:527f6a0c2448957149b5bdfc5fe9efee393e8de9a432e977fae29fd05e034182"
- },
- {
   "function": "func_8027280C",
   "text": "[Released without compiling it once; notes not checked by a compile.] Not standalone: a switch-case tail merged with neighbours (func_802727EC..func_80272828 jump to shared epilogue at func_80272810 and use the caller's stack frame/ra). The real function starts earlier (before 0x802727A0). Needs boundary merge, not C for this piece.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1719,5 +1710,14 @@
   "score_before": 205,
   "score_after": 0,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:426924166aade2fd9cf07b7488b1dcbe95b4331f812f4e5d5117b8c52c2b2e43"
+ },
+ {
+  "function": "func_80265464",
+  "text": "Best C `return D_800754F0 > 5.0f;` score 20: only diff is constant reference \u2014 target uses lui $at,0x21 / lwc1 -0x2150($at) (abs addr 0x20DEB0, no symbol/rom data; probably unlinked .rdata literal address from original link), mine uses .rdata reloc. Using *(float*)0x20DEB0 or extern D_0020DEB0 reorders loads and is worse (220-235). Next step: find a way to make the literal land at 0x20DEB0 (linker/rdata placement), probably not fixable in C.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795225113.2997801,
+  "score_before": 235,
+  "score_after": 20,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:527f6a0c2448957149b5bdfc5fe9efee393e8de9a432e977fae29fd05e034182"
  }
 ]

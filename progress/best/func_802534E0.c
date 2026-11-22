@@ -46,7 +46,7 @@ void func_802534E0(void *arg0, void *arg1) {
     var_fs2f = (f32) M2C_FIELD(var_a0, s16 *, 4);
     var_fs1f = var_fs2f;
     if ((s32) temp_v1_2 > 1) {
-        var_v1 = var_a0 + 4;
+        var_v1 = (void *) ((4) + (s32) var_a0);
         var_a0 += 3;
         do {
             temp_fv0 = (f32) *var_a0;

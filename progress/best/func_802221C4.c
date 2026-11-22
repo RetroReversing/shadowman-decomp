@@ -23,16 +23,16 @@ void func_802221C4(void *arg0) {
     s32 temp_v1;
 
     temp_v1 = M2C_FIELD(arg0, s32 *, 0);
-    switch (temp_v1) {                              /* irregular */
-    case 1:
-        func_801146B4(D_80058FB4, arg0);
-        func_80222244();
-        return;
+    switch ((u32)temp_v1) {                              /* irregular */
     default:
         func_80222244(arg0);
         return;
     case 0:
         func_80114878(D_80058F08, D_80058F08 + 0xAC, M2C_FIELD(arg0, u8 *, 4));
+        func_80222244();
+        return;
+    case 1:
+        func_801146B4(D_80058FB4, arg0);
         func_80222244();
         return;
     case 2:

@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,25 +10,27 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 
-extern M2C_UNK D_8004AEB8;
+extern char D_8004AEB8[];
 extern void *D_8004AEC0;
 
+typedef struct { unsigned char pad[12]; int value; } __repair_field_C;
 void func_80105EE8(void *arg0) {
     s32 temp_v1;
 
-    M2C_FIELD(arg0, s32 *, 0xC) = 0;
+    ((__repair_field_C *)arg0)->value = 0;
     temp_v1 = *M2C_FIELD(arg0, s32 **, 0);
     switch (temp_v1) {                              /* irregular */
     case 2:
         D_8004AEC0 = arg0;
         return;
     case 1:
-        if (M2C_FIELD(&D_8004AEB8, void **, 0xC) == NULL) {
-            M2C_FIELD(&D_8004AEB8, void **, 0xC) = arg0;
+        if (((__repair_field_C *)D_8004AEB8)->value == NULL) {
+            ((__repair_field_C *)D_8004AEB8)->value = arg0;
             return;
         }
-        M2C_FIELD(M2C_FIELD(&D_8004AEB8, void **, 0xC), void **, 0xC) = arg0;
+        M2C_FIELD(((__repair_field_C *)D_8004AEB8)->value, void **, 0xC) = arg0;
         return;
     }
 }
