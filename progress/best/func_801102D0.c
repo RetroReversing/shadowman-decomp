@@ -16,7 +16,7 @@ void func_801102D0(void *synth, void *voice, s32 vol, s32 t)
     void (*handler)(void *, s32, void *);
 
     if (*(char **)((char *)voice + 8) != NULL) {
-        p = __allocParam(synth);
+        p = __allocParam();
         if (p != NULL) {
             unit = *(char **)((char *)voice + 8);
             synthTime = *(s32 *)((char *)synth + 0x1C);

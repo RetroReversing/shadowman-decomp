@@ -1,4 +1,19 @@
-/* adapted from similar verified C in alSynNew in PENNY RACERS (matched), with its names changed by decompdecomp */
+/* adapted from similar verified C in alSynNew in FIFA 99 (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in DR.MARIO 64 (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_80006930 in Donald Duck Goin' Qu (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in DESTRUCT DERBY (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_800A01E0 in CyberTiger (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in CruisnExotica (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_800691F0 in Command&Conquer (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in Clayfighter SC (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in CHARLIE BLAST'S (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in Bust A Move 2 (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in Bust A Move '99 (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in A Bug's Life (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in Bottom of the 9th (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_80044C60 in BATTLEZONE (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_8006C668 in Asteroids Hyper 64 (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_801104B0 in PENNY RACERS (local match library) (matched), with its names changed by decompdecomp */
 /* identical to func_801104B0 in V-RALLY-PAL (local match library) (matched), with its names changed by decompdecomp */
 /* identical to func_801104B0 in V-RALLY (matched), with its names changed by decompdecomp */
  
@@ -3019,7 +3034,7 @@ typedef struct {
 
 
 void    alHeapInit(ALHeap *hp, u8 *base, s32 len);
-void    *alHeapDBAlloc(u8 *file, s32 line, ALHeap *hp, s32 num, s32 size);
+void    *func_8010EED0(u8 *file, s32 line, ALHeap *hp, s32 num, s32 size);
 s32     alHeapCheck(ALHeap *hp);
 
 
@@ -3255,7 +3270,7 @@ void    alSynSetFXMix(ALSynth *s, ALVoice *voice, u8 fxmix);
 void    alSynSetPriority(ALSynth *s, ALVoice *voice, s16 priority);
 s16     alSynGetPriority(ALSynth *s, ALVoice *voice);
 
-ALFxRef *alSynAllocFX(ALSynth *s, s16 bus, ALSynConfig *c, ALHeap *hp);
+ALFxRef *func_80113200(ALSynth *s, s16 bus, ALSynConfig *c, ALHeap *hp);
 ALFxRef alSynGetFXRef(ALSynth *s, s16 bus, s16 index);
 void    alSynFreeFX(ALSynth *s, ALFxRef *fx);
 void    alSynSetFXParam(ALSynth *s, ALFxRef fx, s16 paramID, void *param);
@@ -4009,10 +4024,10 @@ typedef struct {
     s32                         memin;
 } ALLoadFilter;
 
-void    func_801110E4(ALLoadFilter *f, ALDMANew dma, ALHeap *hp);
+void    alLoadNew(ALLoadFilter *f, ALDMANew dma, ALHeap *hp);
 Acmd    *alAdpcmPull(void *f, s16 *outp, s32 byteCount, s32 sampleOffset, Acmd *p);
 Acmd    *alRaw16Pull(void *f, s16 *outp, s32 byteCount, s32 sampleOffset, Acmd *p);
-s32     alLoadParam(void *filter, s32 paramID, void *param);
+s32     func_80119E54(void *filter, s32 paramID, void *param);
 
 typedef struct ALResampler_s {
     ALFilter            filter;
@@ -4077,7 +4092,7 @@ typedef struct ALMainBus_s {
 
 void    alMainBusNew(ALMainBus *m, void *ptr, s32 len);
 Acmd    *alMainBusPull(void *f, s16 *outp, s32 outCount, s32 sampleOffset, Acmd *p);
-s32     func_80036C70(void *filter, s32 paramID, void *param);
+s32     func_80112280(void *filter, s32 paramID, void *param);
 
 
 
@@ -4091,11 +4106,11 @@ typedef struct ALAuxBus_s {
 
 void    alAuxBusNew(ALAuxBus *m, void *ptr, s32 len);
 Acmd    *alAuxBusPull(void *f, s16 *outp, s32 outCount, s32 sampleOffset, Acmd *p);
-s32     func_80035ADC(void *filter, s32 paramID, void *param);
+s32     func_80110C1C(void *filter, s32 paramID, void *param);
 
-void    alResampleNew(ALResampler *r, ALHeap *hp);
+void    func_8011124C(ALResampler *r, ALHeap *hp);
 Acmd    *alResamplePull(void *f, s16 *outp, s32 out, s32 sampleOffset, Acmd *p);
-s32     alResampleParam(void *f, s32 paramID, void *param);
+s32     func_80112470(void *f, s32 paramID, void *param);
 
 typedef struct ALSave_s {
     ALFilter            filter;
@@ -4105,7 +4120,7 @@ typedef struct ALSave_s {
 
 void    alSaveNew(ALSave *r);
 Acmd    *alSavePull(void *f, s16 *outp, s32 outCount, s32 sampleOffset, Acmd *p);
-s32     alSaveParam(void *f, s32 paramID, void *param);
+s32     func_80012190(void *f, s32 paramID, void *param);
 
 typedef struct ALEnvMixer_s {
     ALFilter            filter;
@@ -4131,9 +4146,9 @@ typedef struct ALEnvMixer_s {
     s32                 motion;
 } ALEnvMixer;
 
-void    alEnvmixerNew(ALEnvMixer *e, ALHeap *hp);
+void    func_8011131C(ALEnvMixer *e, ALHeap *hp);
 Acmd    *alEnvmixerPull(void *f, s16 *outp, s32 out, s32 sampleOffset, Acmd *p);
-s32     alEnvmixerParam(void *filter, s32 paramID, void *param);
+s32     func_80111EF8(void *filter, s32 paramID, void *param);
 
 
  
@@ -4252,7 +4267,7 @@ void func_801104B0(ALSynth *drvr, ALSynConfig *c)
     drvr->maxOutSamples   = 160 ;
     drvr->dma             = (ALDMANew) c->dmaproc;
 
-    save = alHeapDBAlloc(0, 0,( hp ),(  1 ),(  sizeof(ALSave) )) ;
+    save = func_8010EED0(0, 0,( hp ),(  1 ),(  sizeof(ALSave) )) ;
     alSaveNew(save);
     drvr->outputFilter = (ALFilter *)save;
 
@@ -4260,28 +4275,28 @@ void func_801104B0(ALSynth *drvr, ALSynConfig *c)
 
 
 
-    drvr->auxBus = alHeapDBAlloc(0, 0,( hp ),(  1 ),(  sizeof(ALAuxBus) )) ;
+    drvr->auxBus = func_8010EED0(0, 0,( hp ),(  1 ),(  sizeof(ALAuxBus) )) ;
     drvr->maxAuxBusses = 1;
-    sources = alHeapDBAlloc(0, 0,( hp ),(  c->maxPVoices ),(  sizeof(ALFilter *) )) ;
+    sources = func_8010EED0(0, 0,( hp ),(  c->maxPVoices ),(  sizeof(ALFilter *) )) ;
     alAuxBusNew(drvr->auxBus, sources, c->maxPVoices);
 
      
 
 
-    drvr->mainBus = alHeapDBAlloc(0, 0,( hp ),(  1 ),(  sizeof(ALMainBus) )) ;
-    sources = alHeapDBAlloc(0, 0,( hp ),(  c->maxPVoices ),(  sizeof(ALFilter *) )) ;
+    drvr->mainBus = func_8010EED0(0, 0,( hp ),(  1 ),(  sizeof(ALMainBus) )) ;
+    sources = func_8010EED0(0, 0,( hp ),(  c->maxPVoices ),(  sizeof(ALFilter *) )) ;
     alMainBusNew(drvr->mainBus, sources, c->maxPVoices);
 
     if (c->fxType != 0 ){
          
 
 
-        alSynAllocFX(drvr, 0, c, hp);
+        func_80113200(drvr, 0, c, hp);
     } else
          
 
 
-    	func_80036C70(drvr->mainBus, AL_FILTER_ADD_SOURCE, &drvr->auxBus[0]);
+    	func_80112280(drvr->mainBus, AL_FILTER_ADD_SOURCE, &drvr->auxBus[0]);
 
      
 
@@ -4293,32 +4308,32 @@ void func_801104B0(ALSynth *drvr, ALSynConfig *c)
     drvr->pAllocList.next = 0;
     drvr->pAllocList.prev = 0;
 
-    pvoices = alHeapDBAlloc(0, 0,( hp ),(  c->maxPVoices ),(  sizeof(PVoice) )) ;
+    pvoices = func_8010EED0(0, 0,( hp ),(  c->maxPVoices ),(  sizeof(PVoice) )) ;
     for (i = 0; i < c->maxPVoices; i++) {
         pv = &pvoices[i];
         alLink((ALLink *)pv, &drvr->pFreeList);
         pv->vvoice = 0;
 
-        func_801110E4(&pv->decoder, drvr->dma, hp);
-        alLoadParam(&pv->decoder, AL_FILTER_SET_SOURCE, 0);
+        alLoadNew(&pv->decoder, drvr->dma, hp);
+        func_80119E54(&pv->decoder, AL_FILTER_SET_SOURCE, 0);
 
-        alResampleNew(&pv->resampler, hp);
-        alResampleParam(&pv->resampler, AL_FILTER_SET_SOURCE, &pv->decoder);
+        func_8011124C(&pv->resampler, hp);
+        func_80112470(&pv->resampler, AL_FILTER_SET_SOURCE, &pv->decoder);
 
-        alEnvmixerNew(&pv->envmixer, hp);
-        alEnvmixerParam(&pv->envmixer, AL_FILTER_SET_SOURCE, &pv->resampler);
+        func_8011131C(&pv->envmixer, hp);
+        func_80111EF8(&pv->envmixer, AL_FILTER_SET_SOURCE, &pv->resampler);
 
-        func_80035ADC(drvr->auxBus, AL_FILTER_ADD_SOURCE, &pv->envmixer);
+        func_80110C1C(drvr->auxBus, AL_FILTER_ADD_SOURCE, &pv->envmixer);
 
         pv->channelKnob   = (ALFilter *)&pv->envmixer;
     }
 
-    alSaveParam(save, AL_FILTER_SET_SOURCE, drvr->mainBus);
+    func_80012190(save, AL_FILTER_SET_SOURCE, drvr->mainBus);
 
      
 
 
-    params = alHeapDBAlloc(0, 0,( hp ),(  c->maxUpdates ),(  sizeof(ALParam) )) ;
+    params = func_8010EED0(0, 0,( hp ),(  c->maxUpdates ),(  sizeof(ALParam) )) ;
     drvr->paramList = 0;
     for (i = 0; i < c->maxUpdates; i++) {
         paramPtr= &params[i];

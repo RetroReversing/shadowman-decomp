@@ -1,6 +1,12 @@
-/* adapted from similar verified C in __osPfsDeclearPage in PENNY RACERS (matched), with its names changed by decompdecomp */
+/* adapted from similar verified C in __osPfsDeclearPage in FIFA 99 (matched), with its names changed by decompdecomp */
+/* identical to func_802DC3F4 in CyberTiger (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_802DC3F4 in Bust A Move 2 (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_800A3760 in Bust A Move '99 (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_802DC3F4 in A Bug's Life (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_802DC3F4 in Bottom of the 9th (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_802DC3F4 in PENNY RACERS (local match library) (matched), with its names changed by decompdecomp */
 /* identical to func_800099D0 in Resident Evil II (local match library) (matched), with its names changed by decompdecomp */
-s32 __osClearPage(u8 *, s32, s32, u8);
+s32 func_802DC5C0(u8 *, s32, s32, u8);
 
 s32 func_802DC3F4(u8 *arg0, u16 *arg1, s32 arg2, s32 *arg3, u8 arg4, s32 *arg5, s32 *arg6) {
     u8 buf[0x20];
@@ -39,7 +45,7 @@ s32 func_802DC3F4(u8 *arg0, u16 *arg1, s32 arg2, s32 *arg3, u8 arg4, s32 *arg5, 
                 u8 *p = (u8 *)(arg1 + prev);
                 p[0] = arg4;
                 p[1] = i;
-                ret = __osClearPage(arg0, prev, (s32)buf, arg4 & 0xFF);
+                ret = func_802DC5C0(arg0, prev, (s32)buf, arg4 & 0xFF);
                 if (ret != 0) {
                     return ret;
                 }
@@ -58,7 +64,7 @@ s32 func_802DC3F4(u8 *arg0, u16 *arg1, s32 arg2, s32 *arg3, u8 arg4, s32 *arg5, 
         u16 *q = arg1 + prev;
         *q = 1;
     }
-    ret = __osClearPage(arg0, prev, (s32)buf, arg4);
+    ret = func_802DC5C0(arg0, prev, (s32)buf, arg4);
     *arg6 = 0;
     return ret;
 }

@@ -1,4 +1,3 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,6 +10,7 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 
 s32 func_801043F8();
 s32 func_802333B8();
@@ -29,17 +29,17 @@ void func_802332F8(s32 arg0, s32 arg1, s32 arg2, void *arg3) {
     s32 var_v0_2;
     s32 var_v0_3;
     void *temp_v1_2;
-    void *var_a1;
+    
     void *var_a3;
 
-    var_a3 = arg3;
     var_a0 = 0;
     var_a2 = 0;
+    var_a3 = arg3;
     if (M2C_FIELD(D_8005E9F0, s16 *, 0x20) > 0) {
         var_a3 = D_8005E9F0;
-        var_a1 = M2C_FIELD(var_a3, void **, 8);
+        temp_v1_2 = M2C_FIELD(var_a3, void **, 8);
         __repair_rows: {
-            if (M2C_FIELD(var_a1, s32 *, 0x20) == 0) {
+            if (M2C_FIELD(temp_v1_2, s32 *, 0x20) == 0) {
                 temp_v1 = M2C_FIELD(var_a3, s16 *, 0x20);
                 var_v0 = temp_v1 + 7;
                 if (var_v0 < 0) {
@@ -47,8 +47,8 @@ void func_802332F8(s32 arg0, s32 arg1, s32 arg2, void *arg3) {
                 }
                 var_a0 += var_v0 >> 3;
             }
+            temp_v1_2 += 0x28;
             var_a2 += 1;
-            var_a1 += 0x28;
         }
 if (var_a2 < M2C_FIELD(D_8005E9F0, s16 *, 0x20)) goto __repair_rows;
     }

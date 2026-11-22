@@ -1,3 +1,4 @@
+/* adapted from similar verified C in func_802BAAF8 in Shadowman (matched), with its names changed by decompdecomp */
 /* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
@@ -13,11 +14,9 @@ typedef s32 M2C_UNK32;
 #endif
 
 M2C_UNK func_801104B0();                            /* extern */
-extern s32 D_80027410;
+extern s32 D_8006A5B4;
 
-void func_8010EFB0(s32 arg0) {
-    if (D_80027410 == 0) {
-        D_80027410 = arg0;
-        func_801104B0();
-    }
+void func_8010EFB0(void) {
+    D_8006A5B4 = 1;
+    func_801104B0();
 }

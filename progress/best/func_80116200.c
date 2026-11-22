@@ -1,28 +1,25 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+/* adapted from similar verified C in osViSetMode in PENNY RACERS (matched), with its names changed by decompdecomp */
+/* identical to func_80116200 in V-RALLY-PAL (local match library) (matched), with its names changed by decompdecomp */
+/* identical to func_80116200 in V-RALLY (matched), with its names changed by decompdecomp */
+/* identical to func_8008F260 in V-RALLY (matched), with its names changed by decompdecomp */
 
-s32 func_80118330();                                /* extern */
-M2C_UNK func_80118350(s32);                 /* extern */
+s32 func_80118330();
+s32 func_80118350();
 extern void *D_80027784;
-
-typedef struct { short field_0; unsigned char pad_2[6]; void * field_8; int field_C; } __repair_record_D_80027784;
-void func_80116200(void *arg0) {
-    s32 temp_v0;
-
-    temp_v0 = func_80118330();
-    ((__repair_record_D_80027784*)D_80027784)->field_8 = arg0;
-    ((__repair_record_D_80027784*)D_80027784)->field_0 = 1;
-    ((__repair_record_D_80027784*)D_80027784)->field_C = (s32) M2C_FIELD(arg0, s32 *, 4);
-    func_80118350(temp_v0);
+void func_80116200(void *arg0)
+{
+  void *new_var3;
+  void **new_var2;
+  char *new_var;
+  s32 temp_v0;
+  void *temp_a1;
+  temp_v0 = func_80118330();
+  new_var = (char *) D_80027784;
+  *((void **) (((char *) D_80027784) + 8)) = arg0;
+  ;
+  new_var2 = (void **) (((char *) D_80027784) + 8);
+  *((s16 *) (new_var + 0)) = 1;
+  new_var3 = *new_var2;
+  *((s32 *) (new_var + 0xC)) = (s32) (*((s32 *) (((char *) (*new_var2)) + 4)));
+  func_80118350(temp_v0, new_var3);
 }

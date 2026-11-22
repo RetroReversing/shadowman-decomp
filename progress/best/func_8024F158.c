@@ -22,12 +22,14 @@ extern f32 D_80074BC0;
 
 typedef struct { unsigned char pad[36]; int value; } __repair_field_24;
 void func_8024F158(void *arg0) {
+    struct {
+        s32 f20;
+        f32 f24;
+        s32 f28;
+    } __repair_frame;
     u16 __repair_store_0;
     f32 __repair_store_1;
     s32 sp10[3];
-    s32 sp20;
-    f32 sp24;
-    s32 sp28;
     f32 temp_fs0;
     f32 temp_fv0;
     f32 temp_fv0f;
@@ -57,21 +59,22 @@ void func_8024F158(void *arg0) {
         temp_fs0 = *(f32 *)0x2030EC;
         sp10[1] += M2C_FIELD(temp_s0, f32 *, 0x10);
         sp10[2] = ((__repair_field_24 *)temp_s0)->value;
-        sp20 = sp10[2];
-        sp24 = M2C_FIELD(temp_s0, f32 *, 0x28);
-        sp28 = M2C_FIELD(temp_s0, s32 *, 0x2C);
-        sp24 += temp_fs0;
-        temp_fv0 = func_802403D4(&sp20, sp10, 0x3F800000, sp10[2]);
+        __repair_frame.f20 = sp10[2];
+        __repair_frame.f24 = M2C_FIELD(temp_s0, f32 *, 0x28);
+        __repair_frame.f28 = M2C_FIELD(temp_s0, s32 *, 0x2C);
+        __repair_frame.f24 += temp_fs0;
+        temp_fv0 = func_802403D4(&__repair_frame, sp10, 0x3F800000, sp10[2]);
         if (temp_fv0 != 0.0f) {
             var_v0 = var_s1 & 0xFF;
             if (D_8006A588 != 0) {
-                if (!(temp_fs0 < temp_fv0)) {
-                    M2C_FIELD(temp_s0, f32 *, 0x10) = 0.0f;
-                    goto block_17;
-                }
+                if (temp_fs0 < temp_fv0) {
                 func_8024F28C();
                 return;
             }
+                else {
+                    M2C_FIELD(temp_s0, f32 *, 0x10) = 0.0f;
+                    goto block_17;
+                }}
             goto block_17;
         }
         if (D_8006A588 != 0) {

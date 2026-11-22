@@ -1,4 +1,5 @@
-/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
+/* identical to func_80094C08 in EARTHWORM JIM 3D (local match library) (matched), with its names changed by decompdecomp */
+/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -15,6 +16,9 @@ typedef s32 M2C_UNK32;
 extern void *D_80027410;
 
 void func_80110964(M2C_UNK *arg0) {
-    *arg0 = M2C_FIELD(D_80027410, M2C_UNK **, 0x2C);
-    M2C_FIELD(D_80027410, M2C_UNK **, 0x2C) = arg0;
+    void *__repair_link_base;
+
+    __repair_link_base = D_80027410;
+    *arg0 = M2C_FIELD(__repair_link_base, M2C_UNK **, 0x2C);
+    M2C_FIELD(__repair_link_base, M2C_UNK **, 0x2C) = arg0;
 }

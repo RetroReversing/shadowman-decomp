@@ -524,15 +524,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:fcbc02e44ac32399ab96b5faa8ca964a68d19ab9bc41e4e2473a80ad0b67fe37"
  },
  {
-  "function": "func_80114438",
-  "text": "Best 340 (rev 763d3e360f4a43c2e2fa): 8-byte unaligned struct copy (struct of u8[8]) in loop, pointer-increment form (In *p, Out *o). Remaining: target keeps &D_8004EDEC in a register ($v1, copied to t2 for loop test), and uses t0=copy of arg1, a1+=2 in place; mine uses addiu a2,a1,2 and lui/lbu with %lo. Tried cnt pointer, arg1 as u8* with separate short* o, gcc-2.8.1-pm-sn-as: all worse. Next step: perhaps D_8004EDEC is a struct member (count then entries) or global accessed via different declaration (e.g. extern u8 D_8004EDEC[] ).",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795224684.832865,
-  "score_before": 985,
-  "score_after": 340,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:8635ed628add8098e035f043317afc1149eb9fe07ff8f3053bd6c5aaa1c2b34c"
- },
- {
   "function": "func_802727E4",
   "text": "Not a standalone function: 8-byte switch-case tail (j func_80272810; addiu $v1,0x50) belonging to func_802727A0's jump table (cases set $v1=0x64,0x50,0x3C,0x28,0x1E,0x14 then jump to shared tail func_80272810). Symbols func_802727E4..func_80272804 are fragments; should be merged into func_802727A0 (switch with $v1 as shared variable) and the shared tail func_8027280C/80272810.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1451,15 +1442,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:60ee9004d7b8baee755436808b22a10d0f119cd74014b8fd43bde43ce75ff398"
  },
  {
-  "function": "func_80237708",
-  "text": "Best 200 (rev e9a55e3599b4a4c687c6). Struct array {u8*p; int v;} at D_80061A20, count D_80069720. Remaining: target keeps lui a3 hi(D_80069720) and does lw before move a2,zero; ours uses lui v0/lw v1 + addiu a3. Clean struct-array C gave 765 (uses extra move a2,v1 base). Next step: try declaring D_80069720 base pointer differently or load count into a local before loop.\nclean struct array loop, base pointer var\nclean version 765 vs 200",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795241463.461091,
-  "score_before": 755,
-  "score_after": 200,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:45484f49aa45bba6b1e407bba463421a143ee5717b41d8e601fd9dc3940ec3db"
- },
- {
   "function": "func_80225570",
   "text": "Stuck at 555. Target loads D_800591E0 hi first (a1), uses and-mask reg a2=-0x41 reused as call arg, mult after the lw. Ours emits extra 'move a2,v1' and different lui order. Tried: temp locals, shared mask var, ~0x40, <<1, order swaps: all identical output. Next step: try declaring D_800591E0 differently (u32/volatile or via a struct/array symbol) or the multiply inside a macro-like inline with s16/u16 casts.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1503,15 +1485,6 @@
   "score_before": 490,
   "score_after": 40,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:fd24b73ca6814ad3504ebbd9077315972cc70352750ec4deade4c123f1c826ec"
- },
- {
-  "function": "func_80243E5C",
-  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: instruction order / control flow; first differing row 27; 10 differing rows (1 opcode, 6 register, 2 operand, 1 inserted; advisory).\nTarget: lw $v0, 0x1c($s0)\nCandidate: lw $v1, 0x1c($s0)\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = j func_80243E5C+0xc0\n  = sw $v0, 8($s0)\nr T: lw $v0, 0x1c($s0) | C: lw $v1, 0x1c($s0)\nr T: lw $v1, 0x38($s0) | C: lw $v0, 0x38($s0)\nr T: bltzl $v0, 0x7c | C: bltzl $v1, 0x7c\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795233407.869714,
-  "score_before": 2225,
-  "score_after": 295,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:6a36c08e3524d947161bc9b1d16c707b1ae6e571694641b9bc7296081bbebb22"
  },
  {
   "function": "func_8026B618",
@@ -1719,5 +1692,32 @@
   "score_before": 500,
   "score_after": 320,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2f9151054bd623b40848bf57222fb08f292861a551d567b06c008adf4ab33458"
+ },
+ {
+  "function": "func_80114438",
+  "text": "Best 340 (rev 763d3e360f4a43c2e2fa): 8-byte unaligned struct copy (struct of u8[8]) in loop, pointer-increment form (In *p, Out *o). Remaining: target keeps &D_8004EDEC in a register ($v1, copied to t2 for loop test), and uses t0=copy of arg1, a1+=2 in place; mine uses addiu a2,a1,2 and lui/lbu with %lo. Tried cnt pointer, arg1 as u8* with separate short* o, gcc-2.8.1-pm-sn-as: all worse. Next step: perhaps D_8004EDEC is a struct member (count then entries) or global accessed via different declaration (e.g. extern u8 D_8004EDEC[] ).",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795224684.832865,
+  "score_before": 985,
+  "score_after": 340,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:8635ed628add8098e035f043317afc1149eb9fe07ff8f3053bd6c5aaa1c2b34c"
+ },
+ {
+  "function": "func_80243E5C",
+  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: instruction order / control flow; first differing row 27; 10 differing rows (1 opcode, 6 register, 2 operand, 1 inserted; advisory).\nTarget: lw $v0, 0x1c($s0)\nCandidate: lw $v1, 0x1c($s0)\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = j func_80243E5C+0xc0\n  = sw $v0, 8($s0)\nr T: lw $v0, 0x1c($s0) | C: lw $v1, 0x1c($s0)\nr T: lw $v1, 0x38($s0) | C: lw $v0, 0x38($s0)\nr T: bltzl $v0, 0x7c | C: bltzl $v1, 0x7c\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795233407.869714,
+  "score_before": 2225,
+  "score_after": 295,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:6a36c08e3524d947161bc9b1d16c707b1ae6e571694641b9bc7296081bbebb22"
+ },
+ {
+  "function": "func_80237708",
+  "text": "Best 200 (rev e9a55e3599b4a4c687c6). Struct array {u8*p; int v;} at D_80061A20, count D_80069720. Remaining: target keeps lui a3 hi(D_80069720) and does lw before move a2,zero; ours uses lui v0/lw v1 + addiu a3. Clean struct-array C gave 765 (uses extra move a2,v1 base). Next step: try declaring D_80069720 base pointer differently or load count into a local before loop.\nclean struct array loop, base pointer var\nclean version 765 vs 200",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795241463.461091,
+  "score_before": 755,
+  "score_after": 200,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:45484f49aa45bba6b1e407bba463421a143ee5717b41d8e601fd9dc3940ec3db"
  }
 ]
