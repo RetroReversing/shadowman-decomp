@@ -842,15 +842,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:c2282a746698607fc3d2743e9be16dacbd344bb1be575228974ad4cddbaab7b1"
  },
  {
-  "function": "func_802703B0",
-  "text": "Best fresh attempt 880 (rev 4b70cb25a18df2e3dcfa), saved best 610 older. Float constant is absolute address: *(f32*)0x213F48 gives matching lui $at,0x21/lwc1 0x3f48. Remaining diff: target does lui a1 %hi(D_8006A4FC) early (before index calc) and lw a0 after lw D_80036944, uses v0 as element pointer, and loads D_8007AFF8 late. Mine reloads D_8006A4FC via lui v0 later. Tried: char* pointers, Rec struct ptr local, Ent array indexing with u16 arg (adds move). Next step: try declaring D_8006A4FC/D_80036944 as arrays or passing through different variable types (e.g. s32 D_8006A4FC cast), or moving the D_8006A4FC read before the multiplication expression.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795229089.6684978,
-  "score_before": 1075,
-  "score_after": 880,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:a9d910c99d207ffca9bb71d925d154ad74607a2a1bd5a1549380454c20d831ad"
- },
- {
   "function": "func_8024522C",
   "text": "Score 400: switch on arg0->8 with cases 1,0,2,3 matches except target uses beqz v1 / nop linear chain (case 0 test) where mine emits slti v1,2 / bnez range check. If-else chains worse (1120). Tried case orders, default. Next: try a switch with a side-effecting/different body for 0/2 or a ternary/flag structure making the compiler emit linear compares.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1701,5 +1692,14 @@
   "score_before": 1793,
   "score_after": 885,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:149bbe276f23233f9f9d38c1379d1a246031d28205dd8c9d40b0882f01be93bc"
+ },
+ {
+  "function": "func_802703B0",
+  "text": "Best fresh attempt 880 (rev 4b70cb25a18df2e3dcfa), saved best 610 older. Float constant is absolute address: *(f32*)0x213F48 gives matching lui $at,0x21/lwc1 0x3f48. Remaining diff: target does lui a1 %hi(D_8006A4FC) early (before index calc) and lw a0 after lw D_80036944, uses v0 as element pointer, and loads D_8007AFF8 late. Mine reloads D_8006A4FC via lui v0 later. Tried: char* pointers, Rec struct ptr local, Ent array indexing with u16 arg (adds move). Next step: try declaring D_8006A4FC/D_80036944 as arrays or passing through different variable types (e.g. s32 D_8006A4FC cast), or moving the D_8006A4FC read before the multiplication expression.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795229089.6684978,
+  "score_before": 1075,
+  "score_after": 880,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:a9d910c99d207ffca9bb71d925d154ad74607a2a1bd5a1549380454c20d831ad"
  }
 ]
