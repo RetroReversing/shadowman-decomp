@@ -94759,6 +94759,96 @@
    "vram": 2150485940,
    "unit": "code_802D7DD0",
    "mode": "rom"
+  },
+  "func_802DCE50": {
+   "format": 1,
+   "verdict": "exact",
+   "abi": {
+    "arch": "mips",
+    "big_endian": true,
+    "gp": 0,
+    "platform": "n64",
+    "rom_sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c"
+   },
+   "symbols_sha256": "a361712f532cff376852076f5eb3f44e4b25eac5491fa4aa97baedec65e3e759",
+   "recorded_at": 1795344514.6177092,
+   "attempt_id": 42949690334,
+   "source_sha256": "13ee22a61df5fade90108c30db5407da73c8c14fc8f629899715725f9be67141",
+   "header_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1",
+   "context_version": 1,
+   "compiler": {
+    "toolchain": "gcc-2.8.1-pm-sn-as",
+    "flags": [
+     "-G0",
+     "-mips3",
+     "-mgp32",
+     "-mfp32",
+     "-O2"
+    ],
+    "timeout": 20
+   },
+   "compiler_identity": {
+    "toolchain": "gcc-2.8.1-pm-sn-as",
+    "registry_sha256": "dfc1998493c6a377a88e4a7799a7b59132052d4fb00a7d3a2a8e069999bc1c58",
+    "install_sha256": "c4df1dcc4064a866ccf724118f2715b3e1e262b4a0effe2b5a515a4ad43c7f47",
+    "executables": {
+     "gcc": "1308f8fb042fce8f818b827162f797029c89cf06517a52050fba29827dfe937f",
+     "cc1": "3e64dd19b6f1132eea51cac90f8711f4a72a680e6ab0c6aab24d1f57a2db8408"
+    }
+   },
+   "settings": {
+    "mode": "rom",
+    "platform": "n64",
+    "compiler": {
+     "toolchain": "gcc-2.8.1-pm-sn-as",
+     "flags": [
+      "-G0",
+      "-mips3",
+      "-mgp32",
+      "-mfp32",
+      "-O2"
+     ],
+     "timeout": 20
+    },
+    "settings_source": "compile invocation snapshot",
+    "gp": 0,
+    "big_endian": true,
+    "rom": {
+     "sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c",
+     "game_code": "NSDE",
+     "region": "North America",
+     "byte_order": "z64"
+    },
+    "effective_command": [
+     "/Users/a/Documents/GitHub/decompdecomp-rr/.venv/bin/python",
+     "/Users/a/Documents/GitHub/decompdecomp-rr/src/decompnet/consoles/n64/sn64.py",
+     "--gcc",
+     "/Users/a/Library/Application Support/decompnet/toolchains/gcc-2.8.1-pm-sn-as/gcc",
+     "--assembler",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-272-0001/asn64.exe",
+     "--converter",
+     "/Users/a/Library/Application Support/decompnet/toolchains/psyq-obj-parser/psyq-obj-parser",
+     "--runner",
+     "/Users/a/Library/Application Support/decompnet/toolchains/wibo/wibo",
+     "{src}",
+     "{obj}",
+     "{include}",
+     "-G0",
+     "-mips3",
+     "-mgp32",
+     "-mfp32",
+     "-O2"
+    ],
+    "language": "c",
+    "context_unit": "",
+    "scoring_revision": "170c4ead954da020abb0b11063ac3fbb5ddc0ed8f4bb118b9d70786d3f484c9a",
+    "context_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1"
+   },
+   "target_sha256": "f2ebd207d17d8eee30cf2dec32b3b35ab52f27d5f8120b33aeb19cc3b3137b1a",
+   "relocations_sha256": "3eb45c5ef4a36702bfca09ffb138d9ec3d7715b92b0abade78d58fef270168d5",
+   "vram": 2150485584,
+   "unit": "code_802D7DD0",
+   "mode": "rom"
   }
  },
  "sources": {
@@ -95806,7 +95896,8 @@
   "0327926bf7d0c6203f5d833bdfbd84bdb97da998f6c55af810bf0e799bda87b7": "/* adapted from similar verified C in alFxPull in PENNY RACERS (matched), with its names changed by decompdecomp */\n/* adapted from similar verified C in func_80112530 in V-RALLY-PAL (matched), with its names changed by decompdecomp */\ntypedef struct { u32 w0, w1; } Acmd;\n\n#define _SHIFTL(v, s, w) ((u32)(((u32)(v) & ((0x01 << (w)) - 1)) << (s)))\n\n#define aSetBuffer(pkt, f, i, o, c) { Acmd *_a = (Acmd *)pkt; \\\n    _a->w0 = (_SHIFTL(8, 24, 8) | _SHIFTL(f, 16, 8) | _SHIFTL(i, 0, 16)); \\\n    _a->w1 = (_SHIFTL(o, 16, 16) | _SHIFTL(c, 0, 16)); }\n#define aMix(pkt, f, g, i, o) { Acmd *_a = (Acmd *)pkt; \\\n    _a->w0 = (_SHIFTL(12, 24, 8) | _SHIFTL(f, 16, 8) | _SHIFTL(g, 0, 16)); \\\n    _a->w1 = (_SHIFTL(i, 16, 16) | _SHIFTL(o, 0, 16)); }\n#define aClearBuffer(pkt, d, c) { Acmd *_a = (Acmd *)pkt; \\\n    _a->w0 = _SHIFTL(2, 24, 8) | _SHIFTL(d, 0, 24); \\\n    _a->w1 = (u32)(c); }\n#define aDMEMMove(pkt, i, o, c) { Acmd *_a = (Acmd *)pkt; \\\n    _a->w0 = _SHIFTL(10, 24, 8) | _SHIFTL(i, 0, 24); \\\n    _a->w1 = _SHIFTL(o, 16, 16) | _SHIFTL(c, 0, 16); }\n\ntypedef struct ALFilter_s {\n    struct ALFilter_s *source;\n    Acmd *(*handler)(void *, s16 *, s32, s32, Acmd *);\n    void *setParam;\n    s16 inp;\n    s16 outp;\n    s32 type;\n} ALFilter;\n\ntypedef struct {\n    u32 input;\n    u32 output;\n    s16 ffcoef;\n    s16 fbcoef;\n    s16 gain;\n    f32 rsinc;\n    f32 rsval;\n    s32 rsdelta;\n    f32 rsgain;\n    void *lp;\n    void *rs;\n} ALDelay;\n\ntypedef struct {\n    ALFilter filter;\n    s16 *base;\n    s16 *input;\n    u32 length;\n    ALDelay *delay;\n    u8 section_count;\n} ALFx;\n\nextern char D_00102360[];\nextern char D_00102364[];\nvoid func_80116750(char *, char *, s32);\nAcmd *func_80112CA8(ALFx *r, s16 *curr_ptr, s32 buff, s32 count, Acmd *p);\nAcmd *func_80112E2C(ALFx *r, s16 *curr_ptr, s32 buff, s32 count, Acmd *p);\nAcmd *func_80112AB0(ALFx *r, ALDelay *d, s32 buff, s32 incount, Acmd *p);\nAcmd *func_80112F9C(void *lp, s32 buff, s32 count, Acmd *p);\n\nAcmd *func_80112530(void *filter, s16 *outp, s32 outCount, s32 sampleOffset, Acmd *p)\n{\n    Acmd *ptr = p;\n    ALFx *r = (ALFx *)filter;\n    ALFilter *source = r->filter.source;\n    s16 i, buff1, buff2, input, output, tmp;\n    s16 *in_ptr, *out_ptr, *prev_out_ptr = 0;\n    ALDelay *d;\n\n    if (!source) {\n        func_80116750(D_00102360, D_00102364, 0x4B);\n    }\n    ptr = (*source->handler)(source, outp, outCount, sampleOffset, p);\n\n    input = 0x6C0;\n    output = 0x800;\n    buff1 = 0;\n    buff2 = 0x140;\n\n    aSetBuffer(ptr++, 0, 0, 0, outCount << 1);\n    aMix(ptr++, 0, 0xDA83, 0x6C0, input);\n    aMix(ptr++, 0, 0x5A82, 0x800, input);\n    ptr = func_80112CA8(r, r->input, input, outCount, ptr);\n    aClearBuffer(ptr++, output, outCount << 1);\n\n    for (i = 0; i < r->section_count; i++) {\n        d = &r->delay[i];\n        in_ptr = &r->input[-d->input];\n        out_ptr = &r->input[-d->output];\n\n        if (in_ptr == prev_out_ptr) {\n            tmp = buff2;\n            buff2 = buff1;\n            buff1 = tmp;\n        } else {\n            ptr = func_80112E2C(r, in_ptr, buff1, outCount, ptr);\n        }\n        ptr = func_80112AB0(r, d, buff2, outCount, ptr);\n\n        if (d->ffcoef) {\n            aMix(ptr++, 0, (u16)d->ffcoef, buff1, buff2);\n            if (!d->rs && !d->lp) {\n                ptr = func_80112CA8(r, out_ptr, buff2, outCount, ptr);\n            }\n        }\n        if (d->fbcoef) {\n            aMix(ptr++, 0, (u16)d->fbcoef, buff2, buff1);\n            ptr = func_80112CA8(r, in_ptr, buff1, outCount, ptr);\n        }\n        if (d->lp) {\n            ptr = func_80112F9C(d->lp, buff2, outCount, ptr);\n        }\n        if (!d->rs) {\n            ptr = func_80112CA8(r, out_ptr, buff2, outCount, ptr);\n        }\n        if (d->gain) {\n            aMix(ptr++, 0, (u16)d->gain, buff2, output);\n        }\n        prev_out_ptr = &r->input[d->output];\n    }\n\n    r->input += outCount;\n    if (r->input > &r->base[r->length]) {\n        r->input -= r->length;\n    }\n\n    aDMEMMove(ptr++, output, 0x6C0, outCount << 1);\n    return ptr;\n}\n",
   "b98c1940e5c9bf7259213740a4afc78c327c1388667839be4ad8c09a8cd5834b": "/* identical to func_80094C08 in EARTHWORM JIM 3D (local match library) (matched), with its names changed by decompdecomp */\n/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\nextern void *D_80027410;\n\nvoid func_80110964(M2C_UNK *arg0) {\n    void *__repair_link_base;\n\n    __repair_link_base = D_80027410;\n    *arg0 = M2C_FIELD(__repair_link_base, M2C_UNK **, 0x2C);\n    M2C_FIELD(__repair_link_base, M2C_UNK **, 0x2C) = arg0;\n}\n",
   "d6da4bea642891768cf5f47c54a5feaef6cd1ff4a2c4397d5db867a1991ded89": "/* adapted from similar verified C in osViSetMode in PENNY RACERS (matched), with its names changed by decompdecomp */\n/* identical to func_80116200 in V-RALLY-PAL (local match library) (matched), with its names changed by decompdecomp */\n/* identical to func_80116200 in V-RALLY (matched), with its names changed by decompdecomp */\n/* identical to func_8008F260 in V-RALLY (matched), with its names changed by decompdecomp */\n\ns32 func_80118330();\ns32 func_80118350();\nextern void *D_80027784;\nvoid func_80116200(void *arg0)\n{\n  void *new_var3;\n  void **new_var2;\n  char *new_var;\n  s32 temp_v0;\n  void *temp_a1;\n  temp_v0 = func_80118330();\n  new_var = (char *) D_80027784;\n  *((void **) (((char *) D_80027784) + 8)) = arg0;\n  ;\n  new_var2 = (void **) (((char *) D_80027784) + 8);\n  *((s16 *) (new_var + 0)) = 1;\n  new_var3 = *new_var2;\n  *((s32 *) (new_var + 0xC)) = (s32) (*((s32 *) (((char *) (*new_var2)) + 4)));\n  func_80118350(temp_v0, new_var3);\n}\n",
-  "afa6ca6dc3be929cf8184c059b01573c056ad93952977f191290770d7ff1c9da": "extern u8 D_8007E680[];\n\nvoid func_802DCFB4(s32 arg0, u8 *arg1) {\n    struct { u8 b[6]; } sp;\n    u8 *src;\n    s32 i;\n    u8 flag;\n\n    src = D_8007E680;\n    for (i = 0; i < arg0; i++) {\n        src++;\n    }\n    sp = *(typeof(sp) *)src;\n    flag = (sp.b[1] & 0xC0) >> 4;\n    arg1[3] = flag;\n    if (flag == 0) {\n        *(s16 *)arg1 = (s16)(sp.b[3] | (sp.b[4] << 8));\n        arg1[2] = sp.b[5];\n    }\n}\n"
+  "afa6ca6dc3be929cf8184c059b01573c056ad93952977f191290770d7ff1c9da": "extern u8 D_8007E680[];\n\nvoid func_802DCFB4(s32 arg0, u8 *arg1) {\n    struct { u8 b[6]; } sp;\n    u8 *src;\n    s32 i;\n    u8 flag;\n\n    src = D_8007E680;\n    for (i = 0; i < arg0; i++) {\n        src++;\n    }\n    sp = *(typeof(sp) *)src;\n    flag = (sp.b[1] & 0xC0) >> 4;\n    arg1[3] = flag;\n    if (flag == 0) {\n        *(s16 *)arg1 = (s16)(sp.b[3] | (sp.b[4] << 8));\n        arg1[2] = sp.b[5];\n    }\n}\n",
+  "13ee22a61df5fade90108c30db5407da73c8c14fc8f629899715725f9be67141": "extern u8 D_8007E680[];\ns32 func_80115800(s32, void *);\ns32 func_802DCF28(s32);\ns32 func_802DCFB4(s32, void *);\ns32 func_80116D80(s32, void *, s32);\n\ns32 func_802DCE50(s32 arg0, s32 arg1) {\n    u8 sp10[8];\n    u8 sp18[8];\n    s32 temp_s0;\n\n    func_802DCF28(arg1);\n    func_80115800(1, D_8007E680);\n    func_80116D80(arg0, sp18, 1);\n    temp_s0 = func_80115800(0, D_8007E680);\n    func_80116D80(arg0, sp18, 1);\n    func_802DCFB4(arg1, sp10);\n    if ((sp10[2] & 1) && (sp10[2] & 2)) {\n        return 2;\n    }\n    if ((*(u16 *)&sp10[2] & 0x1FF) != 0x100) {\n        return 1;\n    }\n    if (sp10[2] & 4) {\n        return 4;\n    }\n    return temp_s0;\n}\n"
  },
  "headers": {
   "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1": "/* context.h for Shadowman: shared by every function. Agents grow it with edit_context:\n * add a prototype or struct the moment you work one out, so the next function benefits. */\n\ntypedef signed char s8;\ntypedef unsigned char u8;\ntypedef signed short s16;\ntypedef unsigned short u16;\ntypedef signed int s32;\ntypedef unsigned int u32;\ntypedef signed long long s64;\ntypedef unsigned long long u64;\ntypedef float f32;\ntypedef double f64;\ntypedef volatile u8 vu8;\ntypedef volatile u16 vu16;\ntypedef volatile u32 vu32;\ntypedef volatile s32 vs32;\ntypedef int s32_bool;\n\n#define NULL ((void *)0)\n#define TRUE 1\n#define FALSE 0\n#define ARRAY_COUNT(arr) (s32)(sizeof(arr) / sizeof(arr[0]))\n",

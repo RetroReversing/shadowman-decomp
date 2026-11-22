@@ -1318,15 +1318,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:1662647893bbe8de44a775ae4b73c5fe545d665a95ec62cd3e63903a0096da84"
  },
  {
-  "function": "func_802DCE50",
-  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: register allocation; first differing row 11; 7 differing rows (7 register; advisory).\nTarget: lui $s1, 0x8008\nCandidate: lui $s0, 0x8008\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = sw $s0, 0x20($sp)\n  = addiu $a0, $zero, 1\nr T: lui $s1, 0x8008 | C: lui $s0, 0x8008\nr T: addiu $s1, $s1, -0x1980 | C: addiu $s0, $s0, -0x1980\n  = jal 0x115800\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795239667.431084,
-  "score_before": 105,
-  "score_after": 35,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:c51d506b8807bca46f785fbefd8a5d96d2d9d675a8f66830f602e75e9d1f24b5"
- },
- {
   "function": "func_802DABEC",
   "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1719,5 +1710,14 @@
   "score_before": 20,
   "score_after": 10,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:08e6f5412b3e059b9a0d1460893afd8091022489f0934ab81959d331942520a5"
+ },
+ {
+  "function": "func_802DCE50",
+  "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: register allocation; first differing row 11; 7 differing rows (7 register; advisory).\nTarget: lui $s1, 0x8008\nCandidate: lui $s0, 0x8008\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = sw $s0, 0x20($sp)\n  = addiu $a0, $zero, 1\nr T: lui $s1, 0x8008 | C: lui $s0, 0x8008\nr T: addiu $s1, $s1, -0x1980 | C: addiu $s0, $s0, -0x1980\n  = jal 0x115800\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795239667.431084,
+  "score_before": 105,
+  "score_after": 35,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:c51d506b8807bca46f785fbefd8a5d96d2d9d675a8f66830f602e75e9d1f24b5"
  }
 ]
