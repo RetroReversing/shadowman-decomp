@@ -599,15 +599,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:82dec1cd70bfb8dc55480e6fd6cd0a9ead6c87be2d192b17abc1fb26464cd58d"
  },
  {
-  "function": "func_802721D8",
-  "text": "Target: jal func_80113AD0 (move s0,a0 in delay), sll/sra s0 16, 'div $zero,$v0,$s0; mfhi' with NO zero-check/break. Our C `s16 f(s16 a){return func() % a;}` generates identical core but adds bnez/break 7 + -1 overflow checks (score 900); unsigned also adds checks. -mno-check-zero-division flag not accepted. Tried s32 arg/cast, (arg|1), manual r-(r/a)*a: worse. Next step: find how other matched functions in this game emit unchecked div (maybe divisor provably nonzero / different flag or hand asm); possibly not plain C.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795225795.90875,
-  "score_before": 900,
-  "score_after": 800,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:091f93ec2af0cd008d68a443f388bfaf683240c240b1635637378e80084227a5"
- },
- {
   "function": "func_80245D1C",
   "text": "Table lookup loop (8-byte entries {key,val}, 6 entries at D_8002D574), returns val or -1. Target does loop-top test 'bne a2,a3' (a3=copy of -1) then body then sltiu/bnez back to the test; lui/addiu table addr is placed after the move a3,a2. Tried struct while/do-while shapes: 590-675, worse than saved m2c for(;;) shape (205). Next step: keep m2c shape, try making the -1 sentinel a separate variable (e.g. s32 none=-1; ret=none; if(ret==none)) or volatile-less register tricks to get a3 copy.",
   "by": "api-claude-sonnet-5-5-3",
@@ -914,15 +905,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:460c497e3b637f47116de72f8e77b9bd8e41d81d4db3e3dda5724edb045ab3e3"
  },
  {
-  "function": "func_80268FE4",
-  "text": "Structure understood: D_80075AA8 struct {f32 x,y; pad8; Q*q@0x10 (q->q@4); s32 n@0x68}; t=(f32)n**(f32*)0x20E1F0; c=*(f32*)0x20E1F4; if c<=t call func_8026A5E8(x,y,0x40,0x40,q->q+0x200,D_800756A0+(D_8002C240<<9),((s32)(t-c)|0x80000000)&0xFF) return 1; else return (u8)(s32)t (j to epilogue). Best 2644-2735. Remaining diffs: target frame 0x28 (mine 0x30), target computes both stack args (sw 0x10/0x14) BEFORE the c.le.s branch, and keeps the 'or 0x80000000' before andi (mine folds it away). -fno-schedule-insns scores 2019 (not project flags). Next step: find source form that forces the early stack-arg stores and unfolded or (maybe args evaluated in a prior statement/inlined macro).",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795233088.89085,
-  "score_before": 3279,
-  "score_after": 2644,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:6a7714b28af5b6e5ec5c5c36899a1052377346d487206ccb1831d7573c5d0d44"
- },
- {
   "function": "func_80275C80",
   "text": "Score 20 (only diff: float literal load is lui $at,0x21 / lwc1 0x428C($at) in target \u2014 rodata reloc to unmapped address 0x21428C; mine uses .rdata reloc). Structure otherwise matches exactly. Float value assumed 70.0f (unverified; read_data can't read 0x21428C). Next step: define rodata for the unit / check actual constant value; may be unmatchable due to unmapped rodata.",
   "by": "api-claude-sonnet-5-5-3",
@@ -939,15 +921,6 @@
   "score_before": 2568,
   "score_after": 465,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:4e24762e548c7f2568861d3a2bf2bf282856441fdb29783f6d8431fe7feeb138"
- },
- {
-  "function": "func_8025D960",
-  "text": "Vector normalize (returns length). Target uses inline sqrt.s which sn-n64-281 emits only with -ffast-math (project flags give jal sqrtf; no pragma allowed; double sqrt gives sqrt.d). With flags \"-G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64 -ffast-math\" (try_compiler) this C scores 275 (94.9%): f32 t[3]=v[0..2]; sq=t0*t0+t1*t1+t2*t2 (from t[]); a=*(f32*)0x20A1B0; if(sq!=0)a=sq; if(sqrtf(a)!=0){a=*(f32*)0x20A1B4; if(sq!=0)a=sq; len=sqrtf(a);} else len=*(f32*)0x20A1B8; if(len!=0){v[i]=t[i]/len (0,1,2)} else {v[2]=0;v[1]=0;v[0]=0;} return len. Remaining: first branch target bc1t with swc1 8($sp) in delay slot (mine bc1fl, store hoisted), a reg f0 vs f2. Needs per-function -ffast-math support; the constants at 0x20A1B0/B4/B8 are rodata floats (not loaded in ROM view). Next step: if per-function flags become possible, tweak the first 'if (sq != 0) a = sq' structure for bc1t delay-slot.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795233686.0411131,
-  "score_before": 4433,
-  "score_after": 4383,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:71cc1348ed3e62cedb40f41b3bb4ac8f41757560d46341408650d9bd442ef4c7"
  },
  {
   "function": "func_80246834",
@@ -1110,15 +1083,6 @@
   "score_before": 345,
   "score_after": 50,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:01048417d0e8023e43b69e22d3809fcefdfc519bf17e2f1e88f9f6e7fcb87275"
- },
- {
-  "function": "func_802DA5CC",
-  "text": "Best 1154. Target does NOT keep hi/lo address in saved regs: after jal func_80116EB0 it recomputes lui/addiu for D_8007DC30 and lui for D_8004638C (frame 0x18, only ra saved). My C always CSEs into s0/s1 (frame 0x20). Offsets in target: sb 0x3EB, sw 0x3E0, sb 0x3E8, sb 0x3EC, sh 0x3F6,0x3F8,0x3FC,0x3FA. Tried: array/struct externs, if/else, store reorders. Next step: find way to stop CSE across call (e.g. stores in a different expression form / ptr from different symbol alias).",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795237728.632115,
-  "score_before": 1154,
-  "score_after": 1154,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:1f55931b8713b995b593fc3b9cbba83c0b29d1d09d0830719f59b45d70ed1953"
  },
  {
   "function": "func_802DDA6C",
@@ -1728,5 +1692,41 @@
   "score_before": 932,
   "score_after": 475,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:4421c758806a0b436e612f048ab07c57f2d50e55a52b2fd300f7300550cb09bf"
+ },
+ {
+  "function": "func_802721D8",
+  "text": "Target: jal func_80113AD0 (move s0,a0 in delay), sll/sra s0 16, 'div $zero,$v0,$s0; mfhi' with NO zero-check/break. Our C `s16 f(s16 a){return func() % a;}` generates identical core but adds bnez/break 7 + -1 overflow checks (score 900); unsigned also adds checks. -mno-check-zero-division flag not accepted. Tried s32 arg/cast, (arg|1), manual r-(r/a)*a: worse. Next step: find how other matched functions in this game emit unchecked div (maybe divisor provably nonzero / different flag or hand asm); possibly not plain C.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795225795.90875,
+  "score_before": 900,
+  "score_after": 800,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:091f93ec2af0cd008d68a443f388bfaf683240c240b1635637378e80084227a5"
+ },
+ {
+  "function": "func_80268FE4",
+  "text": "Structure understood: D_80075AA8 struct {f32 x,y; pad8; Q*q@0x10 (q->q@4); s32 n@0x68}; t=(f32)n**(f32*)0x20E1F0; c=*(f32*)0x20E1F4; if c<=t call func_8026A5E8(x,y,0x40,0x40,q->q+0x200,D_800756A0+(D_8002C240<<9),((s32)(t-c)|0x80000000)&0xFF) return 1; else return (u8)(s32)t (j to epilogue). Best 2644-2735. Remaining diffs: target frame 0x28 (mine 0x30), target computes both stack args (sw 0x10/0x14) BEFORE the c.le.s branch, and keeps the 'or 0x80000000' before andi (mine folds it away). -fno-schedule-insns scores 2019 (not project flags). Next step: find source form that forces the early stack-arg stores and unfolded or (maybe args evaluated in a prior statement/inlined macro).",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795233088.89085,
+  "score_before": 3279,
+  "score_after": 2644,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:6a7714b28af5b6e5ec5c5c36899a1052377346d487206ccb1831d7573c5d0d44"
+ },
+ {
+  "function": "func_8025D960",
+  "text": "Vector normalize (returns length). Target uses inline sqrt.s which sn-n64-281 emits only with -ffast-math (project flags give jal sqrtf; no pragma allowed; double sqrt gives sqrt.d). With flags \"-G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64 -ffast-math\" (try_compiler) this C scores 275 (94.9%): f32 t[3]=v[0..2]; sq=t0*t0+t1*t1+t2*t2 (from t[]); a=*(f32*)0x20A1B0; if(sq!=0)a=sq; if(sqrtf(a)!=0){a=*(f32*)0x20A1B4; if(sq!=0)a=sq; len=sqrtf(a);} else len=*(f32*)0x20A1B8; if(len!=0){v[i]=t[i]/len (0,1,2)} else {v[2]=0;v[1]=0;v[0]=0;} return len. Remaining: first branch target bc1t with swc1 8($sp) in delay slot (mine bc1fl, store hoisted), a reg f0 vs f2. Needs per-function -ffast-math support; the constants at 0x20A1B0/B4/B8 are rodata floats (not loaded in ROM view). Next step: if per-function flags become possible, tweak the first 'if (sq != 0) a = sq' structure for bc1t delay-slot.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795233686.0411131,
+  "score_before": 4433,
+  "score_after": 4383,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:71cc1348ed3e62cedb40f41b3bb4ac8f41757560d46341408650d9bd442ef4c7"
+ },
+ {
+  "function": "func_802DA5CC",
+  "text": "Best 1154. Target does NOT keep hi/lo address in saved regs: after jal func_80116EB0 it recomputes lui/addiu for D_8007DC30 and lui for D_8004638C (frame 0x18, only ra saved). My C always CSEs into s0/s1 (frame 0x20). Offsets in target: sb 0x3EB, sw 0x3E0, sb 0x3E8, sb 0x3EC, sh 0x3F6,0x3F8,0x3FC,0x3FA. Tried: array/struct externs, if/else, store reorders. Next step: find way to stop CSE across call (e.g. stores in a different expression form / ptr from different symbol alias).",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795237728.632115,
+  "score_before": 1154,
+  "score_after": 1154,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:1f55931b8713b995b593fc3b9cbba83c0b29d1d09d0830719f59b45d70ed1953"
  }
 ]

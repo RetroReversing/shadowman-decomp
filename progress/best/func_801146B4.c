@@ -1,9 +1,9 @@
 /* identical to func_801144F0 (matched), with its names changed by decompdecomp */
 extern s32 D_80027700[];
-extern u8 D_8004EF60[];
+extern u8 D_8004EE40[];
 extern u8 D_8007E680[];
 extern u8 D_8004EE30;
-extern u8 D_8004F060[];
+extern u8 D_8004EF40[];
 void func_80116D80(s32, s32, s32);
 u8 func_80115528(void *);
 void func_80115764(void);
@@ -23,7 +23,7 @@ u32 func_801146B4(s32 *a)
     return 5;
   func_80115764();
   D_8004EE30 = 3;
-  func_80115800(1, D_8004EF60 + (a[2] << 6));
+  func_80115800(1, D_8004EE40 + (a[2] << 6));
   func_80116D80(a[1], 0, 1);
   func_80115800(0, p);
   func_80116D80(a[1], 0, 1);
@@ -34,7 +34,7 @@ u32 func_801146B4(s32 *a)
   }
   sp10 = *(Blk *)p;
   r = (sp10.b[2] & 0xC0) >> 4;
-  if (r == 0 && func_80115528(D_8004F060) != sp10.b[0x26])
+  if (r == 0 && func_80115528(D_8004EF40) != sp10.b[0x26])
     r = 4;
   func_801157D0();
   return r;

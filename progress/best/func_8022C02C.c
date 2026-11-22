@@ -15,12 +15,16 @@ typedef s32 M2C_UNK32;
 s32 func_80103480();
 extern s32 D_8005979C;
 
-void func_8022C02C(void *arg0) {
+void func_8022C02C(void *arg0_in) {
+int __repair_literal;
+
+  void * arg0;
     s32 var_lo;
     u32 var_a2;
     u32 var_a3;
     u8 temp_v1;
     u8 temp_v1_2;
+  arg0 = arg0_in;
 
     var_a3 = 0;
     if (M2C_FIELD(arg0, u8 *, 5) != 0) {
@@ -30,7 +34,9 @@ void func_8022C02C(void *arg0) {
             if (temp_v1 != 0) {
                 var_lo = var_a3 * temp_v1;
                 do {
-                    *(s32 *)((var_a2 * 4) + ((var_lo * 4) + D_8005979C)) = *(s32 *)((var_a3 * 4) + ((M2C_FIELD(arg0, s32 *, 0xC) + (M2C_FIELD(arg0, u8 *, 4) * (M2C_FIELD(arg0, u8 *, 5) - 1) * 4)) - (var_a2 * M2C_FIELD(arg0, u8 *, 4) * 4)));
+__repair_literal = 4;
+
+                    *(s32 *)((var_a2 * 4) + ((var_lo * __repair_literal) + D_8005979C)) = *(s32 *)((var_a3 * 4) + ((M2C_FIELD(arg0, s32 *, 0xC) + (M2C_FIELD(arg0, u8 *, 4) * (M2C_FIELD(arg0, u8 *, 5) - 1) * 4)) - (var_a2 * M2C_FIELD(arg0, u8 *, 4) * 4)));
                     temp_v1_2 = M2C_FIELD(arg0, u8 *, 4);
                     var_a2 += 1;
                     var_lo = var_a3 * temp_v1_2;

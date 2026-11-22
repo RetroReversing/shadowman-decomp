@@ -1124,8 +1124,8 @@ extern void		*osViGetNextFramebuffer(void);
 extern void		osViSetXScale(f32);
 extern void		osViSetYScale(f32);
 extern void		osViExtendVStart(u32);
-extern void		osViSetSpecialFeatures(u32);
-extern void		osViSetMode(OSViMode *);
+extern void		func_80116250(u32);
+extern void		func_80116200(OSViMode *);
 extern void		osViSetEvent(OSMesgQueue *, OSMesg, u32);
 extern void		osViSwapBuffer(void *);
 extern void		osViBlack(u8);
@@ -3010,7 +3010,7 @@ extern void             osInitRdb(u8 *sendBuf, u32 sendSize);
 
  
 
-extern u32		 osVirtualToPhysical(void *);
+extern u32		 func_801176C0(void *);
 extern void *		 osPhysicalToVirtual(u32);
 
 
@@ -3453,7 +3453,7 @@ extern void __osSetCount(u32);
 extern u32  __osGetSR(void);
 extern void __osSetSR(u32);
 extern u32  func_8003EAC0(void);
-extern void func_8003EAE0(u32);
+extern void func_80118350(u32);
 extern u32  __osGetWatchLo(void);
 extern void __osSetWatchLo(u32);
 
@@ -4107,5 +4107,5 @@ void func_801171A0(OSThread* t) {
         func_8003E734(&D_800470D8);
     }
 
-    func_8003EAE0(saveMask);
+    func_80118350(saveMask);
 }
