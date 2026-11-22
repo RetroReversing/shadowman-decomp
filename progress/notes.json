@@ -515,15 +515,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:1b018a60d04062116a3d8f9f546c6b82ecef41347ba46a8e6dc1713a6c615841"
  },
  {
-  "function": "func_80110C1C",
-  "text": "Best 200: `char*q=*(char**)(a0+0x1C); if(a1==2){int n=*(int*)(a0+0x14); *(int*)(q+(n<<2))=a2; *(int*)(a0+0x14)=n+1;} return 0;` Only diff: target uses sllv with $v0 (=2 from compare) and addu v0,v0,a3 (q second), and store of a2 before store of count. Tried <<arg1, (n<<2)+q, switch, unsigned, store order: all >=200. Next step: try different shift/index forms, e.g. (&q[n]) via int* pointer arithmetic with q loaded after the compare, or a local 'int two=2'.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795224505.5033338,
-  "score_before": 820,
-  "score_after": 200,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:fcbc02e44ac32399ab96b5faa8ca964a68d19ab9bc41e4e2473a80ad0b67fe37"
- },
- {
   "function": "func_802727E4",
   "text": "Not a standalone function: 8-byte switch-case tail (j func_80272810; addiu $v1,0x50) belonging to func_802727A0's jump table (cases set $v1=0x64,0x50,0x3C,0x28,0x1E,0x14 then jump to shared tail func_80272810). Symbols func_802727E4..func_80272804 are fragments; should be merged into func_802727A0 (switch with $v1 as shared variable) and the shared tail func_8027280C/80272810.",
   "by": "api-claude-sonnet-5-5-3",
@@ -680,15 +671,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:76ffb40ac2578cf5d2a347d716585af3dc1080390d74f220ed3a8a998d285a2f"
  },
  {
-  "function": "func_80269278",
-  "text": "Best 890 (rev 22f7a505a6e5aea6aba9): r=func_80113AD0(); v=(r%128+0x80)<<8; D_800756A0[...]. Target uses bltzl with delay-slot addiu and loads globals after the division; ours uses bgez and loads globals early, and folds 0x3E into the symbol address (D_800756DE). Struct form/m2c shifts worse. Next: try r as local unsigned/ s16 temp, or declare D_800756A0 as struct and call order tweaks.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795227539.987831,
-  "score_before": 1450,
-  "score_after": 890,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:d95e872de9cef84264d26343d936e2790ce7b0d8d5270aa6f5ce4c4cd32bd934"
- },
- {
   "function": "func_80274C6C",
   "text": "Best score 200: only diff is target `bltz $a0` (delay slot addiu v0,-1) vs ours `bltzl`. Source (rev 5c046aa7f2649330886b): if(D_800311FC!=arg1){if(D_80031200==-1)D_80031200=arg1;return -1;} if(arg0<0)return -1; return func_802922C0(arg0); (s16 args/ret, s32 globals). Tried: ret var (705), if/else-return (1020), swapped branch order (1020). Next step: try s32 return type/arg0 as s32 with (s16) cast, or an unused-looking temp so -1 is loaded before the bltz non-likely.",
   "by": "api-claude-sonnet-5-5-3",
@@ -770,24 +752,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0ea2434b7528d9cfdbd7afe1c76ce909c1fef4c730c64af9f0b34dfd840a1984"
  },
  {
-  "function": "func_802685F4",
-  "text": "Score 405 (30 vs 29 insns). Target keeps v1=&D_80044EB0 with loads 0x1C/0x20(v1), stride 0xC, a1 counter incremented in beqz delay slot; mine folds +0x20 into pointer (D_80044ECC style) and puts slti before. Tried array-of-struct index, pointer walk with cast, struct with pad. Next: try for-loop with `i` counter where loop test is at end and p->field via separate struct typed array D_80044EB0[] with element size 0xC and field offsets 0x1C using a struct-of-arrays layout.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795228399.308613,
-  "score_before": 405,
-  "score_after": 405,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:b35e321c911a76e3c996db8740d8898d6116a0975dfd8aa82bf1c2a276b6dd64"
- },
- {
-  "function": "func_80262ADC",
-  "text": "Structure understood: switch(arg1){3: tab=D_8004ED0C; 4: tab=D_8004ECB4; default return 0}; e=tab+((s32*)a0)[6]; if(e->a==0) return e->a=**(u16**)a0; e->b=**a0; return 1. Best 975 (saved). Remaining diff: target keeps tab in v0, idx in v1, lw idx duplicated into each case branch; beq order/delay slot filling differs. Next step: try tab as char*/u32 arithmetic or a ternary for tab selection.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795228667.957697,
-  "score_before": 2160,
-  "score_after": 975,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:5215353690d387c94dd09d8f31faab3ac369f114b15c5f69118f960f1a484b53"
- },
- {
   "function": "func_8025D4C4",
   "text": "Best 220 (N struct {N*next}; D_80052770[1]; n=(N*)D_80074BA4; a=n->next; n=a; if(a){if(n->next){a=n; do{n=a->next; f(a); a=n;}while(n->next);}} swap BA4/BA8). Diff: target loads s0=D_80074BA4 then a0=*s0 then s0=a0 (head in a0 then moved to s0), and the zero-check branches use beqz instead of beql; target has an extra 'move s0,a0'. Next step: try keeping list ptr as separate N* local live across the null checks, or do/while with goto structure.",
   "by": "api-claude-sonnet-5-5-3",
@@ -795,15 +759,6 @@
   "score_before": 755,
   "score_after": 220,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:dcba9b92e55dc84c22d84822308db27d932ab0a371d0c7da38341aa3088d61e1"
- },
- {
-  "function": "func_80279848",
-  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795228919.39562,
-  "score_before": 270,
-  "score_after": 270,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:c2282a746698607fc3d2743e9be16dacbd344bb1be575228974ad4cddbaab7b1"
  },
  {
   "function": "func_8024522C",
@@ -833,15 +788,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:4088fe3f26aa1594308404542c0e57e244eb1c7213d9d3be3f838ada1e72607e"
  },
  {
-  "function": "func_80272538",
-  "text": "Struct S34 {s32;f32 x;f32 y;s32 z;f32 w;pad[0x20]} array at D_80036944, returns func_802701A4(...) != 0.0f; arg s32 &=0xFF. Instruction set matches (37 insns); only load ordering differs: target loads D_80036944 (lui a0) then computes index*52 then loads D_8006A4FC; mine loads D_8006A4FC first. Tried local p/q, inline index; 1231 best. Next step: try D_80036944 declared as s32/void* base with explicit byte offsets, or 'arg0 & 0xFF' index as separate local u8.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795230206.772023,
-  "score_before": 1967,
-  "score_after": 1231,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:ffdf71f6e60bbc49edebcbb422ce9755c4b651ed54630f30f2497ca3825d408d"
- },
- {
   "function": "func_8027D8F4",
   "text": "Best 320 (revision 6fa61b7ec96e36da0914): instructions identical to target, only registers differ (target uses a2 for lui D_8007AFF8, a0 for the loaded ptr, v1 for hoisted lui D_80031EB0; mine a0/v0). Structure: S{u8 cnt@0x54; u16 flag@0x92; u16 idx@0x94}, single func_8026F6BC(a) with a=0x24/0x27 (target 'j' into jal shares the call). Local `u8 *p = D_80031EB0;` hoists lui as target. Tried unused params, local_repairs families: no change. Next step: try different local ordering e.g. load `S *s = D_8007AFF8` once vs per-use mix, or declare p after a temp.",
   "by": "api-claude-sonnet-5-5-3",
@@ -869,15 +815,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:87a511c418d3bbc985994e4246cfbaf1e015e0a34c23e48f2311d0975d6f2d2a"
  },
  {
-  "function": "func_8026F6BC",
-  "text": "Best 1285 (saved). Remaining: target computes lui/addiu D_212078 early (before andi/sll chain) and fills delay slot of the 2nd jal with the sw of the first result (sw v0,0x64(v1)); ours schedules the store before arg loads and has a nop. Tried: typed structs, raw char* offsets, temps for call results, symbol_address_local, u8 param. Next step: try D_212078 as a struct array with a pointer-typed local e declared via index (&D_212078[i]) plus K&R prototypes, or a global pointer base for D_8006A4FC copied into a local before the first call.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795230838.3539069,
-  "score_before": 1555,
-  "score_after": 1285,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:17aa66736aa28ea58d4b55dc8857cc748d78448258d806b3ef2d7fef961736b6"
- },
- {
   "function": "func_80249A84",
   "text": "Best 120 (saved, char* offsets + absolute-address floats). Only diff: target puts swc1 0x18($a0) in the bc1f delay slot (after c.lt.s/nop); ours emits it right after add.s/sub.s. Tried: +=, operand swaps, compare reversed, re-reading field, register, switch(*s). Constants at 0x202D90.. are not in the loaded ROM image (maybe real float literals whose values are unknown). Next step: try a different control shape (e.g. if/else if on *s instead of switch, or store done after compare through a second pointer variable).",
   "by": "api-claude-sonnet-5-5-3",
@@ -894,15 +831,6 @@
   "score_before": 555,
   "score_after": 120,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:36a5fc41b70dacdd2e79498238e8e5ddb44fc32e5a52f65a70b4c421ddf77d1f"
- },
- {
-  "function": "func_80241DC0",
-  "text": "Best 275 (rev b0f9e9314d429f2668ab): prototype func_802364D0 must return s32 (s8 adds sll/sra), goto-loop form with u8* + 0xC stride. Remaining diff is regalloc only: target s0=ptr, s1=hi(D_8005E9FC) (lui v0 before first call, move s1,v0), s2=counter; ours s0=hi, s1=ptr. do-while/for/struct forms are worse (643, strength-reduce to p+4). Next step: try making the hi-address live in a variable e.g. s32 *q=&D_8005E9FC; with *q reads, or different ordering of var_s2=0.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795231082.5034611,
-  "score_before": 390,
-  "score_after": 275,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:752ae3465853e7a75691324f24995705b4e13846cae165d7d50e7fc42a94217e"
  },
  {
   "function": "func_8027AA00",
@@ -1076,15 +1004,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:58726f56d846dc9b9246c1442f120ecaecc7fa191422e7559cfc0bf697a383a6"
  },
  {
-  "function": "func_802439A0",
-  "text": "Best 1030 (rev 960401c43991f98fdd6f): switch(arg0->state){case0:break;case1:init(D_80074BB0/0x24 check -> func_8026E26C(0x8C) else copy 12-byte vec from obj->6C to stack, func_8026E4E8(&v,0x7F); state=2);case2:if(func_80245684(arg0)){func_80274A3C(s0);state=3;}case3:func_80245614(arg0);} return 1. Obj=arg0->0xC, s0=obj->0x6C. Remaining diff: target uses compare chain (==1, ==0, ==2, ==3) with s1=arg0,s0=inner; mine emits slti range check and s0/s1 swapped. Tried if-else chain (worse), case-order 1,2,3 (worse), default:break (same). Next step: try the register swap by declaring s0 differently / state-switch as if-chain with a temp for state, or an extra local for arg0.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795234541.089128,
-  "score_before": 1370,
-  "score_after": 1030,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:59c656ed54a298176333d4ca9ba1c9e86d648692db95a472f3ae42602dc7e86a"
- },
- {
   "function": "func_802452B8",
   "text": "Best 690 (rev 5600f1d212720b45140c): switch(*(s32*)(self+8)) with case 0 break,1,2,3 inside \"if(obj==0) return 1;\". Target does linear chain: beql ==1 (a0=&tmp in delay), beqz ==0 -> exit, ==2, ==3, default j end. Mine emits slti v1,2 split instead. If-chain and if(st==1)+switch tried: worse. Next step: find source form making case 0 distinct from default (e.g. default with different tail/ different state var type).",
   "by": "api-claude-sonnet-5-5-3",
@@ -1148,15 +1067,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:71635a402462f8001551ebcf32658ef4c80f3a73880cd92aab9bbfce05fba3aa"
  },
  {
-  "function": "func_802DAE88",
-  "text": "Structure right (if(f(&D))sp10=0 else sp10=1; calls). Locals order: sp28[2], pad[4], p, sp10 gives right offsets for sp10(0x10)/sp28 once declared in reverse order (first-declared = lowest addr w/ pad). Remaining: target has 'sw $a0,0x14($sp)' in jal delay slot (spilled pointer to &D_8007DC30, a local at sp+0x14) and prologue ordering lui/addiu before sw ra. volatile p made worse (444). Next step: try a struct local / pointer p used later (e.g. passed as 1st arg of func_80116D80) to force the spill.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795236435.360961,
-  "score_before": 1335,
-  "score_after": 394,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:9f433e4ec6f5d8ef2e3e327f16cb6f81974a47b8c8bdd629244777ccc7972204"
- },
- {
   "function": "func_802DB2C4",
   "text": "Low progress after 27 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: register allocation; first differing row 14; 1 differing rows (1 register; advisory).\nTarget: addu $v0, $v0, $a3\nCandidate: addu $v0, $a3, $v0\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = sll $v0, $v0, 2\n  = addu $v0, $v0, $a1\nr T: addu $v0, $v0, $a3 | C: addu $v0, $a3, $v0\n  = lw $v0, 4($v0)\n  = jr $ra\nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1166,15 +1076,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:598fd5ad3566a8e8983305cd14d7ec0ca2f16b387a53d0d8a59c33124c709ef9"
  },
  {
-  "function": "func_802C7A50",
-  "text": "Best 160: compiler rebases loop pointer by +0x24 (offsets -8 / 0) instead of target's base D_80044FB8 with 0x1c/0x24 offsets; extra addiu. Tried do-while/for/while with char*/int*/struct pointer variants. Next step: try indexing array of 12-byte structs by i (e.g. D[i].x) or make the loop a 5-iteration for with separate pointer.\npointer increment loops of several shapes\nalways rebased pointer to +0x24",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795236710.5097642,
-  "score_before": 705,
-  "score_after": 160,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:1cb98d6efb2739362b56b1d9ee2dbf6b7dc371d85a860eb806110e845910accf"
- },
- {
   "function": "func_802D20C0",
   "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1182,15 +1083,6 @@
   "score_before": 100,
   "score_after": 40,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:2253b195e31ad9c523b21a1b2728ea7bed04c0764a16c214ff4f4c381d90922f"
- },
- {
-  "function": "func_802D2E34",
-  "text": "Semantics: loop over s32 list until 0; v>0: if !func_8026E2F4(v) return 0; else if func_8026E2F4(~v) return 0; return 1. Score 325 with while/for/do-while forms. Diff: target does lw v0,(a0); beqz; move s0,a0 in delay slot (prologue sw ra before sw s0, no early move s0); mine moves s0 first and puts li 1 in the delay slot, and lacks a trailing nop. Next step: try an extra pointer/variable lifetimes e.g. return value variable or loop-top reload via a separate copy of arg0.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795236951.422264,
-  "score_before": 325,
-  "score_after": 325,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0502613dbc64a2a0451422b46b64ac11700f93b400a671cf8bf612767a960b11"
  },
  {
   "function": "func_802D3F68",
@@ -1227,15 +1119,6 @@
   "score_before": 1154,
   "score_after": 1154,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:1f55931b8713b995b593fc3b9cbba83c0b29d1d09d0830719f59b45d70ed1953"
- },
- {
-  "function": "func_802DCF28",
-  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795237779.6071758,
-  "score_before": 2402,
-  "score_after": 195,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0ae050b96d156656ca56d1fadee1618dc4e47fbd1a8bce19e3283bbf153045c8"
  },
  {
   "function": "func_802DDA6C",
@@ -1406,15 +1289,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:95653ccbc7a1195243cf9af670edebeffdc2c88e8749d42d7e5ba77db45da9ed"
  },
  {
-  "function": "func_80230BF4",
-  "text": "Best 1165 with Ent{u16 id; s16 x; s32 key;}* D_80059890, u32 D_8005989C; for-loop with explicit count guard, global base reloaded each use. Target loads count into v1, copies to a2 (used for inner 'count!=0' check), loads base once into a3, uses sll/addu indexing in outer loop, reloads D_8005989C at outer loop bottom and inner loop bottom. Tried hoisted base, local n copy, do-while forms: all worse (1210-2760). Next step: try do-while outer with base hoisted but count read via a pointer/other alias, or index-by-short types.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795241378.152683,
-  "score_before": 1425,
-  "score_after": 1165,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:acddafcb8cd757a50f501ebb39f32610e972d0100350de2dd82adecf6df578d0"
- },
- {
   "function": "func_80237428",
   "text": "Low progress after 24 scored trials: at most 1% score reduction over the recent window. Best source retained. Next evidence: Mismatch focus: instruction order / control flow; first differing row 2; 13 differing rows (7 register, 3 branch target, 2 reordered, 1 deleted; advisory).\nTarget: beqz $v0, 0x40\nCandidate: beqz $v0, 0x3c\nAdvisory instruction window (normalized; exact-byte verdict unchanged):\n  = lui $v0, %hi(D_8006973C)\n  = lw $v0, %lo(D_8006973C)($v0)\ni T: beqz $v0, 0x40 | C: beqz $v0, 0x3c\nr T: move $v1, $zero | C: move $a1, $v0\no T: addiu $a2, $zero, -1 | C: \nMore target instructions: get_assembly(focus=\"mismatch\"). Raw/paged diff: last_diff.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1431,15 +1305,6 @@
   "score_before": 555,
   "score_after": 555,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:672d2779b2d6e2adcfa36b948429465fb3ed88601e237dbe6a194b8cb98a61e6"
- },
- {
-  "function": "func_80221E98",
-  "text": "Stuck at 220: compiler strength-reduces to addiu v1,a1,0xe4 with 0 offsets; target keeps move v1,a1 with 0xe4 offsets. Tried do-while with u8*/struct/u32* p[0x39] and for loop; all same or worse. Next: try indexed form base[i].v with s32 i, or p as a loop variable decoupled via volatile-free alias.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795241690.008598,
-  "score_before": 220,
-  "score_after": 220,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:7edd3eade0c17c1297f9648600154bdccdf550f5ce007ab5bee338fac32c3212"
  },
  {
   "function": "func_80221120",
@@ -1530,15 +1395,6 @@
   "score_before": 1295,
   "score_after": 840,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0ae2bb86dce535b859fb04bbb8aa2e42d8c22d31e04582856bffe859ae8e996f"
- },
- {
-  "function": "func_80221728",
-  "text": "Loop: s16 i, u16 sum (sum += tbl[arg1[i]-0x1F]+1, arg0 base). Target keeps arg0 copy in t0, sum in a3 (init move a3,a2 in delay slot), temp a0, i in a2 via move v1,a2/addiu v1/move a2,v1. Tried s16/u16 sum, chained init, ptr types: all 475-565, saved best 8d08012c (m2c with do{}while(0)) is better. Next step: try for-loop / arg0 as u8* with tmp var.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795242040.3798862,
-  "score_before": 475,
-  "score_after": 475,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cc34a1dcc194f6cf3ffed57764b852496984e3c960854d80ea701e6f9d53d74e"
  },
  {
   "function": "func_802434E0",
@@ -1719,5 +1575,158 @@
   "score_before": 105,
   "score_after": 35,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:c51d506b8807bca46f785fbefd8a5d96d2d9d675a8f66830f602e75e9d1f24b5"
+ },
+ {
+  "function": "func_80110C1C",
+  "text": "Best 200: `char*q=*(char**)(a0+0x1C); if(a1==2){int n=*(int*)(a0+0x14); *(int*)(q+(n<<2))=a2; *(int*)(a0+0x14)=n+1;} return 0;` Only diff: target uses sllv with $v0 (=2 from compare) and addu v0,v0,a3 (q second), and store of a2 before store of count. Tried <<arg1, (n<<2)+q, switch, unsigned, store order: all >=200. Next step: try different shift/index forms, e.g. (&q[n]) via int* pointer arithmetic with q loaded after the compare, or a local 'int two=2'.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795224505.5033338,
+  "score_before": 820,
+  "score_after": 200,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:fcbc02e44ac32399ab96b5faa8ca964a68d19ab9bc41e4e2473a80ad0b67fe37"
+ },
+ {
+  "function": "func_80269278",
+  "text": "Best 890 (rev 22f7a505a6e5aea6aba9): r=func_80113AD0(); v=(r%128+0x80)<<8; D_800756A0[...]. Target uses bltzl with delay-slot addiu and loads globals after the division; ours uses bgez and loads globals early, and folds 0x3E into the symbol address (D_800756DE). Struct form/m2c shifts worse. Next: try r as local unsigned/ s16 temp, or declare D_800756A0 as struct and call order tweaks.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795227539.987831,
+  "score_before": 1450,
+  "score_after": 890,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:d95e872de9cef84264d26343d936e2790ce7b0d8d5270aa6f5ce4c4cd32bd934"
+ },
+ {
+  "function": "func_802685F4",
+  "text": "Score 405 (30 vs 29 insns). Target keeps v1=&D_80044EB0 with loads 0x1C/0x20(v1), stride 0xC, a1 counter incremented in beqz delay slot; mine folds +0x20 into pointer (D_80044ECC style) and puts slti before. Tried array-of-struct index, pointer walk with cast, struct with pad. Next: try for-loop with `i` counter where loop test is at end and p->field via separate struct typed array D_80044EB0[] with element size 0xC and field offsets 0x1C using a struct-of-arrays layout.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795228399.308613,
+  "score_before": 405,
+  "score_after": 405,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:b35e321c911a76e3c996db8740d8898d6116a0975dfd8aa82bf1c2a276b6dd64"
+ },
+ {
+  "function": "func_80262ADC",
+  "text": "Structure understood: switch(arg1){3: tab=D_8004ED0C; 4: tab=D_8004ECB4; default return 0}; e=tab+((s32*)a0)[6]; if(e->a==0) return e->a=**(u16**)a0; e->b=**a0; return 1. Best 975 (saved). Remaining diff: target keeps tab in v0, idx in v1, lw idx duplicated into each case branch; beq order/delay slot filling differs. Next step: try tab as char*/u32 arithmetic or a ternary for tab selection.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795228667.957697,
+  "score_before": 2160,
+  "score_after": 975,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:5215353690d387c94dd09d8f31faab3ac369f114b15c5f69118f960f1a484b53"
+ },
+ {
+  "function": "func_80279848",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795228919.39562,
+  "score_before": 270,
+  "score_after": 270,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:c2282a746698607fc3d2743e9be16dacbd344bb1be575228974ad4cddbaab7b1"
+ },
+ {
+  "function": "func_80272538",
+  "text": "Struct S34 {s32;f32 x;f32 y;s32 z;f32 w;pad[0x20]} array at D_80036944, returns func_802701A4(...) != 0.0f; arg s32 &=0xFF. Instruction set matches (37 insns); only load ordering differs: target loads D_80036944 (lui a0) then computes index*52 then loads D_8006A4FC; mine loads D_8006A4FC first. Tried local p/q, inline index; 1231 best. Next step: try D_80036944 declared as s32/void* base with explicit byte offsets, or 'arg0 & 0xFF' index as separate local u8.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230206.772023,
+  "score_before": 1967,
+  "score_after": 1231,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:ffdf71f6e60bbc49edebcbb422ce9755c4b651ed54630f30f2497ca3825d408d"
+ },
+ {
+  "function": "func_8026F6BC",
+  "text": "Best 1285 (saved). Remaining: target computes lui/addiu D_212078 early (before andi/sll chain) and fills delay slot of the 2nd jal with the sw of the first result (sw v0,0x64(v1)); ours schedules the store before arg loads and has a nop. Tried: typed structs, raw char* offsets, temps for call results, symbol_address_local, u8 param. Next step: try D_212078 as a struct array with a pointer-typed local e declared via index (&D_212078[i]) plus K&R prototypes, or a global pointer base for D_8006A4FC copied into a local before the first call.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795230838.3539069,
+  "score_before": 1555,
+  "score_after": 1285,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:17aa66736aa28ea58d4b55dc8857cc748d78448258d806b3ef2d7fef961736b6"
+ },
+ {
+  "function": "func_80241DC0",
+  "text": "Best 275 (rev b0f9e9314d429f2668ab): prototype func_802364D0 must return s32 (s8 adds sll/sra), goto-loop form with u8* + 0xC stride. Remaining diff is regalloc only: target s0=ptr, s1=hi(D_8005E9FC) (lui v0 before first call, move s1,v0), s2=counter; ours s0=hi, s1=ptr. do-while/for/struct forms are worse (643, strength-reduce to p+4). Next step: try making the hi-address live in a variable e.g. s32 *q=&D_8005E9FC; with *q reads, or different ordering of var_s2=0.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795231082.5034611,
+  "score_before": 390,
+  "score_after": 275,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:752ae3465853e7a75691324f24995705b4e13846cae165d7d50e7fc42a94217e"
+ },
+ {
+  "function": "func_802439A0",
+  "text": "Best 1030 (rev 960401c43991f98fdd6f): switch(arg0->state){case0:break;case1:init(D_80074BB0/0x24 check -> func_8026E26C(0x8C) else copy 12-byte vec from obj->6C to stack, func_8026E4E8(&v,0x7F); state=2);case2:if(func_80245684(arg0)){func_80274A3C(s0);state=3;}case3:func_80245614(arg0);} return 1. Obj=arg0->0xC, s0=obj->0x6C. Remaining diff: target uses compare chain (==1, ==0, ==2, ==3) with s1=arg0,s0=inner; mine emits slti range check and s0/s1 swapped. Tried if-else chain (worse), case-order 1,2,3 (worse), default:break (same). Next step: try the register swap by declaring s0 differently / state-switch as if-chain with a temp for state, or an extra local for arg0.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795234541.089128,
+  "score_before": 1370,
+  "score_after": 1030,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:59c656ed54a298176333d4ca9ba1c9e86d648692db95a472f3ae42602dc7e86a"
+ },
+ {
+  "function": "func_802DAE88",
+  "text": "Structure right (if(f(&D))sp10=0 else sp10=1; calls). Locals order: sp28[2], pad[4], p, sp10 gives right offsets for sp10(0x10)/sp28 once declared in reverse order (first-declared = lowest addr w/ pad). Remaining: target has 'sw $a0,0x14($sp)' in jal delay slot (spilled pointer to &D_8007DC30, a local at sp+0x14) and prologue ordering lui/addiu before sw ra. volatile p made worse (444). Next step: try a struct local / pointer p used later (e.g. passed as 1st arg of func_80116D80) to force the spill.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795236435.360961,
+  "score_before": 1335,
+  "score_after": 394,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:9f433e4ec6f5d8ef2e3e327f16cb6f81974a47b8c8bdd629244777ccc7972204"
+ },
+ {
+  "function": "func_802C7A50",
+  "text": "Best 160: compiler rebases loop pointer by +0x24 (offsets -8 / 0) instead of target's base D_80044FB8 with 0x1c/0x24 offsets; extra addiu. Tried do-while/for/while with char*/int*/struct pointer variants. Next step: try indexing array of 12-byte structs by i (e.g. D[i].x) or make the loop a 5-iteration for with separate pointer.\npointer increment loops of several shapes\nalways rebased pointer to +0x24",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795236710.5097642,
+  "score_before": 705,
+  "score_after": 160,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:1cb98d6efb2739362b56b1d9ee2dbf6b7dc371d85a860eb806110e845910accf"
+ },
+ {
+  "function": "func_802D2E34",
+  "text": "Semantics: loop over s32 list until 0; v>0: if !func_8026E2F4(v) return 0; else if func_8026E2F4(~v) return 0; return 1. Score 325 with while/for/do-while forms. Diff: target does lw v0,(a0); beqz; move s0,a0 in delay slot (prologue sw ra before sw s0, no early move s0); mine moves s0 first and puts li 1 in the delay slot, and lacks a trailing nop. Next step: try an extra pointer/variable lifetimes e.g. return value variable or loop-top reload via a separate copy of arg0.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795236951.422264,
+  "score_before": 325,
+  "score_after": 325,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0502613dbc64a2a0451422b46b64ac11700f93b400a671cf8bf612767a960b11"
+ },
+ {
+  "function": "func_802DCF28",
+  "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795237779.6071758,
+  "score_before": 2402,
+  "score_after": 195,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0ae050b96d156656ca56d1fadee1618dc4e47fbd1a8bce19e3283bbf153045c8"
+ },
+ {
+  "function": "func_80230BF4",
+  "text": "Best 1165 with Ent{u16 id; s16 x; s32 key;}* D_80059890, u32 D_8005989C; for-loop with explicit count guard, global base reloaded each use. Target loads count into v1, copies to a2 (used for inner 'count!=0' check), loads base once into a3, uses sll/addu indexing in outer loop, reloads D_8005989C at outer loop bottom and inner loop bottom. Tried hoisted base, local n copy, do-while forms: all worse (1210-2760). Next step: try do-while outer with base hoisted but count read via a pointer/other alias, or index-by-short types.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795241378.152683,
+  "score_before": 1425,
+  "score_after": 1165,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:acddafcb8cd757a50f501ebb39f32610e972d0100350de2dd82adecf6df578d0"
+ },
+ {
+  "function": "func_80221E98",
+  "text": "Stuck at 220: compiler strength-reduces to addiu v1,a1,0xe4 with 0 offsets; target keeps move v1,a1 with 0xe4 offsets. Tried do-while with u8*/struct/u32* p[0x39] and for loop; all same or worse. Next: try indexed form base[i].v with s32 i, or p as a loop variable decoupled via volatile-free alias.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795241690.008598,
+  "score_before": 220,
+  "score_after": 220,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:7edd3eade0c17c1297f9648600154bdccdf550f5ce007ab5bee338fac32c3212"
+ },
+ {
+  "function": "func_80221728",
+  "text": "Loop: s16 i, u16 sum (sum += tbl[arg1[i]-0x1F]+1, arg0 base). Target keeps arg0 copy in t0, sum in a3 (init move a3,a2 in delay slot), temp a0, i in a2 via move v1,a2/addiu v1/move a2,v1. Tried s16/u16 sum, chained init, ptr types: all 475-565, saved best 8d08012c (m2c with do{}while(0)) is better. Next step: try for-loop / arg0 as u8* with tmp var.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795242040.3798862,
+  "score_before": 475,
+  "score_after": 475,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cc34a1dcc194f6cf3ffed57764b852496984e3c960854d80ea701e6f9d53d74e"
+ },
+ {
+  "function": "func_80115764",
+  "text": "Range check #25: is this part of the game built by GCC 2.8.1 + SN ASN64 2.56 -G0 -mips3 -mgp32 -mfp32 -O2? An agent's C for a function next to func_80115764 matches with it. Match func_80115764 as usual; then try_compiler(\"func_80115764\", \"gcc-2.8.1-pm-sn-as\", \"-G0 -mips3 -mgp32 -mfp32 -O2\"). Matching with GCC 2.8.1 + SN ASN64 2.56 -G0 -mips3 -mgp32 -mfp32 -O2 and not with the project's compiler confirms the range; matching with the project's compiler only shows it was a quirk. Either answer helps.",
+  "by": "autopilot",
+  "created_at": 1795290388.285621,
+  "score_before": 932,
+  "score_after": 475,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:4421c758806a0b436e612f048ab07c57f2d50e55a52b2fd300f7300550cb09bf"
  }
 ]
