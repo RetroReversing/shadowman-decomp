@@ -8422,6 +8422,19 @@
     "-O2"
    ],
    "timeout": 20
+  },
+  "71248:2148600400": {
+   "vram": 2148600400,
+   "function": "func_80110A50",
+   "toolchain": "gcc-2.8.1-pm-sn-as",
+   "flags": [
+    "-G0",
+    "-mips3",
+    "-mgp32",
+    "-mfp32",
+    "-O2"
+   ],
+   "timeout": 20
   }
  },
  "instructions": "",
@@ -8477,7 +8490,8 @@
   "code_80103060_011564": "common_code_80103060_011564.h",
   "code_80103060_016E00": "common_code_80103060_016E00.h",
   "code_802D7DD0": "common_code_802D7DD0.h",
-  "code_80103060_010DB0": "common_code_80103060_010DB0.h"
+  "code_80103060_010DB0": "common_code_80103060_010DB0.h",
+  "code_80103060_011650": "common_code_80103060_011650.h"
  },
  "functions": {
   "func_80103060": {
@@ -9572,8 +9586,8 @@
   },
   "func_80110A50": {
    "vram": 2148600400,
-   "best_score": 60,
-   "best_by": "autopilot"
+   "matched_by": "autopilot",
+   "readable": false
   },
   "func_80110AF8": {
    "vram": 2148600568,
