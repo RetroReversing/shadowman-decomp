@@ -94002,6 +94002,106 @@
    "vram": 2149961348,
    "unit": "code_80255E40",
    "mode": "rom"
+  },
+  "func_8010A8D0": {
+   "format": 1,
+   "verdict": "exact",
+   "abi": {
+    "arch": "mips",
+    "big_endian": true,
+    "gp": 0,
+    "platform": "n64",
+    "rom_sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c"
+   },
+   "symbols_sha256": "a361712f532cff376852076f5eb3f44e4b25eac5491fa4aa97baedec65e3e759",
+   "recorded_at": 1795335589.5640352,
+   "attempt_id": 42949689137,
+   "source_sha256": "e8442591b149e169d905f49cd3155434bb4594cddb21cf06a86f82d96df3c992",
+   "header_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1",
+   "context_version": 1,
+   "compiler": {
+    "toolchain": "sn-n64-281",
+    "flags": [
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64"
+    ],
+    "timeout": 20
+   },
+   "compiler_identity": {
+    "toolchain": "sn-n64-281",
+    "registry_sha256": "4cade6cb1458c9ea1167101bf052e1bc48261c13a670101116c580cf734257e0",
+    "install_sha256": "d949422c5b7c39402c79d468bd890710d5bd3eb8ba3929116a8a5543a4a7191f",
+    "executables": {
+     "cc1n64.exe": "d90df1028c46d826e37146dbcc3e3385f78c59e05a9ddd952daa94c9ad379d9c"
+    }
+   },
+   "settings": {
+    "mode": "rom",
+    "platform": "n64",
+    "compiler": {
+     "toolchain": "sn-n64-281",
+     "flags": [
+      "-G0",
+      "-mips3",
+      "-O2",
+      "-mgas",
+      "-meb",
+      "-mcpu=VR4300",
+      "-mhard-float",
+      "-mfp64"
+     ],
+     "timeout": 20
+    },
+    "settings_source": "compile invocation snapshot",
+    "gp": 0,
+    "big_endian": true,
+    "rom": {
+     "sha1": "cfb99dd949fdb2b2a0002ef595ab1813fe865b2c",
+     "game_code": "NSDE",
+     "region": "North America",
+     "byte_order": "z64"
+    },
+    "effective_command": [
+     "/Users/a/Documents/GitHub/decompdecomp-rr/.venv/bin/python",
+     "/Users/a/Documents/GitHub/decompdecomp-rr/src/decompnet/consoles/n64/sn64.py",
+     "--cc",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cc1n64.exe",
+     "--cpp",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/cppn64.exe",
+     "--assembler",
+     "/Users/a/Library/Application Support/decompnet/toolchains/sn-n64-281/asn64.exe",
+     "--converter",
+     "/Users/a/Library/Application Support/decompnet/toolchains/psyq-obj-parser/psyq-obj-parser",
+     "--runner",
+     "/Users/a/Library/Application Support/decompnet/toolchains/wibo/wibo",
+     "{src}",
+     "{obj}",
+     "{include}",
+     "-G0",
+     "-mips3",
+     "-O2",
+     "-mgas",
+     "-meb",
+     "-mcpu=VR4300",
+     "-mhard-float",
+     "-mfp64"
+    ],
+    "language": "c",
+    "context_unit": "",
+    "scoring_revision": "170c4ead954da020abb0b11063ac3fbb5ddc0ed8f4bb118b9d70786d3f484c9a",
+    "context_sha256": "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1"
+   },
+   "target_sha256": "e4825ee8e8cc84a811a2c656df7cf26fe28f5bf65975ea3c17f19915a92c559d",
+   "relocations_sha256": "4aa681872c60ff783f5386e61b61aa06bc4fb208e7238f54e64a26018aa80b5d",
+   "vram": 2148575440,
+   "unit": "code_80103060_00A678",
+   "mode": "rom"
   }
  },
  "sources": {
@@ -95041,7 +95141,8 @@
   "2625bda3f754a514c2c085d2e8a99c4eaeea475040344882427750ce934c660a": "/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\nextern s32 D_8002D3F0;\nextern char D_800698C0[];\n\nvoid func_8023981C(f32 *arg0) {\n    s32 *__base_D_8002D3F0;\n    f32 *temp_v0_2;\n    char *var_a0;\n    s32 temp_v0;\n    s32 var_a1;\n    s32 var_a2;\n    char *__base_D_800698C0;\n\n    __base_D_800698C0 = D_800698C0;\n\n    var_a0 = arg0;\n    var_a2 = 0;\n    __base_D_8002D3F0 = &D_8002D3F0;\n    temp_v0 = (*__base_D_8002D3F0) - 1;\n    var_a1 = temp_v0 * 4;\n    (*__base_D_8002D3F0) = temp_v0;\n    do {\n        temp_v0_2 = (void *) ((var_a1) + (s32) __base_D_800698C0);\n        var_a1 += 0x100;\n        var_a2 += 1;\n        *(f32 *)var_a0 = *temp_v0_2;\n        var_a0 += 4;\n    } while (var_a2 < 0xC);\n}\n",
   "7c78f80e8f246e926c5f5876c126ba52cfb0d654798447caa34b46278e821d43": "/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\nf32 func_8022EBE8(f32);                             /* extern */\nf32 func_8022EC3C(f32);                             /* extern */\nM2C_UNK func_80299D50(M2C_UNK, f32 *, M2C_UNK *, f32, f32, s32); /* extern */\nM2C_UNK func_802A64B0(void *, M2C_UNK);             /* extern */\nextern M2C_UNK D_80036B1C;\nextern M2C_UNK D_8006A510;\nextern u8 D_8007BD5C;\n\nvoid func_802B266C(void *arg0, s32 arg1) {\n    M2C_UNK *__base_D_8006A510;\n    f32 sp18[3];\n    f32 temp_fs0;\n    f32 temp_fs0_2;\n\n    if (arg1 == 0) {\n        temp_fs0 = *(f32 *)0x2169D4;\n        sp18[0] = M2C_FIELD((__base_D_8006A510 = &D_8006A510), f32 *, 0x80) + func_8022EBE8(temp_fs0);\n        sp18[1] = M2C_FIELD(__base_D_8006A510, f32 *, 0x84) + func_8022EBE8(temp_fs0);\n        sp18[2] = M2C_FIELD(__base_D_8006A510, f32 *, 0x88) + func_8022EBE8(temp_fs0);\n        temp_fs0_2 = func_8022EC3C(*(f32 *)0x2169D8) + *(f32 *)0x2169DC;\n        func_80299D50(0x3D, sp18, &D_80036B1C, temp_fs0_2, func_8022EC3C(*(f32 *)0x2169E0) + *(f32 *)0x2169E4, 1);\n        do { func_802A64B0(arg0, 2); } while (0);\n    }\n    if (D_8007BD5C == 0) {\n        M2C_FIELD(arg0, s32 *, 0x30) = 0;\n    }\n}\n",
   "b2d8c83811af57d14dd1c9a62618c76a6db1821ba2493c3241357b225ebc6014": "/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (((struct { __typeof__(*(type_ptr)0) v; } *)((s8 *)(expr) + (offset)))->v)\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\ns32 func_80113AD0();                                /* extern */\nM2C_UNK func_802776D8(u8, void *);                  /* extern */\nextern u16 D_80052776;\nextern void *D_8006A4FC;\nextern void *D_8007AFF8;\n\nvoid func_8027BE80(void) {\n    void **__base_D_8007AFF8;\n    u16 temp_v1;\n\n    __base_D_8007AFF8 = &D_8007AFF8;\n    temp_v1 = M2C_FIELD((*__base_D_8007AFF8), u16 *, 0xA0) - D_80052776;\n    M2C_FIELD((*__base_D_8007AFF8), u16 *, 0xA0) = temp_v1;\n    if ((temp_v1 << 0x10) <= 0) {\n        M2C_FIELD((*__base_D_8007AFF8), f32 *, 0x70) = (f32) M2C_FIELD((*__base_D_8007AFF8), f32 *, 0xB0);\n        M2C_FIELD((*__base_D_8007AFF8), f32 *, 0x74) = (f32) M2C_FIELD((*__base_D_8007AFF8), f32 *, 0xB4);\n        M2C_FIELD((*__base_D_8007AFF8), f32 *, 0x78) = (f32) M2C_FIELD((*__base_D_8007AFF8), f32 *, 0xB8);\n        func_802776D8(M2C_FIELD((*__base_D_8007AFF8), u8 *, 0x3B), (*__base_D_8007AFF8));\n        M2C_FIELD((*__base_D_8007AFF8), u16 *, 0xA0) = 0xFU;\n        M2C_FIELD((*__base_D_8007AFF8), u16 *, 0xA0) = (u16) (M2C_FIELD((*__base_D_8007AFF8), u16 *, 0xA0) + (func_80113AD0() % 31));\n        M2C_FIELD(D_8006A4FC, f32 *, 0x10) = (f32) *(f32 *)0x214614;\n    }\n    if ((M2C_FIELD(D_8006A4FC, f32 *, 0x28) - *(f32 *)0x214618) < M2C_FIELD((*__base_D_8007AFF8), f32 *, 0xB4)) {\n        M2C_FIELD(D_8006A4FC, f32 *, 0x10) = (f32) *(f32 *)0x21461C;\n    }\n}\n",
-  "df5793cd8293cf51865aa2b76da4106e092c4f8d1e38931a05953cfdc1ac8394": "s32 func_80232908(void *);\nvoid func_8025CF70(void *, void *);\nvoid func_802D0B28(s32, s32, s32);\nextern s32 D_8002D2B0;\nextern s32 D_8002D2B4;\nextern s32 D_8005E6F0;\nextern char *D_8005E9F0;\nextern s32 D_8005EA14;\nextern char *D_8005EA2C;\ninline static float inline_fn(float arg0, f32 arg1, f32 arg2)\n{\n  return arg0 + (arg1 * arg2);\n}\n\nvoid func_8025CE84(void)\n{\n  f32 a;\n  f32 b;\n  f32 c;\n  f32 d;\n  s32 idx;\n  char *p;\n  func_802D0B28(D_8005EA14, D_8002D2B4, 0);\n  idx = func_80232908(D_8005EA2C);\n  p = (*((char **) (D_8005E9F0 + 8))) + (idx * 0x28);\n  a = (f32) (*((s16 *) (p + 0x18)));\n  a = a - (*((f32 *) (D_8005EA2C + 0x30)));\n  b = ((f32) (*((s16 *) (p + 0x1A)))) - (*((f32 *) (D_8005EA2C + 0x34)));\n  c = ((f32) (*((s16 *) (p + 0x1C)))) - (*((f32 *) (D_8005EA2C + 0x38)));\n  a = inline_fn(inline_fn(a * a, b, b), c, c);\n  d = ((f32) (*((u16 *) (p + 0x1E)))) + (*((f32 *) 0x20A194));\n  D_8005E6F0 = idx;\n  if ((d * d) < a)\n  {\n    D_8002D2B0 = 0;\n  }\n  else\n  {\n    D_8002D2B0 = *((s32 *) (p + 0x20));\n  }\n}\n\n"
+  "df5793cd8293cf51865aa2b76da4106e092c4f8d1e38931a05953cfdc1ac8394": "s32 func_80232908(void *);\nvoid func_8025CF70(void *, void *);\nvoid func_802D0B28(s32, s32, s32);\nextern s32 D_8002D2B0;\nextern s32 D_8002D2B4;\nextern s32 D_8005E6F0;\nextern char *D_8005E9F0;\nextern s32 D_8005EA14;\nextern char *D_8005EA2C;\ninline static float inline_fn(float arg0, f32 arg1, f32 arg2)\n{\n  return arg0 + (arg1 * arg2);\n}\n\nvoid func_8025CE84(void)\n{\n  f32 a;\n  f32 b;\n  f32 c;\n  f32 d;\n  s32 idx;\n  char *p;\n  func_802D0B28(D_8005EA14, D_8002D2B4, 0);\n  idx = func_80232908(D_8005EA2C);\n  p = (*((char **) (D_8005E9F0 + 8))) + (idx * 0x28);\n  a = (f32) (*((s16 *) (p + 0x18)));\n  a = a - (*((f32 *) (D_8005EA2C + 0x30)));\n  b = ((f32) (*((s16 *) (p + 0x1A)))) - (*((f32 *) (D_8005EA2C + 0x34)));\n  c = ((f32) (*((s16 *) (p + 0x1C)))) - (*((f32 *) (D_8005EA2C + 0x38)));\n  a = inline_fn(inline_fn(a * a, b, b), c, c);\n  d = ((f32) (*((u16 *) (p + 0x1E)))) + (*((f32 *) 0x20A194));\n  D_8005E6F0 = idx;\n  if ((d * d) < a)\n  {\n    D_8002D2B0 = 0;\n  }\n  else\n  {\n    D_8002D2B0 = *((s32 *) (p + 0x20));\n  }\n}\n\n",
+  "e8442591b149e169d905f49cd3155434bb4594cddb21cf06a86f82d96df3c992": "/* machine draft (m2c) for gcc-2.7.2-kmc -G0 -mips3 -mgp32 -mfp32 -O2, tried by autopilot */\n#ifndef M2C_DEFINES\n#define M2C_DEFINES\ntypedef s32 M2C_UNK;\ntypedef s8 M2C_UNK8;\ntypedef s16 M2C_UNK16;\ntypedef s32 M2C_UNK32;\n#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))\n#define M2C_BITWISE(type, expr) ((type)(expr))\n#define M2C_ERROR(desc) (0)\n#define M2C_CARRY 0\n#define M2C_OVERFLOW(a) (0)\n#endif\n\nextern char D_209890[];\nextern s32 D_80074BB0;\n\ns16 func_8010A8D0(s16 arg0) {\n    char *__base_D_209890;\n    __base_D_209890 = D_209890;\n    if (M2C_FIELD(((D_80074BB0 * 0x34) + __base_D_209890), s16 *, 8) == 0) {\n        return arg0;\n    }\n    return (s16) (arg0 + 1);\n}\n"
  },
  "headers": {
   "cb5e42b88aae284348d3867cccf8f4e50eb67b876093b629e6dcf06b8d68efa1": "/* context.h for Shadowman: shared by every function. Agents grow it with edit_context:\n * add a prototype or struct the moment you work one out, so the next function benefits. */\n\ntypedef signed char s8;\ntypedef unsigned char u8;\ntypedef signed short s16;\ntypedef unsigned short u16;\ntypedef signed int s32;\ntypedef unsigned int u32;\ntypedef signed long long s64;\ntypedef unsigned long long u64;\ntypedef float f32;\ntypedef double f64;\ntypedef volatile u8 vu8;\ntypedef volatile u16 vu16;\ntypedef volatile u32 vu32;\ntypedef volatile s32 vs32;\ntypedef int s32_bool;\n\n#define NULL ((void *)0)\n#define TRUE 1\n#define FALSE 0\n#define ARRAY_COUNT(arr) (s32)(sizeof(arr) / sizeof(arr[0]))\n"

@@ -16,7 +16,9 @@ extern char D_209890[];
 extern s32 D_80074BB0;
 
 s16 func_8010A8D0(s16 arg0) {
-    if (M2C_FIELD(((D_80074BB0 * 0x34) + D_209890), s16 *, 8) == 0) {
+    char *__base_D_209890;
+    __base_D_209890 = D_209890;
+    if (M2C_FIELD(((D_80074BB0 * 0x34) + __base_D_209890), s16 *, 8) == 0) {
         return arg0;
     }
     return (s16) (arg0 + 1);
