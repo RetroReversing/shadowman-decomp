@@ -1462,15 +1462,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:e5848e4775adfbe4e8bacd81b901fb0d62dc4389ebd1c0a34a01a20ee428d8c7"
  },
  {
-  "function": "func_802DADA4",
-  "text": "Best 840. Clean C with struct {pad[2]; char*p} *D_8007DB68, char* D_8007E038[], u8 D_8007DC30[] and temp t. Target keeps D_8007DB68 in $v1, loads a2=base early (before sb stores), uses a1=3 shared with sb 0x3ED/0x3EF; mine loads a1 and adds extra addiu a2,0,3. Tried proto types (u8/int return) and temp forms: no change. Next step: make the 3 a shared variable/different D_8007E038 element types (s32 array) or try arg declared as s32 const via local int v=3.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795240063.3664262,
-  "score_before": 1295,
-  "score_after": 840,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0ae2bb86dce535b859fb04bbb8aa2e42d8c22d31e04582856bffe859ae8e996f"
- },
- {
   "function": "func_802DA048",
   "text": "Moved on after 8 trials returning previously seen scored instruction diffs. Best source retained.",
   "by": "api-claude-sonnet-5-5-3",
@@ -1622,15 +1613,6 @@
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:f80a293fcda5202cac8430bc5cf2d197f33963a1aa26f4bd20784580f78641d1"
  },
  {
-  "function": "func_80221728",
-  "text": "Loop: s16 i, u16 sum (sum += tbl[arg1[i]-0x1F]+1, arg0 base). Target keeps arg0 copy in t0, sum in a3 (init move a3,a2 in delay slot), temp a0, i in a2 via move v1,a2/addiu v1/move a2,v1. Tried s16/u16 sum, chained init, ptr types: all 475-565, saved best 8d08012c (m2c with do{}while(0)) is better. Next step: try for-loop / arg0 as u8* with tmp var.",
-  "by": "api-claude-sonnet-5-5-3",
-  "created_at": 1795242040.3798862,
-  "score_before": 475,
-  "score_after": 475,
-  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cc34a1dcc194f6cf3ffed57764b852496984e3c960854d80ea701e6f9d53d74e"
- },
- {
   "function": "func_8026F8FC",
   "text": "Score 40: all instructions match except 4 operand rows (lui $at,0x21 / lwc1 0x3f04, 0x3f08) \u2014 float constants live at ROM address 0x213F04/08 which is not in a loaded/split part of ROM (read_data fails), so our .rdata refs cannot match. Constants guessed 1.0f (compare) and 2.0f (store); real values unknown. Control flow solved by: if(timer!=0){...; return 1;} return 0; inside f6c==1.0f block, final return 1. Next step: load/split rdata region at 0x213F00 and set constants to real values (or define them as extern f32 at that address).",
   "by": "api-claude-sonnet-5-5-3",
@@ -1701,5 +1683,23 @@
   "score_before": 630,
   "score_after": 130,
   "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0665e1d26d511d4dda7db95233d33724a914764265eb7f931f1e76233f35ca96"
+ },
+ {
+  "function": "func_802DADA4",
+  "text": "Best 840. Clean C with struct {pad[2]; char*p} *D_8007DB68, char* D_8007E038[], u8 D_8007DC30[] and temp t. Target keeps D_8007DB68 in $v1, loads a2=base early (before sb stores), uses a1=3 shared with sb 0x3ED/0x3EF; mine loads a1 and adds extra addiu a2,0,3. Tried proto types (u8/int return) and temp forms: no change. Next step: make the 3 a shared variable/different D_8007E038 element types (s32 array) or try arg declared as s32 const via local int v=3.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795240063.3664262,
+  "score_before": 1295,
+  "score_after": 840,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:0ae2bb86dce535b859fb04bbb8aa2e42d8c22d31e04582856bffe859ae8e996f"
+ },
+ {
+  "function": "func_80221728",
+  "text": "Loop: s16 i, u16 sum (sum += tbl[arg1[i]-0x1F]+1, arg0 base). Target keeps arg0 copy in t0, sum in a3 (init move a3,a2 in delay slot), temp a0, i in a2 via move v1,a2/addiu v1/move a2,v1. Tried s16/u16 sum, chained init, ptr types: all 475-565, saved best 8d08012c (m2c with do{}while(0)) is better. Next step: try for-loop / arg0 as u8* with tmp var.",
+  "by": "api-claude-sonnet-5-5-3",
+  "created_at": 1795242040.3798862,
+  "score_before": 475,
+  "score_after": 475,
+  "handoff_inputs": "43fb81bda737667eec4bd103f1adc155a94f9ae124b9712e8b3ec72557d02d35:4d04c495bb8a943aee84ce158e66818d59d8a58ad3c58d63429672d0bf44e203:cc34a1dcc194f6cf3ffed57764b852496984e3c960854d80ea701e6f9d53d74e"
  }
 ]

@@ -5,7 +5,8 @@ typedef s32 M2C_UNK;
 typedef s8 M2C_UNK8;
 typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_FIELD(expr, type_ptr, offset) (((struct { __typeof__(*(type_ptr)0) v; } *)((s8 *)(expr) + (offset)))->v)
+#define M2C_FIELD_PTR(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 #define M2C_ERROR(desc) (0)
 #define M2C_CARRY 0
@@ -36,13 +37,10 @@ extern M2C_UNK D_80075598;
 
 /* Warning: Gap in callee-saved word stack region.
  * Saved: [0x38, 0x3c, 0x40, 0x44, 0x48, 0x58, 0x5c], gap at: 0x4c. */
+typedef struct { unsigned char pad_0[12]; float field_C; float field_10; float field_14; unsigned char pad_18[12]; float field_24; unsigned char pad_28[4]; float field_2C; } __repair_record_temp_s1;
 void func_802CCD90(void) {
-    f32 sp18;
-    f32 sp1C;
-    f32 sp20;
-    f32 sp28;                                       /* compiler-managed */
-    f32 sp2C;
-    f32 sp30;
+    f32 sp18[3];
+    f32 sp28[3];
     M2C_UNK *temp_s1;
     f32 temp_fs0;
     f32 temp_fs0f;
@@ -100,42 +98,42 @@ block_9:
     func_802C3934(*(f32 *)0x21879C);
     D_8003ACE8 = *(f32 *)0x2187A0;
     temp_v0 = &D_80075598 + 4;
-    sp18 = 0.0f;
-    sp1C = 0.0f;
-    sp20 = *(f32 *)0x2187A4;
-    temp_fv0f = M2C_FIELD(&sp18, f32 *, 4);
-    temp_ft0f = M2C_FIELD(&sp18, f32 *, 8);
+    sp18[1] = 0.0f;
+    sp18[0] = 0.0f;
+    sp18[2] = *(f32 *)0x2187A4;
+    temp_fv0f = M2C_FIELD(sp18, f32 *, 4);
+    temp_ft0f = M2C_FIELD(sp18, f32 *, 8);
     temp_s1 = temp_v0 - 0x34;
     temp_fs0f = *(f32 *)0x2187A8;
-    temp_fs0 = sp18;
-    temp_ft1f = M2C_FIELD(temp_s1, f32 *, 0x2C);
+    temp_fs0 = sp18[0];
+    temp_ft1f = ((__repair_record_temp_s1*)temp_s1)->field_2C;
     temp_fv1 = D_8005E6E8 + *(f32 *)0x2187AC;
-    sp20 = temp_ft1f;
+    sp18[2] = temp_ft1f;
     temp_fv0f_2 = (temp_fv0f * M2C_FIELD(temp_v0, f32 *, 0x1C)) + (temp_ft0f * M2C_FIELD(temp_v0, f32 *, 0x20));
-    sp18 = M2C_FIELD(temp_s1, f32 *, 0x24);
-    sp28 = (temp_fv0f * M2C_FIELD(temp_v0, f32 *, 4)) + (temp_ft0f * M2C_FIELD(temp_v0, f32 *, 8));
-    sp2C = (temp_fv0f * M2C_FIELD(temp_v0, f32 *, 0x10)) + (temp_ft0f * M2C_FIELD(temp_v0, f32 *, 0x14));
-    sp30 = temp_fv0f_2;
-    sp1C = temp_fv1;
-    sp28 = M2C_BITWISE(f64, temp_fv1);
-    sp30 = temp_fv0f_2 + temp_ft1f;
-    func_802BAAF8(&sp18, &sp28, temp_fs0f);
+    sp18[0] = ((__repair_record_temp_s1*)temp_s1)->field_24;
+    sp28[0] = (temp_fv0f * M2C_FIELD(temp_v0, f32 *, 4)) + (temp_ft0f * M2C_FIELD(temp_v0, f32 *, 8));
+    sp28[1] = (temp_fv0f * M2C_FIELD(temp_v0, f32 *, 0x10)) + (temp_ft0f * M2C_FIELD(temp_v0, f32 *, 0x14));
+    sp28[2] = temp_fv0f_2;
+    sp18[1] = temp_fv1;
+    sp28[0] = M2C_BITWISE(f64, temp_fv1);
+    sp28[2] = temp_fv0f_2 + temp_ft1f;
+    func_802BAAF8(sp18, sp28, temp_fs0f);
     if ((M2C_FIELD(&D_8006A510, s32 *, 0x78) != 0) && (D_80061A10 = M2C_FIELD(&D_8006A510, void **, 0x8C), (fabsf(M2C_FIELD((M2C_FIELD(M2C_FIELD(&D_8006A510, void **, 0x8C), s32 *, 0x1C) + (M2C_FIELD(M2C_FIELD(&D_8006A510, void **, 0x90), u16 *, 8) * 0x10)), f32 *, 4)) < *(f32 *)0x2187B0))) {
         temp_fv1_2 = *(f32 *)0x2187B4;
-        sp2C += temp_fv1_2;
-        sp1C += temp_fv1_2;
-        func_802BAAF8(&sp18, &sp28, temp_fs0f);
+        sp28[1] += temp_fv1_2;
+        sp18[1] += temp_fv1_2;
+        func_802BAAF8(sp18, sp28, temp_fs0f);
         if (M2C_FIELD(&D_8006A510, s32 *, 0x78) == 0) {
             D_80030E40 = 0;
-            M2C_FIELD(temp_s1, f32 *, 0xC) = temp_fs0;
-            M2C_FIELD(temp_s1, f32 *, 0x10) = temp_fs0;
-            M2C_FIELD(temp_s1, f32 *, 0x14) = temp_fs0;
-            M2C_FIELD(M2C_FIELD(&D_80075518, void **, 0x30), f32 *, 0x410) = temp_fs0;
+            ((__repair_record_temp_s1*)temp_s1)->field_C = temp_fs0;
+            ((__repair_record_temp_s1*)temp_s1)->field_10 = temp_fs0;
+            ((__repair_record_temp_s1*)temp_s1)->field_14 = temp_fs0;
+            M2C_FIELD_PTR(M2C_FIELD(&D_80075518, void **, 0x30), f32 *, 0x410) = temp_fs0;
             M2C_FIELD(M2C_FIELD(&D_80075518, void **, 0x30), f32 *, 0x3D8) = (f32) *(f32 *)0x2187B8;
             func_8023DF7C(temp_s1, &D_80075518, 0x11, 0xA, 0, 2);
             D_800458B0 = 0;
             D_80044E90 = 0;
-            M2C_FIELD(temp_s1, f32 *, 0x10) = (f32) (M2C_FIELD(temp_s1, f32 *, 0x10) * *(f32 *)0x2187BC);
+            ((__repair_record_temp_s1*)temp_s1)->field_10 = (f32) (((__repair_record_temp_s1*)temp_s1)->field_10 * *(f32 *)0x2187BC);
         }
     }
     if (D_8002D424 & 0x80) {

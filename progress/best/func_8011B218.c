@@ -1,4 +1,3 @@
-/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 #ifndef M2C_DEFINES
 #define M2C_DEFINES
 typedef s32 M2C_UNK;
@@ -11,16 +10,17 @@ typedef s32 M2C_UNK32;
 #define M2C_CARRY 0
 #define M2C_OVERFLOW(a) (0)
 #endif
+/* machine draft (m2c) for sn-n64-281 -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mfp64, tried by autopilot */
 
 void func_8011B218(s32 *arg0, s32 arg1) {
     s32 *temp_a0;
     s32 *temp_v0;
-    s32 *var_v1;
+    char *var_v1;
     s32 temp_a1;
     s32 temp_t0;
     s32 var_a2;
     s32 var_a3;
-    s32 var_a3_2;
+    
     s32 var_v0;
     s32 var_v1_2;
 
@@ -28,20 +28,20 @@ void func_8011B218(s32 *arg0, s32 arg1) {
     temp_t0 = arg1 * 2;
     if (arg1 > 0) {
         var_v1 = arg0;
-        __repair_rows: {
-            *var_v1 = var_a3;
+        do { {
+            *(s32 *)var_v1 = var_a3;
             var_a3 += 1;
             var_v1 += 4;
         }
-if (var_a3 < arg1) goto __repair_rows;
+} while (var_a3 < arg1);
     }
     var_a2 = 1;
-    var_a3_2 = 1;
+    var_a3 = 1;
     if (temp_t0 > 0) {
         do {
-            if (var_a3_2 < var_a2) {
-                temp_a0 = (((s32) (var_a2 - 1) / 2) * 4) + arg0;
-                temp_v0 = (((s32) (var_a3_2 - 1) / 2) * 4) + arg0;
+            if (var_a3 < var_a2) {
+                temp_a0 = (void *) (((((s32) (var_a2 - 1) / 2) * 4)) + (s32) arg0);
+                temp_v0 = (void *) (((((s32) (var_a3 - 1) / 2) * 4)) + (s32) arg0);
                 temp_a1 = *temp_a0;
                 *temp_a0 = *temp_v0;
                 *temp_v0 = temp_a1;
@@ -59,8 +59,8 @@ loop_8:
                     }
                 }
             }
-            var_a3_2 += 2;
+            var_a3 += 2;
             var_a2 += var_v1_2;
-        } while (temp_t0 >= var_a3_2);
+        } while (temp_t0 >= var_a3);
     }
 }
