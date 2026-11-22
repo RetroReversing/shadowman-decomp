@@ -5,7 +5,8 @@ typedef s32 M2C_UNK;
 typedef s8 M2C_UNK8;
 typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_FIELD(expr, type_ptr, offset) (((struct { __typeof__(*(type_ptr)0) v; } *)((s8 *)(expr) + (offset)))->v)
+#define M2C_FIELD_PTR(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 #define M2C_ERROR(desc) (0)
 #define M2C_CARRY 0
@@ -49,7 +50,7 @@ void func_802A2A78(void) {
     sp30[0] += sp20[0];
     sp30[1] += sp20[1];
     sp30[2] += sp20[2];
-    func_802401D0(sp20, sp30, 0x3F800000);
+    do { func_802401D0(sp20, sp30, 0x3F800000); } while (0);
     M2C_FIELD(&D_8007BAE8, f32 *, 0) = sp20[0];
     M2C_FIELD(&D_8007BAE8, f32 *, 4) = sp20[1];
     M2C_FIELD(&D_8007BAE8, f32 *, 8) = sp20[2];
@@ -58,7 +59,7 @@ void func_802A2A78(void) {
     M2C_FIELD(&D_8007BBC0, f32 *, 8) = sp30[2];
     __base_D_80036B18 = &D_80036B18;
     (*__base_D_80036B18) = 0;
-    M2C_FIELD(&D_8007BB10, f32 *, 0) = (f32) M2C_FIELD(&D_8006A510, f32 *, 0x80);
+    M2C_FIELD_PTR(&D_8007BB10, f32 *, 0) = (f32) M2C_FIELD(&D_8006A510, f32 *, 0x80);
     M2C_FIELD(&D_8007BB10, f32 *, 4) = (f32) M2C_FIELD(&D_8006A510, f32 *, 0x84);
     M2C_FIELD(&D_8007BB10, f32 *, 8) = (f32) M2C_FIELD(&D_8006A510, f32 *, 0x88);
     func_80266C04(1, &D_2A290C);
@@ -69,7 +70,11 @@ void func_802A2A78(void) {
         temp_fa0 = (f32) ((u16) D_8002C110 >> 1);
         temp_fa1 = (f32) ((u16) D_8002C112 >> 1);
         if ((*__base_D_80036B18) != 0) {
-            func_802A2BE8(temp_fa0, temp_fa1);
+            /*__repair_pointer_balance*/if ((unsigned long)__base_D_80036B18 & 0x100) {
+func_802A2BE8(temp_fa0, temp_fa1);
+} else {
+func_802A2BE8(temp_fa0, temp_fa1);
+}
             return;
         }
         func_8022EF10(temp_fa0, temp_fa1, temp_fv0f, temp_fv0f, 1, 0x46, &D_8007BAD8);

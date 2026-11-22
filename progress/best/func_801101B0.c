@@ -29,8 +29,8 @@ void func_801101B0(void *synth, void *voice, s32 pan)
       handler = *((s32 (**)(void *, s32, void *)) (((char *) voicePtr) + 8));
       time = *((s32 *) (((char *) synthPtr) + 0x1C));
       obj = *((void **) (((char *) handler) + 0xD8));
-      handler = (s32 (*)(void *, s32, void *)) 0xC;
       *((s16 *) (((char *) param) + 8)) = 0xC;
+      handler = (s32 (*)(void *, s32, void *)) 0xC;
       do
       {
 #ifdef PORT
